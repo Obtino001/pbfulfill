@@ -1,1 +1,1058 @@
-{"sections":{"image_banner":{"type":"image-banner","blocks":{"heading":{"type":"heading","settings":{"heading":"Dropshipping  That Grows with You","heading_size":"h0"}},"text_3MCrPP":{"type":"text","settings":{"text":"Scale faster with our localized sourcing and fast global delivery within 3 days."}},"button":{"type":"buttons","name":"Button","settings":{"button_label_1":"","button_link_1":"shopify:\/\/pages\/contact","button_label_2":"Contact Us","button_link_2":"shopify:\/\/pages\/contact"}}},"block_order":["heading","text_3MCrPP","button"],"name":"Image Banner","settings":{"custom_top_offset":-22,"mt_percent":-10,"custom_top_offset_mobile":0,"mt_percent_mobile":15,"image":"shopify:\/\/shop_images\/banner_2.webp","image_overlay_opacity":0,"image_height":"large","desktop_content_position":"middle-center","color_scheme":"scheme-5","show_text_below":false}},"margin_AnFHqD":{"type":"margin","blocks":{"stat_card_wPx73z":{"type":"stat_card","name":"Stat Card","settings":{"title":"Delivery Times","highlight_value":"<11 Days","chart_line":"shopify:\/\/shop_images\/Line_c9fb60be-a124-4d65-9768-c62d73f5112f.svg","y_axis":"25\n20\n15\n10\n5\n0","tooltip_text":"9 Days","tooltip_top":62,"tooltip_left":64,"show_green_badge":false,"green_badge_text":"We are here!!","green_badge_top":20,"green_badge_right":-15,"description":"We help reduce delivery times to under 11 days."}},"stat_card_CCgc3Q":{"type":"stat_card","name":"Stat Card","settings":{"title":"Net Margin","highlight_value":"+8%","chart_line":"shopify:\/\/shop_images\/Line-1.svg","y_axis":"25%\n20%\n15%\n10%\n5%\n0","tooltip_text":"8%","tooltip_top":64,"tooltip_left":55,"show_green_badge":false,"green_badge_text":"We are here!!","green_badge_top":20,"green_badge_right":-15,"description":"We help our clients increase their net margins by at least 8%."}},"stat_card_NNnzbM":{"type":"stat_card","settings":{"title":"Dispute Rate","highlight_value":"<0.66%","chart_line":"shopify:\/\/shop_images\/Line-2.svg","y_axis":"5%\n4%\n3%\n2%\n1%\n0","tooltip_text":"0.51%","tooltip_top":88,"tooltip_left":58,"show_green_badge":false,"green_badge_text":"We are here!!","green_badge_top":20,"green_badge_right":-15,"description":"We help maintain a customer complaint rate below 0.66%."}}},"block_order":["stat_card_wPx73z","stat_card_CCgc3Q","stat_card_NNnzbM"],"name":"Stat Cards Section-1","settings":{"color_scheme":"","dt_margin_offset":-20,"mb_margin_offset":-90,"padding_top":50,"padding_bottom":50,"padding_top_mobile":30,"padding_bottom_mobile":30}},"why_choose_us_EyxyAT":{"type":"why-choose-us","blocks":{"card_HzQDmb":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/Transparent_Pricing_No_Hidden_Fees.png","text":"Transparent Pricing, No Hidden Fees"}},"card_Rg3Hdq":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/1-on-1_Dedicated_Agent_Support.png","text":"1-on-1 Dedicated Agent Support"}},"card_6F9jjG":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/Flexible_Sourcing_From_Verified_Suppliers.png","text":"Flexible Sourcing From Verified Suppliers"}},"card_cnFUBp":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/Private_Label_Custom_Packaging_Options.png","text":"Private Label & Custom Packaging Options"}}},"block_order":["card_HzQDmb","card_Rg3Hdq","card_6F9jjG","card_cnFUBp"],"name":"Feature Card Section-1","settings":{"custom_class":"small-hide","color_scheme":"","heading":"Why Choose PBfulfill","heading_size":36,"padding_top":60,"padding_bottom":60,"padding_top_mobile":40,"padding_bottom_mobile":40}},"why_NktyM9":{"type":"why","blocks":{"feature_3MwQ9a":{"type":"feature","name":"Feature card (Mobile)","settings":{"icon_type":"image","icon":"shopify:\/\/shop_images\/Free_Quote_Request.svg","icon_preset":"quote","icon_color":"#2f5fb6","icon_bg":"rgba(0,0,0,0)","title":"Free Quote Request","text":"","highlight":true}},"feature_pBxyij":{"type":"feature","name":"Feature card (Mobile)","settings":{"icon_type":"image","icon":"shopify:\/\/shop_images\/Outstanding_After-Sales.svg","icon_preset":"quote","icon_color":"#2f5fb6","icon_bg":"#eaf1ff","title":"Prime After-Sales Support","text":"","highlight":false}},"feature_qyUTUC":{"type":"feature","name":"Feature card (Mobile)","settings":{"icon_type":"image","icon":"shopify:\/\/shop_images\/Transparent_Pricing.svg","icon_preset":"quote","icon_color":"#2f5fb6","icon_bg":"#eaf1ff","title":"Transparent Pricing","text":"","highlight":false}},"feature_N94mWy":{"type":"feature","name":"Feature card (Mobile)","settings":{"icon_type":"image","icon":"shopify:\/\/shop_images\/Customized_Solutions.svg","icon_preset":"quote","icon_color":"#2f5fb6","icon_bg":"#eaf1ff","title":"Customized Solutions","text":"","highlight":false}},"feature_jUJwie":{"type":"feature","name":"Feature card (Mobile)","settings":{"icon_type":"image","icon":"shopify:\/\/shop_images\/Product_Quality_Assurance.svg","icon_preset":"quote","icon_color":"#2f5fb6","icon_bg":"#eaf1ff","title":"Product Quality Assurance","text":"","highlight":false}},"feature_PCXCfi":{"type":"feature","name":"Feature card (Mobile)","settings":{"icon_type":"image","icon":"shopify:\/\/shop_images\/1v1_Customer_Service.svg","icon_preset":"quote","icon_color":"#2f5fb6","icon_bg":"#eaf1ff","title":"1v1 Customer Service","text":"","highlight":false}}},"block_order":["feature_3MwQ9a","feature_pBxyij","feature_qyUTUC","feature_N94mWy","feature_jUJwie","feature_PCXCfi"],"name":"Feature Card Section-1 (Mobile)","settings":{"color_scheme":"","custom_class":"desktop-hide","heading":"Why Choose Us?","bg_size":"cover","bg_position":"center","bg_repeat":"no-repeat","accent_color":"#2f5fb6","padding_top":50,"padding_bottom":50,"padding_top_mobile":30,"padding_bottom_mobile":30,"gap":18}},"how_it_works_H3q8wM":{"type":"how-it-works","blocks":{"step_NHafLq":{"type":"step","name":"Workflow Card","settings":{"step_number":"1","title":"Send Inquiry","text":"Let us know your needs and get a free quote within 24 hours.","image":"shopify:\/\/shop_images\/Send_Inquiry.jpg","card_link":"shopify:\/\/pages\/contact"}},"step_PMkwHL":{"type":"step","name":"Workflow Card","settings":{"step_number":"2","title":"Get Quotation","text":"We offer competitive local supply chain solutions.","image":"shopify:\/\/shop_images\/Get_Quotation.jpg","card_link":"shopify:\/\/pages\/contact"}},"step_4ERyry":{"type":"step","name":"Workflow Card","settings":{"step_number":"3","title":"Product Sourcing","text":"We connect you with reliable manufacturers and secure the best prices for your products.","image":"shopify:\/\/shop_images\/Product_Sourcing.jpg","card_link":"shopify:\/\/pages\/product-sourcing"}},"step_pbXRQP":{"type":"step","name":"Workflow Card","settings":{"step_number":"4","title":"Quality Inspection","text":"We carefully inspect products before shipping to ensure consistent quality.","image":"shopify:\/\/shop_images\/Quality_Inspection.png","card_link":"shopify:\/\/pages\/quality-inspection"}},"step_WiiLrg":{"type":"step","name":"Workflow Card","settings":{"step_number":"5","title":"Packaging & Branding","text":"Our private-label services cover logo, labeling, and packaging customization.","image":"shopify:\/\/shop_images\/Packaging_Branding.jpg","card_link":"shopify:\/\/pages\/private-label"}},"step_dcGUYK":{"type":"step","name":"Workflow Card","settings":{"step_number":"6","title":"International Shipping","text":"Streamlined international shipping and the last-mile delivery within 7 days.","image":"shopify:\/\/shop_images\/International_Warehouses.jpg","card_link":"shopify:\/\/pages\/shipping-service"}}},"block_order":["step_NHafLq","step_PMkwHL","step_4ERyry","step_pbXRQP","step_WiiLrg","step_dcGUYK"],"name":"Workflow Card Section-1","settings":{"heading":"How it Works","heading_size":36,"color_scheme":"","card_color_scheme":"scheme-2","padding_top":60,"padding_bottom":60,"padding_top_mobile":20,"padding_bottom_mobile":40}},"pbdropshipping_3r38np":{"type":"pbdropshipping","blocks":{"media_tYi7ra":{"type":"media","name":"Image","settings":{"image":"shopify:\/\/shop_images\/woman__3_e0ce659f-e77a-46ff-9b0e-59d8ea0bf613.png","border_radius":24,"height_mode":"auto","fixed_height":400}},"subhead_zdwXzg":{"type":"subhead","settings":{"text":"About Us"}},"title_rqDXT6":{"type":"title","name":"Heading","settings":{"bold":"PB Fulfill:","rest":"Your One-Stop Shipping Solution","make_h2":false}},"richtext_yQr4Mg":{"type":"richtext","name":"Rich Text","settings":{"content":"<p>With 7+ years in global trade and dropshipping, we deliver tailored fulfillment backed by localized sourcing and secure international logistics. We also offer transparent processes and hands-on support to help secure and grow your business.<\/p>"}},"button_fFtb99":{"type":"button","settings":{"label":"Learn More","link":"shopify:\/\/pages\/our-mission-values","button_style":"animated"}}},"block_order":["media_tYi7ra","subhead_zdwXzg","title_rqDXT6","richtext_yQr4Mg","button_fFtb99"],"name":"Image With Text-1","settings":{"color_scheme":"","padding_top":96,"padding_bottom":96,"padding_top_mobile":64,"padding_bottom_mobile":64,"layout":"image-left","mobile_layout":"image-top","content_align":"left","bg_color":"#ffffff","bg_size":"cover","bg_position":"center center","bg_overlay":"#000000","bg_overlay_opacity":0}},"video_reviews_Q9R8Dj":{"type":"video-reviews","blocks":{"review_4brF8i":{"type":"review","name":"Vedio Review","settings":{"youtube_url":"https:\/\/www.youtube.com\/watch?v=N2nxB9nlbfc","quote":"Way More Reliable","name":"Yousuf Shahzad","text":"\"On top of that,their shipping was way more reliable.My customers were getting their orders faster,and the number of complaints dropped noticeably.\""}},"review_zdnb6e":{"type":"review","name":"Vedio Review","settings":{"youtube_url":"https:\/\/www.youtube.com\/watch?v=WAg1hiSBfqc","quote":"It's been fantastic","name":"Elena Manuylenko","text":"\"I'm really really happy with their sourcing and shipping services. And what makes it so easy for me is that I got assigned a dedicated specialist to follow up on my little business!\""}},"review_EaVTpc":{"type":"review","name":"Vedio Review","settings":{"youtube_url":"https:\/\/www.youtube.com\/watch?v=gZnWH__1mnM","quote":"Blew me away","name":"Chiara Mazzetto","text":"\"Honestly,I was really impressed. Pb Fulfill got the sample done and shipped out within 72 hours of my quote request.That kind of speed and the quality totally blew me away.\""}}},"block_order":["review_4brF8i","review_zdnb6e","review_EaVTpc"],"name":"Video Review Section","settings":{"heading":"Previous Reviews From Our Customers","padding_top":50,"padding_bottom":50,"padding_top_mobile":30,"padding_bottom_mobile":30,"bg_top":"shopify:\/\/shop_images\/Customer_Review.svg","bg_bottom":"shopify:\/\/shop_images\/Customer_Review_78985060-0ce4-4c7b-8ca3-d6fae0928c2d.svg","swiper_autoplay":false,"autoplay_delay":1,"video_autoplay":false}},"reviews_client_9Jc6zh":{"type":"reviews-client","blocks":{"testimonial_733GCw":{"type":"testimonial","settings":{"avatar":"shopify:\/\/shop_images\/Samantha.png","name":"Samantha","feedback":"PBFulfill hooked me up with manufacturers out in East China and even lined up visits so I could meet ’em. That kinda effort’s huge for keepin’ return rates low and repurchases high. Solid dropshipping partner for real.","stars":"shopify:\/\/shop_images\/5_Stars.svg"}},"testimonial_cmJigC":{"type":"testimonial","settings":{"avatar":"shopify:\/\/shop_images\/1_7031f8f8-cf82-406d-aa7d-d1625a3781a6.jpg","name":"Elijah","feedback":"PBFulfill set me up with a rep who handles my orders daily—sourcing, shipping, the whole thing. I’m always switchin’ up my store’s product categories, like half the lineup changes every couple weeks. Feels good knowin’ they got my back.","stars":"shopify:\/\/shop_images\/5_Stars.svg"}},"testimonial_y7q6Er":{"type":"testimonial","settings":{"avatar":"shopify:\/\/shop_images\/4_09e4aea9-dfc5-4841-bd56-443274f7d577.jpg","name":"Norma","feedback":"I rolled with PBfulfill ’cause they actually own a pet product factory and gave me way better prices. Straight up awesome.","stars":"shopify:\/\/shop_images\/5_Stars.svg"}},"testimonial_4jRmec":{"type":"testimonial","settings":{"avatar":"shopify:\/\/shop_images\/3_2d46a20c-c459-49de-a061-b378f678484d.jpg","name":"Heather","feedback":"PBFulfill’s warehouse is right by my target market, and they hooked me up with tons of storage space. I’d def recommend ’em.","stars":"shopify:\/\/shop_images\/5_Stars.svg"}},"testimonial_bmndky":{"type":"testimonial","settings":{"avatar":"shopify:\/\/shop_images\/2_d6f28eef-1c0b-421a-ae34-17e7eca9694c.jpg","name":"Hugo","feedback":"My budget’s pretty tight and the Chinese suppliers I hit up weren’t feelin’ the small orders. PBFulfill’s takin’ care of sourcing and shipping for me now, and honestly it’s been smooth AF.","stars":"shopify:\/\/shop_images\/5_Stars.svg"}},"testimonial_DUVgGx":{"type":"testimonial","settings":{"avatar":"shopify:\/\/shop_images\/Brittany.png","name":"Brittany","feedback":"Cause of what I sell, I’m switching up products and dropping new packaging like every week. Honestly, PB’s been solid — smooth comms, orders handled spot on, no complaints here.","stars":"shopify:\/\/shop_images\/5_Stars.svg"}},"testimonial_3Ty6qN":{"type":"testimonial","settings":{"avatar":"shopify:\/\/shop_images\/Joshua.png","name":"Joshua","feedback":"Crazy it’s been almost a decade since I first met Bryan. Back then he hadn’t even started doing the whole dropshipping agent thing. Can’t wait to see what the next decade’s gonna be like.","stars":"shopify:\/\/shop_images\/5_Stars.svg"}},"testimonial_QeAWii":{"type":"testimonial","settings":{"avatar":"shopify:\/\/shop_images\/Danielle.png","name":"Danielle","feedback":"A buddy put me on to PB Fulfill, and so far it’s been chill — everything’s running smooth.","stars":"shopify:\/\/shop_images\/5_Stars.svg"}}},"block_order":["testimonial_733GCw","testimonial_cmJigC","testimonial_y7q6Er","testimonial_4jRmec","testimonial_bmndky","testimonial_DUVgGx","testimonial_3Ty6qN","testimonial_QeAWii"],"name":"Scrolling Testimonial Card Section","settings":{"color_scheme":"","card_color_scheme":"","padding_top":50,"padding_bottom":50,"padding_top_mobile":20,"padding_bottom_mobile":20,"heading":"Client Feedback","button_label":"Learn More","button_link":"shopify:\/\/pages\/testimonials-case-studies","autoplay_speed":3}},"unlock_tfwBn8":{"type":"unlock","blocks":{"heading_apM9ek":{"type":"heading","settings":{"title":"Explore  the Best Dropshipping Solution"}},"paragraph_Rhy4gK":{"type":"paragraph","name":"Rich Text","settings":{"is_rich":false,"body":"From sourcing to logistics, enjoy seamless support tailored to maximize your profits.","variant":"default"}},"subhead_MjGteB":{"type":"subhead","settings":{"text":"Get free quote & 5% off first order!"}},"button_J3cdUi":{"type":"button","settings":{"label":"Request A Free Quote","link":"#myform","new_tab":false,"style":"primary"}}},"block_order":["heading_apM9ek","paragraph_Rhy4gK","subhead_MjGteB","button_J3cdUi"],"name":"CTA Section-1","settings":{"custom_class":"Unlock-Section","aria_label":"Dropshipping Solutions","bg_image":"shopify:\/\/shop_images\/Group_2368_1.svg","image":"shopify:\/\/shop_images\/b8fc6945f3d0598cfadde8a5187d1c648b8c866e_1_3.png","padding_top":20,"padding_bottom":40,"padding_top_mobile":20,"padding_bottom_mobile":20}},"affiliate_xk9kWr":{"type":"affiliate","blocks":{"card_xnELbQ":{"type":"card","name":"Feature Card","settings":{"image":"shopify:\/\/shop_images\/Blog_post_card_3.png","title":"Refer a Friend","description":"We will reach out to your friend order."}},"card_zXq9Vx":{"type":"card","name":"Feature Card","settings":{"image":"shopify:\/\/shop_images\/Blog_post_card.png","title":"Calculate the Profit","description":"Get $0.2 from each referral order."}},"card_E7key3":{"type":"card","name":"Feature Card","settings":{"image":"shopify:\/\/shop_images\/Blog_post_card_1.png","title":"Get Your Earnings","description":"Receive your earnings via PayPal or Payoneer."}}},"block_order":["card_xnELbQ","card_zXq9Vx","card_E7key3"],"name":"Feature Card Section-2","settings":{"color_scheme":"","custom_class":"small-hide","columns_desktop":3,"bg_image":"shopify:\/\/shop_images\/Affiliate_Background_pattern.svg","title":"Become An Affiliate","button_text":"Learn More","button_link":"shopify:\/\/pages\/partners-affiliates","padding_top":50,"padding_bottom":50,"padding_top_mobile":30,"padding_bottom_mobile":30}},"custom_scrolling_bar_c7Px3x":{"type":"custom-scrolling-bar","blocks":{"item_APxmGQ":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/PB_Fulfill_1.svg","link":""}},"item_kXyg4d":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/PB_Fulfill_1.svg","link":""}},"item_kninJk":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/PB_Fulfill_1.svg","link":""}},"item_WEetbb":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/PB_Fulfill_1.svg","link":""}},"item_47F89Y":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/PB_Fulfill_1.svg","link":""}},"item_6AB6Rf":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/PB_Fulfill_1.svg","link":""}},"item_awTfgG":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/PB_Fulfill_1.svg","link":""}},"item_AayihK":{"type":"item","settings":{"image":"shopify:\/\/shop_images\/PB_Fulfill_1.svg","link":""}}},"block_order":["item_APxmGQ","item_kXyg4d","item_kninJk","item_WEetbb","item_47F89Y","item_6AB6Rf","item_awTfgG","item_AayihK"],"name":"Scrolling Image Section","settings":{"color_scheme":"","custom_class":"","gap":60,"padding_top":80,"padding_bottom":80,"padding_top_mobile":20,"padding_bottom_mobile":20,"item_height":64,"item_height_mobile":24,"speed":34,"direction":"left","pause_hover":true,"gap_mobile":26}},"pbdropshipping_F4yLcC":{"type":"pbdropshipping","blocks":{"subhead_tK8Dhc":{"type":"subhead","settings":{"text":"Our Global Warehouses"}},"title_4Tt6xE":{"type":"title","disabled":true,"settings":{"bold":"Our Global Warehouses","rest":"","make_h2":false}},"media_8hfKgY":{"type":"media","name":"Image","settings":{"image":"shopify:\/\/shop_images\/International_Warehouse_PB.png","border_radius":24,"height_mode":"auto","fixed_height":400}},"richtext_Pcqfa4":{"type":"richtext","settings":{"content":"<p>With our strategically located warehouses on both the East and West Coasts of the United States, delivery lead times are significantly reduced. We offer free storage for up to 60 days and ensure nationwide delivery within 1–2 days.<\/p>"}},"button_pbpH3G":{"type":"button","settings":{"label":"Learn More","link":"shopify:\/\/pages\/global-warehouse","button_style":"animated"}}},"block_order":["subhead_tK8Dhc","title_4Tt6xE","media_8hfKgY","richtext_Pcqfa4","button_pbpH3G"],"name":"Image With Text","settings":{"color_scheme":"","padding_top":96,"padding_bottom":96,"padding_top_mobile":24,"padding_bottom_mobile":24,"layout":"image-left","mobile_layout":"image-top","content_align":"left","bg_color":"#ffffff","bg_image":"shopify:\/\/shop_images\/Frame_1000001208.svg","bg_size":"cover","bg_position":"center center","bg_overlay":"#000000","bg_overlay_opacity":0}},"affilate_mobile_HVrDmR":{"type":"Affilate-mobile","blocks":{"photo_nf8bWG":{"type":"photo","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/9b758c90-af82-493d-b60c-8dab2274dfa8_removalai_preview.png"}},"text_BUMYpJ":{"type":"text","name":"Card Text ","settings":{"title":"Refer A Friend","text":"We will reach out to your friend."}},"text_PGDQ3V":{"type":"text","name":"Card Text ","settings":{"title":"Calculate the Profit","text":"Get $0.2 from each referral order."}},"text_bBkLif":{"type":"text","name":"Card Text ","settings":{"title":"Get Your Earnings","text":"Receive your earnings via PayPal or Payoneer."}},"mobile_item_A8TD9Y":{"type":"mobile_item","name":"Card Image","settings":{"icon":"shopify:\/\/shop_images\/Refer_A_Friend_95051e38-d5b2-41db-838a-f35d58f03a3a.svg","heading_mobile":"Refer A Friend","text":"We will reach out to your friend."}},"mobile_item_b7xTkk":{"type":"mobile_item","name":"Card Image","settings":{"icon":"shopify:\/\/shop_images\/rivet-icons_money.svg","heading_mobile":"Calculate the Profit","text":"Get $0.2 from each referral order."}},"mobile_item_dp9hN4":{"type":"mobile_item","name":"Card Image","settings":{"icon":"shopify:\/\/shop_images\/What_Is_the_Profit_e33a2c67-ddfd-48df-94bc-13e8ed2b2dc7.svg","heading_mobile":"Get Your Earnings","text":"Receive your earnings via PayPal or Payoneer."}}},"block_order":["photo_nf8bWG","text_BUMYpJ","text_PGDQ3V","text_bBkLif","mobile_item_A8TD9Y","mobile_item_b7xTkk","mobile_item_dp9hN4"],"name":"Feature Card Display-2 (Mobile)","settings":{"custom_class":"desktop-hide","bg_color":"#ffffff","heading":"Become An Affiliate","button_label":"Join Now","button_link":"shopify:\/\/pages\/partners-affiliates","padding_top":50,"padding_bottom":50,"padding_top_mobile":30,"padding_bottom_mobile":30}},"blog_slider_DPgDhb":{"type":"BlogSlider","blocks":{"blog_post_gx3qhr":{"type":"blog_post","settings":{"selected_article":"work-with-a-dropshipping-agent\/asian-suppliers"}},"blog_post_MzAUdb":{"type":"blog_post","settings":{"selected_article":"practical-operational-guidance\/ebay-listings"}},"blog_post_mxCiag":{"type":"blog_post","settings":{"selected_article":"practical-operational-guidance\/a-b-testing"}},"blog_post_yNBg4C":{"type":"blog_post","settings":{"selected_article":"work-with-a-dropshipping-agent\/find-the-best-dropshipping-suppliers-and-agents"}},"blog_post_eL8jaM":{"type":"blog_post","settings":{"selected_article":"product-recommendation\/dog-food"}},"blog_post_6dAcmL":{"type":"blog_post","settings":{"selected_article":"work-with-a-dropshipping-agent\/smes-work-with-a-china-dropshipping-agent"}},"blog_post_aLwxKE":{"type":"blog_post","settings":{"selected_article":"work-with-a-dropshipping-agent\/one-stop-china-dropshipping-agent-service"}}},"block_order":["blog_post_gx3qhr","blog_post_MzAUdb","blog_post_mxCiag","blog_post_yNBg4C","blog_post_eL8jaM","blog_post_6dAcmL","blog_post_aLwxKE"],"custom_css":[],"name":"Scrolling Blog Post Section","settings":{"display_mode":"latest","auto_handles":"about-dropshipping,discussion-on-e-commerce-platforms,marketing-strategy,news,success-stories,practical-operational-guidance,product-appraisal,product-recommendation,work-with-a-dropshipping-agent","article_limit":10,"heading":"Recommended Blogs","pad_top":96,"pad_bottom":152,"pad_top_mobile":24,"pad_bottom_mobile":30,"excerpt_len":120,"read_more":"Read More","manual_article_1":"","manual_article_2":"","manual_article_3":"","manual_article_4":"","manual_article_5":"","manual_article_6":"","manual_article_7":"","manual_article_8":"","manual_article_9":"","manual_article_10":"","slides_mobile":1,"slides_laptop":2,"slides_desktop":3,"space_between":24,"bp_laptop":900,"bp_desktop":1200,"loop":true,"smooth_free_mode":true,"autoplay":true,"autoplay_delay":900,"speed":2000,"pause_on_hover":true,"resume_after_interaction":false,"show_arrows":true,"arrow_size":30}}},"order":["image_banner","margin_AnFHqD","why_choose_us_EyxyAT","why_NktyM9","how_it_works_H3q8wM","pbdropshipping_3r38np","video_reviews_Q9R8Dj","reviews_client_9Jc6zh","unlock_tfwBn8","affiliate_xk9kWr","custom_scrolling_bar_c7Px3x","pbdropshipping_F4yLcC","affilate_mobile_HVrDmR","blog_slider_DPgDhb"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "image_banner": {
+      "type": "image-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Dropshipping  That Grows with You",
+            "heading_size": "h0"
+          }
+        },
+        "text_3MCrPP": {
+          "type": "text",
+          "settings": {
+            "text": "Scale faster with our localized sourcing and fast global delivery within 3 days."
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "name": "Button",
+          "settings": {
+            "button_label_1": "",
+            "button_link_1": "shopify://pages/contact",
+            "button_label_2": "Contact Us",
+            "button_link_2": "shopify://pages/contact"
+          }
+        }
+      },
+      "block_order": [
+        "heading",
+        "text_3MCrPP",
+        "button"
+      ],
+      "name": "Image Banner",
+      "settings": {
+        "custom_top_offset": -22,
+        "mt_percent": -10,
+        "custom_top_offset_mobile": 0,
+        "mt_percent_mobile": 15,
+        "image": "shopify://shop_images/banner_2.webp",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "desktop_content_position": "middle-center",
+        "color_scheme": "scheme-5",
+        "show_text_below": false
+      }
+    },
+    "margin_AnFHqD": {
+      "type": "margin",
+      "blocks": {
+        "stat_card_wPx73z": {
+          "type": "stat_card",
+          "name": "Stat Card",
+          "settings": {
+            "title": "Delivery Times",
+            "highlight_value": "<11 Days",
+            "chart_line": "shopify://shop_images/Line_c9fb60be-a124-4d65-9768-c62d73f5112f.svg",
+            "y_axis": "25\n20\n15\n10\n5\n0",
+            "tooltip_text": "9 Days",
+            "tooltip_top": 62,
+            "tooltip_left": 64,
+            "show_green_badge": false,
+            "green_badge_text": "We are here!!",
+            "green_badge_top": 20,
+            "green_badge_right": -15,
+            "description": "We help reduce delivery times to under 11 days."
+          }
+        },
+        "stat_card_CCgc3Q": {
+          "type": "stat_card",
+          "name": "Stat Card",
+          "settings": {
+            "title": "Net Margin",
+            "highlight_value": "+8%",
+            "chart_line": "shopify://shop_images/Line-1.svg",
+            "y_axis": "25%\n20%\n15%\n10%\n5%\n0",
+            "tooltip_text": "8%",
+            "tooltip_top": 64,
+            "tooltip_left": 55,
+            "show_green_badge": false,
+            "green_badge_text": "We are here!!",
+            "green_badge_top": 20,
+            "green_badge_right": -15,
+            "description": "We help our clients increase their net margins by at least 8%."
+          }
+        },
+        "stat_card_NNnzbM": {
+          "type": "stat_card",
+          "settings": {
+            "title": "Dispute Rate",
+            "highlight_value": "<0.66%",
+            "chart_line": "shopify://shop_images/Line-2.svg",
+            "y_axis": "5%\n4%\n3%\n2%\n1%\n0",
+            "tooltip_text": "0.51%",
+            "tooltip_top": 88,
+            "tooltip_left": 58,
+            "show_green_badge": false,
+            "green_badge_text": "We are here!!",
+            "green_badge_top": 20,
+            "green_badge_right": -15,
+            "description": "We help maintain a customer complaint rate below 0.66%."
+          }
+        }
+      },
+      "block_order": [
+        "stat_card_wPx73z",
+        "stat_card_CCgc3Q",
+        "stat_card_NNnzbM"
+      ],
+      "name": "Stat Cards Section-1",
+      "settings": {
+        "color_scheme": "",
+        "dt_margin_offset": -20,
+        "mb_margin_offset": -90,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "why_choose_us_EyxyAT": {
+      "type": "why-choose-us",
+      "blocks": {
+        "card_HzQDmb": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Transparent_Pricing_No_Hidden_Fees.png",
+            "text": "Transparent Pricing With No Hidden Fees"
+          }
+        },
+        "card_Rg3Hdq": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/1-on-1_Dedicated_Agent_Support.png",
+            "text": "One Dedicated Fulfillment Agent Per Account"
+          }
+        },
+        "card_6F9jjG": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Flexible_Sourcing_From_Verified_Suppliers.png",
+            "text": "Flexible Sourcing From Verified Chinese Factories"
+          }
+        },
+        "card_cnFUBp": {
+          "type": "card",
+          "settings": {
+            "image": "shopify://shop_images/Private_Label_Custom_Packaging_Options.png",
+            "text": "Private Label and Custom Packaging Options"
+          }
+        }
+      },
+      "block_order": [
+        "card_HzQDmb",
+        "card_Rg3Hdq",
+        "card_6F9jjG",
+        "card_cnFUBp"
+      ],
+      "name": "Feature Card Section-1",
+      "settings": {
+        "custom_class": "small-hide",
+        "color_scheme": "",
+        "heading": "Why Choose PB Fulfill",
+        "heading_size": 36,
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "why_NktyM9": {
+      "type": "why",
+      "blocks": {
+        "feature_3MwQ9a": {
+          "type": "feature",
+          "name": "Feature card (Mobile)",
+          "settings": {
+            "icon_type": "image",
+            "icon": "shopify://shop_images/Free_Quote_Request.svg",
+            "icon_preset": "quote",
+            "icon_color": "#2f5fb6",
+            "icon_bg": "rgba(0,0,0,0)",
+            "title": "Free Quote Request",
+            "text": "",
+            "highlight": true
+          }
+        },
+        "feature_pBxyij": {
+          "type": "feature",
+          "name": "Feature card (Mobile)",
+          "settings": {
+            "icon_type": "image",
+            "icon": "shopify://shop_images/Outstanding_After-Sales.svg",
+            "icon_preset": "quote",
+            "icon_color": "#2f5fb6",
+            "icon_bg": "#eaf1ff",
+            "title": "Prime After-Sales Support",
+            "text": "",
+            "highlight": false
+          }
+        },
+        "feature_qyUTUC": {
+          "type": "feature",
+          "name": "Feature card (Mobile)",
+          "settings": {
+            "icon_type": "image",
+            "icon": "shopify://shop_images/Transparent_Pricing.svg",
+            "icon_preset": "quote",
+            "icon_color": "#2f5fb6",
+            "icon_bg": "#eaf1ff",
+            "title": "Transparent Pricing",
+            "text": "",
+            "highlight": false
+          }
+        },
+        "feature_N94mWy": {
+          "type": "feature",
+          "name": "Feature card (Mobile)",
+          "settings": {
+            "icon_type": "image",
+            "icon": "shopify://shop_images/Customized_Solutions.svg",
+            "icon_preset": "quote",
+            "icon_color": "#2f5fb6",
+            "icon_bg": "#eaf1ff",
+            "title": "Customized Solutions",
+            "text": "",
+            "highlight": false
+          }
+        },
+        "feature_jUJwie": {
+          "type": "feature",
+          "name": "Feature card (Mobile)",
+          "settings": {
+            "icon_type": "image",
+            "icon": "shopify://shop_images/Product_Quality_Assurance.svg",
+            "icon_preset": "quote",
+            "icon_color": "#2f5fb6",
+            "icon_bg": "#eaf1ff",
+            "title": "Product Quality Assurance",
+            "text": "",
+            "highlight": false
+          }
+        },
+        "feature_PCXCfi": {
+          "type": "feature",
+          "name": "Feature card (Mobile)",
+          "settings": {
+            "icon_type": "image",
+            "icon": "shopify://shop_images/1v1_Customer_Service.svg",
+            "icon_preset": "quote",
+            "icon_color": "#2f5fb6",
+            "icon_bg": "#eaf1ff",
+            "title": "1v1 Customer Service",
+            "text": "",
+            "highlight": false
+          }
+        }
+      },
+      "block_order": [
+        "feature_3MwQ9a",
+        "feature_pBxyij",
+        "feature_qyUTUC",
+        "feature_N94mWy",
+        "feature_jUJwie",
+        "feature_PCXCfi"
+      ],
+      "name": "Feature Card Section-1 (Mobile)",
+      "settings": {
+        "color_scheme": "",
+        "custom_class": "desktop-hide",
+        "heading": "Why Choose Us?",
+        "bg_size": "cover",
+        "bg_position": "center",
+        "bg_repeat": "no-repeat",
+        "accent_color": "#2f5fb6",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30,
+        "gap": 18
+      }
+    },
+    "how_it_works_H3q8wM": {
+      "type": "how-it-works",
+      "blocks": {
+        "step_NHafLq": {
+          "type": "step",
+          "name": "Workflow Card",
+          "settings": {
+            "step_number": "1",
+            "title": "Send Your Inquiry",
+            "text": "Let us know your needs and get a free quote within 24 hours.",
+            "image": "shopify://shop_images/Send_Inquiry.jpg",
+            "card_link": "shopify://pages/contact"
+          }
+        },
+        "step_PMkwHL": {
+          "type": "step",
+          "name": "Workflow Card",
+          "settings": {
+            "step_number": "2",
+            "title": "Get Quotation",
+            "text": "We offer competitive local supply chain solutions.",
+            "image": "shopify://shop_images/Get_Quotation.jpg",
+            "card_link": "shopify://pages/contact"
+          }
+        },
+        "step_4ERyry": {
+          "type": "step",
+          "name": "Workflow Card",
+          "settings": {
+            "step_number": "3",
+            "title": "Product Sourcing",
+            "text": "We connect you with reliable manufacturers and secure the best prices for your products.",
+            "image": "shopify://shop_images/Product_Sourcing.jpg",
+            "card_link": "shopify://pages/product-sourcing"
+          }
+        },
+        "step_pbXRQP": {
+          "type": "step",
+          "name": "Workflow Card",
+          "settings": {
+            "step_number": "4",
+            "title": "Quality Inspection",
+            "text": "We carefully inspect products before shipping to ensure consistent quality.",
+            "image": "shopify://shop_images/Quality_Inspection.png",
+            "card_link": "shopify://pages/quality-inspection"
+          }
+        },
+        "step_WiiLrg": {
+          "type": "step",
+          "name": "Workflow Card",
+          "settings": {
+            "step_number": "5",
+            "title": "Packaging and Branding",
+            "text": "Our private-label services cover logo, labeling, and packaging customization.",
+            "image": "shopify://shop_images/Packaging_Branding.jpg",
+            "card_link": "shopify://pages/private-label"
+          }
+        },
+        "step_dcGUYK": {
+          "type": "step",
+          "name": "Workflow Card",
+          "settings": {
+            "step_number": "6",
+            "title": "International Shipping",
+            "text": "Streamlined international shipping and the last-mile delivery within 7 days.",
+            "image": "shopify://shop_images/International_Warehouses.jpg",
+            "card_link": "shopify://pages/shipping-service"
+          }
+        }
+      },
+      "block_order": [
+        "step_NHafLq",
+        "step_PMkwHL",
+        "step_4ERyry",
+        "step_pbXRQP",
+        "step_WiiLrg",
+        "step_dcGUYK"
+      ],
+      "name": "Workflow Card Section-1",
+      "settings": {
+        "heading": "How Our Dropshipping Fulfillment Process Works",
+        "heading_size": 36,
+        "color_scheme": "",
+        "card_color_scheme": "scheme-2",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 40
+      }
+    },
+    "pbdropshipping_3r38np": {
+      "type": "pbdropshipping",
+      "blocks": {
+        "media_tYi7ra": {
+          "type": "media",
+          "name": "Image",
+          "settings": {
+            "image": "shopify://shop_images/woman__3_e0ce659f-e77a-46ff-9b0e-59d8ea0bf613.png",
+            "border_radius": 24,
+            "height_mode": "auto",
+            "fixed_height": 400
+          }
+        },
+        "subhead_zdwXzg": {
+          "type": "subhead",
+          "settings": {
+            "text": "About PB Fulfill"
+          }
+        },
+        "title_rqDXT6": {
+          "type": "title",
+          "name": "Heading",
+          "settings": {
+            "bold": "",
+            "rest": "Your China Sourcing and Fulfillment Partner",
+            "make_h2": false
+          }
+        },
+        "richtext_yQr4Mg": {
+          "type": "richtext",
+          "name": "Rich Text",
+          "settings": {
+            "content": "<p>With 7+ years in global trade and dropshipping, we deliver tailored fulfillment backed by localized sourcing and secure international logistics. We also offer transparent processes and hands-on support to help secure and grow your business.</p>"
+          }
+        },
+        "button_fFtb99": {
+          "type": "button",
+          "settings": {
+            "label": "Learn More",
+            "link": "shopify://pages/our-mission-values",
+            "button_style": "animated"
+          }
+        }
+      },
+      "block_order": [
+        "media_tYi7ra",
+        "subhead_zdwXzg",
+        "title_rqDXT6",
+        "richtext_yQr4Mg",
+        "button_fFtb99"
+      ],
+      "name": "Image With Text-1",
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "padding_top_mobile": 64,
+        "padding_bottom_mobile": 64,
+        "layout": "image-left",
+        "mobile_layout": "image-top",
+        "content_align": "left",
+        "bg_color": "#ffffff",
+        "bg_size": "cover",
+        "bg_position": "center center",
+        "bg_overlay": "#000000",
+        "bg_overlay_opacity": 0
+      }
+    },
+    "video_reviews_Q9R8Dj": {
+      "type": "video-reviews",
+      "blocks": {
+        "review_4brF8i": {
+          "type": "review",
+          "name": "Vedio Review",
+          "settings": {
+            "youtube_url": "https://www.youtube.com/watch?v=N2nxB9nlbfc",
+            "quote": "Way More Reliable",
+            "name": "Yousuf Shahzad",
+            "text": "\"On top of that,their shipping was way more reliable.My customers were getting their orders faster,and the number of complaints dropped noticeably.\""
+          }
+        },
+        "review_zdnb6e": {
+          "type": "review",
+          "name": "Vedio Review",
+          "settings": {
+            "youtube_url": "https://www.youtube.com/watch?v=WAg1hiSBfqc",
+            "quote": "It's been fantastic",
+            "name": "Elena Manuylenko",
+            "text": "\"I'm really really happy with their sourcing and shipping services. And what makes it so easy for me is that I got assigned a dedicated specialist to follow up on my little business!\""
+          }
+        },
+        "review_EaVTpc": {
+          "type": "review",
+          "name": "Vedio Review",
+          "settings": {
+            "youtube_url": "https://www.youtube.com/watch?v=gZnWH__1mnM",
+            "quote": "Blew me away",
+            "name": "Chiara Mazzetto",
+            "text": "\"Honestly,I was really impressed. Pb Fulfill got the sample done and shipped out within 72 hours of my quote request.That kind of speed and the quality totally blew me away.\""
+          }
+        }
+      },
+      "block_order": [
+        "review_4brF8i",
+        "review_zdnb6e",
+        "review_EaVTpc"
+      ],
+      "name": "Video Review Section",
+      "settings": {
+        "heading": "Previous Reviews From Our Customers",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30,
+        "bg_top": "shopify://shop_images/Customer_Review.svg",
+        "bg_bottom": "shopify://shop_images/Customer_Review_78985060-0ce4-4c7b-8ca3-d6fae0928c2d.svg",
+        "swiper_autoplay": false,
+        "autoplay_delay": 1,
+        "video_autoplay": false
+      }
+    },
+    "reviews_client_9Jc6zh": {
+      "type": "reviews-client",
+      "blocks": {
+        "testimonial_733GCw": {
+          "type": "testimonial",
+          "settings": {
+            "avatar": "shopify://shop_images/Samantha.png",
+            "name": "Samantha",
+            "feedback": "PBFulfill hooked me up with manufacturers out in East China and even lined up visits so I could meet ’em. That kinda effort’s huge for keepin’ return rates low and repurchases high. Solid dropshipping partner for real.",
+            "stars": "shopify://shop_images/5_Stars.svg"
+          }
+        },
+        "testimonial_cmJigC": {
+          "type": "testimonial",
+          "settings": {
+            "avatar": "shopify://shop_images/1_7031f8f8-cf82-406d-aa7d-d1625a3781a6.jpg",
+            "name": "Elijah",
+            "feedback": "PBFulfill set me up with a rep who handles my orders daily—sourcing, shipping, the whole thing. I’m always switchin’ up my store’s product categories, like half the lineup changes every couple weeks. Feels good knowin’ they got my back.",
+            "stars": "shopify://shop_images/5_Stars.svg"
+          }
+        },
+        "testimonial_y7q6Er": {
+          "type": "testimonial",
+          "settings": {
+            "avatar": "shopify://shop_images/4_09e4aea9-dfc5-4841-bd56-443274f7d577.jpg",
+            "name": "Norma",
+            "feedback": "I rolled with PBfulfill ’cause they actually own a pet product factory and gave me way better prices. Straight up awesome.",
+            "stars": "shopify://shop_images/5_Stars.svg"
+          }
+        },
+        "testimonial_4jRmec": {
+          "type": "testimonial",
+          "settings": {
+            "avatar": "shopify://shop_images/3_2d46a20c-c459-49de-a061-b378f678484d.jpg",
+            "name": "Heather",
+            "feedback": "PBFulfill’s warehouse is right by my target market, and they hooked me up with tons of storage space. I’d def recommend ’em.",
+            "stars": "shopify://shop_images/5_Stars.svg"
+          }
+        },
+        "testimonial_bmndky": {
+          "type": "testimonial",
+          "settings": {
+            "avatar": "shopify://shop_images/2_d6f28eef-1c0b-421a-ae34-17e7eca9694c.jpg",
+            "name": "Hugo",
+            "feedback": "My budget’s pretty tight and the Chinese suppliers I hit up weren’t feelin’ the small orders. PBFulfill’s takin’ care of sourcing and shipping for me now, and honestly it’s been smooth AF.",
+            "stars": "shopify://shop_images/5_Stars.svg"
+          }
+        },
+        "testimonial_DUVgGx": {
+          "type": "testimonial",
+          "settings": {
+            "avatar": "shopify://shop_images/Brittany.png",
+            "name": "Brittany",
+            "feedback": "Cause of what I sell, I’m switching up products and dropping new packaging like every week. Honestly, PB’s been solid — smooth comms, orders handled spot on, no complaints here.",
+            "stars": "shopify://shop_images/5_Stars.svg"
+          }
+        },
+        "testimonial_3Ty6qN": {
+          "type": "testimonial",
+          "settings": {
+            "avatar": "shopify://shop_images/Joshua.png",
+            "name": "Joshua",
+            "feedback": "Crazy it’s been almost a decade since I first met Bryan. Back then he hadn’t even started doing the whole dropshipping agent thing. Can’t wait to see what the next decade’s gonna be like.",
+            "stars": "shopify://shop_images/5_Stars.svg"
+          }
+        },
+        "testimonial_QeAWii": {
+          "type": "testimonial",
+          "settings": {
+            "avatar": "shopify://shop_images/Danielle.png",
+            "name": "Danielle",
+            "feedback": "A buddy put me on to PB Fulfill, and so far it’s been chill — everything’s running smooth.",
+            "stars": "shopify://shop_images/5_Stars.svg"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_733GCw",
+        "testimonial_cmJigC",
+        "testimonial_y7q6Er",
+        "testimonial_4jRmec",
+        "testimonial_bmndky",
+        "testimonial_DUVgGx",
+        "testimonial_3Ty6qN",
+        "testimonial_QeAWii"
+      ],
+      "name": "Scrolling Testimonial Card Section",
+      "settings": {
+        "color_scheme": "",
+        "card_color_scheme": "",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "heading": "Our Client's Feedback",
+        "button_label": "Learn More",
+        "button_link": "shopify://pages/testimonials-case-studies",
+        "autoplay_speed": 3
+      }
+    },
+    "unlock_tfwBn8": {
+      "type": "unlock",
+      "blocks": {
+        "heading_apM9ek": {
+          "type": "heading",
+          "settings": {
+            "title": "Explore  the Best Dropshipping Solution"
+          }
+        },
+        "paragraph_Rhy4gK": {
+          "type": "paragraph",
+          "name": "Rich Text",
+          "settings": {
+            "is_rich": false,
+            "body": "From sourcing to logistics, enjoy seamless support tailored to maximize your profits.",
+            "variant": "default"
+          }
+        },
+        "subhead_MjGteB": {
+          "type": "subhead",
+          "settings": {
+            "text": "Get free quote & 5% off first order!"
+          }
+        },
+        "button_J3cdUi": {
+          "type": "button",
+          "settings": {
+            "label": "Request A Free Quote",
+            "link": "#myform",
+            "new_tab": false,
+            "style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "heading_apM9ek",
+        "paragraph_Rhy4gK",
+        "subhead_MjGteB",
+        "button_J3cdUi"
+      ],
+      "name": "CTA Section-1",
+      "settings": {
+        "custom_class": "Unlock-Section",
+        "aria_label": "Dropshipping Solutions",
+        "bg_image": "shopify://shop_images/Group_2368_1.svg",
+        "image": "shopify://shop_images/b8fc6945f3d0598cfadde8a5187d1c648b8c866e_1_3.png",
+        "padding_top": 20,
+        "padding_bottom": 40,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "affiliate_xk9kWr": {
+      "type": "affiliate",
+      "blocks": {
+        "card_xnELbQ": {
+          "type": "card",
+          "name": "Feature Card",
+          "settings": {
+            "image": "shopify://shop_images/Refer_a_friend.png",
+            "title": "Refer a Seller",
+            "description": "We will reach out to your friend order."
+          }
+        },
+        "card_zXq9Vx": {
+          "type": "card",
+          "name": "Feature Card",
+          "settings": {
+            "image": "shopify://shop_images/get_profits_from_Affilate.png",
+            "title": "Calculate Your Referral Earnings",
+            "description": "Get $0.2 from each referral order."
+          }
+        },
+        "card_E7key3": {
+          "type": "card",
+          "name": "Feature Card",
+          "settings": {
+            "image": "shopify://shop_images/earrned_comission.png",
+            "title": "Receive Your Payout",
+            "description": "Receive your earnings via PayPal or Payoneer."
+          }
+        }
+      },
+      "block_order": [
+        "card_xnELbQ",
+        "card_zXq9Vx",
+        "card_E7key3"
+      ],
+      "name": "Feature Card Section-2",
+      "settings": {
+        "color_scheme": "",
+        "custom_class": "small-hide",
+        "columns_desktop": 3,
+        "bg_image": "shopify://shop_images/Affiliate_Background_pattern.svg",
+        "title": "Dropshipping Agent Affiliate Program",
+        "button_text": "Learn More",
+        "button_link": "shopify://pages/partners-affiliates",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "custom_scrolling_bar_c7Px3x": {
+      "type": "custom-scrolling-bar",
+      "blocks": {
+        "item_APxmGQ": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/PB_Fulfill_1.svg",
+            "link": ""
+          }
+        },
+        "item_kXyg4d": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/PB_Fulfill_1.svg",
+            "link": ""
+          }
+        },
+        "item_kninJk": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/PB_Fulfill_1.svg",
+            "link": ""
+          }
+        },
+        "item_WEetbb": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/PB_Fulfill_1.svg",
+            "link": ""
+          }
+        },
+        "item_47F89Y": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/PB_Fulfill_1.svg",
+            "link": ""
+          }
+        },
+        "item_6AB6Rf": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/PB_Fulfill_1.svg",
+            "link": ""
+          }
+        },
+        "item_awTfgG": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/PB_Fulfill_1.svg",
+            "link": ""
+          }
+        },
+        "item_AayihK": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/PB_Fulfill_1.svg",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_APxmGQ",
+        "item_kXyg4d",
+        "item_kninJk",
+        "item_WEetbb",
+        "item_47F89Y",
+        "item_6AB6Rf",
+        "item_awTfgG",
+        "item_AayihK"
+      ],
+      "name": "Scrolling Image Section",
+      "settings": {
+        "color_scheme": "",
+        "custom_class": "",
+        "gap": 60,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "item_height": 64,
+        "item_height_mobile": 24,
+        "speed": 34,
+        "direction": "left",
+        "pause_hover": true,
+        "gap_mobile": 26
+      }
+    },
+    "pbdropshipping_F4yLcC": {
+      "type": "pbdropshipping",
+      "blocks": {
+        "subhead_tK8Dhc": {
+          "type": "subhead",
+          "settings": {
+            "text": "Our Global Warehouses"
+          }
+        },
+        "title_4Tt6xE": {
+          "type": "title",
+          "disabled": true,
+          "settings": {
+            "bold": "Our Global Warehouses",
+            "rest": "",
+            "make_h2": false
+          }
+        },
+        "media_8hfKgY": {
+          "type": "media",
+          "name": "Image",
+          "settings": {
+            "image": "shopify://shop_images/International_Warehouse_PB.png",
+            "border_radius": 24,
+            "height_mode": "auto",
+            "fixed_height": 400
+          }
+        },
+        "richtext_Pcqfa4": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>With our strategically located warehouses on both the East and West Coasts of the United States, delivery lead times are significantly reduced. We offer free storage for up to 60 days and ensure nationwide delivery within 1–2 days.</p>"
+          }
+        },
+        "button_pbpH3G": {
+          "type": "button",
+          "settings": {
+            "label": "Learn More",
+            "link": "shopify://pages/global-warehouse",
+            "button_style": "animated"
+          }
+        }
+      },
+      "block_order": [
+        "subhead_tK8Dhc",
+        "title_4Tt6xE",
+        "media_8hfKgY",
+        "richtext_Pcqfa4",
+        "button_pbpH3G"
+      ],
+      "name": "Image With Text",
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 96,
+        "padding_bottom": 96,
+        "padding_top_mobile": 24,
+        "padding_bottom_mobile": 24,
+        "layout": "image-left",
+        "mobile_layout": "image-top",
+        "content_align": "left",
+        "bg_color": "#ffffff",
+        "bg_image": "shopify://shop_images/Frame_1000001208.svg",
+        "bg_size": "cover",
+        "bg_position": "center center",
+        "bg_overlay": "#000000",
+        "bg_overlay_opacity": 0
+      }
+    },
+    "affilate_mobile_HVrDmR": {
+      "type": "Affilate-mobile",
+      "blocks": {
+        "photo_nf8bWG": {
+          "type": "photo",
+          "disabled": true,
+          "settings": {
+            "image": "shopify://shop_images/9b758c90-af82-493d-b60c-8dab2274dfa8_removalai_preview.png"
+          }
+        },
+        "text_BUMYpJ": {
+          "type": "text",
+          "name": "Card Text ",
+          "settings": {
+            "title": "Refer A Friend",
+            "text": "We will reach out to your friend."
+          }
+        },
+        "text_PGDQ3V": {
+          "type": "text",
+          "name": "Card Text ",
+          "settings": {
+            "title": "Calculate the Profit",
+            "text": "Get $0.2 from each referral order."
+          }
+        },
+        "text_bBkLif": {
+          "type": "text",
+          "name": "Card Text ",
+          "settings": {
+            "title": "Get Your Earnings",
+            "text": "Receive your earnings via PayPal or Payoneer."
+          }
+        },
+        "mobile_item_A8TD9Y": {
+          "type": "mobile_item",
+          "name": "Card Image",
+          "settings": {
+            "icon": "shopify://shop_images/Refer_A_Friend_95051e38-d5b2-41db-838a-f35d58f03a3a.svg",
+            "heading_mobile": "Refer A Friend",
+            "text": "We will reach out to your friend."
+          }
+        },
+        "mobile_item_b7xTkk": {
+          "type": "mobile_item",
+          "name": "Card Image",
+          "settings": {
+            "icon": "shopify://shop_images/rivet-icons_money.svg",
+            "heading_mobile": "Calculate the Profit",
+            "text": "Get $0.2 from each referral order."
+          }
+        },
+        "mobile_item_dp9hN4": {
+          "type": "mobile_item",
+          "name": "Card Image",
+          "settings": {
+            "icon": "shopify://shop_images/What_Is_the_Profit_e33a2c67-ddfd-48df-94bc-13e8ed2b2dc7.svg",
+            "heading_mobile": "Get Your Earnings",
+            "text": "Receive your earnings via PayPal or Payoneer."
+          }
+        }
+      },
+      "block_order": [
+        "photo_nf8bWG",
+        "text_BUMYpJ",
+        "text_PGDQ3V",
+        "text_bBkLif",
+        "mobile_item_A8TD9Y",
+        "mobile_item_b7xTkk",
+        "mobile_item_dp9hN4"
+      ],
+      "name": "Feature Card Display-2 (Mobile)",
+      "settings": {
+        "custom_class": "desktop-hide",
+        "bg_color": "#ffffff",
+        "heading": "Become An Affiliate",
+        "button_label": "Join Now",
+        "button_link": "shopify://pages/partners-affiliates",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "blog_slider_DPgDhb": {
+      "type": "BlogSlider",
+      "blocks": {
+        "blog_post_gx3qhr": {
+          "type": "blog_post",
+          "settings": {
+            "selected_article": "work-with-a-dropshipping-agent/asian-suppliers"
+          }
+        },
+        "blog_post_MzAUdb": {
+          "type": "blog_post",
+          "settings": {
+            "selected_article": "practical-operational-guidance/ebay-listings"
+          }
+        },
+        "blog_post_mxCiag": {
+          "type": "blog_post",
+          "settings": {
+            "selected_article": "practical-operational-guidance/a-b-testing"
+          }
+        },
+        "blog_post_yNBg4C": {
+          "type": "blog_post",
+          "settings": {
+            "selected_article": "work-with-a-dropshipping-agent/find-the-best-dropshipping-suppliers-and-agents"
+          }
+        },
+        "blog_post_eL8jaM": {
+          "type": "blog_post",
+          "settings": {
+            "selected_article": "product-recommendation/dog-food"
+          }
+        },
+        "blog_post_6dAcmL": {
+          "type": "blog_post",
+          "settings": {
+            "selected_article": "work-with-a-dropshipping-agent/smes-work-with-a-china-dropshipping-agent"
+          }
+        },
+        "blog_post_aLwxKE": {
+          "type": "blog_post",
+          "settings": {
+            "selected_article": "work-with-a-dropshipping-agent/one-stop-china-dropshipping-agent-service"
+          }
+        }
+      },
+      "block_order": [
+        "blog_post_gx3qhr",
+        "blog_post_MzAUdb",
+        "blog_post_mxCiag",
+        "blog_post_yNBg4C",
+        "blog_post_eL8jaM",
+        "blog_post_6dAcmL",
+        "blog_post_aLwxKE"
+      ],
+      "custom_css": [],
+      "name": "Scrolling Blog Post Section",
+      "settings": {
+        "display_mode": "latest",
+        "auto_handles": "about-dropshipping,discussion-on-e-commerce-platforms,marketing-strategy,news,success-stories,practical-operational-guidance,product-appraisal,product-recommendation,work-with-a-dropshipping-agent",
+        "article_limit": 10,
+        "heading": "Dropshipping Guides and Resources",
+        "pad_top": 96,
+        "pad_bottom": 152,
+        "pad_top_mobile": 24,
+        "pad_bottom_mobile": 30,
+        "excerpt_len": 120,
+        "read_more": "Read More",
+        "manual_article_1": "",
+        "manual_article_2": "",
+        "manual_article_3": "",
+        "manual_article_4": "",
+        "manual_article_5": "",
+        "manual_article_6": "",
+        "manual_article_7": "",
+        "manual_article_8": "",
+        "manual_article_9": "",
+        "manual_article_10": "",
+        "slides_mobile": 1,
+        "slides_laptop": 2,
+        "slides_desktop": 3,
+        "space_between": 24,
+        "bp_laptop": 900,
+        "bp_desktop": 1200,
+        "loop": true,
+        "smooth_free_mode": true,
+        "autoplay": true,
+        "autoplay_delay": 900,
+        "speed": 2000,
+        "pause_on_hover": true,
+        "resume_after_interaction": false,
+        "show_arrows": true,
+        "arrow_size": 30
+      }
+    }
+  },
+  "order": [
+    "image_banner",
+    "margin_AnFHqD",
+    "why_choose_us_EyxyAT",
+    "why_NktyM9",
+    "how_it_works_H3q8wM",
+    "pbdropshipping_3r38np",
+    "video_reviews_Q9R8Dj",
+    "reviews_client_9Jc6zh",
+    "unlock_tfwBn8",
+    "affiliate_xk9kWr",
+    "custom_scrolling_bar_c7Px3x",
+    "pbdropshipping_F4yLcC",
+    "affilate_mobile_HVrDmR",
+    "blog_slider_DPgDhb"
+  ]
+}
