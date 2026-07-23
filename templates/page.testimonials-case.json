@@ -8,556 +8,556 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "main": {
-            "type": "main-page",
-            "disabled": true,
-            "settings": {
-                "padding_top": 28,
-                "padding_bottom": 28
-            }
-        },
-        "hero_banner_MCaKmP": {
-            "type": "Hero-banner",
-            "blocks": {
-                "breadcrumbs_LBW7y9": {
-                    "type": "breadcrumbs",
-                    "disabled": true,
-                    "settings": {
-                        "color": "#ffffff",
-                        "mb": 16
-                    }
-                },
-                "heading_38K9cw": {
-                    "type": "heading",
-                    "settings": {
-                        "text": "Proven Results Across Global Stores",
-                        "mb": 20
-                    }
-                },
-                "text_cnT3Eh": {
-                    "type": "text",
-                    "settings": {
-                        "text": "Hear from global sellers who scaled faster, reduced costs, and built stronger brands with PBfulfill.",
-                        "mb": 30
-                    }
-                },
-                "button_CWXCbr": {
-                    "type": "button",
-                    "settings": {
-                        "label": "Get a Free Quote",
-                        "link": "shopify:\/\/pages\/contact",
-                        "btn_color": "#ffffff",
-                        "btn_bg_hover": "#ffffff",
-                        "btn_text_hover": "#000000",
-                        "mb": 0
-                    }
-                }
-            },
-            "block_order": [
-                "breadcrumbs_LBW7y9",
-                "heading_38K9cw",
-                "text_cnT3Eh",
-                "button_CWXCbr"
-            ],
-            "name": "Hero Banner",
-            "settings": {
-                "image_top_offset": -22,
-                "content_top_offset": 24,
-                "mobile_banner_height": 50,
-                "mobile_image_top_offset": 0,
-                "mobile_content_top_offset": 14,
-                "image_1": "shopify:\/\/shop_images\/Group_1_ed6dda67-3870-4331-a2d7-8dbe33c6998a.png",
-                "overlay_opacity": 0,
-                "banner_height": "medium",
-                "desktop_content_position": "middle-center",
-                "color_scheme": "scheme-5",
-                "container": false
-            }
-        },
-        "why_private_label_xdjzAe": {
-            "type": "why-private-label",
-            "blocks": {
-                "column_YLtTTK": {
-                    "type": "column",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/ChatGPT_Image_Dec_11_2025_05_17_37_PM_1.png",
-                        "text": "Top dropshipping agent in China"
-                    }
-                },
-                "column_JKYzGe": {
-                    "type": "column",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/ChatGPT_Image_Dec_11_2025_05_26_06_PM_1.png",
-                        "text": "Consistently Achieving 98%+ Fulfillment Accuracy"
-                    }
-                },
-                "column_C4drWq": {
-                    "type": "column",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/ChatGPT_Image_Dec_11_2025_05_34_47_PM_1.png",
-                        "text": "Trusted by 2,000+ merchants worldwide"
-                    }
-                }
-            },
-            "block_order": [
-                "column_YLtTTK",
-                "column_JKYzGe",
-                "column_C4drWq"
-            ],
-            "name": "Feature Card Section-3",
-            "settings": {
-                "color_scheme": "scheme-2",
-                "heading": "Built for Reliable Fulfillment",
-                "footer_text": "",
-                "footer_button_label": "Return Policy Pages",
-                "footer_button_link": "",
-                "button_style_secondary": true,
-                "padding_top": 40,
-                "padding_bottom": 40,
-                "padding_top_mobile": 30,
-                "padding_bottom_mobile": 30
-            }
-        },
-        "featured_testimonial_A9CDeW": {
-            "type": "featured-testimonial",
-            "blocks": {
-                "testimonial_N4Kdrj": {
-                    "type": "testimonial",
-                    "settings": {
-                        "show_stars": true,
-                        "stars": 5,
-                        "quote": "<p>PBfulfill cut our sourcing and shipping costs by about 40% and helped us expand into multiple warehouses. We haven’t looked back.<\/p>",
-                        "button_label": "Read the Full Story",
-                        "button_link": "",
-                        "bg_image": "shopify:\/\/shop_images\/c23e5f4e08119a8d0c0458e0f3678534efaeda2c_3_c31db788-8c70-4d56-97f7-511e8439c83e.png",
-                        "image": "shopify:\/\/shop_images\/088e843c8658c590eff0958cff665ba14f44fca0_1.jpg",
-                        "star_image_alt": "",
-                        "star_image_width": 100
-                    }
-                }
-            },
-            "block_order": [
-                "testimonial_N4Kdrj"
-            ],
-            "name": "Featured Testimonial",
-            "settings": {
-                "heading": "Featured Testimonial",
-                "color_scheme": "",
-                "padding_top": 0,
-                "padding_bottom": 60,
-                "padding_top_mobile": 30,
-                "padding_bottom_mobile": 30
-            }
-        },
-        "success_stories_enafGt": {
-            "type": "success-stories",
-            "blocks": {
-                "video_card_e8nNML": {
-                    "type": "video_card",
-                    "settings": {
-                        "thumbnail": "shopify:\/\/shop_images\/1_c78f6251-001b-479f-9629-a3ab0446d9d0.jpg",
-                        "video_link": "https:\/\/www.youtube.com\/watch?v=N2nxB9nlbfc",
-                        "title": "Yousuf Shahzad: Pet Products",
-                        "subtitle": "Fashion Products"
-                    }
-                },
-                "video_card_gERfYY": {
-                    "type": "video_card",
-                    "settings": {
-                        "thumbnail": "shopify:\/\/shop_images\/2_1c5d6e6a-141d-4486-899c-7d79d6657c16.jpg",
-                        "video_link": "https:\/\/www.youtube.com\/watch?v=WAg1hiSBfqc",
-                        "title": "Elena Manuylenko: Supplements",
-                        "subtitle": "Fashion Products"
-                    }
-                },
-                "video_card_3tJXMR": {
-                    "type": "video_card",
-                    "settings": {
-                        "thumbnail": "shopify:\/\/shop_images\/3_1c55ed56-3493-46fa-8865-ccfa312e405d.jpg",
-                        "video_link": "https:\/\/www.youtube.com\/watch?v=gZnWH__1mnM",
-                        "title": "Chiara Mazzetto: Jewelry",
-                        "subtitle": "Fashion Products"
-                    }
-                }
-            },
-            "block_order": [
-                "video_card_e8nNML",
-                "video_card_gERfYY",
-                "video_card_3tJXMR"
-            ],
-            "name": "Video Card Section",
-            "settings": {
-                "heading": "Feedback from Our Clients",
-                "color_scheme": "",
-                "padding_top": 50,
-                "padding_bottom": 50,
-                "padding_top_mobile": 70,
-                "padding_bottom_mobile": 30
-            }
-        },
-        "quick_stats_pxzeFb": {
-            "type": "quick-stats",
-            "blocks": {
-                "stat_xiC7U4": {
-                    "type": "stat",
-                    "settings": {
-                        "value": "30 - 50%",
-                        "label": "Lower Sourcing Cost"
-                    }
-                },
-                "stat_MhqL7P": {
-                    "type": "stat",
-                    "settings": {
-                        "value": "7 Day",
-                        "label": "Faster Delivery"
-                    }
-                },
-                "stat_UnEbfB": {
-                    "type": "stat",
-                    "settings": {
-                        "value": "65%",
-                        "label": "Fewer Returns"
-                    }
-                }
-            },
-            "block_order": [
-                "stat_xiC7U4",
-                "stat_MhqL7P",
-                "stat_UnEbfB"
-            ],
-            "name": "Quick Stats",
-            "settings": {
-                "title": "What Differentiates Us",
-                "heading_size": "h1",
-                "color_scheme": "",
-                "bg_image": "shopify:\/\/shop_images\/Pattern_Bot.svg",
-                "bg_size": "contain",
-                "bg_position": "bottom center",
-                "bg_repeat": "no-repeat",
-                "footer_text": "Based on average results across PBfulfill customers.",
-                "padding_top": 80,
-                "padding_bottom": 80,
-                "padding_top_mobile": 30,
-                "padding_bottom_mobile": 30
-            }
-        },
-        "rich_text_CwrytX": {
-            "type": "rich-text",
-            "blocks": {
-                "heading_KjBkYn": {
-                    "type": "heading",
-                    "settings": {
-                        "heading": "How a Fashion Seller Increased AOV by 48% with Premium Packaging",
-                        "heading_size": "h1"
-                    }
-                },
-                "button_yWc3xL": {
-                    "type": "button",
-                    "settings": {
-                        "button_label": "Submit",
-                        "button_link": "#myform",
-                        "button_style_secondary": false,
-                        "button_label_2": "",
-                        "button_link_2": "",
-                        "button_style_secondary_2": false
-                    }
-                }
-            },
-            "block_order": [
-                "heading_KjBkYn",
-                "button_yWc3xL"
-            ],
-            "disabled": true,
-            "name": "t:sections.rich-text.presets.name",
-            "settings": {
-                "desktop_content_position": "center",
-                "content_alignment": "center",
-                "color_scheme": "",
-                "full_width": true,
-                "padding_top": 40,
-                "padding_bottom": 52
-            }
-        },
-        "case_study_Pc4xKD": {
-            "type": "case-study",
-            "blocks": {
-                "solution_item_PDm46H": {
-                    "type": "solution_item",
-                    "settings": {
-                        "icon_image": "shopify:\/\/shop_images\/Step_icon_base.png",
-                        "text": "Custom brand packaging options"
-                    }
-                },
-                "solution_item_HBXNc6": {
-                    "type": "solution_item",
-                    "settings": {
-                        "icon_image": "shopify:\/\/shop_images\/Step_icon_base.png",
-                        "text": "SKU merging to cut shipping costs"
-                    }
-                },
-                "solution_item_KeGtE7": {
-                    "type": "solution_item",
-                    "settings": {
-                        "icon_image": "shopify:\/\/shop_images\/Step_icon_base.png",
-                        "text": "Improved quality control workflows"
-                    }
-                },
-                "outcome_item_KHrUnG": {
-                    "type": "outcome_item",
-                    "settings": {
-                        "number": "+48%",
-                        "label": "AOV",
-                        "text_color": "#2962bd"
-                    }
-                },
-                "outcome_item_tqGPdN": {
-                    "type": "outcome_item",
-                    "settings": {
-                        "number": "+32%",
-                        "label": "Repeat Purchase Rate",
-                        "text_color": "#2962bd"
-                    }
-                },
-                "outcome_item_7HNGdk": {
-                    "type": "outcome_item",
-                    "settings": {
-                        "number": "-27%",
-                        "label": "Refund Rate",
-                        "text_color": "#2962bd"
-                    }
-                }
-            },
-            "block_order": [
-                "solution_item_PDm46H",
-                "solution_item_HBXNc6",
-                "solution_item_KeGtE7",
-                "outcome_item_KHrUnG",
-                "outcome_item_tqGPdN",
-                "outcome_item_7HNGdk"
-            ],
-            "name": "Case Study Section",
-            "settings": {
-                "color_scheme": "",
-                "heading": "How a Fashion Seller Increased AOV by 48% with Premium Packaging",
-                "heading_size": "h1",
-                "button_label": "Learn More",
-                "button_link": "shopify:\/\/pages\/private-label",
-                "img_before": "shopify:\/\/shop_images\/ec3a2235da2ea9fe5e0bd3e3c41d1c4a3a8dcdc4.jpg",
-                "label_before": "Before",
-                "img_after": "shopify:\/\/shop_images\/466e1e7e817d326e7b5beb557d7d7a4791d52191.jpg",
-                "label_after": "After",
-                "solution_title": "PBfulfill Solution",
-                "outcome_title": "Performance Impact",
-                "padding_top": 60,
-                "padding_bottom": 60,
-                "padding_top_mobile": 30,
-                "padding_bottom_mobile": 30
-            }
-        },
-        "case_study_6XERty": {
-            "type": "case-study",
-            "blocks": {
-                "solution_item_6TRGif": {
-                    "type": "solution_item",
-                    "settings": {
-                        "icon_image": "shopify:\/\/shop_images\/Step_icon_base.png",
-                        "text": "U.S. warehouse stocking"
-                    }
-                },
-                "solution_item_9aEgMG": {
-                    "type": "solution_item",
-                    "settings": {
-                        "icon_image": "shopify:\/\/shop_images\/Step_icon_base.png",
-                        "text": "Same-day dispatch guarantee"
-                    }
-                },
-                "solution_item_HirrKW": {
-                    "type": "solution_item",
-                    "settings": {
-                        "icon_image": "shopify:\/\/shop_images\/Step_icon_base.png",
-                        "text": "Video QC to ensure zero defects"
-                    }
-                },
-                "outcome_item_Uh84Yc": {
-                    "type": "outcome_item",
-                    "settings": {
-                        "number": "1–3 Days",
-                        "label": "Reduced Delivery Time",
-                        "text_color": "#2962bd"
-                    }
-                },
-                "outcome_item_Cf9GYw": {
-                    "type": "outcome_item",
-                    "settings": {
-                        "number": "4.1 → 4.8",
-                        "label": "Improved Store Rating",
-                        "text_color": "#2962bd"
-                    }
-                },
-                "outcome_item_YN7Wiq": {
-                    "type": "outcome_item",
-                    "settings": {
-                        "number": "10×",
-                        "label": "Monthly Sales Growth",
-                        "text_color": "#2962bd"
-                    }
-                }
-            },
-            "block_order": [
-                "solution_item_6TRGif",
-                "solution_item_9aEgMG",
-                "solution_item_HirrKW",
-                "outcome_item_Uh84Yc",
-                "outcome_item_Cf9GYw",
-                "outcome_item_YN7Wiq"
-            ],
-            "name": "Case Study Section",
-            "settings": {
-                "color_scheme": "",
-                "heading": "From 50 Orders to 800 Orders Weekly — Scaling With PBfulfill’s U.S. Warehouse",
-                "heading_size": "h1",
-                "button_label": "Learn More",
-                "button_link": "shopify:\/\/pages\/global-warehouse",
-                "img_before": "shopify:\/\/shop_images\/f28a0e15dba2b451bfb8c00bc3926cdf8431339c.jpg",
-                "label_before": "Before",
-                "img_after": "shopify:\/\/shop_images\/1ba50e0276469575a4112847b9404cac495a27e5.jpg",
-                "label_after": "After",
-                "solution_title": "PBfulfill Solution",
-                "outcome_title": "Performance Impact",
-                "padding_top": 60,
-                "padding_bottom": 60,
-                "padding_top_mobile": 30,
-                "padding_bottom_mobile": 30
-            }
-        },
-        "case_study_RABpwV": {
-            "type": "case-study",
-            "blocks": {
-                "solution_item_8B9Xwj": {
-                    "type": "solution_item",
-                    "settings": {
-                        "icon_image": "shopify:\/\/shop_images\/Step_icon_base.png",
-                        "text": "Multi-factory stocking for stable supply"
-                    }
-                },
-                "solution_item_yfUVNf": {
-                    "type": "solution_item",
-                    "settings": {
-                        "icon_image": "shopify:\/\/shop_images\/Step_icon_base.png",
-                        "text": "Dedicated sourcing negotiation (28% cost down)"
-                    }
-                },
-                "solution_item_H3TJtm": {
-                    "type": "solution_item",
-                    "settings": {
-                        "icon_image": "shopify:\/\/shop_images\/Step_icon_base.png",
-                        "text": "Daily batch sampling by QC team"
-                    }
-                },
-                "outcome_item_Cz3Adq": {
-                    "type": "outcome_item",
-                    "settings": {
-                        "number": "3 Months",
-                        "label": "Steadily Product Supply",
-                        "text_color": "#2962bd"
-                    }
-                },
-                "outcome_item_CUGJnD": {
-                    "type": "outcome_item",
-                    "settings": {
-                        "number": "+40%",
-                        "label": "Increased ROAS",
-                        "text_color": "#2962bd"
-                    }
-                },
-                "outcome_item_ihpFJP": {
-                    "type": "outcome_item",
-                    "settings": {
-                        "number": "-30%",
-                        "label": "Reduced inventory backlog",
-                        "text_color": "#2962bd"
-                    }
-                }
-            },
-            "block_order": [
-                "solution_item_8B9Xwj",
-                "solution_item_yfUVNf",
-                "solution_item_H3TJtm",
-                "outcome_item_Cz3Adq",
-                "outcome_item_CUGJnD",
-                "outcome_item_ihpFJP"
-            ],
-            "name": "Case Study Section",
-            "settings": {
-                "color_scheme": "",
-                "heading": "From Viral → Sustainable: How PBfulfill Stabilized a TikTok Winning Product",
-                "heading_size": "h1",
-                "button_label": "Learn More",
-                "button_link": "shopify:\/\/pages\/product-sourcing",
-                "img_before": "shopify:\/\/shop_images\/e770b5a794fb27b1c1e95e07efb9d491fd3b6448.jpg",
-                "label_before": "Before",
-                "img_after": "shopify:\/\/shop_images\/e21f0048dddebfd7887c73bca84a4fde3ea78dea.jpg",
-                "label_after": "After",
-                "solution_title": "PBfulfill Solution",
-                "outcome_title": "Performance Impact",
-                "padding_top": 60,
-                "padding_bottom": 60,
-                "padding_top_mobile": 30,
-                "padding_bottom_mobile": 30
-            }
-        },
-        "cta_banner_DpfEfX": {
-            "type": "cta-banner",
-            "blocks": {
-                "heading_9jiie4": {
-                    "type": "heading",
-                    "settings": {
-                        "heading": "Get ready to Get Similar Results!",
-                        "heading_size": "h1",
-                        "font_weight": "600"
-                    }
-                },
-                "button_f8RxMG": {
-                    "type": "button",
-                    "settings": {
-                        "button_label": "Get a Free Quote",
-                        "button_link": "shopify:\/\/pages\/contact",
-                        "button_style_secondary": true
-                    }
-                }
-            },
-            "block_order": [
-                "heading_9jiie4",
-                "button_f8RxMG"
-            ],
-            "name": "CTA Banner",
-            "settings": {
-                "color_scheme": "",
-                "card_bg_image": "shopify:\/\/shop_images\/Background_pattern_1.png",
-                "rainbow_image": "shopify:\/\/shop_images\/c23e5f4e08119a8d0c0458e0f3678534efaeda2c_1.png",
-                "rainbow_alt": "",
-                "airplane_image": "shopify:\/\/shop_images\/Group_10.png",
-                "airplane_alt": "",
-                "grid_opacity": 20,
-                "padding_top": 36,
-                "padding_bottom": 36,
-                "padding_top_mobile": 30,
-                "padding_bottom_mobile": 30
-            }
-        }
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
     },
-    "order": [
-        "main",
-        "hero_banner_MCaKmP",
-        "why_private_label_xdjzAe",
-        "featured_testimonial_A9CDeW",
-        "success_stories_enafGt",
-        "quick_stats_pxzeFb",
-        "rich_text_CwrytX",
-        "case_study_Pc4xKD",
-        "case_study_6XERty",
-        "case_study_RABpwV",
-        "cta_banner_DpfEfX"
-    ]
+    "hero_banner_MCaKmP": {
+      "type": "Hero-banner",
+      "blocks": {
+        "breadcrumbs_LBW7y9": {
+          "type": "breadcrumbs",
+          "disabled": true,
+          "settings": {
+            "color": "#ffffff",
+            "mb": 16
+          }
+        },
+        "heading_38K9cw": {
+          "type": "heading",
+          "settings": {
+            "text": "Proven Results Across Global Stores",
+            "mb": 20
+          }
+        },
+        "text_cnT3Eh": {
+          "type": "text",
+          "settings": {
+            "text": "Hear from global sellers who scaled faster, reduced costs, and built stronger brands with PBfulfill.",
+            "mb": 30
+          }
+        },
+        "button_CWXCbr": {
+          "type": "button",
+          "settings": {
+            "label": "Get a Free Quote",
+            "link": "shopify://pages/contact",
+            "btn_color": "#ffffff",
+            "btn_bg_hover": "#ffffff",
+            "btn_text_hover": "#000000",
+            "mb": 0
+          }
+        }
+      },
+      "block_order": [
+        "breadcrumbs_LBW7y9",
+        "heading_38K9cw",
+        "text_cnT3Eh",
+        "button_CWXCbr"
+      ],
+      "name": "Hero Banner",
+      "settings": {
+        "image_top_offset": -36,
+        "content_top_offset": 24,
+        "mobile_banner_height": 50,
+        "mobile_image_top_offset": 0,
+        "mobile_content_top_offset": 14,
+        "image_1": "shopify://shop_images/Group_10627_ec3460d1-62eb-4cda-ba3c-82658589ffec.png",
+        "overlay_opacity": 0,
+        "banner_height": "large",
+        "desktop_content_position": "middle-center",
+        "color_scheme": "scheme-5",
+        "container": false
+      }
+    },
+    "why_private_label_xdjzAe": {
+      "type": "why-private-label",
+      "blocks": {
+        "column_YLtTTK": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Dec_11_2025_05_17_37_PM_1.png",
+            "text": "Top dropshipping agent in China"
+          }
+        },
+        "column_JKYzGe": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Dec_11_2025_05_26_06_PM_1.png",
+            "text": "Consistently Achieving 98%+ Fulfillment Accuracy"
+          }
+        },
+        "column_C4drWq": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Dec_11_2025_05_34_47_PM_1.png",
+            "text": "Trusted by 2,000+ merchants worldwide"
+          }
+        }
+      },
+      "block_order": [
+        "column_YLtTTK",
+        "column_JKYzGe",
+        "column_C4drWq"
+      ],
+      "name": "Feature Card Section-3",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "heading": "Built for Reliable Fulfillment",
+        "footer_text": "",
+        "footer_button_label": "Return Policy Pages",
+        "footer_button_link": "",
+        "button_style_secondary": true,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "featured_testimonial_A9CDeW": {
+      "type": "featured-testimonial",
+      "blocks": {
+        "testimonial_N4Kdrj": {
+          "type": "testimonial",
+          "settings": {
+            "show_stars": true,
+            "stars": 5,
+            "quote": "<p>PBfulfill cut our sourcing and shipping costs by about 40% and helped us expand into multiple warehouses. We haven’t looked back.</p>",
+            "button_label": "Read the Full Story",
+            "button_link": "",
+            "bg_image": "shopify://shop_images/c23e5f4e08119a8d0c0458e0f3678534efaeda2c_3_c31db788-8c70-4d56-97f7-511e8439c83e.png",
+            "image": "shopify://shop_images/088e843c8658c590eff0958cff665ba14f44fca0_1.jpg",
+            "star_image_alt": "",
+            "star_image_width": 100
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_N4Kdrj"
+      ],
+      "name": "Featured Testimonial",
+      "settings": {
+        "heading": "Featured Testimonial",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "success_stories_enafGt": {
+      "type": "success-stories",
+      "blocks": {
+        "video_card_e8nNML": {
+          "type": "video_card",
+          "settings": {
+            "thumbnail": "shopify://shop_images/1_c78f6251-001b-479f-9629-a3ab0446d9d0.jpg",
+            "video_link": "https://www.youtube.com/watch?v=N2nxB9nlbfc",
+            "title": "Yousuf Shahzad: Pet Products",
+            "subtitle": "Fashion Products"
+          }
+        },
+        "video_card_gERfYY": {
+          "type": "video_card",
+          "settings": {
+            "thumbnail": "shopify://shop_images/2_1c5d6e6a-141d-4486-899c-7d79d6657c16.jpg",
+            "video_link": "https://www.youtube.com/watch?v=WAg1hiSBfqc",
+            "title": "Elena Manuylenko: Supplements",
+            "subtitle": "Fashion Products"
+          }
+        },
+        "video_card_3tJXMR": {
+          "type": "video_card",
+          "settings": {
+            "thumbnail": "shopify://shop_images/3_1c55ed56-3493-46fa-8865-ccfa312e405d.jpg",
+            "video_link": "https://www.youtube.com/watch?v=gZnWH__1mnM",
+            "title": "Chiara Mazzetto: Jewelry",
+            "subtitle": "Fashion Products"
+          }
+        }
+      },
+      "block_order": [
+        "video_card_e8nNML",
+        "video_card_gERfYY",
+        "video_card_3tJXMR"
+      ],
+      "name": "Video Card Section",
+      "settings": {
+        "heading": "Feedback from Our Clients",
+        "color_scheme": "",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 70,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "quick_stats_pxzeFb": {
+      "type": "quick-stats",
+      "blocks": {
+        "stat_xiC7U4": {
+          "type": "stat",
+          "settings": {
+            "value": "30 - 50%",
+            "label": "Lower Sourcing Cost"
+          }
+        },
+        "stat_MhqL7P": {
+          "type": "stat",
+          "settings": {
+            "value": "7 Day",
+            "label": "Faster Delivery"
+          }
+        },
+        "stat_UnEbfB": {
+          "type": "stat",
+          "settings": {
+            "value": "65%",
+            "label": "Fewer Returns"
+          }
+        }
+      },
+      "block_order": [
+        "stat_xiC7U4",
+        "stat_MhqL7P",
+        "stat_UnEbfB"
+      ],
+      "name": "Quick Stats",
+      "settings": {
+        "title": "What Differentiates Us",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "bg_image": "shopify://shop_images/Pattern_Bot.svg",
+        "bg_size": "contain",
+        "bg_position": "bottom center",
+        "bg_repeat": "no-repeat",
+        "footer_text": "Based on average results across PBfulfill customers.",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "rich_text_CwrytX": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_KjBkYn": {
+          "type": "heading",
+          "settings": {
+            "heading": "How a Fashion Seller Increased AOV by 48% with Premium Packaging",
+            "heading_size": "h1"
+          }
+        },
+        "button_yWc3xL": {
+          "type": "button",
+          "settings": {
+            "button_label": "Submit",
+            "button_link": "#myform",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_KjBkYn",
+        "button_yWc3xL"
+      ],
+      "disabled": true,
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "case_study_Pc4xKD": {
+      "type": "case-study",
+      "blocks": {
+        "solution_item_PDm46H": {
+          "type": "solution_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Step_icon_base.png",
+            "text": "Custom brand packaging options"
+          }
+        },
+        "solution_item_HBXNc6": {
+          "type": "solution_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Step_icon_base.png",
+            "text": "SKU merging to cut shipping costs"
+          }
+        },
+        "solution_item_KeGtE7": {
+          "type": "solution_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Step_icon_base.png",
+            "text": "Improved quality control workflows"
+          }
+        },
+        "outcome_item_KHrUnG": {
+          "type": "outcome_item",
+          "settings": {
+            "number": "+48%",
+            "label": "AOV",
+            "text_color": "#2962bd"
+          }
+        },
+        "outcome_item_tqGPdN": {
+          "type": "outcome_item",
+          "settings": {
+            "number": "+32%",
+            "label": "Repeat Purchase Rate",
+            "text_color": "#2962bd"
+          }
+        },
+        "outcome_item_7HNGdk": {
+          "type": "outcome_item",
+          "settings": {
+            "number": "-27%",
+            "label": "Refund Rate",
+            "text_color": "#2962bd"
+          }
+        }
+      },
+      "block_order": [
+        "solution_item_PDm46H",
+        "solution_item_HBXNc6",
+        "solution_item_KeGtE7",
+        "outcome_item_KHrUnG",
+        "outcome_item_tqGPdN",
+        "outcome_item_7HNGdk"
+      ],
+      "name": "Case Study Section",
+      "settings": {
+        "color_scheme": "",
+        "heading": "How a Fashion Seller Increased AOV by 48% with Premium Packaging",
+        "heading_size": "h1",
+        "button_label": "Learn More",
+        "button_link": "shopify://pages/private-label",
+        "img_before": "shopify://shop_images/ec3a2235da2ea9fe5e0bd3e3c41d1c4a3a8dcdc4.jpg",
+        "label_before": "Before",
+        "img_after": "shopify://shop_images/466e1e7e817d326e7b5beb557d7d7a4791d52191.jpg",
+        "label_after": "After",
+        "solution_title": "PBfulfill Solution",
+        "outcome_title": "Performance Impact",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "case_study_6XERty": {
+      "type": "case-study",
+      "blocks": {
+        "solution_item_6TRGif": {
+          "type": "solution_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Step_icon_base.png",
+            "text": "U.S. warehouse stocking"
+          }
+        },
+        "solution_item_9aEgMG": {
+          "type": "solution_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Step_icon_base.png",
+            "text": "Same-day dispatch guarantee"
+          }
+        },
+        "solution_item_HirrKW": {
+          "type": "solution_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Step_icon_base.png",
+            "text": "Video QC to ensure zero defects"
+          }
+        },
+        "outcome_item_Uh84Yc": {
+          "type": "outcome_item",
+          "settings": {
+            "number": "1–3 Days",
+            "label": "Reduced Delivery Time",
+            "text_color": "#2962bd"
+          }
+        },
+        "outcome_item_Cf9GYw": {
+          "type": "outcome_item",
+          "settings": {
+            "number": "4.1 → 4.8",
+            "label": "Improved Store Rating",
+            "text_color": "#2962bd"
+          }
+        },
+        "outcome_item_YN7Wiq": {
+          "type": "outcome_item",
+          "settings": {
+            "number": "10×",
+            "label": "Monthly Sales Growth",
+            "text_color": "#2962bd"
+          }
+        }
+      },
+      "block_order": [
+        "solution_item_6TRGif",
+        "solution_item_9aEgMG",
+        "solution_item_HirrKW",
+        "outcome_item_Uh84Yc",
+        "outcome_item_Cf9GYw",
+        "outcome_item_YN7Wiq"
+      ],
+      "name": "Case Study Section",
+      "settings": {
+        "color_scheme": "",
+        "heading": "From 50 Orders to 800 Orders Weekly — Scaling With PBfulfill’s U.S. Warehouse",
+        "heading_size": "h1",
+        "button_label": "Learn More",
+        "button_link": "shopify://pages/global-warehouse",
+        "img_before": "shopify://shop_images/f28a0e15dba2b451bfb8c00bc3926cdf8431339c.jpg",
+        "label_before": "Before",
+        "img_after": "shopify://shop_images/1ba50e0276469575a4112847b9404cac495a27e5.jpg",
+        "label_after": "After",
+        "solution_title": "PBfulfill Solution",
+        "outcome_title": "Performance Impact",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "case_study_RABpwV": {
+      "type": "case-study",
+      "blocks": {
+        "solution_item_8B9Xwj": {
+          "type": "solution_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Step_icon_base.png",
+            "text": "Multi-factory stocking for stable supply"
+          }
+        },
+        "solution_item_yfUVNf": {
+          "type": "solution_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Step_icon_base.png",
+            "text": "Dedicated sourcing negotiation (28% cost down)"
+          }
+        },
+        "solution_item_H3TJtm": {
+          "type": "solution_item",
+          "settings": {
+            "icon_image": "shopify://shop_images/Step_icon_base.png",
+            "text": "Daily batch sampling by QC team"
+          }
+        },
+        "outcome_item_Cz3Adq": {
+          "type": "outcome_item",
+          "settings": {
+            "number": "3 Months",
+            "label": "Steadily Product Supply",
+            "text_color": "#2962bd"
+          }
+        },
+        "outcome_item_CUGJnD": {
+          "type": "outcome_item",
+          "settings": {
+            "number": "+40%",
+            "label": "Increased ROAS",
+            "text_color": "#2962bd"
+          }
+        },
+        "outcome_item_ihpFJP": {
+          "type": "outcome_item",
+          "settings": {
+            "number": "-30%",
+            "label": "Reduced inventory backlog",
+            "text_color": "#2962bd"
+          }
+        }
+      },
+      "block_order": [
+        "solution_item_8B9Xwj",
+        "solution_item_yfUVNf",
+        "solution_item_H3TJtm",
+        "outcome_item_Cz3Adq",
+        "outcome_item_CUGJnD",
+        "outcome_item_ihpFJP"
+      ],
+      "name": "Case Study Section",
+      "settings": {
+        "color_scheme": "",
+        "heading": "From Viral → Sustainable: How PBfulfill Stabilized a TikTok Winning Product",
+        "heading_size": "h1",
+        "button_label": "Learn More",
+        "button_link": "shopify://pages/product-sourcing",
+        "img_before": "shopify://shop_images/e770b5a794fb27b1c1e95e07efb9d491fd3b6448.jpg",
+        "label_before": "Before",
+        "img_after": "shopify://shop_images/e21f0048dddebfd7887c73bca84a4fde3ea78dea.jpg",
+        "label_after": "After",
+        "solution_title": "PBfulfill Solution",
+        "outcome_title": "Performance Impact",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "cta_banner_DpfEfX": {
+      "type": "cta-banner",
+      "blocks": {
+        "heading_9jiie4": {
+          "type": "heading",
+          "settings": {
+            "heading": "Get ready to Get Similar Results!",
+            "heading_size": "h1",
+            "font_weight": "600"
+          }
+        },
+        "button_f8RxMG": {
+          "type": "button",
+          "settings": {
+            "button_label": "Get a Free Quote",
+            "button_link": "shopify://pages/contact",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_9jiie4",
+        "button_f8RxMG"
+      ],
+      "name": "CTA Banner",
+      "settings": {
+        "color_scheme": "",
+        "card_bg_image": "shopify://shop_images/Background_pattern_1.png",
+        "rainbow_image": "shopify://shop_images/c23e5f4e08119a8d0c0458e0f3678534efaeda2c_1.png",
+        "rainbow_alt": "",
+        "airplane_image": "shopify://shop_images/Group_10.png",
+        "airplane_alt": "",
+        "grid_opacity": 20,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_banner_MCaKmP",
+    "why_private_label_xdjzAe",
+    "featured_testimonial_A9CDeW",
+    "success_stories_enafGt",
+    "quick_stats_pxzeFb",
+    "rich_text_CwrytX",
+    "case_study_Pc4xKD",
+    "case_study_6XERty",
+    "case_study_RABpwV",
+    "cta_banner_DpfEfX"
+  ]
 }
