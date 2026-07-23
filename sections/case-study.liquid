@@ -1,0 +1,288 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient cs-wrapper"
+     {% if section.settings.bg_image != blank %}
+     style="background-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}');"
+     {% endif %}>
+  
+  <div class="page-width section-{{ section.id }}-padding cs-inner">
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="cs-main-heading center {{ section.settings.heading_size }}">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="cs-button-wrapper center">
+        <a href="{{ section.settings.button_link | default: '#' }}" class="button button--primary">
+          {{ section.settings.button_label | escape }}
+        </a>
+      </div>
+    {%- endif -%}
+
+    <div class="cs-images-grid">
+      <div class="cs-image-box color-background-1">
+        {% if section.settings.img_before %}
+          {{ section.settings.img_before | image_url: width: 800 | image_tag: loading: 'lazy', class: 'cs-img' }}
+        {% else %}
+          {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg cs-placeholder' }}
+        {% endif %}
+        <h3 class="cs-badge color-background-2">{{ section.settings.label_before }}</h3>
+      </div>
+      
+      <div class="cs-image-box color-background-1">
+        {% if section.settings.img_after %}
+          {{ section.settings.img_after | image_url: width: 800 | image_tag: loading: 'lazy', class: 'cs-img' }}
+        {% else %}
+          {{ 'product-2' | placeholder_svg_tag: 'placeholder-svg cs-placeholder' }}
+        {% endif %}
+        <h3 class="cs-badge color-background-2">{{ section.settings.label_after }}</h3>
+      </div>
+    </div>
+
+    <div class="cs-card color-background-1">
+      <h3 class="cs-card-title h4">{{ section.settings.solution_title }}</h3>
+      <div class="cs-solution-grid">
+        {% for block in section.blocks %}
+         {% if block.type == 'solution_item' %}
+  <div class="cs-solution-item" {{ block.shopify_attributes }}>
+    <div class="cs-icon">
+      {% if block.settings.icon_image != blank %}
+        {{ block.settings.icon_image | image_url: width: 60 | image_tag: loading: 'lazy', alt: block.settings.icon_image.alt | default: block.settings.text | escape }}
+      {% endif %}
+    </div>
+    <p class="cs-solution-text">{{ block.settings.text }}</p>
+  </div>
+{% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="cs-card color-background-1">
+      <h3 class="cs-card-title h4">{{ section.settings.outcome_title }}</h3>
+      <div class="cs-outcome-grid">
+        {% for block in section.blocks %}
+          {% if block.type == 'outcome_item' %}
+            <div class="cs-outcome-item" {{ block.shopify_attributes }}>
+              <span class="cs-stat-number" style="color: {{ block.settings.text_color }};">
+                {{ block.settings.number }}
+              </span>
+              <span class="cs-stat-label">{{ block.settings.label }}</span>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Case Study Section",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Pattern"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "How a U.S. Fashion Seller Increased AOV by 48% with Premium Packaging"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "View Full Case Study"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Before / After Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_before",
+      "label": "Before Image"
+    },
+    {
+      "type": "text",
+      "id": "label_before",
+      "label": "Before Label",
+      "default": "Before"
+    },
+    {
+      "type": "image_picker",
+      "id": "img_after",
+      "label": "After Image"
+    },
+    {
+      "type": "text",
+      "id": "label_after",
+      "label": "After Label",
+      "default": "After"
+    },
+    {
+      "type": "header",
+      "content": "Solution Card"
+    },
+    {
+      "type": "text",
+      "id": "solution_title",
+      "label": "Solution Title",
+      "default": "PBfulfill Solution"
+    },
+    {
+      "type": "header",
+      "content": "Outcome Card"
+    },
+    {
+      "type": "text",
+      "id": "outcome_title",
+      "label": "Outcome Title",
+      "default": "Outcome"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "solution_item",
+      "name": "Solution Item",
+      "settings": [
+   {
+  "type": "image_picker",
+  "id": "icon_image",
+  "label": "Icon Image",
+  "info": "Upload an image or SVG file to use as the icon."
+},
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Feature Text",
+          "default": "Custom logo packaging & branding set"
+        }
+      ]
+    },
+    {
+      "type": "outcome_item",
+      "name": "Outcome Stat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Stat Number",
+          "default": "+48%"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Stat Label",
+          "default": "AOV"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Number Color",
+          "default": "#2962bd"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Case Study Section",
+      "blocks": [
+        { "type": "solution_item", "settings": { "text": "Custom logo packaging & branding set" } },
+        { "type": "solution_item", "settings": { "text": "SKU merge to reduce logistics cost" } },
+        { "type": "solution_item", "settings": { "text": "Improved QC process" } },
+        { "type": "outcome_item", "settings": { "number": "+48%", "label": "AOV" } },
+        { "type": "outcome_item", "settings": { "number": "+32%", "label": "Repeat Rate" } },
+        { "type": "outcome_item", "settings": { "number": "-27%", "label": "Refund Rate" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

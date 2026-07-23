@@ -1,0 +1,419 @@
+{% schema %}
+{
+  "name": "What Partners Receive",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What Partners Receive"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer Text",
+      "default": "We support your growth every step of the way."
+    },
+    {
+      "type": "header",
+      "content": "Theme Styling"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image",
+      "info": "Will display behind the cards. Overrides grid pattern if used."
+    },
+    {
+      "type": "select",
+      "id": "bg_position",
+      "label": "Background Image Position",
+      "options": [
+        { "value": "top center", "label": "Top Center" },
+        { "value": "center center", "label": "Center" },
+        { "value": "bottom center", "label": "Bottom Center" }
+      ],
+      "default": "top center"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_grid_pattern",
+      "label": "Show subtle grid background pattern",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad (Desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad (Desktop)",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad (Mobile)",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad (Mobile)",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Resource Card",
+      "limit": 6,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title",
+          "default": "Media kit & copy library"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "What Partners Receive",
+      "blocks": [
+        { "type": "card", "settings": { "title": "Branding assets" } },
+        { "type": "card", "settings": { "title": "Media kit & copy library" } },
+        { "type": "card", "settings": { "title": "Product images & packaging shots" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+
+<section class="wpr-section color-{{ section.settings.color_scheme }} gradient" 
+         style="
+           {% if section.settings.bg_image != blank %}
+             background-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}'); 
+             background-position: {{ section.settings.bg_position }}; 
+             background-size: cover; 
+             background-repeat: no-repeat;
+           {% endif %}
+         ">
+  
+  {% if section.settings.show_grid_pattern and section.settings.bg_image == blank %}
+    <div class="wpr-grid-pattern"></div>
+  {% endif %}
+
+  <div class="wpr-container page-width">
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="h1">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="swiper wpr-swiper-container">
+      <div class="wpr-grid swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="wpr-card swiper-slide" {{ block.shopify_attributes }}>
+            <div class="wpr-image-wrapper">
+              {% if block.settings.image != blank %}
+                <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.title }}" loading="lazy">
+              {% else %}
+                 {{ 'collection-1' | placeholder_svg_tag: 'wpr-placeholder' }}
+              {% endif %}
+            </div>
+            
+            {% if block.settings.title != blank %}
+              <h3 class="wpr-card-title">{{ block.settings.title }}</h3>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="mobile-swiper-controls hide-on-desktop">
+        <div class="swiper-button-prev custom-swiper-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </div>
+        <div class="swiper-pagination custom-swiper-pagination"></div>
+        <div class="swiper-button-next custom-swiper-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    {% if section.settings.footer_text != blank %}
+      <div class="pl-footer-wrapper">
+      <div class="pl-footer-text">{{ section.settings.footer_text }}</div>
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+<style>
+  /* Base Section Styles */
+  .wpr-section {
+    position: relative;
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  @media screen and (min-width: 750px) {
+    .wpr-section {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* Subtle Background Grid Pattern */
+  .wpr-grid-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+      linear-gradient(to right, rgba(var(--color-foreground), 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(var(--color-foreground), 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .wpr-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .wpr-heading {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 50px;
+    color: rgba(var(--color-foreground), 1); /* Adapts to Dawn color scheme */
+  }
+
+  /* Desktop Grid Layout */
+  .wpr-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    margin-bottom: 40px;
+  }
+
+.wpr-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 16px 16px 24px 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.02);
+    max-height: max-content;
+}
+  
+  .wpr-card:hover { 
+    transform: translateY(-5px); 
+  }
+
+  /* Image Wrapper & Image */
+  .wpr-image-wrapper {
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 18px;
+    background: #f1f5f9;
+  }
+
+  .wpr-image-wrapper img, .wpr-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  
+  .wpr-placeholder { 
+    fill: #94a3b8; 
+  }
+
+  .wpr-card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #475569;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+
+
+  /* --- SWIPER MOBILE CONTROLS STYLES --- */
+  .mobile-swiper-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .custom-swiper-btn {
+    position: static;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #4070d6;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 0;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(64, 112, 214, 0.25);
+  }
+
+  .custom-swiper-btn::after { display: none; }
+  .custom-swiper-btn.swiper-button-disabled { opacity: 0.4; cursor: not-allowed; box-shadow: none; }
+  .custom-swiper-btn svg { width: 20px; height: 20px; }
+
+  /* Container for the dots */
+  .custom-swiper-pagination {
+    position: static !important;
+    width: auto !important;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: #ffffff;
+    padding: 10px 16px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Base style for inactive dots */
+  .custom-swiper-pagination .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background-color: #d1d5db;
+    border-radius: 8px;
+    opacity: 1;
+    margin: 0 !important;
+    transition: all 0.3s ease;
+  }
+
+  /* Style for the active stretched pill */
+  .custom-swiper-pagination .swiper-pagination-bullet-active {
+    width: 24px;
+    background-color: #4070d6 !important;
+  }
+
+  /* Hide mobile controls on Desktop */
+  @media screen and (min-width: 769px) {
+    .hide-on-desktop { display: none !important; }
+    .wpr-swiper-container { overflow: visible; }
+    .wpr-grid { display: grid !important; }
+  }
+
+  /* Override Layout for Mobile Swiper */
+  @media screen and (max-width: 768px) {
+    .wpr-grid.swiper-wrapper {
+      display: flex;
+      gap: 0;
+      margin-bottom: 0;
+    }
+    
+    .wpr-heading {
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+    
+    .wpr-card {
+      padding: 12px 12px 20px 12px;
+    }
+    .wpr-image-wrapper {
+      margin-bottom: 14px;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let wprSwiper;
+    
+    function initOrDestroySwiper() {
+      const isMobile = window.innerWidth <= 768;
+      
+      if (isMobile && !wprSwiper) {
+        wprSwiper = new Swiper('.wpr-swiper-container', {
+          slidesPerView: 1.15, 
+          centeredSlides: true,
+          spaceBetween: 15,
+          observer: true,
+          observeParents: true,
+          pagination: {
+            el: '.custom-swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next.custom-swiper-btn',
+            prevEl: '.swiper-button-prev.custom-swiper-btn',
+          },
+        });
+      } else if (!isMobile && wprSwiper) {
+        wprSwiper.destroy(true, true);
+        wprSwiper = undefined;
+      }
+    }
+
+    initOrDestroySwiper();
+    window.addEventListener('resize', initOrDestroySwiper);
+  });
+</script>

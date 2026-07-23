@@ -1,0 +1,271 @@
+{% schema %}
+{
+  "name": "Quick Stats",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "Quick Stats"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Background Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "select",
+      "id": "bg_size",
+      "label": "Image Size",
+      "options": [
+        { "value": "cover", "label": "Cover (Fills section)" },
+        { "value": "contain", "label": "Contain (Shows full image)" },
+        { "value": "auto", "label": "Auto (Original size)" }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "select",
+      "id": "bg_position",
+      "label": "Image Position",
+      "options": [
+        { "value": "top left", "label": "Top Left" },
+        { "value": "top center", "label": "Top Center" },
+        { "value": "top right", "label": "Top Right" },
+        { "value": "center left", "label": "Center Left" },
+        { "value": "center center", "label": "Center Center" },
+        { "value": "center right", "label": "Center Right" },
+        { "value": "bottom left", "label": "Bottom Left" },
+        { "value": "bottom center", "label": "Bottom Center" },
+        { "value": "bottom right", "label": "Bottom Right" }
+      ],
+      "default": "top center"
+    },
+    {
+      "type": "select",
+      "id": "bg_repeat",
+      "label": "Image Repeat",
+      "options": [
+        { "value": "no-repeat", "label": "No Repeat" },
+        { "value": "repeat", "label": "Repeat" },
+        { "value": "repeat-x", "label": "Repeat Horizontally" },
+        { "value": "repeat-y", "label": "Repeat Vertically" }
+      ],
+      "default": "no-repeat"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer Text",
+      "default": "Based on PBfulfill's aggregated customer statistics"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat Item",
+      "limit": 3,
+      "settings": [
+        { "type": "text", "id": "value", "label": "Stat Value", "default": "50%" },
+        { "type": "text", "id": "label", "label": "Stat Label", "default": "Lower cost" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quick Stats",
+      "blocks": [
+        { "type": "stat", "settings": { "value": "30 - 50%", "label": "lower sourcing cost" } },
+        { "type": "stat", "settings": { "value": "7 Day", "label": "faster delivery" } },
+        { "type": "stat", "settings": { "value": "65%", "label": "Fewer returns" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="color-{{ section.settings.color_scheme }} gradient qs-wrapper"
+     {% if section.settings.bg_image != blank %}
+     style="
+       background-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}');
+       background-size: {{ section.settings.bg_size }};
+       background-position: {{ section.settings.bg_position }};
+       background-repeat: {{ section.settings.bg_repeat }};
+     "
+     {% endif %}>
+
+  <div class="page-width section-{{ section.id }}-padding qs-inner">
+    
+    {% if section.settings.title != blank %}
+      <h2 class="qs-title center {{ section.settings.heading_size }}">{{ section.settings.title }}</h2>
+    {% endif %}
+
+    <div class="qs-card color-background-1">
+      <div class="qs-grid">
+        {% for block in section.blocks %}
+          <h3 class="qs-item" {{ block.shopify_attributes }}>
+            <span class="qs-val">{{ block.settings.value }}</span>
+            <span class="qs-label">{{ block.settings.label }}</span>
+          </h3>
+        {% endfor %}
+      </div>
+    </div>
+
+    {% if section.settings.footer_text != blank %}
+      <div class="pl-footer-wrapper">
+      <p class="pl-footer-text">{{ section.settings.footer_text }}</p>
+      </div>
+    {% endif %}
+
+  </div>
+</div>
+
+<style>
+  .qs-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .qs-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .qs-title {
+    margin-bottom: 4rem;
+    font-weight: 600;
+    color: #4a5568;
+  }
+  .qs-card {
+    background: #F8FAFC;
+    border-radius: 16px;
+    padding: 6rem 4rem;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0px 15px 40px rgba(0,0,0,0.04);
+    border: 1px solid rgba(226, 232, 240, 0.6);
+  }
+  .qs-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 2rem;
+  }
+  .qs-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    flex: 1;
+  }
+  .qs-val {
+    font-size: 4.2rem;
+    font-weight: 600;
+    color: #2961BE;
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+  .qs-label {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #4a5568;
+    margin: 0;
+  }
+  .qs-footer {
+    font-size: 1.2rem;
+    color: #718096;
+    margin: 0;
+    font-weight: 500;
+  }
+  @media screen and (max-width: 749px) {
+    .qs-grid {
+      flex-direction: column;
+      gap: 4rem;
+    }
+    .qs-card {
+      padding: 4rem 2rem;
+    }
+    .qs-val {
+      font-size: 3.6rem;
+    }
+  }
+</style>

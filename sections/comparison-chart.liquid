@@ -1,0 +1,236 @@
+{%- style -%}
+  .cc-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    position: relative;
+    overflow: hidden;
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .cc-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .cc-bg-image { position: absolute; bottom: 0; left: 0; width: 100%; height: 60%; z-index: 0; pointer-events: none; opacity: 0.6; }
+  .cc-bg-image img { width: 100%; height: 100%; object-fit: cover; }
+  /* .cc-container { max-width: 1100px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; } */
+  .cc-container::-webkit-scrollbar { display: none; }
+  
+  .cc-grid {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 24px;
+    flex-wrap: nowrap;
+    padding-block: 40px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch; /* Ensures smooth momentum scrolling on iOS */
+  }
+  
+  h2.cc-heading.h1 {
+    text-align: center;
+  }
+  
+  @media (min-width: 1100px) { .cc-grid { justify-content: center; } }
+  
+  .cc-card { background: rgb(var(--color-background)); color: rgb(var(--color-foreground)); border-radius: 16px; padding: 40px 30px; flex: 1; max-width: 340px; min-width: 280px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); display: flex; flex-direction: column; border: 1px solid rgba(var(--color-foreground), 0.08); scroll-snap-align: center; } /* Added scroll-snap for better mobile feel */
+  .cc-card-header { text-align: center; padding-bottom: 30px; margin-bottom: 30px; border-bottom: 1px solid rgba(var(--color-foreground), 0.1); min-height: 120px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+  .cc-logo-img { max-width: 180px; height: auto; margin-bottom: 10px; }
+  .cc-logo-text { font-size: 2.4rem; font-weight: 700; opacity: 0.6; }
+  .cc-subtitle { font-size: 1.4rem; opacity: 0.7; margin-top: 8px; font-weight: 500; }
+  .cc-list { display: flex; flex-direction: column; gap: 18px; }
+  .cc-item { display: flex; align-items: center; gap: 12px; font-size: 1.5rem; }
+  .cc-item svg { width: 20px; height: 20px; flex-shrink: 0; }
+  
+  .cc-card.is-hero { border: 2px solid {{ section.settings.highlight_color }}; box-shadow: 0 10px 40px rgba(var(--color-foreground), 0.1); transform: scale(1.05); z-index: 2; }
+  .cc-card.is-hero .cc-logo-text { opacity: 1; }
+  
+  @media (max-width: 767px) { 
+    .cc-container.page-width {
+    padding: 0px;
+}
+    .cc-grid {
+       /* Optional: Adds "snap" to the scrolling on mobile */
+       scroll-snap-type: x mandatory; 
+       padding-inline: 20px; /* Gives initial edge spacing */
+    }
+    .cc-card.is-hero { transform: scale(1); } 
+  }
+{%- endstyle -%}
+
+<div class="cc-section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient" id="CompSection-{{ section.id }}">
+  {% if section.settings.bg_image != blank %}
+    <div class="cc-bg-image"><img src="{{ section.settings.bg_image | image_url: width: 2000 }}" loading="lazy" alt="Background"></div>
+  {% endif %}
+
+  <div class="cc-container page-width">
+    {% if section.settings.heading != blank %}<h2 class="cc-heading h1">{{ section.settings.heading | escape }}</h2>{% endif %}
+
+    <div class="cc-grid" id="CompGrid-{{ section.id }}">
+      {% comment %} --- Card 1 --- {% endcomment %}
+      <div class="cc-card">
+        <div class="cc-card-header">
+          {% if section.settings.c1_logo != blank %}<img src="{{ section.settings.c1_logo | image_url: width: 300 }}" class="cc-logo-img" alt="Logo">
+          {% else %}<div class="cc-logo-text">{{ section.settings.c1_title }}</div>{% endif %}
+          <div class="cc-subtitle">{{ section.settings.c1_sub }}</div>
+        </div>
+        <div class="cc-list">
+          {% for block in section.blocks %}<div class="cc-item">
+            {% if block.settings.status_1 == 'check' %}<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><g clip-path="url(#clip0_367_6553)"><path d="M7.5 12L10.5 15L16.5 9M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#2961BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_367_6553"><rect width="24" height="24" rx="12" fill="white"/></clipPath></defs></svg>
+            {% else %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" opacity="0.3" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg>{% endif %}
+            <span>{{ block.settings.title }}</span>
+          </div>{% endfor %}
+        </div>
+      </div>
+
+      {% comment %} --- Card 2 (Hero) --- {% endcomment %}
+      <div class="cc-card is-hero" id="HeroCard-{{ section.id }}">
+        <div class="cc-card-header">
+          {% if section.settings.c2_logo != blank %}
+            <img src="{{ section.settings.c2_logo | image_url: width: 400 }}" class="cc-logo-img" alt="PBFulfill Logo">
+          {% else %}
+            <div class="cc-logo-text">PBFulfill</div>
+          {% endif %}
+          
+          {% if section.settings.c2_sub != blank %}
+            <h3 class="cc-hero-subtitle">{{ section.settings.c2_sub | escape }}</h3>
+          {% endif %}
+        </div>
+
+        <div class="cc-list">
+          {% for block in section.blocks %}
+            <div class="cc-item">
+              {% if block.settings.status_2 == 'check' %}
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><g clip-path="url(#clip0_367_6553)"><path d="M7.5 12L10.5 15L16.5 9M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#2961BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g></svg>
+              {% else %}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" opacity="0.3" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              {% endif %}
+              <h3 class="h3-list">{{ block.settings.title }}</h3>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% comment %} --- Card 3 --- {% endcomment %}
+      <div class="cc-card">
+        <div class="cc-card-header">
+          {% if section.settings.c3_logo != blank %}<img src="{{ section.settings.c3_logo | image_url: width: 300 }}" class="cc-logo-img" alt="Logo">
+          {% else %}<div class="cc-logo-text">{{ section.settings.c3_title }}</div>{% endif %}
+          <div class="cc-subtitle">{{ section.settings.c3_sub }}</div>
+        </div>
+        <div class="cc-list">
+          {% for block in section.blocks %}<div class="cc-item">
+            {% if block.settings.status_3 == 'check' %}<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><g clip-path="url(#clip0_367_6553)"><path d="M7.5 12L10.5 15L16.5 9M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#2961BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_367_6553"><rect width="24" height="24" rx="12" fill="white"/></clipPath></defs></svg>
+            {% else %}<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" opacity="0.3" stroke-width="3"><path d="M18 6L6 18M6 6l12 12"/></svg>{% endif %}
+            <span>{{ block.settings.title }}</span>
+          </div>{% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Simple script to center the hero card on load, specifically for smaller screens
+  document.addEventListener("DOMContentLoaded", function() {
+    const gridContainer = document.getElementById('CompGrid-{{ section.id }}');
+    const heroCard = document.getElementById('HeroCard-{{ section.id }}');
+
+    if (gridContainer && heroCard) {
+      // Calculate the offset required to center the hero card
+      const scrollPosition = heroCard.offsetLeft - (gridContainer.clientWidth / 2) + (heroCard.clientWidth / 2);
+      
+      // Use setTimeOut to ensure rendering is complete before scrolling
+      setTimeout(() => {
+        gridContainer.scrollTo({
+          left: scrollPosition,
+          behavior: 'smooth'
+        });
+      }, 300); // 300ms delay allows the browser paint to finish
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Comparison Chart Section",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "background-1" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "PBFulfill vs Others" },
+    { "type": "image_picker", "id": "bg_image", "label": "Background Grid Pattern" },
+    { "type": "color", "id": "bg_color", "label": "Background Override", "default": "transparent" },
+    { "type": "color", "id": "highlight_color", "label": "Checkmark/Hero Color", "default": "#3B99FC" },
+    { "type": "header", "content": "Card 1 (Left)" },
+    { "type": "text", "id": "c1_title", "label": "Title", "default": "AliExpress" },
+    { "type": "image_picker", "id": "c1_logo", "label": "Logo" },
+    { "type": "text", "id": "c1_sub", "label": "Subtitle", "default": "Inspection" },
+    { "type": "header", "content": "Card 2 (Hero)" },
+    { "type": "image_picker", "id": "c2_logo", "label": "Main Logo" },
+    { "type": "text", "id": "c2_sub", "label": "Subtitle", "default": "Inspection" },
+    { "type": "header", "content": "Card 3 (Right)" },
+    { "type": "text", "id": "c3_title", "label": "Title", "default": "3rd-Party Agents" },
+    { "type": "image_picker", "id": "c3_logo", "label": "Logo" },
+    { "type": "text", "id": "c3_sub", "label": "Subtitle", "default": "Inspection" },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Feature Name", "default": "Price" },
+        { "type": "select", "id": "status_1", "label": "Left Status", "options": [{ "value": "check", "label": "Check" }, { "value": "cross", "label": "Cross" }], "default": "cross" },
+        { "type": "select", "id": "status_2", "label": "Center Status", "options": [{ "value": "check", "label": "Check" }, { "value": "cross", "label": "Cross" }], "default": "check" },
+        { "type": "select", "id": "status_3", "label": "Right Status", "options": [{ "value": "check", "label": "Check" }, { "value": "cross", "label": "Cross" }], "default": "cross" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Comparison Chart Section" }]
+}
+{% endschema %}

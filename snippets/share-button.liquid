@@ -1,0 +1,95 @@
+{%- liquid
+  # 1. Clean up the share_link by removing the domain if it already exists
+  assign cleaned_link = share_link | remove: shop.url | remove: 'https://' | remove: 'http://' | remove: 'pbfulfill.com'
+  
+  # 2. Rebuild the URL correctly with one single domain
+  assign full_share_url = shop.url | append: cleaned_link
+-%}
+
+<style>
+  .custom-share-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  
+  .custom-share-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    color: #9ca3af; /* Icon color */
+  }
+
+  .custom-share-btn:hover {
+    background-color: #f9fafb;
+    border-color: #9ca3af;
+  }
+
+  .share-copy-btn {
+    padding: 8px 14px;
+    gap: 8px;
+    color: #4b5563; /* Darker grey for text and icon */
+  }
+
+  .share-copy-btn .copy-text {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .share-social-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .custom-share-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+</style>
+
+<div class="custom-share-row" {{ block.shopify_attributes }}>
+  
+  <button type="button" class="custom-share-btn share-copy-btn" data-link="{{ full_share_url | escape }}">
+    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+      <path d="M3.33203 11.6663C2.55546 11.6663 2.16718 11.6663 1.86089 11.5395C1.45251 11.3703 1.12806 11.0459 0.958899 10.6375C0.832031 10.3312 0.832031 9.94291 0.832031 9.16634V3.49967C0.832031 2.56625 0.832031 2.09954 1.01369 1.74302C1.17348 1.42942 1.42844 1.17445 1.74205 1.01466C2.09857 0.833008 2.56528 0.833008 3.4987 0.833008H9.16536C9.94193 0.833008 10.3302 0.833008 10.6365 0.959875C11.0449 1.12903 11.3693 1.45349 11.5385 1.86187C11.6654 2.16815 11.6654 2.55644 11.6654 3.33301M9.33203 17.4997H14.832C15.7655 17.4997 16.2322 17.4997 16.5887 17.318C16.9023 17.1582 17.1573 16.9033 17.317 16.5897C17.4987 16.2331 17.4987 15.7664 17.4987 14.833V9.33301C17.4987 8.39959 17.4987 7.93288 17.317 7.57636C17.1573 7.26275 16.9023 7.00779 16.5887 6.848C16.2322 6.66634 15.7655 6.66634 14.832 6.66634H9.33203C8.39861 6.66634 7.9319 6.66634 7.57538 6.848C7.26178 7.00779 7.00681 7.26275 6.84702 7.57636C6.66536 7.93288 6.66536 8.39959 6.66536 9.33301V14.833C6.66536 15.7664 6.66536 16.2331 6.84702 16.5897C7.00681 16.9033 7.26178 17.1582 7.57538 17.318C7.9319 17.4997 8.39861 17.4997 9.33203 17.4997Z" stroke="currentColor" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    {%- if section.settings.copy_text_label != blank -%}
+      <span class="copy-text">
+        {{ section.settings.copy_text_label | escape }}
+      </span>
+    {%- endif -%}
+  </button>
+  
+  </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const copyBtns = document.querySelectorAll('.share-copy-btn');
+    
+    copyBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const link = this.getAttribute('data-link');
+        const textSpan = this.querySelector('.copy-text');
+        const originalText = textSpan.innerText;
+
+        navigator.clipboard.writeText(link).then(() => {
+          textSpan.innerText = 'Copied!';
+          setTimeout(() => {
+            textSpan.innerText = originalText;
+          }, 2000);
+        }).catch(err => {
+          console.error('Failed to copy text: ', err);
+        });
+      });
+    });
+  });
+</script>

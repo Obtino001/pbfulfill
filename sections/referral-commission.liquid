@@ -1,0 +1,185 @@
+
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    {% if section.settings.custom_bg != blank %}
+      background-image: url('{{ section.settings.custom_bg | image_url: width: 2000 }}'); 
+      background-size: {{ section.settings.bg_size }}; 
+      background-repeat: {{ section.settings.bg_repeat }}; 
+      background-position: {{ section.settings.bg_position }};
+    {% endif %}
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="rc-section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="rc-bg-grid"></div>
+
+  <div class="rc-container page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="rc-heading h1">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="rc-grid-wrapper">
+      {%- for block in section.blocks -%}
+        <div class="rc-card" {{ block.shopify_attributes }}>
+          <h3 class="rc-label">{{ block.settings.label }}</h3>
+          <span class="rc-value">{{ block.settings.value }}</span>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.btn_text != blank -%}
+      <div class="rc-actions">
+        <a href="{{ section.settings.btn_link }}" class="button button--primary">{{ section.settings.btn_text }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Referral Commission",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Earn up to 15% Commission for Every Referred Seller"
+    },
+    {
+      "type": "header",
+      "content": "Background Image Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "custom_bg",
+      "label": "Background Image"
+    },
+    {
+      "type": "select",
+      "id": "bg_size",
+      "label": "Background Size",
+      "options": [
+        { "value": "auto", "label": "Auto" },
+        { "value": "cover", "label": "Cover" },
+        { "value": "contain", "label": "Contain" }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "select",
+      "id": "bg_repeat",
+      "label": "Background Repeat",
+      "options": [
+        { "value": "no-repeat", "label": "No Repeat" },
+        { "value": "repeat", "label": "Repeat" }
+      ],
+      "default": "no-repeat"
+    },
+    {
+      "type": "select",
+      "id": "bg_position",
+      "label": "Background Position",
+      "options": [
+        { "value": "top center", "label": "Top Center" },
+        { "value": "center center", "label": "Center" },
+        { "value": "bottom center", "label": "Bottom Center" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button Label",
+      "default": "Contact Us"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "commission_card",
+      "name": "Commission Card",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "Cookie" },
+        { "type": "text", "id": "value", "label": "Value", "default": "60 Days" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Referral Commission",
+      "blocks": [
+        { "type": "commission_card", "settings": { "label": "Cookie", "value": "60 Days" } },
+        { "type": "commission_card", "settings": { "label": "Minimum Payout", "value": "$50" } },
+        { "type": "commission_card", "settings": { "label": "Recurring Commision", "value": "Yes" } },
+        { "type": "commission_card", "settings": { "label": "Payout via", "value": "Paypal / Bank Transfer" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

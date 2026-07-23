@@ -1,0 +1,178 @@
+
+
+{%- style -%}
+  .dsc-section-{{ section.id }} { 
+    margin-top: {{ section.settings.dt_margin_offset }}%; 
+    padding-top: {{ section.settings.padding_top_mobile }}px; 
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px; 
+  }
+  @media screen and (min-width: 750px) { 
+    .dsc-section-{{ section.id }} { 
+      padding-top: {{ section.settings.padding_top }}px; 
+      padding-bottom: {{ section.settings.padding_bottom }}px; 
+    } 
+  }
+  @media (max-width: 500px) { 
+    .dsc-section-{{ section.id }} { 
+      margin-top: {{ section.settings.mb_margin_offset }}%; 
+    } 
+  }
+{%- endstyle -%}
+
+<section class="dsc-section dsc-section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="dsc-grid">
+      {%- for block in section.blocks -%}
+        <article class="dsc-card" {{ block.shopify_attributes }}>
+          
+          <div class="dsc-header">
+            <span class="dsc-title">{{ block.settings.title | escape }}</span>
+            <span class="dsc-value">{{ block.settings.highlight_value | escape }}</span>
+          </div>
+
+          <div class="dsc-chart-area">
+            <div class="dsc-y-axis">
+              {%- assign y_values = block.settings.y_axis | newline_to_br | split: '<br />' -%}
+              {%- for val in y_values -%}
+                <span>{{ val | strip }}</span>
+              {%- endfor -%}
+            </div>
+
+            <div class="dsc-graph-wrapper">
+              {%- if block.settings.chart_line != blank -%}
+                {{ block.settings.chart_line | image_url: width: 600 | image_tag: alt: 'Graph line', class: 'dsc-graph-img', loading: 'lazy' }}
+              {%- else -%}
+                <div style="width:100%; height:100%;"></div>
+              {%- endif -%}
+
+              {%- if block.settings.tooltip_text != blank -%}
+                <div class="dsc-tooltip" style="top: {{ block.settings.tooltip_top }}%; left: {{ block.settings.tooltip_left }}%;">
+                  {{ block.settings.tooltip_text | escape }}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.show_green_badge -%}
+                <div class="dsc-green-badge" style="top: {{ block.settings.green_badge_top }}%; right: {{ block.settings.green_badge_right }}%;">
+                  {{ block.settings.green_badge_text | escape }}
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+
+          <p class="dsc-footer">{{ block.settings.description | escape }}</p>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Dynamic Stats Cards",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "range",
+      "id": "dt_margin_offset",
+      "label": "Top Margin Offset (%)",
+      "min": -100,
+      "max": 50,
+      "step": 2,
+      "default": -10
+    },
+    {
+      "type": "range",
+      "id": "mb_margin_offset",
+      "label": "Top Margin Mobile Offset (%)",
+      "min": -100,
+      "max": 50,
+      "step": 2,
+      "default": -10
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat_card",
+      "name": "Stat Card",
+      "settings": [
+        { "type": "header", "content": "Header Info" },
+        { "type": "text", "id": "title", "label": "Card Title", "default": "Delivery Time" },
+        { "type": "text", "id": "highlight_value", "label": "Top Right Value", "default": "<11 Days" },
+        
+        { "type": "header", "content": "Graph Settings" },
+        { "type": "image_picker", "id": "chart_line", "label": "Graph Line Image" },
+        { "type": "textarea", "id": "y_axis", "label": "Y-Axis Numbers (Separate by new line)", "default": "25\n20\n15\n10\n5\n0" },
+        
+        { "type": "header", "content": "Blue Tooltip" },
+        { "type": "text", "id": "tooltip_text", "label": "Tooltip Text", "default": "9 Day" },
+        { "type": "range", "id": "tooltip_top", "label": "Top Position (%)", "min": 0, "max": 100, "default": 60 },
+        { "type": "range", "id": "tooltip_left", "label": "Left Position (%)", "min": 0, "max": 100, "default": 70 },
+
+        { "type": "header", "content": "Green 'We are here!!' Badge" },
+        { "type": "checkbox", "id": "show_green_badge", "label": "Show Green Badge", "default": false },
+        { "type": "text", "id": "green_badge_text", "label": "Badge Text", "default": "We are here!!" },
+        { "type": "range", "id": "green_badge_top", "label": "Top Position (%)", "min": 0, "max": 100, "default": 20 },
+        { "type": "range", "id": "green_badge_right", "label": "Right Position (%)", "min": -50, "max": 50, "default": -15 },
+
+        { "type": "header", "content": "Footer" },
+        { "type": "textarea", "id": "description", "label": "Description Text", "default": "We help reduce delivery times to under 11 days" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Dynamic Stats Cards",
+      "blocks": [
+        { "type": "stat_card", "settings": { "title": "Delivery Time", "highlight_value": "<11 Days", "tooltip_text": "9 Day", "y_axis": "25\n20\n15\n10\n5\n0", "show_green_badge": false } },
+        { "type": "stat_card", "settings": { "title": "Net Margin", "highlight_value": "+8%", "tooltip_text": "8%", "y_axis": "25%\n20%\n15%\n10%\n5%\n0", "show_green_badge": false } },
+        { "type": "stat_card", "settings": { "title": "Dispute Rate", "highlight_value": "<0.66%", "tooltip_text": "0.51%", "y_axis": "5%\n4%\n3%\n2%\n1%\n0", "show_green_badge": true } }
+      ]
+    }
+  ]
+}
+{% endschema %}

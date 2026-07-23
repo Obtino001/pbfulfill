@@ -1,0 +1,93 @@
+{% schema %}
+{
+  "name": "Custom Contact Section",
+  "tag": "section",
+  "class": "custom-contact-section-container",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "section_background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "color",
+      "id": "bar_color",
+      "label": "Bar Color",
+      "default": "#0056b3"
+    },
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading",
+      "default": "We'd love to hear from you!"
+    },
+    {
+      "type": "textarea",
+      "id": "body_text",
+      "label": "Body Text",
+      "default": "From pricing inquiries to expert advice, we're here to make your dropshipping journey a success. Let's connect and make things happen!"
+    }
+  ],
+   "presets": [
+    {
+        "name": "Custom Contact Section",
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+  .custom-contact-section-container {
+    background-color: #f8f9fa;
+    padding: 60px 20px;
+    background-size: cover;
+    background-position: center;
+    {% if section.settings.section_background_image != blank %}
+      background-image: url('{{ section.settings.section_background_image | image_url: width: 2000 }}');
+    {% endif %}
+  }
+
+  .custom-contact-wrapper {
+    display: flex;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .custom-heading-container {
+    display: flex;
+    align-items: center;
+    flex-basis: 45%;
+  }
+
+  .custom-vertical-bar {
+    width: 6px;
+    height: 80px;
+    background-color: {{ section.settings.bar_color }};
+    margin-right: 20px;
+    display: inline-block !important;
+  }
+
+  .custom-heading-text {
+    font-size: 36px;
+    font-weight: 700;
+    color: #495057;
+    line-height: 1.2;
+  }
+
+  .custom-body-text {
+    font-size: 18px;
+    color: #6c757d;
+    flex-basis: 55%;
+    line-height: 1.6;
+    padding-left: 40px;
+  }
+{% endstyle %}
+
+<div class="custom-contact-wrapper">
+  <div class="custom-heading-container">
+    <div class="custom-vertical-bar"></div>
+    <h2 class="custom-heading-text">{{ section.settings.heading_text }}</h2>
+  </div>
+  <p class="custom-body-text">{{ section.settings.body_text }}</p>
+</div>

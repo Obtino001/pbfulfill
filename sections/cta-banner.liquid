@@ -1,0 +1,364 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .hca-banner-card-{{ section.id }} {
+    position: relative;
+    padding: 40px 24px;
+    display: flex;
+    min-height: 400px;
+    align-items: center; /* Center text vertically on desktop */
+    overflow: hidden;
+  }
+
+  @media screen and (min-width: 750px) {
+    .hca-banner-card-{{ section.id }} {
+      padding: 60px 80px;
+    }
+  }
+
+  /* --- NEW: Background Layer --- */
+  /* This traps the grid and rainbow inside the rounded corners, but lets the airplane escape */
+  .hca-bg-layer {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    background: {% if section.settings.card_bg_image != blank %}url('{{ section.settings.card_bg_image | image_url: width: 1500 }}') center / cover no-repeat, {% endif %}linear-gradient(187.12deg, #3F75BA 5.55%, #5DA8D5 117.12%);
+    z-index: 0;
+  }
+
+  /* Decorative Elements */
+  .hca-rainbow-glow {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.6;
+    object-fit: cover;
+    z-index: 1;
+  }
+
+  .hca-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Airplane */
+  .hca-airplane-img {
+    position: absolute;
+    right: -5%;
+    bottom: -15%; /* Breaks out of the bottom */
+    width: 60%;
+    max-width: 650px;
+    height: auto;
+    pointer-events: none;
+    z-index: 3;
+    object-fit: contain;
+  }
+
+  /* Content Styling */
+  .hca-content {
+    z-index: 5;
+    position: relative;
+    max-width: 650px; 
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+.hca-heading {
+    margin: 0;
+    color: #ffffff;
+    text-align: left;
+    line-height: 1.2;
+    font-size: 4.4rem;
+    margin-bottom: 2rem;
+}
+  .hca-text {
+    margin: 0;
+    color: #ffffff;
+    opacity: 0.9;
+  }
+
+  .hca-text p {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .hca-btn-wrapper {
+    margin-top: 0.5rem;
+  }
+
+  /* --- Mobile Layout Updates --- */
+  @media screen and (max-width: 850px) {
+    .hca-banner-card-{{ section.id }} {
+      align-items: flex-start; 
+      padding-bottom: 220px; 
+    }
+    .hca-airplane-img {
+      width: 110%; /* Makes airplane large like screenshot */
+      right: -15%;
+      bottom: -12%; /* Pulls the landing gear down outside the card */
+    }
+    .hca-content {
+      max-width: 100%; 
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="page-width">
+    <div class="hca-banner-card hca-banner-card-{{ section.id }}">
+      
+      <div class="hca-bg-layer">
+        <div class="hca-grid-overlay" style="opacity: {{ section.settings.grid_opacity | divided_by: 100.0 }};"></div>
+        {%- if section.settings.rainbow_image != blank -%}
+          {% assign rainbow_alt = section.settings.rainbow_alt | default: section.settings.rainbow_image.alt | default: "" %}
+          <img src="{{ section.settings.rainbow_image | image_url: width: 1000 }}" class="hca-rainbow-glow" alt="{{ rainbow_alt | escape }}" loading="lazy">
+        {%- endif -%}
+      </div>
+
+      {%- if section.settings.airplane_image != blank -%}
+        {% assign airplane_alt = section.settings.airplane_alt | default: section.settings.airplane_image.alt | default: "" %}
+        <img src="{{ section.settings.airplane_image | image_url: width: 1200 }}" class="hca-airplane-img" alt="{{ airplane_alt | escape }}" loading="lazy">
+      {%- endif -%}
+
+      <div class="hca-content">
+        {%- for block in section.blocks -%}
+          {%- case block.type -%}
+            
+            {%- when 'heading' -%}
+              <h2 class="hca-heading {{ block.settings.heading_size }}" 
+                  style="font-weight: {{ block.settings.font_weight }};" 
+                  {{ block.shopify_attributes }}>
+                {{ block.settings.heading }}
+              </h2>
+
+            {%- when 'text' -%}
+              <div class="hca-text {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+                {{ block.settings.text }}
+              </div>
+
+            {%- when 'button' -%}
+              {%- if block.settings.button_label != blank -%}
+                <div class="hca-btn-wrapper" {{ block.shopify_attributes }}>
+                  <a href="{{ block.settings.button_link }}" class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %}" style="color: #ffffff; border-color: #ffffff !important;">
+                    {{ block.settings.button_label | escape }}
+                  </a>
+                </div>
+              {%- endif -%}
+
+          {%- endcase -%}
+        {%- endfor -%}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "HCA Custom Banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "image_picker",
+      "id": "card_bg_image",
+      "label": "Background Pattern"
+    },
+    {
+      "type": "image_picker",
+      "id": "rainbow_image",
+      "label": "Glow Image"
+    },
+    {
+      "type": "text",
+      "id": "rainbow_alt",
+      "label": "Glow Image Alt Text"
+    },
+    {
+      "type": "image_picker",
+      "id": "airplane_image",
+      "label": "Airplane Image"
+    },
+    {
+      "type": "text",
+      "id": "airplane_alt",
+      "label": "Airplane Image Alt Text"
+    },
+    {
+      "type": "range",
+      "id": "grid_opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Grid Opacity",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "heading",
+      "name": "Heading",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "heading",
+          "default": "Let's start finding your next winning product!",
+          "label": "Heading"
+        },
+        {
+          "type": "select",
+          "id": "heading_size",
+          "options": [
+            { "value": "h2", "label": "Small" },
+            { "value": "h1", "label": "Medium" },
+            { "value": "h0", "label": "Large" },
+            { "value": "hxl", "label": "Extra Large" }
+          ],
+          "default": "h1",
+          "label": "Heading Size"
+        },
+        {
+          "type": "select",
+          "id": "font_weight",
+          "options": [
+            { "value": "400", "label": "Normal" },
+            { "value": "500", "label": "Medium" },
+            { "value": "600", "label": "Semi-Bold" },
+            { "value": "700", "label": "Bold" }
+          ],
+          "default": "600",
+          "label": "Font Weight"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "default": "<p>Explore more niche guides, product strategies & expert insights.</p>",
+          "label": "Description"
+        },
+        {
+          "type": "select",
+          "id": "text_style",
+          "options": [
+            { "value": "body", "label": "Body" },
+            { "value": "subtitle", "label": "Subtitle" }
+          ],
+          "default": "body",
+          "label": "Text Style"
+        }
+      ]
+    },
+    {
+      "type": "button",
+      "name": "Button",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "button_label",
+          "default": "Get a Free Quote",
+          "label": "Button Label"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "button_style_secondary",
+          "default": true,
+          "label": "Use Outline Button Style"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "HCA Custom Banner",
+      "blocks": [
+        { "type": "heading" },
+        { "type": "button" }
+      ]
+    }
+  ]
+}
+{% endschema %}

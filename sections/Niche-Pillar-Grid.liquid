@@ -1,0 +1,265 @@
+{% schema %}
+{
+  "name": "Niche Pillar Grid",
+  "tag": "section",
+  "class": "niche-pillar-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Core Niche Pillar 1"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Mobile Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 40
+    }
+  ],
+  "blocks": [
+    {
+      "type": "niche_card",
+      "name": "Niche Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "label_text",
+          "label": "Image Label (Inside)",
+          "default": "Category Name"
+        },
+        {
+          "type": "text",
+          "id": "btn_text",
+          "label": "Button Label (Below)",
+          "default": "Button"
+        },
+        {
+          "type": "url",
+          "id": "btn_link",
+          "label": "Button Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Niche Pillar Grid",
+      "blocks": [
+        { "type": "niche_card", "settings": { "label_text": "Pets & Animals" } },
+        { "type": "niche_card", "settings": { "label_text": "Beauty & Personal Care" } },
+        { "type": "niche_card", "settings": { "label_text": "Kitchen" } },
+        { "type": "niche_card", "settings": { "label_text": "Sports & Outdoor" } },
+        { "type": "niche_card", "settings": { "label_text": "Home & Living" } },
+        { "type": "niche_card", "settings": { "label_text": "Bedroom" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .np-section {
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden; /* Prevents horizontal scrollbar on the body */
+  }
+
+  .np-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 20px; /* Standard padding for desktop */
+  }
+
+  .np-heading {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 50px;
+  }
+.np-bottom-btn {
+    margin-top: 20px;
+}
+  /* Desktop Grid */
+  .np-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    justify-content: center;
+    padding-bottom: 20px; /* Space for shadow */
+  }
+
+  /* Individual Item Wrapper */
+  .np-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  /* The Image Card */
+  .np-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: #e2e8f0;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+  }
+
+  .np-card:hover {
+    transform: translateY(-5px);
+  }
+
+  /* The White Label inside the image */
+  .np-card-label {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffff;
+    color: #4a5568;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  /* --- MOBILE CSS SLIDER (SCROLL SNAP) --- */
+  @media (max-width: 768px) {
+    .np-container {
+      padding: 0; /* Remove container padding to allow edge-to-edge scroll */
+      max-width: 100%;
+    }
+
+    .np-heading {
+      padding: 0 20px; /* Add padding back to heading only */
+      margin-bottom: 30px;
+    }
+
+    .np-grid {
+      display: flex; /* Switch to flexbox */
+      grid-template-columns: unset; /* Disable grid columns */
+      gap: 20px; /* Space between cards */
+      overflow-x: auto; /* Enable horizontal scrolling */
+      scroll-snap-type: x mandatory; /* The magic snap effect */
+      -webkit-overflow-scrolling: touch; /* Smooth scroll on iOS */
+      padding: 10px 20px 40px 20px; /* Padding creates "peek" space */
+      margin: 0;
+      justify-content: flex-start;
+      
+      /* Hide Scrollbar */
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;  /* IE 10+ */
+    }
+    
+    .np-grid::-webkit-scrollbar { 
+      display: none; /* Chrome/Safari */
+    }
+
+    .np-item {
+      flex: 0 0 85%; /* Item takes up 85% of width to show "peek" of next card */
+      max-width: 340px; /* Don't get too big */
+      scroll-snap-align: center; /* Snap cards to the center */
+    }
+
+    /* Adjust hover effect for mobile touch */
+    .np-card:hover {
+      transform: none;
+    }
+  }
+{% endstyle %}
+
+<div class="np-section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="np-container">
+    {% if section.settings.heading != blank %}
+      <h2 class="h1">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="np-grid">
+      {% for block in section.blocks %}
+        <div class="np-item" {{ block.shopify_attributes }}>
+          <div class="np-card" 
+               style="{% if block.settings.image != blank %}background-image: url('{{ block.settings.image | image_url: width: 600 }}');{% endif %}">
+            <h3 class="np-card-label">{{ block.settings.label_text }}</h3>
+          </div>
+
+          <a href="{{ block.settings.btn_link | default: '#' }}" class="np-bottom-btn button button--secondary">
+            {{ block.settings.btn_text }}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>

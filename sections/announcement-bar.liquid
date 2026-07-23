@@ -1,0 +1,243 @@
+{% schema %}
+{
+  "name": "Fixed Floating Bar",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout & Design"
+    },
+    {
+      "type": "checkbox",
+      "id": "is_fixed",
+      "label": "Fix to Top of Screen",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#3B75B5"
+    },
+    {
+      "type": "color",
+      "id": "bg_color_active",
+      "label": "Active Background Color (Scroll)",
+      "default": "#2D5A8B"
+    },
+    {
+      "type": "range",
+      "id": "py",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Vertical Padding",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "px",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Horizontal Padding",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Text Font Size",
+      "default": 16
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "social_icon",
+      "name": "Social Icon (Left)",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        },
+        {
+          "type": "range",
+          "id": "width",
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Icon Width",
+          "default": 24
+        }
+      ]
+    },
+    {
+      "type": "contact_item",
+      "name": "Contact Item (Center)",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Image"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Label Text",
+          "default": "Whatsapp"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        }
+      ]
+    },
+    {
+      "type": "review_block",
+      "name": "Review Link (Right)",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "pre_text",
+          "label": "Pre Text",
+          "default": "Review us on"
+        },
+        {
+          "type": "image_picker",
+          "id": "provider_logo",
+          "label": "Provider Logo (e.g., Trustpilot)"
+        },
+        {
+          "type": "text",
+          "id": "provider_text",
+          "label": "Provider Text (Fallback)",
+          "default": "Trustpilot",
+          "info": "Shows if no logo is uploaded"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Review Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Fixed Floating Bar",
+      "blocks": [
+        { "type": "social_icon" },
+        { "type": "social_icon" },
+        { "type": "contact_item", "settings": { "text": "Whatsapp" } },
+        { "type": "contact_item", "settings": { "text": "Email" } },
+        { "type": "review_block" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="ssb-section-{{ section.id }}" id="sticky-bar-{{ section.id }}">
+  <div class="ssb-container page-width">
+    
+    <div class="ssb-left">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'social_icon' -%}
+          <a href="{{ block.settings.link }}" class="ssb-social-link" target="_blank" {{ block.shopify_attributes }}>
+            {%- if block.settings.icon != blank -%}
+              {{ block.settings.icon | image_url: width: block.settings.width | image_tag: class: 'ssb-social-img', loading: 'eager', alt: block.settings.icon.alt }}
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'ssb-placeholder' }}
+            {%- endif -%}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="ssb-center">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'contact_item' -%}
+          <a href="{{ block.settings.link }}" class="ssb-contact-item" {{ block.shopify_attributes }}>
+            {%- if block.settings.icon != blank -%}
+              {{ block.settings.icon | image_url: width: 24 | image_tag: class: 'ssb-contact-icon', loading: 'eager', alt: "" }}
+            {%- endif -%}
+            <span>{{ block.settings.text }}</span>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="ssb-right">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'review_block' -%}
+          <a href="{{ block.settings.link }}" class="ssb-review-link" target="_blank" {{ block.shopify_attributes }}>
+            {%- if block.settings.pre_text != blank -%}
+              <span class="ssb-review-pre">{{ block.settings.pre_text }}</span>
+            {%- endif -%}
+            
+            {%- if block.settings.provider_logo != blank -%}
+              {{ block.settings.provider_logo | image_url: width: 100 | image_tag: class: 'ssb-review-logo', loading: 'eager' }}
+            {%- else -%}
+              <span class="ssb-provider-text">{{ block.settings.provider_text }}</span>
+            {%- endif -%}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+  </div>
+</div>
+
+{% style %}
+  .ssb-section-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding: {{ section.settings.py }}px {{ section.settings.px }}px;
+    {% if section.settings.is_fixed %}position: fixed; top: 20px;{% else %}position: relative; top: 0;{% endif %}
+  }
+  .ssb-section-{{ section.id }}.is-active {
+    top: 0;
+    background-color: {{ section.settings.bg_color_active }};
+  }
+  .ssb-section-{{ section.id }} .ssb-contact-item {
+    color: {{ section.settings.text_color }};
+    font-size: {{ section.settings.font_size }}px;
+  }
+  .ssb-section-{{ section.id }} .ssb-review-link {
+    color: {{ section.settings.text_color }};
+    font-size: {{ section.settings.font_size }}px;
+  }
+{% endstyle %}
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const bar = document.getElementById("sticky-bar-{{ section.id }}");
+    if (bar && {{ section.settings.is_fixed }}) {
+      window.addEventListener("scroll", function() {
+        bar.classList.toggle("is-active", window.scrollY > 0);
+      });
+    }
+  });
+</script>

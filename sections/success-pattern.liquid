@@ -1,0 +1,281 @@
+{% schema %}
+{
+  "name": "Partner Benefits Grid",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Custom Background Color",
+      "info": "Overrides the Color Scheme background if selected."
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image",
+      "info": "Will display over the background color."
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Partner Benefits"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "footer_text",
+      "label": "Footer Text",
+      "default": "Help your clients succeed with PBfulfill — earn long-term recurring revenue."
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 3,
+      "max": 5,
+      "step": 1,
+      "label": "Cards per row (Desktop)",
+      "default": 5
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+    {
+      "type": "range",
+      "id": "mobile_icon_width",
+      "min": 20,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Icon Width",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Icon Image (Desktop)"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Icon Image (Mobile)",
+          "info": "Optional. Will replace the desktop image on mobile screens."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Benefit Title",
+          "default": "Revenue share / commission program"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Partner Benefits Grid",
+      "blocks": [
+        { "type": "benefit" },
+        { "type": "benefit" },
+        { "type": "benefit" },
+        { "type": "benefit" },
+        { "type": "benefit" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .pb-section-wrapper { background-size: cover; background-position: center; background-repeat: no-repeat; }
+  .pb-heading { text-align: center; margin-bottom: 50px; color: rgb(var(--color-foreground)); }
+  .pb-grid { 
+    display: grid; 
+    grid-template-columns: repeat(var(--desktop-cols), minmax(0, 1fr)); 
+    gap: 20px; 
+    justify-content: center; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+  }
+  
+  /* Desktop Card Styles */
+  .pb-card { 
+    background: rgb(var(--color-background)); 
+    border-radius: 12px; 
+    padding: 30px 20px; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+box-shadow: 0px 0px 4px -2px #0A0D120A;
+
+box-shadow: 0px 0px 48px -12px #0A0D122E;
+border: 1px solid #E9EAEB;
+    transition: transform 0.3s ease; 
+  }
+  .pb-card:hover { transform: translateY(-5px); }
+  
+  .pb-image-box { 
+    width: 100%; 
+    height: 160px; 
+    margin-bottom: 25px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+  }
+  
+  .pb-icon { width: 100%; height: 100%; object-fit: contain; }
+  .pb-mobile-only { display: none !important; }
+  .pb-placeholder { width: 80px; height: 80px; fill: rgba(var(--color-foreground), 0.1); }
+  .pb-card-title { font-size: 15px; line-height: 1.4; color: #4a545e; font-weight: 600; margin: 0; }
+  
+  .pb-footer-wrapper { margin-top: 50px; display: flex; justify-content: center; }
+  .pb-footer-text { font-size: 14px; font-weight: 600; color: #4a545e; text-align: center; padding: 12px 30px; }
+
+  @media(max-width: 990px) {
+    .pb-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* --- MOBILE LIST LAYOUT --- */
+  @media(max-width: 768px) {
+    .pb-heading { font-size: 28px; margin-bottom: 30px; }
+    
+    /* Show/Hide specific images */
+    .has-mobile-img .pb-desktop-only { display: none !important; }
+    .has-mobile-img .pb-mobile-only { display: block !important; }
+
+    /* Change grid to vertical stack */
+    .pb-grid { 
+      display: flex;
+      flex-direction: column;
+      gap: 12px; 
+    }
+
+    /* Convert individual cards into horizontal list rows */
+    .pb-card { 
+      flex-direction: row; 
+      text-align: left;
+      align-items: center;
+      padding: 20px 24px; /* Adjust padding for horizontal layout */
+    }
+    .pb-card:hover { transform: none; }
+
+    /* Adjust image box to align left with exact schema width */
+    .pb-image-box { 
+      width: var(--mobile-icon-width) !important; 
+      height: auto; 
+      margin-bottom: 0; 
+      margin-right: 20px; 
+      flex-shrink: 0;
+      justify-content: flex-start;
+    }
+    
+  }
+</style>
+
+<div class="color-{{ section.settings.color_scheme }} gradient pb-section-wrapper {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" 
+     style="
+       padding-top: {{ section.settings.padding_top_mobile }}px; 
+       padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+       {% if section.settings.bg_color != blank and section.settings.bg_color != 'rgba(0,0,0,0)' %}background-color: {{ section.settings.bg_color }};{% endif %}
+       {% if section.settings.bg_image != blank %}background-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}');{% endif %}
+     ">
+  
+  {%- style -%}
+    @media screen and (min-width: 750px) {
+      .pb-section-wrapper {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+  {%- endstyle -%}
+  
+  <div class="pb-container page-width" 
+       style="--desktop-cols: {{ section.settings.columns_desktop }}; --mobile-icon-width: {{ section.settings.mobile_icon_width }}px;">
+    
+    {%- if section.settings.heading != blank -%}
+      <h2 class="pb-heading h1">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="pb-grid">
+      {%- for block in section.blocks -%}
+        <div class="pb-card {% if block.settings.mobile_image != blank %}has-mobile-img{% endif %}" {{ block.shopify_attributes }}>
+          
+          <div class="pb-image-box">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 300 | image_tag: loading: 'lazy', class: 'pb-icon pb-desktop-only' }}
+              
+              {%- if block.settings.mobile_image != blank -%}
+                {{ block.settings.mobile_image | image_url: width: 100 | image_tag: loading: 'lazy', class: 'pb-icon pb-mobile-only' }}
+              {%- endif -%}
+            {%- else -%}
+              {{ 'image' | placeholder_svg_tag: 'pb-placeholder' }}
+            {%- endif -%}
+          </div>
+          
+          <h3 class="pb-card-title">{{ block.settings.title }}</h3>
+          
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.footer_text != blank -%}
+      <div class="pb-footer-wrapper">
+        <div class="pb-footer-text">{{ section.settings.footer_text }}</div>
+      </div>
+    {%- endif -%}
+    
+  </div>
+</div>

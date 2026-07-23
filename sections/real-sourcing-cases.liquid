@@ -1,0 +1,258 @@
+{%- style -%}
+  .rsc-section-{{ section.id }} { 
+    --bg-color: {{ section.settings.bg_color }}; 
+    padding-top: {{ section.settings.padding_top_mobile }}px; 
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px; 
+    --heading-fs: {{ section.settings.heading_fs }}px;
+    --heading-color: {{ section.settings.heading_color }};
+    --title-fs: {{ section.settings.card_title_fs }}px;
+    --desc-fs: {{ section.settings.card_desc_fs }}px;
+    --btn-color: {{ section.settings.btn_color }};
+  }
+  @media screen and (min-width: 750px) { 
+    .rsc-section-{{ section.id }} { 
+      padding-top: {{ section.settings.padding_top }}px; 
+      padding-bottom: {{ section.settings.padding_bottom }}px; 
+    } 
+  }
+
+  /* --- Mobile Swiper & Pagination Styles --- */
+  @media screen and (max-width: 768px) {
+    .rsc-swiper-{{ section.id }} {
+      padding-bottom: 30px; /* Space for pagination dots */
+      position: relative;
+    }
+
+    .rsc-pagination {
+      position: absolute;
+      bottom: 0px !important; 
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      z-index: 10;
+    }
+
+    /* Custom Swiper Bullets */
+    .rsc-pagination .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      background: #D9D9D9; 
+      border-radius: 10px;
+      opacity: 1;
+      margin: 0 !important;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    /* Active expanding pill layout */
+    .rsc-pagination .swiper-pagination-bullet-active {
+      background: #2961BE; /* Matches your blue theme */
+      width: 20px; 
+    }
+  }
+{%- endstyle -%}
+
+<div class="rsc-section rsc-section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+  <div class="rsc-container page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="rsc-heading h1">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    <div class="swiper rsc-swiper-{{ section.id }}">
+      <div class="swiper-wrapper rsc-grid-wrapper">
+        {%- for block in section.blocks -%}
+          {%- liquid
+             assign card_tag = 'div'
+             if block.settings.card_link != blank
+               assign card_tag = 'a'
+             endif
+          -%}
+          <{{ card_tag }} 
+            {% if block.settings.card_link != blank %}href="{{ block.settings.card_link }}"{% endif %}
+            class="swiper-slide rsc-card {% if block.settings.width == 'full' %}is-full{% endif %}" 
+            {{ block.shopify_attributes }}
+          >
+            
+            <div class="rsc-image-area">
+              {%- if block.settings.image != blank -%}
+                {{ block.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy', alt: block.settings.title, class: 'rsc-bg-img' }}
+              {%- else -%}
+                {{ 'product-1' | placeholder_svg_tag: 'rsc-bg-img placeholder-svg' }}
+              {%- endif -%}
+            </div>
+
+            <div class="rsc-content-box">
+              {%- if block.settings.avatar_group != blank -%}
+                {{ block.settings.avatar_group | image_url: width: 120 | image_tag: loading: 'lazy', alt: 'Clients', class: 'rsc-avatars' }}
+              {%- endif -%}
+              
+              <h3 class="rsc-title">{{ block.settings.title | escape }}</h3>
+              <p class="rsc-desc">{{ block.settings.description | escape }}</p>
+            </div>
+
+          </{{ card_tag }}>
+        {%- endfor -%}
+      </div>
+      
+      <div class="swiper-pagination rsc-pagination" id="pag-{{ section.id }}"></div>
+    </div>
+    
+    {%- if section.settings.btn_text != blank -%}
+      <div class="rsc-btn-wrapper">
+        <a href="{{ section.settings.btn_link | default: '#' }}" class="button button--primary">
+          {{ section.settings.btn_text | escape }}
+        </a>
+      </div>
+    {%- endif -%}
+    
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let swiperInstance = null;
+    const sectionId = '{{ section.id }}';
+    const selector = `.rsc-swiper-${sectionId}`;
+    const paginationSelector = `#pag-${sectionId}`;
+
+    function initSwiper() {
+      const isMobile = window.innerWidth <= 768;
+      const container = document.querySelector(selector);
+      if (!container) return;
+
+      if (isMobile && !swiperInstance) {
+        swiperInstance = new Swiper(selector, {
+          slidesPerView: 1.15,
+          centeredSlides: true,
+          spaceBetween: 16,
+          loop: true, // Guaranteed loop scrolling
+          loopedSlides: 3, // Prevents visual glitches when looping fractional slides
+          {% if section.settings.mobile_autoplay %}
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          {% endif %}
+          pagination: {
+            el: paginationSelector,
+            clickable: true,
+          },
+        });
+      } else if (!isMobile && swiperInstance) {
+        swiperInstance.destroy(true, true);
+        swiperInstance = null;
+        const wrap = document.querySelector(`${selector} .swiper-wrapper`);
+        if(wrap) wrap.removeAttribute('style');
+        document.querySelectorAll(`${selector} .swiper-slide`).forEach(slide => {
+          slide.removeAttribute('style');
+        });
+      }
+    }
+
+    if (typeof Swiper !== 'undefined') {
+      initSwiper();
+    } else {
+      const swiperScript = document.querySelector('script[src*="swiper-bundle"]');
+      if(swiperScript) {
+        swiperScript.addEventListener('load', initSwiper);
+      }
+    }
+    
+    window.addEventListener('resize', initSwiper);
+    document.addEventListener('shopify:section:load', function(event) {
+        if (event.detail.sectionId === sectionId) {
+          initSwiper();
+        }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Real Sourcing Cases",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color Scheme", "default": "background-1" },
+    { "type": "text", "id": "heading", "label": "Section Heading", "default": "Our Sourcing Cases in Action" },
+    { "type": "header", "content": "Mobile Slider Settings" },
+    { "type": "checkbox", "id": "mobile_autoplay", "label": "Enable Autoplay on Mobile", "default": false },
+    { "type": "header", "content": "Bottom Button" },
+    { "type": "text", "id": "btn_text", "label": "Button Text", "default": "View All Cases" },
+    { "type": "url", "id": "btn_link", "label": "Button Link" },
+    { "type": "color", "id": "btn_color", "label": "Button Border/Text Color", "default": "#E32C2B" },
+    { "type": "header", "content": "Spacing & Background" },
+    { "type": "color", "id": "bg_color", "label": "Section Background", "default": "#FFFFFF" },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    },
+    { "type": "header", "content": "Typography" },
+    { "type": "range", "id": "heading_fs", "min": 20, "max": 60, "step": 1, "unit": "px", "label": "Section Heading Size", "default": 36 },
+    { "type": "color", "id": "heading_color", "label": "Heading Color", "default": "#333333" },
+    { "type": "range", "id": "card_title_fs", "min": 14, "max": 30, "step": 1, "unit": "px", "label": "Card Title Size", "default": 18 },
+    { "type": "range", "id": "card_desc_fs", "min": 10, "max": 20, "step": 1, "unit": "px", "label": "Card Description Size", "default": 13 }
+  ],
+  "blocks": [
+    {
+      "type": "case_study",
+      "name": "Case Study Card",
+      "settings": [
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Desktop Card Width",
+          "options": [
+            { "value": "full", "label": "Full Width (Top Row)" },
+            { "value": "half", "label": "Half Width (Bottom Row)" }
+          ],
+          "default": "half"
+        },
+        { "type": "image_picker", "id": "image", "label": "Product Image" },
+        { "type": "image_picker", "id": "avatar_group", "label": "Client Avatars Image" },
+        { "type": "text", "id": "title", "label": "Case Title", "default": "Client saved 30% through negotiation" },
+        { "type": "textarea", "id": "description", "label": "Case Description", "default": "We optimized factory pricing..." },
+        { "type": "url", "id": "card_link", "label": "Card Clickable Link" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Real Sourcing Cases" }]
+}
+{% endschema %}

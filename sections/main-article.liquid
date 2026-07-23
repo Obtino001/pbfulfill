@@ -1,0 +1,1331 @@
+{{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+{%- style -%}
+  .article-template-{{ section.id }} {
+    --page-width: {{ section.settings.page_width }}px;
+    --padding-top: {{ section.settings.padding_top }}px;
+    --padding-bottom: {{ section.settings.padding_bottom }}px;
+    --page-width-table: {{ section.settings.page_width_table }}px;
+    --padding-top-table: {{ section.settings.padding_top_table }}px;
+    --padding-bottom-table: {{ section.settings.padding_bottom_table }}px;
+    
+    --p-font-size: {{ section.settings.p_font_size }}px;
+    --p-line-height: {{ section.settings.p_line_height }};
+    --p-letter-spacing: {{ section.settings.p_letter_spacing }}em;
+    --p-font-family: {{ section.settings.heading_font }};
+    --p-font-weight: {{ section.settings.p_font_weight }};
+    --p-spacing: {{ section.settings.p_spacing }}px;
+    
+    --text-font: {{ section.settings.text_font }};
+    --heading-letter-spacing: {{ section.settings.heading_letter_spacing }}em;
+    --heading-spacing: {{ section.settings.heading_spacing }}px;
+    
+    --h1-fs: {{ section.settings.h1_font_size }}px;
+    --h1-fw: {{ section.settings.h1_font_weight }};
+    --h2-fs: {{ section.settings.h2_font_size }}px;
+    --h2-fw: {{ section.settings.h2_font_weight }};
+    --h3-fs: {{ section.settings.h3_font_size }}px;
+    --h3-fw: {{ section.settings.h3_font_weight }};
+    --h4-fs: {{ section.settings.h4_font_size }}px;
+    --h4-fw: {{ section.settings.h4_font_weight }};
+    --h5-fs: {{ section.settings.h5_font_size }}px;
+    --h5-fw: {{ section.settings.h5_font_weight }};
+    --h6-fs: {{ section.settings.h6_font_size }}px;
+    --h6-fw: {{ section.settings.h6_font_weight }};
+    
+    --li-fs: {{ section.settings.li_font_size | default: 18 }}px;
+    --li-fw: {{ section.settings.li_font_weight | default: 400 }};
+    
+    --r-fs: {{ section.settings.Rfont_size }}px;
+    --r-lh: {{ section.settings.Rline_height }};
+    --r-ls: {{ section.settings.Rletter_spacing }}em;
+    --r-fw: {{ section.settings.Rfont_weight }};
+    --r-spacing: {{ section.settings.Rspacing }}px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .article-template-{{ section.id }} {
+      --padding-top: {{ section.settings.mobile_padding_top }}px;
+      --padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+      --p-font-size: {{ section.settings.mobile_font_size_p }}px;
+      --h1-fs: {{ section.settings.mobile_font_size_h1 }}px;
+      --h2-fs: {{ section.settings.mobile_font_size_h2 }}px;
+      --h3-fs: {{ section.settings.mobile_font_size_h3 }}px;
+      --h4-fs: {{ section.settings.mobile_font_size_h4 }}px;
+      --h5-fs: {{ section.settings.mobile_font_size_h5 }}px;
+      --h6-fs: {{ section.settings.mobile_font_size_h6 }}px;
+      --li-fs: {{ section.settings.mobile_li_font_size }}px;
+      --li-fw: {{ section.settings.mobile_li_font_weight }};
+      --r-fs: {{ section.settings.mobile_font_sizeR }}px;
+    }
+
+    /* --- SWIPER MOBILE STYLES FOR SIDEBAR --- */
+    .sidebar-swiper-container {
+      overflow: hidden;
+      position: relative;
+      padding-bottom: 20px;
+    }
+
+    .sidebar-swiper-wrapper {
+      display: flex;
+    }
+
+    /* Force visibility and disable theme animation hide inside Swiper */
+    .sidebar-swiper-wrapper .fade-in-up {
+      opacity: 1 !important;
+      visibility: visible !important;
+      animation: none !important;
+      transform: none !important;
+    }
+
+    .mobile-swiper-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .custom-swiper-btn {
+      position: static;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: #4070d6;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin-top: 0;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(64, 112, 214, 0.25);
+      z-index: 10;
+    }
+
+    .custom-swiper-btn::after { display: none; }
+    .custom-swiper-btn.swiper-button-disabled { opacity: 0.4; cursor: not-allowed; box-shadow: none; }
+    .custom-swiper-btn svg { width: 20px; height: 20px; fill: none; stroke: currentColor; }
+
+    .custom-swiper-pagination {
+      position: static !important;
+      width: auto !important;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      background: #ffffff;
+      padding: 10px 16px;
+      border-radius: 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .custom-swiper-pagination .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      background-color: #d1d5db;
+      border-radius: 8px;
+      opacity: 1;
+      margin: 0 !important;
+      transition: all 0.3s ease;
+    }
+
+    .custom-swiper-pagination .swiper-pagination-bullet-active {
+      width: 24px;
+      background-color: #4070d6 !important;
+    }
+  }
+
+  @media screen and (min-width: 769px) {
+    .hide-on-desktop {
+      display: none !important;
+    }
+    .sidebar-swiper-wrapper {
+      display: block !important;
+      transform: none !important;
+    }
+    .related-article-card {
+      margin-right: 0 !important;
+    }
+  }
+
+/* --- TOC WIDGET CONTAINER --- */
+.toc-widget {
+  position: sticky;
+  top: 100px;
+  background: #fff;
+  border: 1px solid #E9EAEB;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+#toc-list *{
+  margin: 0;
+}
+.toc-title {
+  display: block;
+  font-weight: 700;
+  font-size: 22px;
+  color: #535862;
+  margin-bottom: 1rem;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* --- TOC LIST & SCROLLBAR --- */
+.toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  height: 350px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+  scrollbar-width: thin;
+  scrollbar-color: #9e9e9e #f5f5f5;
+}
+
+.toc-list::-webkit-scrollbar { width: 6px; }
+.toc-list::-webkit-scrollbar-track { background: #f5f5f5; border-radius: 8px; }
+.toc-list::-webkit-scrollbar-thumb { background: #bfbfbf; border-radius: 8px; }
+.toc-list::-webkit-scrollbar-thumb:hover { background: #9e9e9e; }
+
+/* --- TOC H2 ITEMS --- */
+.toc-h2-container {
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  margin: 0;
+  padding: 5px 0;
+}
+
+.toc-toggle {
+  display: none;
+}
+
+.toc-toggle.expanded {
+  display: none;
+}
+
+/* --- TOC H3 ITEMS (SUBLIST) --- */
+.toc-sublist {
+  display: none;
+  flex-direction: column;
+  padding-left: 15px;
+  gap: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.toc-sublist.show {
+  display: flex;
+}
+
+.toc-h3-container {
+  margin: 0;
+}
+
+/* --- TOC LINKS (COLORS & HOVERS) --- */
+.article-template .toc-list .toc-link {
+  text-decoration: none !important;
+  color: #A4A7AE !important;
+  transition: color 0.2s ease;
+  display: block;
+  line-height: 1.4;
+}
+
+.article-template .toc-list .toc-h2 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.article-template .toc-list .toc-h3 {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.article-template .toc-list .toc-link:hover,
+.article-template .toc-list .toc-link.active {
+  color: #236FDF !important;
+}
+
+.article-template .toc-list .toc-h2-container:has(+ .toc-sublist .toc-link.active) .toc-h2 {
+  color: #236FDF !important;
+}
+
+@media screen and (max-width: 990px) { 
+  .toc-widget { display: none; } 
+}
+{%- endstyle -%}
+
+<article class="article-template article-template-{{ section.id }}">
+  <div class="toc-widget">
+{%- if section.settings.toc_title != blank -%}
+  <strong class="toc-title">
+    {{ section.settings.toc_title | escape }}
+  </strong>
+{%- endif -%}
+    <ul id="toc-list" class="toc-list"></ul>
+  </div>
+  <div class="article-custom__title_main_container">
+    <header
+      class="page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+    >
+      <h1
+        class="article-template__title"
+      >
+        {{ article.title | escape }}
+      </h1>
+      <div class="blog-date-author-name">
+        {%- if section.settings.blog_show_date -%}
+          <span class="circle-divider caption-with-letter-spacing">
+            {{- article.published_at | time_tag: format: 'date' -}}
+          </span>
+        {%- endif -%}
+        {%- if section.settings.blog_show_author -%}
+          <a href="https://pbfulfill.com/pages/about-us" class="caption-with-letter-spacing author-with-icon">
+            {%- if section.settings.blog_author_icon != blank -%}
+              <img
+                src="{{ section.settings.blog_author_icon | img_url: 'master' }}"
+                alt="Author Icon"
+                class="author-icon"
+                loading="lazy"
+              >
+            {%- endif -%}
+            <strong>{{ article.author }}</strong>
+          </a>
+        {%- endif -%}
+      </div>
+    </header>
+
+    <div
+      class="article-template__social-sharing page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    >
+      {% assign share_url = request.origin | append: article.url %}
+      {% render 'share-button', share_link: share_url %}
+    </div>
+
+    <div
+      class="article-template__content page-width--narrow rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    >
+      {{
+        article.content
+        | replace: '<li><p ', '<li><p'
+        | replace: '<li><p>', '<li>'
+        | replace: '</p></li>', '</li>'
+        | replace: '<li><br>', '<li>'
+        | replace: '<li><br/>', '<li>'
+        | replace: '<li><br />', '<li>'
+      }}
+    </div>
+
+    {%- if blog.comments_enabled? -%}
+      <div class="article-template__comment-wrapper background-secondary">
+        <div
+          id="comments"
+          class="page-width--narrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        >
+          {%- if article.comments_count > 0 -%}
+            {%- assign anchorId = '#Comments-' | append: article.id -%}
+
+            <div id="Comments-{{ article.id }}" tabindex="-1" class="article-comments-title">
+              {{ 'blogs.article.comments' | t: count: article.comments_count }}
+            </div>
+            {% paginate article.comments by 5 %}
+              <div class="article-template__comments">
+                {%- if comment.status == 'pending' and comment.content -%}
+                  <article id="{{ comment.id }}" class="article-template__comments-comment">
+                    {{ comment.content }}
+                    <footer class="right">
+                      <span class="circle-divider caption-with-letter-spacing">{{ comment.author }}</span>
+                    </footer>
+                  </article>
+                {%- endif -%}
+
+                {%- for comment in article.comments -%}
+                  <article id="{{ comment.id }}" class="article-template__comments-comment">
+                    {{ comment.content }}
+                    <footer class="right">
+                      <span class="circle-divider caption-with-letter-spacing">{{ comment.author }}</span
+                      ><span class="caption-with-letter-spacing">
+                        {{- comment.created_at | time_tag: format: 'date' -}}
+                      </span>
+                    </footer>
+                  </article>
+                {%- endfor -%}
+                {% render 'pagination', paginate: paginate, anchor: anchorId %}
+              </div>
+            {% endpaginate %}
+          {%- endif -%}
+          {% form 'new_comment', article %}
+            {%- liquid
+              assign post_message = 'blogs.article.success'
+              if blog.moderated? and comment.status == 'unapproved'
+                assign post_message = 'blogs.article.success_moderated'
+              endif
+            -%}
+            <div class="article-comments-form-title">{{ 'blogs.article.comment_form_title' | t }}</div>
+            {%- if form.errors -%}
+              <div class="form__message" role="alert">
+                <div class="form-status caption-large text-body" tabindex="-1" autofocus>
+                  <span class="svg-wrapper">
+                    {{- 'icon-error.svg' | inline_asset_content -}}
+                  </span>
+                  {{ 'templates.contact.form.error_heading' | t }}
+                </div>
+              </div>
+              <ul class="form-status-list caption-large">
+                {%- for field in form.errors -%}
+                  <li>
+                    <a href="#CommentForm-{{ field }}" class="link">
+                      {%- if form.errors.translated_fields[field] contains 'author' -%}
+                        {{ 'blogs.article.name' | t }}
+                      {%- elsif form.errors.translated_fields[field] contains 'body' -%}
+                        {{ 'blogs.article.message' | t }}
+                      {%- else -%}
+                        {{ form.errors.translated_fields[field] }}
+                      {%- endif -%}
+                      {{ form.errors.messages[field] }}
+                    </a>
+                  </li>
+                {%- endfor -%}
+              </ul>
+            {%- elsif form.posted_successfully? -%}
+              <div class="form-status-list form__message" role="status">
+                <h3 class="form-status" tabindex="-1" autofocus>
+                  <span class="svg-wrapper">
+                    {{- 'icon-success.svg' | inline_asset_content -}}
+                  </span>
+                  {{ post_message | t }}
+                </h3>
+              </div>
+            {%- endif -%}
+
+            <div
+              {% if blog.moderated? == false %}
+                class="article-template__comments-fields"
+              {% endif %}
+            >
+              <div class="article-template__comment-fields">
+                <div class="field field--with-error">
+                  <input
+                    type="text"
+                    name="comment[author]"
+                    id="CommentForm-author"
+                    class="field__input"
+                    autocomplete="name"
+                    value="{{ form.author }}"
+                    aria-required="true"
+                    required
+                    {% if form.errors contains 'author' %}
+                      aria-invalid="true"
+                      aria-describedby="CommentForm-author-error"
+                    {% endif %}
+                    placeholder="{{ 'blogs.article.name' | t }}"
+                  >
+                  <label class="field__label" for="CommentForm-author">
+                    {{- 'blogs.article.name' | t }}
+                    <span aria-hidden="true">*</span></label
+                  >
+                  {%- if form.errors contains 'author' -%}
+                    <small id="CommentForm-author-error">
+                      <span class="form__message">
+                        <span class="svg-wrapper">
+                          {{- 'icon-error.svg' | inline_asset_content -}}
+                        </span>
+                        {{- 'blogs.article.name' | t }}
+                        {{ form.errors.messages.author }}.</span
+                      >
+                    </small>
+                  {%- endif -%}
+                </div>
+                <div class="field field--with-error">
+                  <input
+                    type="email"
+                    name="comment[email]"
+                    id="CommentForm-email"
+                    autocomplete="email"
+                    class="field__input"
+                    value="{{ form.email }}"
+                    autocorrect="off"
+                    autocapitalize="off"
+                    aria-required="true"
+                    required
+                    {% if form.errors contains 'email' %}
+                      aria-invalid="true"
+                      aria-describedby="CommentForm-email-error"
+                    {% endif %}
+                    placeholder="{{ 'blogs.article.email' | t }}"
+                  >
+                  <label class="field__label" for="CommentForm-email">
+                    {{- 'blogs.article.email' | t }}
+                    <span aria-hidden="true">*</span></label
+                  >
+                  {%- if form.errors contains 'email' -%}
+                    <small id="CommentForm-email-error">
+                      <span class="form__message">
+                        <span class="svg-wrapper">
+                          {{- 'icon-error.svg' | inline_asset_content -}}
+                        </span>
+                        {{- 'blogs.article.email' | t }}
+                        {{ form.errors.messages.email }}.</span
+                      >
+                    </small>
+                  {%- endif -%}
+                </div>
+              </div>
+              <div class="field field--with-error">
+                <textarea
+                  rows="5"
+                  name="comment[body]"
+                  id="CommentForm-body"
+                  class="text-area field__input"
+                  aria-required="true"
+                  required
+                  {% if form.errors contains 'body' %}
+                    aria-invalid="true"
+                    aria-describedby="CommentForm-body-error"
+                  {% endif %}
+                  placeholder="{{ 'blogs.article.message' | t }}"
+                >{{ form.body }}</textarea>
+                <label class="form__label field__label" for="CommentForm-body">
+                  {{- 'blogs.article.message' | t }}
+                  <span aria-hidden="true">*</span></label
+                >
+              </div>
+              {%- if form.errors contains 'body' -%}
+                <small id="CommentForm-body-error">
+                  <span class="form__message">
+                    <span class="svg-wrapper">
+                      {{- 'icon-error.svg' | inline_asset_content -}}
+                    </span>
+                    {{- 'blogs.article.message' | t }}
+                    {{ form.errors.messages.body }}.</span
+                  >
+                </small>
+              {%- endif -%}
+            </div>
+            {%- if blog.moderated? -%}
+              <p class="article-template__comment-warning caption">{{ 'blogs.article.moderated' | t }}</p>
+            {%- endif -%}
+            <input type="submit" class="button" value="{{ 'blogs.article.post' | t }}">
+          {% endform %}
+        </div>
+      </div>
+    {%- endif -%}
+  </div>
+  
+  <aside class="sidebar">
+    {% assign max_articles = section.settings.article_limit | default: 10 %}
+    {% assign blog_handles = 'about-dropshipping,discussion-on-e-commerce-platforms,marketing-strategy,news,success-stories,practical-operational-guidance,product-appraisal,product-recommendation,work-with-a-dropshipping-agent'
+      | split: ','
+    %}
+
+    {%- capture combined -%}{% endcapture -%}
+    {%- capture combined -%}
+    {%- for handle in blog_handles -%}
+      {%- assign b = blogs[handle] -%}
+      {%- if b and b.articles_count > 0 -%}
+        {%- for a in b.articles -%}
+          {%- assign ts_src = a.published_at | default: a.created_at -%}
+          {{- ts_src | date: "%s" -}}::{{- a.url -}}::{{- a.title | escape -}}::{{- a.image | img_url: 'master' -}}||
+        {%- endfor -%}
+      {%- endif -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+
+    {%- assign arr = combined | split: '||' | compact -%}
+    {%- assign sorted = arr | sort | reverse -%}
+
+    <div class="sidebar__contents">
+      <div id="related-scroll-trigger"></div>
+      <div class="related-custom__content ma-article-recent-post sidebar-swiper-container" id="related-section">
+        
+        <div class="related-custom__title">
+          <p>{{ section.settings.section_title }}</p>
+        </div>
+
+        <div class="related-custom__list sidebar-swiper-wrapper">
+          
+          {% if section.settings.display_mode == 'automatic' %}
+            {%- for item in sorted limit: max_articles -%}
+              {%- assign parts = item | split: '::' -%}
+              {%- assign article_url = parts[1] -%}
+              {%- assign article_title = parts[2] -%}
+              {%- assign article_img = parts[3] -%}
+              {%- if article_title != blank and article_url != blank -%}
+                <div class="swiper-slide">
+                  <div class="related-article-card fade-in-up">
+                    {%- if article_img != blank -%}
+                      <a href="{{ article_url }}" class="related-article-image">
+                        <img src="{{ article_img }}" alt="{{ article_title }}">
+                      </a>
+                    {%- endif -%}
+                    <a href="{{ article_url }}" class="related-article-title">
+                      <p>{{ article_title }}</p>
+                    </a>
+                  </div>
+                </div>
+              {%- endif -%}
+            {%- endfor -%}
+          {% else %}
+            {%- for i in (1..10) -%}
+              {%- assign key = 'manual_article_' | append: i -%}
+              {%- assign article_ref = section.settings[key] -%}
+              {%- if article_ref != blank -%}
+                {%- assign m = articles[article_ref] -%}
+                {%- if m -%}
+                  <div class="swiper-slide">
+                    <div class="related-article-card fade-in-up">
+                      {%- if m.image -%}
+                        <a href="{{ m.url }}" class="related-article-image">
+                          <img src="{{ m.image | img_url: 'master' }}" alt="{{ m.title | escape }}">
+                        </a>
+                      {%- endif -%}
+                      <a href="{{ m.url }}" class="related-article-title">
+                        <p>{{ m.title }}</p>
+                      </a>
+                    </div>
+                  </div>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {% endif %}
+        </div>
+
+        <div class="mobile-swiper-controls hide-on-desktop">
+          <div class="swiper-button-prev-sidebar custom-swiper-btn">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </div>
+          <div class="swiper-pagination-sidebar custom-swiper-pagination"></div>
+          <div class="swiper-button-next-sidebar custom-swiper-btn">
+            <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </aside>
+</article>
+
+<script type="application/ld+json">
+  {{ article | structured_data }}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  
+  // --- SWIPER INIT FOR SIDEBAR ---
+  let sidebarSwiper = null;
+
+  function initSidebarSwiper() {
+    const isMobile = window.innerWidth < 769;
+
+    if (isMobile && !sidebarSwiper) {
+      sidebarSwiper = new Swiper('.sidebar-swiper-container', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        wrapperClass: 'sidebar-swiper-wrapper',
+        pagination: {
+          el: '.swiper-pagination-sidebar',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next-sidebar',
+          prevEl: '.swiper-button-prev-sidebar',
+        }
+      });
+    } else if (!isMobile && sidebarSwiper) {
+      sidebarSwiper.destroy(true, true);
+      sidebarSwiper = null;
+    }
+  }
+
+  initSidebarSwiper();
+  window.addEventListener('resize', initSidebarSwiper);
+
+
+  // --- TOC LOGIC ---
+  const contentArea = document.querySelector('.article-template__content');
+  let oldTocList = document.getElementById('toc-list');
+  
+  if (!contentArea || !oldTocList) return;
+
+  const tocList = document.createElement('ul');
+  tocList.id = 'toc-list';
+  tocList.className = 'toc-list';
+  oldTocList.parentNode.replaceChild(tocList, oldTocList);
+
+  const headings = contentArea.querySelectorAll('h2, h3');
+  let currentSublist = null;
+
+  headings.forEach((heading, index) => {
+    const text = heading.innerText.trim();
+    if (!text) return; 
+
+    const id = heading.id || `toc-anchor-${index}`;
+    heading.id = id;
+
+    if (heading.tagName.toLowerCase() === 'h2') {
+      const h2Item = document.createElement('li');
+      h2Item.className = 'toc-h2-container';
+
+      const toggle = document.createElement('span');
+      toggle.className = 'toc-toggle';
+
+      const h2Link = document.createElement('a');
+      h2Link.href = `#${id}`;
+      h2Link.className = 'toc-link toc-h2';
+      h2Link.innerText = text;
+
+      h2Item.appendChild(toggle);
+      h2Item.appendChild(h2Link);
+      tocList.appendChild(h2Item);
+
+      const sublist = document.createElement('ul');
+      sublist.className = 'toc-sublist';
+      tocList.appendChild(sublist);
+
+      h2Item.addEventListener('click', (e) => {
+        if (e.target !== h2Link) {
+          e.preventDefault();
+          scrollToTarget(id);
+        }
+        toggle.classList.toggle('expanded');
+        sublist.classList.toggle('show');
+      });
+
+      currentSublist = sublist;
+
+    } else if (heading.tagName.toLowerCase() === 'h3' && currentSublist) {
+      const h3Item = document.createElement('li');
+      h3Item.className = 'toc-h3-container';
+
+      const h3Link = document.createElement('a');
+      h3Link.href = `#${id}`;
+      h3Link.className = 'toc-link toc-h3';
+      h3Link.innerText = text;
+
+      h3Item.appendChild(h3Link);
+      currentSublist.appendChild(h3Item);
+    }
+  });
+
+  document.querySelectorAll('.toc-h2-container').forEach(h2 => {
+    const nextSibling = h2.nextElementSibling;
+    if (nextSibling && nextSibling.classList.contains('toc-sublist') && nextSibling.children.length === 0) {
+      h2.querySelector('.toc-toggle').style.display = 'none';
+      h2.style.cursor = 'pointer'; 
+    }
+  });
+
+  function scrollToTarget(targetId) {
+    const targetElement = document.getElementById(targetId);
+    if (!targetElement) return;
+    
+    const headerOffset = 120;
+    const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+    
+    window.scrollTo({
+      top: elementPosition - headerOffset,
+      behavior: 'smooth'
+    });
+  }
+
+  tocList.addEventListener('click', (e) => {
+    const link = e.target.closest('.toc-link');
+    if (link) {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').slice(1);
+      scrollToTarget(targetId);
+    }
+  });
+
+  const observerOptions = {
+    rootMargin: '-10% 0px -70% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        const activeLink = tocList.querySelector(`[href="#${id}"]`);
+        
+        document.querySelectorAll('.toc-link').forEach(l => l.classList.remove('active'));
+        
+        if (activeLink) {
+          activeLink.classList.add('active');
+
+          if (activeLink.classList.contains('toc-h3')) {
+            const parentSublist = activeLink.closest('.toc-sublist');
+            const parentH2 = parentSublist.previousElementSibling;
+            if (parentH2) {
+              const toggle = parentH2.querySelector('.toc-toggle');
+              parentSublist.classList.add('show');
+              if (toggle) toggle.classList.add('expanded');
+            }
+          } else if (activeLink.classList.contains('toc-h2')) {
+            const parentH2 = activeLink.closest('.toc-h2-container');
+            const parentSublist = parentH2.nextElementSibling;
+            if (parentSublist && parentSublist.children.length > 0) {
+              parentSublist.classList.add('show');
+              const toggle = parentH2.querySelector('.toc-toggle');
+              if (toggle) toggle.classList.add('expanded');
+            }
+          }
+
+          activeLink.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      }
+    });
+  }, observerOptions);
+
+  headings.forEach(h => observer.observe(h));
+});
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.main-article.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+  "type": "text",
+  "id": "toc_title",
+  "label": "TOC Section Title",
+  "default": "Table of Contents"
+},
+    {
+  "type": "text",
+  "id": "copy_text_label",
+  "label": "Copy Link Text",
+  "default": "Copy link"
+},
+    {
+      "type": "header",
+      "content": "Desktop Sizes"
+    },
+    {
+      "type": "range",
+      "id": "page_width",
+      "label": "Page Width (px)",
+      "min": 600,
+      "max": 1400,
+      "step": 50,
+      "default": 900
+    },
+    { "type": "range", "id": "padding_top", "label": "Padding Top", "min": 0, "max": 200, "step": 10, "default": 40 },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "table Sizes"
+    },
+    {
+      "type": "range",
+      "id": "page_width_table",
+      "label": "Page Width (px)",
+      "min": 400,
+      "max": 800,
+      "step": 50,
+      "default": 600
+    },
+    {
+      "type": "range",
+      "id": "padding_top_table",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_table",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Top Bottom Spacing Mobile"
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile Padding Top",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile Padding Bottom",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Desktop Sizes"
+    },
+    {
+      "type": "range",
+      "id": "p_font_size",
+      "label": "Paragraph Font Size",
+      "min": 10,
+      "max": 30,
+      "step": 2,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "p_line_height",
+      "label": "Paragraph Line Height",
+      "min": 1.2,
+      "max": 2.5,
+      "step": 0.1,
+      "default": 1.6
+    },
+    {
+      "type": "range",
+      "id": "p_letter_spacing",
+      "label": "Paragraph Letter Spacing (em)",
+      "min": 0,
+      "max": 0.5,
+      "step": 0.1,
+      "default": 0
+    },
+    { "type": "range", "id": "p_spacing", "label": "Paragraph Bottom Spacing", "min": 0, "max": 50, "default": 15 },
+    {
+      "type": "select",
+      "id": "p_font_weight",
+      "label": "Paragraph Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-Bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+
+    { "type": "range", "id": "heading_spacing", "label": "Heading Bottom Spacing", "min": 0, "max": 60, "default": 20 },
+    {
+      "type": "range",
+      "id": "heading_letter_spacing",
+      "label": "Heading Letter Spacing (em)",
+      "min": 0,
+      "max": 0.3,
+      "step": 0.1,
+      "default": 0
+    },
+
+    { "type": "range", "id": "h1_font_size", "label": "H1 Font Size", "min": 20, "max": 80, "default": 44 },
+    {
+      "type": "select",
+      "id": "h1_font_weight",
+      "label": "H1 Font Weight",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-Bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "700"
+    },
+
+    { "type": "range", "id": "h2_font_size", "label": "H2 Font Size", "min": 20, "max": 70, "default": 35 },
+    {
+      "type": "select",
+      "id": "h2_font_weight",
+      "label": "H2 Font Weight",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-Bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "600"
+    },
+
+    { "type": "range", "id": "h3_font_size", "label": "H3 Font Size", "min": 18, "max": 60, "default": 30 },
+    {
+      "type": "select",
+      "id": "h3_font_weight",
+      "label": "H3 Font Weight",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-Bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "500"
+    },
+
+    { "type": "range", "id": "h4_font_size", "label": "H4 Font Size", "min": 16, "max": 50, "default": 28 },
+    {
+      "type": "select",
+      "id": "h4_font_weight",
+      "label": "H4 Font Weight",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-Bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "500"
+    },
+
+    { "type": "range", "id": "h5_font_size", "label": "H5 Font Size", "min": 14, "max": 40, "default": 25 },
+    {
+      "type": "select",
+      "id": "h5_font_weight",
+      "label": "H5 Font Weight",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-Bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "500"
+    },
+
+    { "type": "range", "id": "h6_font_size", "label": "H6 Font Size", "min": 12, "max": 30, "default": 22 },
+    {
+      "type": "select",
+      "id": "h6_font_weight",
+      "label": "H6 Font Weight",
+      "options": [
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-Bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "500"
+    },
+    {
+      "type": "header",
+      "content": "Bullet Tags"
+    },
+    {
+      "type": "range",
+      "id": "li_font_size",
+      "label": "Bullets Font Size",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_li_font_size",
+      "label": "Mobile Bullets Font Size",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "select",
+      "id": "li_font_weight",
+      "label": "Bullets Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-Bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+
+    {
+      "type": "header",
+      "content": "Recent Cards"
+    },
+    {
+      "type": "checkbox",
+      "id": "marquee_scroll",
+      "label": "Recent Animation",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sidebar",
+      "label": "Show Sidebar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "custom_title",
+      "label": "Title Text",
+      "default": "You may also like"
+    },
+    {
+      "type": "select",
+      "id": "display_mode",
+      "label": "Display Mode",
+      "options": [
+        { "value": "automatic", "label": "Latest Articles" },
+        { "value": "manual", "label": "Manual Selection" }
+      ],
+      "default": "automatic"
+    },
+    {
+      "type": "range",
+      "id": "article_limit",
+      "label": "Number of Articles",
+      "min": 1,
+      "max": 20,
+      "step": 1,
+      "default": 10
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Related Posts"
+    },
+    {
+      "type": "article",
+      "id": "manual_article_1",
+      "label": "Manual Article 1"
+    },
+    {
+      "type": "article",
+      "id": "manual_article_2",
+      "label": "Manual Article 2"
+    },
+    {
+      "type": "article",
+      "id": "manual_article_3",
+      "label": "Manual Article 3"
+    },
+    {
+      "type": "article",
+      "id": "manual_article_4",
+      "label": "Manual Article 4"
+    },
+    {
+      "type": "article",
+      "id": "manual_article_5",
+      "label": "Manual Article 5"
+    },
+    {
+      "type": "article",
+      "id": "manual_article_6",
+      "label": "Manual Article 6"
+    },
+    {
+      "type": "article",
+      "id": "manual_article_7",
+      "label": "Manual Article 7"
+    },
+    {
+      "type": "article",
+      "id": "manual_article_8",
+      "label": "Manual Article 8"
+    },
+    {
+      "type": "article",
+      "id": "manual_article_9",
+      "label": "Manual Article 9"
+    },
+    {
+      "type": "article",
+      "id": "manual_article_10",
+      "label": "Manual Article 10"
+    },
+    {
+      "type": "header",
+      "content": "Recent Fonts Settings"
+    },
+    {
+      "type": "range",
+      "id": "Rfont_size",
+      "label": "Paragraph Font Size",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "Rline_height",
+      "label": "Paragraph Line Height",
+      "min": 1.2,
+      "max": 2.5,
+      "step": 0.1,
+      "default": 1.6
+    },
+    {
+      "type": "range",
+      "id": "Rletter_spacing",
+      "label": "Paragraph Letter Spacing (em)",
+      "min": 0,
+      "max": 0.5,
+      "step": 0.1,
+      "default": 0
+    },
+    { "type": "range", "id": "Rspacing", "label": "Paragraph Bottom Spacing", "min": 0, "max": 50, "default": 15 },
+    {
+      "type": "select",
+      "id": "Rfont_weight",
+      "label": "Paragraph Font Weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Normal" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semi-Bold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "range",
+      "id": "mobile_font_sizeR",
+      "label": "Mobile Paragraph Font Size (px)",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Mobile Sizes"
+    },
+    {
+      "type": "range",
+      "id": "mobile_font_size_p",
+      "label": "Mobile Paragraph Font Size (px)",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "mobile_font_size_h1",
+      "label": "Mobile H1 Font Size (px)",
+      "min": 16,
+      "max": 48,
+      "step": 1,
+      "default": 28
+    },
+    {
+      "type": "range",
+      "id": "mobile_font_size_h2",
+      "label": "Mobile H2 Font Size (px)",
+      "min": 14,
+      "max": 40,
+      "step": 1,
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "mobile_font_size_h3",
+      "label": "Mobile H3 Font Size (px)",
+      "min": 12,
+      "max": 32,
+      "step": 1,
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "mobile_font_size_h4",
+      "label": "Mobile H4 Font Size (px)",
+      "min": 12,
+      "max": 28,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "mobile_font_size_h5",
+      "label": "Mobile H5 Font Size (px)",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "mobile_font_size_h6",
+      "label": "Mobile H6 Font Size (px)",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.main-article.blocks.featured_image.settings.image_height.options__4.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.main-article.blocks.featured_image.settings.image_height.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_date",
+      "default": true,
+      "label": "t:sections.main-article.blocks.title.settings.blog_show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "blog_show_author",
+      "default": false,
+      "label": "t:sections.main-article.blocks.title.settings.blog_show_author.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "blog_author_icon",
+      "label": "Author Icon"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Article post"
+    }
+  ]
+}
+{% endschema %}

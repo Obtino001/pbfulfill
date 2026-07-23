@@ -1,0 +1,274 @@
+{% schema %}
+{
+  "name": "TOC Policy Page",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "toc_title",
+      "label": "Sidebar Title",
+      "default": "Table of contents"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "chapter",
+      "name": "Content Chapter",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Chapter Title",
+          "default": "Order Issue"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Body Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "TOC Policy Page",
+      "blocks": [
+        { "type": "chapter", "settings": { "title": "Order Issue" } },
+        { "type": "chapter", "settings": { "title": "Quality Issues" } },
+        { "type": "chapter", "settings": { "title": "Shipping & Logistics" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="page-width {% if section.settings.full_width %}page-width--full-width{% endif %}">
+    <div class="toc-layout">
+      
+      <aside class="toc-sidebar">
+        <div class="toc-sticky-container">
+          <div class="toc-sidebar__title">{{ section.settings.toc_title }}</div>
+          <nav>
+            <ul class="toc-nav-list list-unstyled">
+              {%- for block in section.blocks -%}
+                {%- if block.settings.title != blank -%}
+                  <li class="toc-nav-item">
+                    <a href="#toc-{{ block.id }}" class="toc-nav-link" data-toc-link>
+                      {{ block.settings.title }}
+                    </a>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </nav>
+        </div>
+      </aside>
+
+      <div class="toc-main">
+        {%- for block in section.blocks -%}
+          <div id="toc-{{ block.id }}" class="toc-content-block" {{ block.shopify_attributes }}>
+            <h2 class="toc-content-title">{{ block.settings.title }}</h2>
+            <div class="rte">
+              {{ block.settings.text }}
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    
+    .toc-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+  }
+
+  /* Sidebar Styles */
+  .toc-sticky-container {
+  }
+
+  .toc-sidebar__title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: rgba(var(--color-foreground), 0.75);
+    {% comment %} border-bottom: 1px solid rgba(var(--color-foreground), 0.08); {% endcomment %}
+    padding-bottom: 1rem;
+  }
+
+  .toc-nav-item {
+    margin-bottom: 0.8rem;
+  }
+  aside.toc-sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 100px;
+    align-self: start;
+    border: 1px solid #E9EAEB;
+    padding: 20px 20px;
+    border-radius: 8px;
+  }
+  .toc-nav-link {
+    display: block;
+    text-decoration: none;
+    font-size: 1.4rem;
+    line-height: 1.4;
+    font-weight: 600;
+    color: rgba(var(--color-foreground), 0.5);
+    transition: color 0.3s ease, border-color 0.3s ease;
+    {% comment %} padding-left: 1.5rem;
+    border-left: 2px solid transparent; {% endcomment %}
+  }
+
+  .toc-nav-link:hover,
+  .toc-nav-link.active {
+    color: #2961BE;
+    border-left-color: rgba(var(--color-foreground), 0.8);
+  }
+
+  .toc-nav-link.active {
+    font-weight: 600;
+  }
+
+  .toc-content-block {
+    margin-bottom: 6rem;
+    scroll-margin-top: 80px;
+  }
+
+  .toc-content-title {
+    margin-top: 0;
+    margin-bottom: 2.5rem;
+    font-size: 3rem;
+  }
+
+  .toc-content-block .rte ul {
+    list-style: disc;
+    padding-left: 2rem;
+    margin-top: 1.5rem;
+  }
+
+  .toc-content-block .rte li {
+    margin-bottom: 1rem;
+    color: rgba(var(--color-foreground), 0.75);
+  }
+
+  @media screen and (max-width: 749px) {
+    .toc-sidebar {
+      display: none; /* Keeps it clean on mobile as per standard policy page patterns */
+    }
+  }
+</style>
+
+<script>
+  if (!window.tocInitialized) {
+    window.tocInitialized = true;
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('[data-toc-link]');
+      const blocks = document.querySelectorAll('.toc-content-block');
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -70% 0px',
+        threshold: 0
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            links.forEach(link => {
+              link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+            });
+          }
+        });
+      }, observerOptions);
+
+      blocks.forEach(block => observer.observe(block));
+
+      // Smooth click handling
+      links.forEach(link => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href');
+          document.querySelector(targetId).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+    });
+  }
+</script>

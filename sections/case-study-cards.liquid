@@ -1,0 +1,267 @@
+{% schema %}
+{
+  "name": "Case Study Cards",
+  "tag": "section",
+  "class": "case-study-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "How Niche Strategy Transformed Stores"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "text",
+      "id": "btn_label",
+      "label": "Button Label",
+      "default": "See All Faq"
+    },
+    {
+      "type": "url",
+      "id": "btn_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Case Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Background Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Card Title",
+          "default": "Niche Store → GMV +300%"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Send the returned items to the nearest designated warehouse for faster."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Case Study Cards",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "title": "Pet niche store → GMV +300%"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Travel gear → Viral on TikTok"
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "title": "Activewear → Private Label uplift"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+  .cs-section-container {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: {{ section.settings.bg_color }};
+    text-align: center;
+  }
+
+  @media screen and (min-width: 750px) {
+    .cs-section-container {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .cs-heading {
+    font-size: 32px;
+    color: #4a5568;
+    margin-bottom: 50px;
+    font-weight: 700;
+  }
+
+  .cs-grid-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Card Styling */
+  .cs-card {
+    position: relative;
+    width: 320px; /* Fixed width for consistency */
+    height: 380px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #eee; /* Fallback color */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Push content to bottom */
+    padding: 15px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+  }
+
+  .cs-card:hover {
+    transform: translateY(-5px);
+  }
+
+  /* White Content Box inside Card */
+  .cs-content-box {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .cs-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0 0 10px 0;
+    line-height: 1.4;
+  }
+
+  .cs-card-desc {
+    font-size: 14px;
+    color: #718096;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  /* Bottom Button Styling */
+  .cs-bottom-btn {
+    display: inline-block;
+    margin-top: 50px;
+    padding: 12px 40px;
+    border: 2px solid #3182ce;
+    border-radius: 50px;
+    color: #3182ce;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+  }
+
+  .cs-bottom-btn:hover {
+    background-color: #3182ce;
+    color: #fff;
+  }
+
+  /* Responsive Mobile */
+  @media (max-width: 768px) {
+    .cs-card {
+      width: 100%;
+      max-width: 350px;
+      height: 350px;
+    }
+    
+    .cs-heading {
+      font-size: 26px;
+    }
+  }
+{% endstyle %}
+
+<div class="cs-section-container">
+  {% if section.settings.heading != blank %}
+    <h2 class="cs-heading">{{ section.settings.heading }}</h2>
+  {% endif %}
+
+  <div class="cs-grid-wrapper">
+    {% for block in section.blocks %}
+      <div class="cs-card" 
+           style="background-image: url('{{ block.settings.image | image_url: width: 800 }}');"
+           {{ block.shopify_attributes }}>
+        
+        <div class="cs-content-box">
+          <h3 class="cs-card-title">{{ block.settings.title }}</h3>
+          <p class="cs-card-desc">{{ block.settings.description }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  {% if section.settings.btn_label != blank %}
+    <a href="{{ section.settings.btn_link }}" class="cs-bottom-btn">
+      {{ section.settings.btn_label }}
+    </a>
+  {% endif %}
+</div>

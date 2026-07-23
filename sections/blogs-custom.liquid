@@ -1,0 +1,278 @@
+{{ 'custom-blog-filter.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'custom-blog-filter.js' | asset_url }}" defer="defer"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0/dist/fuse.min.js"></script>
+
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  #BlogFilter-{{ section.id }} {
+    --grid-cols-desktop: {{ section.settings.columns_desktop }};
+  }
+
+  /* --- SWIPER MOBILE STYLES --- */
+  .mobile-swiper-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .custom-swiper-btn {
+    position: static;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #4070d6; /* Adjusted slightly to match the image's softer blue */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 0;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(64, 112, 214, 0.25); /* Added subtle shadow from image */
+  }
+
+  .custom-swiper-btn::after {
+    display: none; /* Hide default swiper icon */
+  }
+
+  .custom-swiper-btn.swiper-button-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .custom-swiper-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Container for the dots */
+  .custom-swiper-pagination {
+    position: static !important;
+    width: auto !important;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: #ffffff;
+    padding: 10px 16px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Base style for inactive dots */
+  .custom-swiper-pagination .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background-color: #d1d5db; /* Light grey */
+    border-radius: 8px;
+    opacity: 1; /* Override swiper default */
+    margin: 0 !important; /* Override swiper default margin since we use gap */
+    transition: all 0.3s ease; /* Smooth stretch effect */
+  }
+
+  /* Style for the active stretched pill */
+  .custom-swiper-pagination .swiper-pagination-bullet-active {
+    width: 24px;
+    background-color: #4070d6 !important;
+  }
+
+  /* Override Grid when Swiper is active */
+  .swiper-initialized .blog-grid {
+    display: flex;
+    gap: 0; 
+  }
+
+  /* Hide Swiper features and enforce standard grid on Desktop */
+  @media screen and (min-width: 768px) {
+    .hide-on-desktop {
+      display: none !important;
+    }
+    .blog-swiper-container {
+      overflow: visible;
+    }
+    .blog-grid {
+      display: grid !important;
+      gap: 30px !important;
+    }
+    .blog-card.swiper-slide {
+      width: auto !important;
+      margin-right: 0 !important;
+    }
+  }
+{%- endstyle -%}
+
+{% assign blog_handles = section.settings.selected_blogs | split: ',' %}
+{% assign all_articles = '' | split: '' %}
+
+{% for handle in blog_handles %}
+{% paginate blogs[handle].articles by 2500 %}
+  {% assign all_articles = all_articles | concat: blogs[handle].articles %}
+{% endpaginate %}
+{% endfor %}
+
+{% comment %} Sort all combined articles by date globally, newest first {% endcomment %}
+{% assign sorted_articles = all_articles | sort: 'published_at' | reverse %}
+{% assign all_tags = blog_handles %}
+
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding page-width" id="BlogFilter-{{ section.id }}">
+  <blog-filter-grid class="blog-filter-container" data-posts-per-page="{{ section.settings.posts_per_page }}">
+    
+    <div class="blog-filter-header">
+      <div class="h2">{{ section.settings.title }}</div>
+      <div class="blog-search-wrapper">
+        <input type="text" class="blog-search-input" placeholder="Search..." aria-label="Search blogs">
+        <button type="button" class="blog-search-clear" aria-label="Clear search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+            <path d="M2.1 14.9625L0 12.8625L5.4 7.4625L0 2.1L2.1 0L7.5 5.4L12.8625 0L14.9625 2.1L9.5625 7.4625L14.9625 12.8625L12.8625 14.9625L7.5 9.5625L2.1 14.9625Z" fill="#C1C3C5"/>
+          </svg>
+        </button>
+        <div class="suggestion-box"></div>
+      </div>
+    </div>
+
+    <div class="blog-category-filters">
+      <div style="display: inline-block; margin: 0; padding: 0; font-size: inherit; font-weight: inherit; line-height: inherit;">
+        <button type="button" class="filter-btn active" data-tag="all">All</button>
+      </div>
+      {% for tag in all_tags %}
+        {% assign clean_tag = tag | replace: '-', ' ' | capitalize %}
+        <h2 style="display: inline-block; margin: 0; padding: 0; font-size: inherit; font-weight: inherit; line-height: inherit;">
+          <button type="button" class="filter-btn" data-tag="{{ tag }}">{{ clean_tag }}</button>
+        </h2>
+      {% endfor %}
+    </div>
+
+    <div class="swiper blog-swiper-container">
+      <div class="blog-grid swiper-wrapper" aria-live="polite">
+        {% for article in sorted_articles %}
+          <article class="blog-card swiper-slide" 
+                   data-tags="{{ article.handle }}" 
+                   data-date="{{ article.published_at | date: '%Y-%m-%dT%H:%M:%S' }}">
+            {% if article.image %}
+              <a href="{{ article.url }}" class="blog-card__image-wrapper" aria-label="{{ article.title }}">
+                <img class="blog-card__image" src="{{ article.image | image_url: width: 600 }}" alt="{{ article.title | escape }}" loading="lazy">
+              </a>
+            {% endif %}
+            <div class="blog-card__date">• {{ article.published_at | date: '%B %d, %Y' }}</div>
+            <h3 class="blog-card__title">
+              <a href="{{ article.url }}">{{ article.title }}</a>
+            </h3>
+            <a href="{{ article.url }}" class="blog-card__readmore">Read More</a>
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="mobile-swiper-controls hide-on-desktop">
+        <div class="swiper-button-prev custom-swiper-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </div>
+        <div class="swiper-pagination custom-swiper-pagination"></div>
+        <div class="swiper-button-next custom-swiper-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div class="blog-bottom-bar" style="display: flex; justify-content: space-between; align-items: center; margin-top: 40px;">
+      <div class="blog-total-count">Total <span>0</span> Blogs</div>
+      
+      <div class="blog-pagination-wrapper" style="display: flex; align-items: center; gap: 15px;">
+        <button type="button" class="pagination-arrow prev-arrow" aria-label="Previous Page" style="background: none; border: none; cursor: pointer; padding: 5px; display: flex; align-items: center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5"></path>
+            <path d="M12 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+
+        <div class="blog-pagination-center" style="display: flex; gap: 8px;"></div> 
+
+        <button type="button" class="pagination-arrow next-arrow" aria-label="Next Page" style="background: none; border: none; cursor: pointer; padding: 5px; display: flex; align-items: center;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14"></path>
+            <path d="M12 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div class="blog-pagination-jump" style="display: flex; align-items: center; gap: 10px;">
+        <label for="page-jump-input" style="font-weight: 500;">Page</label>
+        <input type="number" id="page-jump-input" min="1" style="width: 50px; height: 36px; text-align: center; border: 1px solid #E1E3E5; border-radius: 4px;">
+        <button type="button" class="btn-go" style="background-color: #2b6cb0; color: white; border: none; border-radius: 4px; padding: 0 15px; height: 36px; cursor: pointer; font-weight: 600;">Go</button>
+      </div>
+    </div>
+  </blog-filter-grid>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let blogSwiper;
+    
+    function initOrDestroySwiper() {
+      const isMobile = window.innerWidth < 768;
+      
+      if (isMobile && !blogSwiper) {
+        // Initialize Swiper on mobile
+        blogSwiper = new Swiper('.blog-swiper-container', {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          observer: true,
+          observeParents: true,
+          pagination: {
+            el: '.custom-swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next.custom-swiper-btn',
+            prevEl: '.swiper-button-prev.custom-swiper-btn',
+          },
+        });
+      } else if (!isMobile && blogSwiper) {
+        // Destroy Swiper on desktop, returns DOM to grid state
+        blogSwiper.destroy(true, true);
+        blogSwiper = undefined;
+      }
+    }
+
+    // Run on load
+    initOrDestroySwiper();
+
+    // Re-evaluate on window resize
+    window.addEventListener('resize', initOrDestroySwiper);
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Blog Grid With Filters",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Heading",
+      "default": "Categories"
+    },
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color Scheme", "default": "background-1" },
+    { "type": "textarea", "id": "selected_blogs", "label": "Blog handles (comma separated)", "default": "news,updates" },
+    { "type": "range", "id": "columns_desktop", "min": 2, "max": 4, "step": 1, "label": "Columns on desktop", "default": 3 },
+    { "type": "range", "id": "posts_per_page", "min": 6, "max": 24, "step": 3, "label": "Posts per page", "default": 9 },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Top Padding", "default": 36 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 4, "unit": "px", "label": "Bottom Padding", "default": 36 }
+  ],
+  "presets": [{ "name": "Blog Grid With Filters" }]
+}
+{% endschema %}

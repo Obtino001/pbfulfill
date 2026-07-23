@@ -1,0 +1,265 @@
+{%- comment -%}
+This file has been modified by the Yoast SEO for Shopify app.
+You can learn more about this (and learn how to cleanly revert these changes) at https://yoa.st/removing-theme-changes.
+{%- endcomment -%}
+{%- liquid
+  assign show_collection_listing_link = false
+  assign breadcrumbs_title = 'Breadcrumbs'
+  assign home_title = 'Home'
+  assign other_templates = 'blog, cart, list-collections, page, search' | split: ', '
+
+  if template.name == 'blog' or template.name == 'page'
+    assign item_title = [template.name].title
+    assign item_url = [template.name].url
+  elsif template.name == 'list-collections'
+    assign item_title = 'Collections'
+    assign item_url = routes.collections_url
+  elsif template.name == 'collection' or template.name == 'product'
+    assign collections_title = 'Collections'
+  elsif template.name == 'search'
+    assign item_title = 'Search for products on our site'
+    assign item_url = routes.search_url
+    assign show_structured_data = false
+  elsif template.name == 'cart'
+    assign item_title = 'Shopping cart'
+    assign item_url = routes.cart_url
+    assign show_structured_data = false
+  elsif template.directory == 'customers'
+    assign item_title = 'My Account'
+    assign item_url = routes.account_url
+    assign show_structured_data = false
+  endif
+-%}
+
+<style>
+    .MA-breadcrumbs {
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: none;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-inline: 12px;
+    }
+    .MA-breadcrumbs__list { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; flex-wrap: nowrap; }
+    .MA-breadcrumbs__item { display: flex; align-items: center; }
+  .MA-breadcrumbs__item:not(:last-child)::after {
+      content: '>';
+      margin: 0 8px;
+      color: #000;
+      height: 25px;
+      font-size: 12px;
+  }
+    .MA-breadcrumbs__link { text-decoration: none; color: #000; font-size: 14px; }
+    .MA-breadcrumbs__link[aria-current="page"] { color: #3b82f6; text-decoration: none; pointer-events: none; }
+    @media screen and (max-width: 768px) { .MA-breadcrumbs { font-size: 10px; }      .MA-breadcrumbs__link { text-decoration: none; color: #000; font-size: 10px; } .article-template .MA-breadcrumbs__list a {
+    font-size: 10px;
+    }
+    span.MA-breadcrumbs__link.ellipsesss {
+    display: inline-block;
+    max-width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    }
+    }
+</style>
+
+{%- capture crumbs_structured_data -%}
+{%- comment -%}Yoast SEO schema control block: start.{%- endcomment -%}
+{%- assign yoast_seo_settings = shop.metafields.yoast_seo.settings.value | default: shop.metafields.yoast_seo.settings -%}
+{%- if disabled_by_yoast_seo or yoast_seo_settings.schema.useTheme.schema or yoast_seo_settings.schema.useTheme.breadcrumb -%}
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": {{ home_title | json }},
+        "item": {{ shop.url | append: routes.root_url | json }}
+      },
+
+      {%- if template.name == 'collection' and collection.handle -%}
+        {%- assign collection_position = 2 -%}
+        {%- if show_collection_listing_link -%}
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": {{ collections_title | json }},
+            "item": {{ shop.url | append: routes.collections_url | json }}
+          },
+          {%- assign collection_position = 3 -%}
+        {%- endif -%}
+        {
+          "@type": "ListItem",
+          "position": {{ collection_position }},
+          "name": {{ collection.title | json }},
+          "item": {{ shop.url | append: collection.url | json }}
+        }
+
+      {%- elsif template.name == 'product' -%}
+        {%- assign type_handle = product.type | handle -%}
+      
+        {%- case type_handle -%}
+          {%- when 'hoejhaelede' -%}
+            {%- assign type_title = 'Højhælede' -%}
+            {%- assign type_url = '/collections/hoejhaelede' -%}
+          {%- else -%}
+            {%- assign type_collection = collections[type_handle] -%}
+            {%- if type_collection != blank -%}
+              {%- assign type_title = type_collection.title -%}
+              {%- assign type_url = type_collection.url -%}
+            {%- else -%}
+              {%- assign type_title = 'Alle produkter' -%}
+              {%- assign type_url = routes.all_products_collection_url -%}
+            {%- endif -%}
+        {%- endcase -%}
+      
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ type_title | json }},
+          "item": {{ shop.url | append: type_url | json }}
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": {{ product.title | json }},
+          "item": {{ shop.url | append: product.url | json }}
+        }
+
+      {%- elsif template.name == 'blog' and current_tags -%}
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ blog.title | json }},
+          "item": {{ shop.url | append: blog.url | json }}
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": {{ current_tags | join: ", " | json }},
+          "item": {{ shop.url | append: blog_tag_url | json }}
+        }
+
+      {%- elsif template.name == 'article' -%}
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ blog.title | json }},
+          "item": {{ shop.url | append: blog.url | json }}
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": {{ article.title | json }},
+          "item": {{ shop.url | append: article.url | json }}
+        }
+
+      {%- else -%}
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ item_title | json }},
+          "item": {{ shop.url | append: item_url | json }}
+        }
+      {%- endif -%}
+    ]
+  }
+{%- comment -%}Yoast SEO schema control block: end.{%- endcomment -%}
+</script>
+{%- endif -%}
+{%- endcapture -%}
+
+{%- unless template == 'index' or template == 'cart' or template == 'list-collections' or template == '404' -%}
+  {%- assign t = template | split: '.' | first -%}
+
+  {{ crumbs_structured_data }}
+  <nav class="MA-breadcrumbs" role="navigation" aria-label="MA-breadcrumbs">
+    <ol class="MA-breadcrumbs__list">
+      <li class="MA-breadcrumbs__item">
+        <a class="MA-breadcrumbs__link" href="/">Home</a>
+      </li>
+      {%- case t -%}
+        {%- when 'page' -%}
+          <li class="MA-breadcrumbs__item">
+            <a class="MA-breadcrumbs__link" href="{{ page.url }}" aria-current="page">{{ page.title }}</a>
+          </li>
+        {%- when 'product' -%}
+          {%- assign type_handle = product.type | handle -%}
+
+          {%- case type_handle -%}
+            {%- when 'hoejhaelede' -%}
+              {%- assign type_title = 'Højhælede' -%}
+              {%- assign type_url = '/collections/hoejhaelede' -%}
+            {%- else -%}
+              {%- assign type_collection = collections[type_handle] -%}
+              {%- if type_collection != blank -%}
+                {%- assign type_title = type_collection.title -%}
+                {%- assign type_url = type_collection.url -%}
+              {%- else -%}
+                {%- assign type_title = 'Alle produkter' -%}
+                {%- assign type_url = routes.all_products_collection_url -%}
+              {%- endif -%}
+          {%- endcase -%}
+
+          <li class="MA-breadcrumbs__item">
+            <a class="MA-breadcrumbs__link" href="{{ type_url }}">{{ type_title }}</a>
+          </li>
+          <li class="MA-breadcrumbs__item">
+            <a class="MA-breadcrumbs__link" href="{{ product.url }}" aria-current="page">{{ product.title }}</a>
+          </li>
+        {%- when 'collection' and collection.handle -%}
+          {%- if current_tags -%}
+            <li class="MA-breadcrumbs__item">
+              {{ collection.title | link_to: collection.url }}
+            </li>
+            <li class="MA-breadcrumbs__item">
+              {%- capture tag_url -%}{{ collection.url }}/{{ current_tags | join: "+"}}{%- endcapture -%}
+              <a class="MA-breadcrumbs__link" href="{{ tag_url }}" aria-current="page">
+                {{- current_tags | join: ' + ' -}}
+              </a>
+            </li>
+          {%- else -%}
+            <li class="MA-breadcrumbs__item">
+              <a class="MA-breadcrumbs__link" href="{{ collection.url }}" aria-current="page">{{ collection.title }}</a>
+            </li>
+          {%- endif -%}
+        {%- when 'blog' -%}
+          {%- if current_tags -%}
+            <li class="MA-breadcrumbs__item">
+              {{ blog.title | link_to: blog.url }}
+            </li>
+            <li class="MA-breadcrumbs__item">
+              {%- capture tag_url -%}{{blog.url}}/tagged/{{ current_tags | join: "+" }}{%- endcapture -%}
+              <a class="MA-breadcrumbs__link" href="{{ tag_url }}" aria-current="page">
+                {{- current_tags | join: ' + ' -}}
+              </a>
+            </li>
+          {%- else -%}
+            <li class="MA-breadcrumbs__item">
+              <a class="MA-breadcrumbs__link" href="{{ blog.url }}" aria-current="page">{{ blog.title }}</a>
+            </li>
+          {%- endif -%}
+        {%- when 'article' -%}
+          <li class="MA-breadcrumbs__item">
+            <a class="MA-breadcrumbs__link" href="https://pbfulfill.com/pages/our-blogs">Our Blogs</a>
+          </li>
+          <li class="MA-breadcrumbs__item">
+            <span class="MA-breadcrumbs__link ellipsesss" aria-current="page">
+              {{ article.title | truncate: 56, '...' }}
+            </span>
+          </li>
+        {%- else -%}
+          <li class="MA-breadcrumbs__item">
+            <span class="MA-breadcrumbs__link ellipsesss" aria-current="page">
+              {{ page_title | truncate: 56, '...' }}
+            </span>
+          </li>
+      {%- endcase -%}
+    </ol>
+  </nav>
+{%- endunless -%}

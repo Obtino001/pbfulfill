@@ -1,0 +1,275 @@
+{%- liquid
+  assign bg_color = section.settings.bg_color | default: '#ffffff'
+  assign heading_color = '#334155'
+  assign text_color = '#64748b'
+-%}
+
+<section class="pt-section section-{{ section.id }}-padding" id="pt-{{ section.id }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" style="
+  background-color: {{ bg_color }};
+  {% if section.settings.bg_texture != blank %}
+    background-image: url('{{ section.settings.bg_texture | image_url: width: 2000 }}');
+    background-size: 100%;
+    background-position: center;
+    background-repeat: repeat;
+  {% endif %}
+">
+  <div class="pt-container">
+    
+    <div class="pt-header">
+      <h2 class="pt-main-title h1">{{ section.settings.main_heading }}</h2>
+    </div>
+
+    <div class="pt-timeline">
+      <div class="pt-global-line"></div>
+
+      {% for block in section.blocks %}
+        {%- liquid
+          assign is_even = forloop.index | modulo: 2
+          
+          if is_even == 0
+            assign position_class = 'pos-right'
+            assign mobile_layout = 'mobile-img-right'
+            assign desktop_card_layout = 'desktop-img-bottom'
+          else
+            assign position_class = 'pos-left'
+            assign mobile_layout = 'mobile-img-left'
+            
+            assign desktop_card_layout = 'desktop-img-bottom'
+          endif
+        -%}
+
+        <div class="pt-row {{ position_class }}" {{ block.shopify_attributes }}>
+          
+          <div class="pt-col pt-side-left">
+            {% if position_class == 'pos-left' %}
+              <div class="pt-card {{ desktop_card_layout }} {{ mobile_layout }}">
+                {% if block.settings.step_image != blank %}
+                  <div class="pt-card-image">
+                    <img src="{{ block.settings.step_image | image_url: width: 600 }}" alt="{{ block.settings.step_title }}" loading="lazy">
+                  </div>
+                {% endif %}
+                <div class="pt-card-body">
+                  <h3 class="pt-card-title">{{ block.settings.step_title }}</h3>
+                  <p class="pt-card-desc">{{ block.settings.step_description }}</p>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+
+          <div class="pt-col pt-middle">
+            <div class="pt-badge-wrapper">
+              <div class="pt-badge">
+                <span class="pt-badge-text">{{ forloop.index }}</span>
+                <div class="pt-arrow"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-col pt-side-right">
+             {% if position_class == 'pos-right' %}
+              <div class="pt-card {{ desktop_card_layout }} {{ mobile_layout }}">
+                {% if block.settings.step_image != blank %}
+                  <div class="pt-card-image">
+                    <img src="{{ block.settings.step_image | image_url: width: 600 }}" alt="{{ block.settings.step_title }}" loading="lazy">
+                  </div>
+                {% endif %}
+                <div class="pt-card-body">
+                  <h3 class="pt-card-title">{{ block.settings.step_title }}</h3>
+                  <p class="pt-card-desc">{{ block.settings.step_description }}</p>
+                </div>
+              </div>
+             {% endif %}
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="pt-footer">
+      <p class="pl-footer-text margin-bt">{{ section.settings.bottom_text }}</p>
+      {% if section.settings.button_text != blank %}
+        <a href="{{ section.settings.button_link }}" class="button button--primary">{{ section.settings.button_text }}</a>
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    overflow: hidden; 
+    font-family: 'Inter', sans-serif; 
+    position: relative; 
+  }
+  @media screen and (min-width: 750px) { 
+    .section-{{ section.id }}-padding { 
+      padding-top: {{ section.settings.padding_top }}px; 
+      padding-bottom: {{ section.settings.padding_bottom }}px; 
+    } 
+  }
+  .pt-container { max-width: 1200px; margin: 0 auto; position: relative; }
+  .pt-header { text-align: center; margin-bottom: 200px; }
+  .pt-main-title { text-align: center; }
+  .pt-footer { text-align: center; margin-top: 0px; }
+  .pt-footer-text { margin-bottom: 20px; color: #64748b; font-weight: 500; }
+  .pt-btn { display: inline-block; padding: 12px 40px; border: 1px solid #3E74B9; color: #3E74B9; border-radius: 50px; text-decoration: none; font-weight: 600; transition: 0.3s; background: #fff; }
+  .pt-btn:hover { background: #3E74B9; color: #fff; }
+  .pt-timeline { position: relative; width: 100%; padding-bottom: 40px; }
+.pt-global-line {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background-color: #E2E8F0;
+    transform: translateX(-50%);
+    z-index: 0;
+    display: block !important;
+}
+  .pt-row { display: flex; align-items: center; justify-content: center; width: 100%; position: relative; z-index: 1; }
+  .pt-col { position: relative; }
+  .pt-side-left, .pt-side-right { width: 45%; padding: 0 40px; }
+  .pt-side-left { display: flex; justify-content: flex-end; }
+  .pt-side-right { display: flex; justify-content: flex-start; }
+  .pt-middle { width: 60px; display: flex; justify-content: center; align-items: center; flex-shrink: 0; position: relative; }
+  .pt-badge-wrapper { position: absolute; right: 30px; }
+  .pt-row.pos-right .pt-badge-wrapper { position: absolute; left: 30px; }
+  .pt-row.pos-right .pt-badge { border-radius: 0px 6px 6px 0px; }
+  .pt-badge { width: 51px; height: 51px; background: linear-gradient(180deg, #3E74B9 0%, #5DA8D5 100%); border-radius: 6px 0 0px 6px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700; font-size: 18px; position: relative; z-index: 2; }
+.pt-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    display: block !important;
+}
+  .pos-left .pt-arrow { left: -8px; border-right: 8px solid #3E74B9; }
+  .pos-right .pt-arrow { right: -8px; border-left: 8px solid #3E74B9; }
+  .pt-badge::after { display: none !important; }
+  .pt-card { background: #fff; border-radius: 16px; box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.1); border: 1px solid #E9EAEB; width: 100%; max-width: 400px; overflow: hidden; display: flex; padding: 20px; transition: transform 0.3s ease; }
+  .pt-card:hover { transform: translateY(-5px); }
+  .pt-card-body { padding-bottom: 24px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.pt-card-title {
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 24px;
+    margin: 0;
+    margin-bottom: 20px;
+    color: #535862;
+}
+.pt-card-desc {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 16px;
+    margin: 0;
+    line-height: 140%;
+    color: #717680;
+}
+  .pt-card-image { width: 100%; height: 200px; overflow: hidden; }
+  .pt-card-image img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; display: block; }
+  .desktop-img-top { flex-direction: column; }
+  .desktop-img-bottom { flex-direction: column-reverse; }
+
+  @media (min-width: 769px) { 
+    .pt-row:not(:first-child) { margin-top: -130px; } 
+    .pt-row { pointer-events: none; } 
+    .pt-card, .pt-badge { pointer-events: auto; } 
+  }
+  
+  @media (max-width: 768px) { 
+    .pt-section { padding: 40px 15px; } 
+    .pt-header { margin-bottom: 40px; } 
+    .pt-global-line { left: 50%; transform: translateX(-50%); } 
+    .pt-row { flex-direction: column; align-items: center; margin-bottom: 50px; margin-top: 0 !important; pointer-events: auto; } 
+    .pt-badge-wrapper { position: static; } 
+    .pt-row.pos-right .pt-badge-wrapper { position: static; } 
+    .pt-row.pos-right .pt-badge { border-radius: 6px 6px 0px 0px; } 
+    .pt-middle { order: 1; width: 100%; margin-bottom: 25px; justify-content: center; } 
+    .pt-side-left, .pt-side-right { order: 2; width: 100%; padding: 0; } 
+    .pos-left .pt-side-right { display: none; } 
+    .pos-right .pt-side-left { display: none; } 
+    .pt-badge { width: 40px; height: 40px; font-size: 16px; border-radius: 6px 6px 0px 0px; } 
+    .pt-arrow { display: none !important; } 
+    .pt-badge::after { content: ''; position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%); width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 8px solid #3E74B9; border-top: none; display: block !important; } 
+    .pt-card { max-width: 100%; height: auto; align-items: stretch; } 
+    .mobile-img-left { flex-direction: row !important; } 
+    .mobile-img-right { flex-direction: row-reverse !important; } 
+    .pt-card-image { width: 35%; height: auto; min-height: 120px; flex-shrink: 0; } 
+    .pt-card-image img { height: 100%; } 
+    .pt-card-body { width: 65%; padding: 15px; text-align: left; } 
+    .pt-card-title { font-size: 16px; margin-bottom: 5px; } 
+    .pt-card-desc { font-size: 13px; } 
+    .pt-timeline{padding: 0px;}
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Process Timeline",
+  "settings": [
+    { "type": "text", "id": "main_heading", "label": "Heading", "default": "How Product Sourcing Works?" },
+    { "type": "color", "id": "bg_color", "label": "Background Color", "default": "#ffffff" },
+    { "type": "image_picker", "id": "bg_texture", "label": "Background Texture (Optional)" },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    },
+    { "type": "text", "id": "bottom_text", "label": "Bottom Text", "default": "Ready to start sourcing?" },
+    { "type": "text", "id": "button_text", "label": "Button Text", "default": "Contact Us" },
+    { "type": "url", "id": "button_link", "label": "Button Link" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "step_title", "label": "Title", "default": "Step Title" },
+        { "type": "textarea", "id": "step_description", "label": "Description", "default": "Description goes here." },
+        { "type": "image_picker", "id": "step_image", "label": "Step Image" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "Process Timeline" } ]
+}
+{% endschema %}

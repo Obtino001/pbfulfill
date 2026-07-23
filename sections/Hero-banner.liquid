@@ -1,0 +1,218 @@
+{{ 'section-image-banner.css' | asset_url | stylesheet_tag }}
+{%- style -%}
+  .hb-section-{{ section.id }} { 
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    
+    /* Desktop Banner Height logic */
+    {% if section.settings.banner_height == 'small' %}
+      min-height: 40vh;
+    {% elsif section.settings.banner_height == 'medium' %}
+      min-height: 60vh;
+    {% elsif section.settings.banner_height == 'large' %}
+      min-height: 80vh;
+    {% endif %}
+
+    /* Vertical Alignment */
+    {% if section.settings.desktop_content_position contains 'top' %} align-items: flex-start; {% endif %}
+    {% if section.settings.desktop_content_position contains 'middle' %} align-items: center; {% endif %}
+    {% if section.settings.desktop_content_position contains 'bottom' %} align-items: flex-end; {% endif %}
+  }
+
+  .hb-bg-layer {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    /* Desktop Image Offset */
+    top: {{ section.settings.image_top_offset }}%;
+    /* Automatically fill the gap at the bottom caused by negative offset */
+    height: calc(100% + {{ section.settings.image_top_offset | replace: '-', '' }}%);
+  }
+
+  .hb-bg-layer img, .hb-bg-layer svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hb-content-{{ section.id }} { 
+    position: absolute !important;
+    z-index: 3;
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem 5rem;
+    box-sizing: border-box;
+    
+    {% if section.settings.desktop_content_position contains 'center' %}
+      left: 50% !important;
+      right: auto !important;
+      transform: translate(-50%, {{ section.settings.content_top_offset }}%) !important;
+      text-align: center;
+    {% elsif section.settings.desktop_content_position contains 'left' %}
+      left: 0 !important;
+      right: auto !important;
+      transform: translate(0%, {{ section.settings.content_top_offset }}%) !important;
+      text-align: left;
+    {% elsif section.settings.desktop_content_position contains 'right' %}
+      left: auto !important;
+      right: 0 !important;
+      transform: translate(0%, {{ section.settings.content_top_offset }}%) !important;
+      text-align: right;
+    {% endif %}
+  }
+
+  /* Container Box Styling */
+  {% if section.settings.container %}
+    .hb-content-{{ section.id }} {
+      background: rgb(var(--color-background));
+      padding: 4rem;
+      border-radius: 8px;
+      max-width: max-content;
+    }
+  {% endif %}
+
+  /* Block-specific margin styles */
+  {% for block in section.blocks %}
+    .hb-item-{{ block.id }} { margin-bottom: {{ block.settings.mb }}px; }
+  {% endfor %}
+
+  /* Mobile Overrides */
+  @media screen and (max-width: 767px) { 
+    .hb-section .banner__text {
+      display: none;
+    }
+    .hb-section-{{ section.id }} { 
+      align-items: center;
+      /* Custom mobile height slider */
+      min-height: {{ section.settings.mobile_banner_height }}vh;
+    }
+    .hb-content-{{ section.id }} { 
+      padding: 2rem;
+      left: 50% !important;
+      right: auto !important;
+      transform: translate(-50%, {{ section.settings.mobile_content_top_offset }}%) !important;
+      text-align: center;
+    }
+    .hb-bg-layer {
+      top: {{ section.settings.mobile_image_top_offset }}%;
+      /* Automatically fill the gap at the bottom caused by negative offset (Mobile) */
+      height: calc(100% + {{ section.settings.mobile_image_top_offset | replace: '-', '' }}%);
+    }
+  }
+{%- endstyle -%}
+
+<div class="hb-section hb-section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+  <div class="hb-bg-layer">
+    {% if section.settings.image_1 != blank %}
+      {{ section.settings.image_1 | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', alt: section.settings.image_1.alt | escape }}
+    {% endif %}
+  </div>
+
+
+  <div class="hb-content hb-content-{{ section.id }}">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'breadcrumbs' %}
+          <div class="hb-breadcrumbs hb-item-{{ block.id }}" {{ block.shopify_attributes }}>
+            <a href="{{ routes.root_url }}">Home</a>
+            {% if template contains 'article' %}
+              <span class="divider">/</span> <a href="/pages/our-blogs">Our Blogs</a> <span class="divider">/</span> <span class="active-hb">{{ article.title }}</span>
+            {% elsif template contains 'blog' %}
+              <span class="divider">/</span> <span class="active-hb">Our Blogs</span>
+            {% else %}
+              <span class="divider">/</span> <span>{{ page_title }}</span>
+            {% endif %}
+          </div>
+
+        {% when 'heading' %}
+          <h1 class="banner__heading inline-richtext h0 hb-item-{{ block.id }}" {{ block.shopify_attributes }}>{{ block.settings.text | newline_to_br }}</h1>
+
+        {% when 'text' %}
+          <div class="banner__text rte hb-item-{{ block.id }}" {{ block.shopify_attributes }}>{{ block.settings.text | newline_to_br }}</div>
+
+        {% when 'button' %}
+          <div class="banner__buttons hb-item-{{ block.id }}">
+            <a href="{{ block.settings.link }}" class="button button--secondary" 
+               style="color: {{ block.settings.btn_color }}; border-color: {{ block.settings.btn_color }} !important;">
+              {{ block.settings.label }}
+            </a>
+          </div>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Image Banner",
+  "settings": [
+    { "type": "header", "content": "Desktop Positioning" },
+    { "type": "range", "id": "image_top_offset", "min": -100, "max": 100, "step": 2, "unit": "%", "label": "Image Top Offset (%)", "default": -22 },
+    { "type": "range", "id": "content_top_offset", "min": -100, "max": 100, "step": 2, "unit": "%", "label": "Content Top Offset (%)", "default": -10 },
+    
+    { "type": "header", "content": "Mobile Positioning" },
+    { "type": "range", "id": "mobile_banner_height", "min": 10, "max": 100, "step": 2, "unit": "vh", "label": "Mobile Banner Height", "default": 50 },
+    { "type": "range", "id": "mobile_image_top_offset", "min": -100, "max": 100, "step": 2, "unit": "%", "label": "Mobile Image Top Offset (%)", "default": 0 },
+    { "type": "range", "id": "mobile_content_top_offset", "min": -100, "max": 100, "step": 2, "unit": "%", "label": "Mobile Content Top Offset (%)", "default": 24 },
+    
+    { "type": "image_picker", "id": "image_1", "label": "Image 1" },
+    
+    { "type": "range", "id": "overlay_opacity", "min": 0, "max": 100, "step": 1, "unit": "%", "label": "Overlay opacity", "default": 0 },
+    
+    { "type": "select", "id": "banner_height", "label": "Desktop Banner height", "options": [
+      { "value": "small", "label": "Small" },
+      { "value": "medium", "label": "Medium" },
+      { "value": "large", "label": "Large" }
+    ], "default": "large" },
+    
+    { "type": "select", "id": "desktop_content_position", "label": "Desktop content position", "options": [
+      { "value": "top-left", "label": "Top left" },
+      { "value": "top-center", "label": "Top center" },
+      { "value": "top-right", "label": "Top right" },
+      { "value": "middle-left", "label": "Middle left" },
+      { "value": "middle-center", "label": "Middle center" },
+      { "value": "middle-right", "label": "Middle right" },
+      { "value": "bottom-left", "label": "Bottom left" },
+      { "value": "bottom-center", "label": "Bottom center" },
+      { "value": "bottom-right", "label": "Bottom right" }
+    ], "default": "middle-center" },
+    
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "background-1" },
+    
+    { "type": "checkbox", "id": "container", "label": "Container", "default": false }
+  ],
+  "blocks": [
+    { "type": "breadcrumbs", "name": "Breadcrumbs", "settings": [
+      { "type": "color", "id": "color", "label": "Color", "default": "#FFFFFF" },
+      { "type": "range", "id": "mb", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Margin Bottom", "default": 16 }
+    ]},
+    { "type": "heading", "name": "Heading", "settings": [
+      { "type": "text", "id": "text", "label": "Text", "default": "High Quality Hero" },
+      { "type": "range", "id": "mb", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Margin Bottom", "default": 20 }
+    ]},
+    { "type": "text", "name": "Text", "settings": [
+      { "type": "text", "id": "text", "label": "Content", "default": "Add descriptive text." },
+      { "type": "range", "id": "mb", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Margin Bottom", "default": 30 }
+    ]},
+    { "type": "button", "name": "Button", "settings": [
+      { "type": "text", "id": "label", "label": "Label", "default": "Shop Now" },
+      { "type": "url", "id": "link", "label": "Link" },
+      { "type": "color", "id": "btn_color", "label": "Color", "default": "#FFFFFF" },
+      { "type": "color", "id": "btn_bg_hover", "label": "Hover BG", "default": "#FFFFFF" },
+      { "type": "color", "id": "btn_text_hover", "label": "Hover Text", "default": "#000000" },
+      { "type": "range", "id": "mb", "min": 0, "max": 60, "step": 2, "unit": "px", "label": "Margin Bottom", "default": 0 }
+    ]}
+  ],
+  "presets": [{ "name": "Image Banner", "blocks": [
+    { "type": "breadcrumbs" },
+    { "type": "heading" },
+    { "type": "text" },
+    { "type": "button" }
+  ]}]
+}
+{% endschema %}

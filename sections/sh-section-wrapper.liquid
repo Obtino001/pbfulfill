@@ -1,0 +1,410 @@
+<div class="sh-section-wrapper" style="--sh-bg-color: {{ section.settings.bg_color }}; --sh-text-color: {{ section.settings.text_color }}; --sh-card-bg: {{ section.settings.card_bg_color }}; --sh-star-color: {{ section.settings.star_color }}; --sh-heading-size: {{ section.settings.heading_size }}px;">
+  
+  {% if section.settings.bg_image != blank %}
+    <div class="sh-bg-image" style="background-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}');"></div>
+  {% endif %}
+
+  <div class="sh-content-container">
+    
+    <div class="sh-logo-bar">
+      <img src="https://cdn.shopify.com/s/files/1/0000/0001/files/fedex-logo.png?v=1600000000" alt="FedEx" class="sh-logo">
+      <img src="https://cdn.shopify.com/s/files/1/0000/0001/files/ups-logo.png?v=1600000000" alt="UPS" class="sh-logo">
+      <img src="https://cdn.shopify.com/s/files/1/0000/0001/files/dhl-logo.png?v=1600000000" alt="DHL" class="sh-logo">
+      <img src="https://cdn.shopify.com/s/files/1/0000/0001/files/usps-logo.png?v=1600000000" alt="USPS" class="sh-logo">
+      <img src="https://cdn.shopify.com/s/files/1/0000/0001/files/cainiao-logo.png?v=1600000000" alt="Cainiao" class="sh-logo">
+    </div>
+
+    {% if section.settings.heading != blank %}
+      <h2 class="h1">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="sh-testimonial-grid">
+      {% for block in section.blocks %}
+        <div class="sh-card" {{ block.shopify_attributes }}>
+          
+          <div class="sh-stars">
+            {% for i in (1..block.settings.star_count) %}
+              <div class="sh-star-icon">
+                {% if section.settings.custom_star_svg != blank %}
+                  {{ section.settings.custom_star_svg }}
+                {% else %}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                {% endif %}
+              </div>
+            {% endfor %}
+          </div>
+
+          <p class="sh-testimonial-text">{{ block.settings.testimonial }}</p>
+
+          <div class="sh-user-profile">
+            {% if block.settings.user_photo != blank %}
+              {{ block.settings.user_photo | image_url: width: 100 | image_tag: class: 'sh-user-photo', loading: 'lazy' }}
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'sh-user-photo placeholder' }}
+            {% endif %}
+            <div class="sh-user-info">
+              <h4 class="sh-user-name">{{ block.settings.user_name }}</h4>
+              <p class="sh-user-title">{{ block.settings.user_title }}</p>
+            </div>
+          </div>
+
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+<style>
+  .sh-section-wrapper {
+    position: relative;
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    background-color: var(--sh-bg-color);
+    overflow: hidden;
+    color: var(--sh-text-color);
+  }
+
+  @media screen and (min-width: 750px) {
+    .sh-section-wrapper {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .sh-bg-image {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.5;
+    z-index: 0;
+  }
+  .sh-content-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  .sh-logo-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+  }
+  .sh-logo {
+    height: 35px;
+    width: auto;
+    object-fit: contain;
+    filter: grayscale(0%);
+    opacity: 1;
+  }
+
+  .sh-heading {
+    text-align: center;
+    font-size: var(--sh-heading-size);
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: #4b5563;
+  }
+
+  .sh-testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  .sh-card {
+    background-color: var(--sh-card-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    transition: transform 0.3s ease;
+  }
+  .sh-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .sh-stars {
+    color: var(--sh-star-color);
+    display: flex;
+    gap: 2px;
+  }
+  .sh-star-icon {
+    width: 18px;
+    height: 18px;
+    display: flex;
+  }
+  .sh-star-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .sh-testimonial-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #4b5563;
+    flex-grow: 1;
+    margin: 0;
+  }
+  .sh-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  .sh-user-photo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .sh-user-photo.placeholder {
+    background-color: #e0e0e0;
+  }
+  .sh-user-name {
+    font-weight: 700;
+    font-size: 15px;
+    margin: 0 0 2px 0;
+    color: #111827;
+  }
+  .sh-user-title {
+    font-size: 13px;
+    color: #6b7280;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .sh-testimonial-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    .sh-testimonial-grid {
+      grid-template-columns: 1fr;
+    }
+    .sh-heading {
+      font-size: calc(var(--sh-heading-size) * 0.8);
+    }
+    .sh-logo-bar {
+      gap: 20px;
+    }
+    .sh-logo {
+      height: 25px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Style"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#f8f9fb"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#333333"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading Text",
+      "default": "Special Handling Sensitive Goods Support"
+    },
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 24,
+      "max": 64,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading Size",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Card Style"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Star Icon Settings"
+    },
+    {
+      "type": "color",
+      "id": "star_color",
+      "label": "Star Icon Color",
+      "default": "#fbbf24"
+    },
+    {
+      "type": "html",
+      "id": "custom_star_svg",
+      "label": "Custom Star SVG Code",
+      "info": "Paste your SVG code here to replace the default star."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial Card",
+      "settings": [
+        {
+          "type": "range",
+          "id": "star_count",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Star Rating",
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "testimonial",
+          "label": "Testimonial Text",
+          "default": "The fulfillment flow is seamless. Pick, pack, labeling—everything is professional and accurate."
+        },
+        {
+          "type": "image_picker",
+          "id": "user_photo",
+          "label": "User Photo"
+        },
+        {
+          "type": "text",
+          "id": "user_name",
+          "label": "User Name",
+          "default": "Stefan Sears"
+        },
+        {
+          "type": "text",
+          "id": "user_title",
+          "label": "User Title",
+          "default": "US DTC Brand Owner"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "testimonial",
+          "settings": {
+            "user_name": "James T.",
+            "user_title": "UK Ecommerce Store Owner",
+            "testimonial": "The sample testing process saved us from costly returns. PBfulfill caught issues we would've never noticed."
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "user_name": "Ammar Foley",
+            "user_title": "UX Designer, Goodwell",
+            "testimonial": "Untitled is our secret weapon for staying ahead of deadlines. It gives us everything we need to get quickly."
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "user_name": "Mathilde Lewis",
+            "user_title": "EU Brand Founder",
+            "testimonial": "Our custom packaging turned out perfect. PBfulfill handled every detail and delivered exactly we envisioned."
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "user_name": "Marco Kelly",
+            "user_title": "Australian Marketplace Seller",
+            "testimonial": "Thanks to their reporting system, we caught and fixed problems early. Our seller rating increased significantly"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "user_name": "Florence Shaw",
+            "user_title": "Canada Dropshipper",
+            "testimonial": "I rely on their inspections 100%. Zero defects since I started working with PBfulfill again"
+          }
+        },
+        {
+          "type": "testimonial",
+          "settings": {
+            "user_name": "Stefan Sears",
+            "user_title": "US DTC Brand Owner",
+            "testimonial": "The fulfillment flow is seamless. Pick, pack, labeling—everything is professional and accurate"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

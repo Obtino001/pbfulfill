@@ -1,0 +1,299 @@
+{% schema %}
+{
+  "name": "Partner Tier System",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Partner Tier System"
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Bottom Note",
+      "default": "Note: Coming Soon"
+    },
+    { "type": "header", "content": "Check Icon Settings" },
+    {
+      "type": "image_picker",
+      "id": "check_image",
+      "label": "Custom Check Icon (Optional)",
+      "info": "Replaces the default blue check SVG. Useful for branded icons."
+    },
+    {
+      "type": "text",
+      "id": "check_image_alt",
+      "label": "Check Icon Alt Text"
+    },
+    {
+      "type": "range",
+      "id": "check_image_width",
+      "min": 16,
+      "max": 48,
+      "step": 2,
+      "unit": "px",
+      "label": "Check Icon Width",
+      "default": 24
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tier",
+      "name": "Tier Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "tier_image",
+          "label": "Tier Badge/Image"
+        },
+        {
+          "type": "text",
+          "id": "tier_image_alt",
+          "label": "Tier Badge Alt Text"
+        },
+        {
+          "type": "range",
+          "id": "tier_image_width",
+          "min": 20,
+          "max": 150,
+          "step": 5,
+          "unit": "px",
+          "label": "Tier Badge Width",
+          "default": 80
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Tier Name",
+          "default": "Bronze"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Comparative Perks"
+        },
+        {
+          "type": "text",
+          "id": "perks",
+          "label": "Perks List",
+          "default": "Higher commission, Priority support",
+          "info": "Separate perks with a comma"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Partner Tier System",
+      "blocks": [
+        { "type": "tier", "settings": { "title": "Bronze" } },
+        { "type": "tier", "settings": { "title": "Silver", "subtitle": "Billed annually." } },
+        { "type": "tier", "settings": { "title": "Gold" } },
+        { "type": "tier", "settings": { "title": "Platinum" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="pts-container page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="pts-heading center">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="pts-layout-wrapper">
+      <div class="pts-grid">
+        {%- for block in section.blocks -%}
+          <div class="pts-card" {{ block.shopify_attributes }}>
+            <div class="pts-header center">
+              {%- if block.settings.tier_image != blank -%}
+                {%- assign tier_badge_alt = block.settings.tier_image_alt | default: block.settings.tier_image.alt | default: "" -%}
+                {%- assign tier_badge_style = "width: " | append: block.settings.tier_image_width | append: "px; height: auto;" -%}
+                {{ block.settings.tier_image | image_url: width: 300 | image_tag: loading: 'lazy', class: 'pts-img', style: tier_badge_style, alt: tier_badge_alt }}
+              {%- endif -%}
+              
+              {%- if block.settings.title != blank -%}
+                <h3 class="pts-title">{{ block.settings.title }}</h3>
+              {%- endif -%}
+              <p class="pts-subtitle">{{ block.settings.subtitle }}</p>
+            </div>
+            
+            <ul class="pts-list">
+              {%- assign perks_array = block.settings.perks | split: ',' -%}
+              {%- for perk in perks_array -%}
+                {%- assign p = perk | strip -%}
+                {%- if p != blank -%}
+                  <li class="pts-item">
+                    <span class="pts-icon">
+                      {% if section.settings.check_image != blank %}
+                        {%- assign check_alt = section.settings.check_image_alt | default: section.settings.check_image.alt | default: "" -%}
+                        {{ section.settings.check_image | image_url: width: 100 | image_tag: class: 'pts-check-img', loading: 'lazy', alt: check_alt }}
+                      {% else %}
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32" fill="none" style="overflow: visible;">
+                          <circle cx="16" cy="16" r="16" fill="#2961BE"/>
+                          <circle cx="16" cy="16" r="14" fill="#ffffff"/>
+                          <circle cx="16" cy="16" r="12" fill="#2961BE"/>
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M20.7484 11.0225L13.5884 17.9325L11.6884 15.9025C11.3384 15.5725 10.7884 15.5525 10.3884 15.8325C9.99836 16.1225 9.88836 16.6325 10.1284 17.0425L12.3784 20.7025C12.5984 21.0425 12.9784 21.2525 13.4084 21.2525C13.8184 21.2525 14.2084 21.0425 14.4284 20.7025C14.7884 20.2325 21.6584 12.0425 21.6584 12.0425C22.5584 11.1225 21.4684 10.3125 20.7484 11.0125V11.0225Z" fill="white"/>
+                        </svg>
+                      {% endif %}
+                    </span>
+                    <span class="pts-perk-text">{{ p }}</span>
+                  </li>
+                {%- endif -%}
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endfor -%}
+      </div>
+
+      {%- if section.settings.note != blank -%}
+        <div class="pl-footer-wrapper">
+        <p class="pl-footer-text">{{ section.settings.note }}</p>
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+<style>
+  .pts-container { max-width: 1200px; margin: 0 auto; overflow: visible; }
+  .pts-heading { font-size: 34px; font-weight: 700; color: #344054; margin-bottom: 70px; }
+  .pts-layout-wrapper { position: relative; display: flex; flex-direction: column; align-items: center; }
+  .pts-grid { display: flex; justify-content: center; align-items: flex-start; gap: 20px; flex-wrap: wrap; width: 100%; max-width: 1100px; }
+  .pts-card { background: #ffffff; border-radius: 12px; padding: 40px 24px; border: 1px solid #E9EAEB; box-shadow: 0px 2px 2px -1px #0A0D120A, 0px 4px 6px -2px #0A0D1208, 0px 12px 16px -4px #0A0D1214; flex: 1; min-width: 250px; max-width: 260px; transition: transform 0.3s ease; display: flex; flex-direction: column; }
+  .pts-card:hover { transform: translateY(-5px); }
+  .pts-header { margin-bottom: 35px; }
+  .pts-title { font-size: 20px; font-weight: 700; color: #4a545e; margin: 0 0 12px; }
+  .pts-subtitle { font-size: 13px; color: #667085; margin: 0; font-weight: 400; }
+  .pts-list { list-style: none; padding: 0; margin: 0; }
+  .pts-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 20px; }
+  .pts-icon { flex-shrink: 0; display: flex; margin-top: -2px; }
+  .pts-check-img {
+    height: auto;
+    width: {{ section.settings.check_image_width }}px;
+    object-fit: contain;
+  }
+  .pts-perk-text { font-size: 13px; line-height: 1.4; color: #475467; font-weight: 500; }
+  .pts-note { position: absolute; bottom: 0; left: 0; font-size: 14px; font-weight: 600; color: #475467; margin: 0; }
+  .center { text-align: center; }
+  
+  @media (max-width: 1100px) { 
+    .pts-note { position: relative; text-align: left; margin-top: 40px; width: 100%; } 
+  }
+  
+  /* ===== MOBILE LAYOUT OVERRIDES ===== */
+  @media (max-width: 749px) { 
+    .pts-heading { 
+      font-size: 26px; 
+      margin-bottom: 30px; 
+      text-align: center; /* Left align heading per the visual structure */
+    } 
+    .pts-grid { 
+      gap: 16px; 
+    } 
+    .pts-card { 
+      min-width: 100%; 
+      max-width: 100%; 
+      padding: 24px 20px; 
+      display: grid;
+      grid-template-columns: 100px 1fr; /* Title gets 100px on the left, List takes remaining right space */
+      grid-template-rows: auto auto;
+      align-items: start;
+    } 
+    .pts-header {
+      display: contents; /* This breaks the title and subtitle out so they can be placed individually on the grid */
+    }
+    .pts-title, .pts-img {
+      grid-column: 1;
+      grid-row: 1;
+      text-align: left;
+      margin: 0;
+      font-size: 16px; /* Scaled down slightly for mobile */
+    }
+    .pts-list {
+      grid-column: 2;
+      grid-row: 1;
+    }
+    .pts-subtitle {
+      grid-column: 2;
+      grid-row: 2;
+      text-align: left;
+      margin: 12px 0 0 36px; /* Lines up exactly with the text, offsetting the 24px icon + 12px gap */
+    }
+    .pts-item { 
+      margin-bottom: 24px; 
+    }
+    .pts-item:last-child {
+      margin-bottom: 0;
+    }
+    .pts-note { 
+      text-align: center; 
+      margin-top: 16px;
+    } 
+  }
+</style>

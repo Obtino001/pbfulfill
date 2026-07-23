@@ -1,0 +1,432 @@
+<div class="comp-section-wrapper" 
+     style="--bg-color: {{ section.settings.bg_color }}; 
+            --highlight-color: {{ section.settings.highlight_color }};
+            --bg-pos: {{ section.settings.bg_position }};
+            --bg-fit: {{ section.settings.bg_fit }};">
+  
+  <div class="comp-background">
+    {% if section.settings.bg_image != blank %}
+      {{ section.settings.bg_image | image_url: width: 2000 | image_tag: class: 'comp-bg-img', loading: 'lazy' }}
+    {% else %}
+      <div class="comp-bg-fallback"></div>
+    {% endif %}
+  </div>
+
+  <div class="comp-container">
+    {% if section.settings.heading != blank %}
+      <h2 class="comp-heading h1">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="comp-grid">
+      <div class="comp-card left-card">
+        <div class="card-header">
+          <div class="generic-title">{{ section.settings.left_title }}</div>
+        </div>
+        <div class="card-body">
+          <ul class="feature-list">
+            {% for block in section.blocks %}
+              <li class="feature-item faded-item" {{ block.shopify_attributes }}>
+                <span class="icon-box x-mark">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </span>
+                <div class="feature-text">{{ block.settings.text }}</div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div class="comp-card right-card">
+        <div class="card-header">
+          {% if section.settings.right_logo != blank %}
+            {{ section.settings.right_logo | image_url: width: 400 | image_tag: class: 'comp-logo', loading: 'lazy' }}
+          {% else %}
+            <h3 class="premium-title-fallback">PB Fulfill</h3>
+          {% endif %}
+          
+          {% if section.settings.right_subtitle != blank %}
+            <p class="comp-subtitle">{{ section.settings.right_subtitle }}</p>
+          {% endif %}
+          
+          {% if section.settings.right_tagline != blank %}
+            <p class="comp-tagline">{{ section.settings.right_tagline }}</p>
+          {% endif %}
+        </div>
+        
+        <div class="card-divider"></div>
+
+        <div class="card-body">
+          <ul class="feature-list">
+            {% for block in section.blocks %}
+              <li class="feature-item highlight-item">
+                <span class="icon-box check-mark">
+               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+<g clip-path="url(#clip0_255_21627)">
+<path d="M7.5 12L10.5 15L16.5 9M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="#2961BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>
+                </span>
+                <h3 class="feature-text">{{ block.settings.text }}</h3>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% style %}
+  .comp-section-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    padding-left: 20px;
+    padding-right: 20px;
+    overflow: hidden;
+    background-color: var(--bg-color);
+  }
+
+  @media screen and (min-width: 750px) {
+    .comp-section-wrapper {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+.card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+  .comp-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    z-index: 2;
+  }
+
+  .comp-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  .feature-text {
+    margin-block: 5px;
+    font-weight: 400;
+    font-size: 16px;
+}
+  .comp-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: var(--bg-fit);
+    object-position: var(--bg-pos);
+  }
+
+  .comp-bg-fallback {
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    transform: perspective(1000px) rotateX(15deg) scale(1.5);
+    transform-origin: center top;
+    opacity: 0.4;
+  }
+
+  .comp-heading {
+    text-align: center;
+  }
+
+  .comp-grid {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+  }
+
+  .comp-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+  }
+
+  .left-card {
+    border: 1px solid #f1f1f1;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+  }
+
+  .generic-title {
+    font-size: 32px;
+    font-weight: 600;
+    color: #A4A7AE;
+    line-height: 100%;
+    letter-spacing: -0.5px;
+  }
+
+  .right-card {
+box-shadow: 0px 4px 4px -2px #0A0D120A;
+box-shadow: 0px 24px 48px -12px #51AFFD80;
+border: 2px solid #008BFF;
+/* border-image: linear-gradient(180deg, #51AFFD 0%, #008BFF 100%) 1; */
+    z-index: 5;
+  }
+
+  .comp-logo {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+
+  .comp-subtitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #000;
+    margin: 0;
+  }
+
+  .comp-tagline {
+font-family: Inter;
+font-weight: 600;
+font-size: 16px;
+leading-trim: NONE;
+line-height: 24px;
+letter-spacing: 0%;
+color: #535862;
+  }
+
+  .card-divider {
+    height: 1px;
+    background-color: #f0f0f0;
+    margin: 25px 0;
+  }
+
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    color: #667085;
+  }
+
+  .highlight-item {
+    color: #344054;
+    font-weight: 500;
+  }
+
+  .icon-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+  }
+
+@media screen and (max-width: 768px) {
+  .comp-section-wrapper {
+    padding-left: 0; /* Remove padding to let cards touch edges if needed */
+    padding-right: 0;
+  }
+  .comp-grid {
+    display: flex;
+    flex-direction: row; /* Force horizontal */
+    overflow-x: auto;    /* Enable scroll */
+    scroll-snap-type: x mandatory; /* Snap effect */
+    gap: 15px;
+    padding: 20px;       /* Padding so shadows don't get cut off */
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar IE */
+    justify-content: flex-start;
+  }
+
+  .comp-grid::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+  }
+
+  .comp-card {
+    flex: 0 0 85%; /* Card takes up 85% of width, leaving 15% for the "peek" */
+    scroll-snap-align: center; /* Snap to center */
+    max-width: 85%;
+  }
+
+  /* Adjust order so the "Premium/Logo" card shows first on mobile */
+  .right-card { 
+    order: 1; 
+    margin-left: 0;
+  }
+  
+  .left-card { 
+    order: 2; 
+  }
+}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Comparison Table",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "PBFulfill vs Others"
+    },
+    {
+      "type": "header",
+      "content": "Background Style"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "select",
+      "id": "bg_fit",
+      "label": "Image Fit",
+      "options": [
+        { "value": "cover", "label": "Cover" },
+        { "value": "contain", "label": "Contain" }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "select",
+      "id": "bg_position",
+      "label": "Image Position",
+      "options": [
+        { "value": "top center", "label": "Top" },
+        { "value": "center center", "label": "Center" },
+        { "value": "bottom center", "label": "Bottom" }
+      ],
+      "default": "center center"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Card Content"
+    },
+    {
+      "type": "text",
+      "id": "left_title",
+      "label": "Left Card Title",
+      "default": "Generic Dropshipping"
+    },
+    {
+      "type": "image_picker",
+      "id": "right_logo",
+      "label": "Right Card Logo"
+    },
+    {
+      "type": "text",
+      "id": "right_subtitle",
+      "label": "Right Subtitle",
+      "default": "Dropshipping that grows with you"
+    },
+    {
+      "type": "text",
+      "id": "right_tagline",
+      "label": "Right Tagline",
+      "default": "Private Label"
+    },
+    {
+      "type": "color",
+      "id": "highlight_color",
+      "label": "Brand Color",
+      "default": "#3b82f6"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Feature Name",
+          "default": "Feature Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Comparison Table",
+      "blocks": [
+        { "type": "feature", "settings": { "text": "Recognition" }},
+        { "type": "feature", "settings": { "text": "Loyalty" }},
+        { "type": "feature", "settings": { "text": "Packaging Control" }},
+        { "type": "feature", "settings": { "text": "Pricing Flexibility" }},
+        { "type": "feature", "settings": { "text": "Repeat Rate" }}
+      ]
+    }
+  ]
+}
+{% endschema %}

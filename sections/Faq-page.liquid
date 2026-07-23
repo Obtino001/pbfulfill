@@ -1,0 +1,184 @@
+{%- style -%}
+  .faq-section-{{ section.id }} {
+    --pt: {{ section.settings.padding_top }}px;
+    --pb: {{ section.settings.padding_bottom }}px;
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient faq-wrapper faq-section-{{ section.id }}">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="center" style="margin-bottom: 40px;">
+        <h2 class="h1">{{ section.settings.heading }}</h2>
+      </div>
+    {%- endif -%}
+
+    {%- assign categories = section.blocks | map: 'settings' | map: 'category' | uniq -%}
+    
+    {% if categories.size > 0 %}
+      <div class="faq-tabs-container">
+       <div class="faq-tabs-nav">
+  {% for category in categories %}
+    <h2 class="faq-tab-heading">
+      <button class="faq-tab-btn {% if forloop.first %}active{% endif %}" data-tab="cat-{{ section.id }}-{{ forloop.index }}">
+        {{ category }}
+      </button>
+    </h2>
+  {% endfor %}
+</div>
+      </div>
+
+      <div class="faq-panels-container">
+        {% for category in categories %}
+          <div id="cat-{{ section.id }}-{{ forloop.index }}" class="faq-tab-panel {% if forloop.first %}active{% endif %}">
+            {% for block in section.blocks %}
+              {% if block.settings.category == category %}
+                <div class="faq-item" {{ block.shopify_attributes }}>
+                  <details>
+                   <summary>
+  {% comment %} Wrapping the question in H3 for SEO authority {% endcomment %}
+  <h3 class="faq-question-heading">
+    <span class="faq-question">{{ block.settings.question | escape }}</span>
+  </h3>
+  
+  <div class="faq-icon-wrapper">
+    <svg class="faq-icon-plus" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <circle cx="12" cy="12" r="10" stroke-width="1.5"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v8m-4-4h8"/>
+    </svg>
+    <svg class="faq-icon-minus" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <circle cx="12" cy="12" r="10" stroke-width="1.5"/>
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h8"/>
+    </svg>
+  </div>
+</summary>
+                    <div class="faq-separator"></div>
+                    <div class="faq-answer rte">
+                      {{ block.settings.answer }}
+                    </div>
+                  </details>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  (function() {
+    const initFaq = () => {
+      const container = document.querySelector('.faq-section-{{ section.id }}');
+      if (!container) return;
+
+      const tabs = container.querySelectorAll('.faq-tab-btn');
+      const panels = container.querySelectorAll('.faq-tab-panel');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          panels.forEach(p => p.classList.remove('active'));
+          
+          tab.classList.add('active');
+          const target = container.querySelector(`#${tab.dataset.tab}`);
+          if (target) target.classList.add('active');
+        });
+      });
+
+      const items = container.querySelectorAll('.faq-item details');
+      items.forEach(detail => {
+        detail.addEventListener('toggle', () => {
+          if (detail.open) {
+            items.forEach(other => {
+              if (other !== detail) other.removeAttribute('open');
+            });
+          }
+        });
+      });
+    };
+    
+    document.addEventListener('DOMContentLoaded', initFaq);
+    if (Shopify.designMode) document.addEventListener('shopify:section:load', initFaq);
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Advanced FAQ Tabs",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Top",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding Bottom",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Category Name",
+          "info": "Exact spelling required to group items.",
+          "default": "General"
+        },
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Do I need a large audience?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. No specific audience size is required to start.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Advanced FAQ Tabs",
+      "blocks": [
+        { "type": "faq_item", "settings": { "category": "General", "question": "Do I need a large audience?" } },
+        { "type": "faq_item", "settings": { "category": "General", "question": "How fast is approval?" } },
+        { "type": "faq_item", "settings": { "category": "Payments", "question": "When are commissions paid?" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

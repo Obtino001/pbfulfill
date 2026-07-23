@@ -1,0 +1,534 @@
+<section class="rev-cards-wrap">
+  <div class="rev-cards-inner page-width">
+    {% if section.settings.heading != blank %}
+      <h2 class="cfb-heading h1">{{ section.settings.heading | escape }}</h2>
+    {% endif %}
+
+    <div class="rev-cards-media-text-wrapper">
+      <div class="rev-cards-left">
+        <div class="rev-cards-swiper swiper">
+          <div class="swiper-wrapper">
+            {% for block in section.blocks %}
+              {%- assign url = block.settings.youtube_url | strip -%}
+              {%- assign video_id = '' -%}
+              {%- if url contains 'youtu.be/' -%}
+                {%- assign video_id = url | split: 'youtu.be/' | last | split: '?' | first | split: '&' | first -%}
+              {%- elsif url contains '/watch' and url contains 'v=' -%}
+                {%- assign video_id = url | split: 'v=' | last | split: '&' | first -%}
+              {%- elsif url contains '/embed/' -%}
+                {%- assign video_id = url | split: '/embed/' | last | split: '?' | first -%}
+              {%- elsif url contains '/shorts/' -%}
+                {%- assign video_id = url | split: '/shorts/' | last | split: '?' | first -%}
+              {%- else -%}
+                {%- assign video_id = url -%}
+              {%- endif -%}
+
+              <div class="swiper-slide rev-card" {{ block.shopify_attributes }}>
+                <div class="rev-card-media yt-lite" data-video-id="{{ video_id | escape }}">
+                  <img
+                    class="yt-thumb"
+                    src="https://i.ytimg.com/vi/{{ video_id }}/mqdefault.jpg"
+                    alt="YouTube thumbnail"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <button class="yt-play-center" aria-label="Play video">
+                    <svg viewBox="0 0 68 48" width="68" height="48">
+                      <path d="M66.52 7.76a8 8 0 0 0-5.64-5.66C55.64 0.8 34 0.8 34 0.8s-21.64 0-26.88 1.3A8 8 0 0 0 1.48 7.76 83.3 83.3 0 0 0 .2 24a83.3 83.3 0 0 0 1.28 16.24 8 8 0 0 0 5.64 5.66C12.36 47.2 34 47.2 34 47.2s21.64 0 26.88-1.3a8 8 0 0 0 5.64-5.66A83.3 83.3 0 0 0 67.8 24 83.3 83.3 0 0 0 66.52 7.76Z" fill="#212121" opacity=".8"/><path d="M45 24 27 14v20z" fill="#fff"/>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="rev-cards-right">
+        <div class="rev-card-texts">
+          {% for block in section.blocks %}
+            <div class="rev-card-body {% if forloop.first %}is-active{% endif %}" data-index="{{ forloop.index0 }}">
+              <div class="rev-card-body-inner">
+                {% if block.settings.quote != blank %}
+                  <p class="rev-card-quote">“{{ block.settings.quote | escape }}”</p>
+                {% endif %}
+                {% if block.settings.name != blank %}
+                  <h3 class="rev-card-name h1">{{ block.settings.name | escape }}</h3>
+                {% endif %}
+                {% if block.settings.text != blank %}
+                  <p class="rev-card-text">{{ block.settings.text | escape }}</p>
+                {% endif %}
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="rev-cards-nav">
+          <button class="rev-prev" aria-label="Previous">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="21" viewBox="0 0 25 21" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6417 1.00518C10.8343 1.21323 10.9425 1.49526 10.9425 1.78932C10.9425 2.08337 10.8343 2.3654 10.6417 2.57345L4.16829 9.55671H23.6296C23.9024 9.55671 24.164 9.67362 24.3569 9.88171C24.5498 10.0898 24.6582 10.372 24.6582 10.6663C24.6582 10.9606 24.5498 11.2429 24.3569 11.451C24.164 11.6591 23.9024 11.776 23.6296 11.776H4.16829L10.6417 18.7592C10.7427 18.8608 10.8238 18.9833 10.88 19.1194C10.9362 19.2555 10.9665 19.4025 10.9689 19.5515C10.9713 19.7005 10.9459 19.8484 10.8942 19.9866C10.8425 20.1248 10.7655 20.2503 10.6678 20.3557C10.5701 20.461 10.4538 20.5441 10.3257 20.5999C10.1976 20.6557 10.0604 20.6831 9.9223 20.6805C9.78419 20.6779 9.64798 20.6453 9.52181 20.5846C9.39563 20.524 9.28207 20.4365 9.18791 20.3275L0.959024 11.4505C0.766399 11.2424 0.658203 10.9604 0.658203 10.6663C0.658203 10.3723 0.766399 10.0903 0.959024 9.8822L9.18791 1.00518C9.38077 0.797381 9.64221 0.680664 9.91479 0.680664C10.1874 0.680664 10.4488 0.797381 10.6417 1.00518Z" fill="white"/>
+            </svg>
+          </button>
+          <button class="rev-next" aria-label="Next">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="21" viewBox="0 0 25 21" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M14.6747 20.3561C14.4821 20.1481 14.3739 19.8661 14.3739 19.572C14.3739 19.278 14.4821 18.9959 14.6747 18.7879L21.1481 11.8046H1.68681C1.41401 11.8046 1.15238 11.6877 0.959475 11.4796C0.766573 11.2715 0.658203 10.9893 0.658203 10.695C0.658203 10.4007 0.766573 10.1185 0.959475 9.91037C1.15238 9.70227 1.41401 9.58536 1.68681 9.58536H21.1481L14.6747 2.60211C14.5737 2.50052 14.4926 2.37802 14.4364 2.24191C14.3802 2.10579 14.3499 1.95885 14.3475 1.80986C14.3451 1.66087 14.3705 1.51288 14.4222 1.37471C14.4739 1.23655 14.5509 1.11103 14.6486 1.00566C14.7463 0.900297 14.8626 0.81723 14.9907 0.761421C15.1188 0.705614 15.256 0.678207 15.3941 0.680836C15.5322 0.683464 15.6684 0.716074 15.7946 0.776722C15.9208 0.83737 16.0343 0.92481 16.1285 1.03383L24.3574 9.91085C24.55 10.1189 24.6582 10.4009 24.6582 10.695C24.6582 10.989 24.55 11.2711 24.3574 11.4791L16.1285 20.3561C15.9356 20.5639 15.6742 20.6807 15.4016 20.6807C15.129 20.6807 14.8676 20.5639 14.6747 20.3561Z" fill="white"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ==========================================================
+   1. LAYOUT & WRAPPERS
+   ========================================================== */
+#shopify-section-{{ section.id }} .rev-cards-wrap {
+  padding-top: {{ section.settings.padding_top_mobile }}px;
+  padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  position: relative;
+  background-color: #F6F9FE; 
+
+  /* Logic for two background images */
+  {% if section.settings.bg_top != blank or section.settings.bg_bottom != blank %}
+    background-image: 
+      {% if section.settings.bg_top != blank %}url({{ section.settings.bg_top | image_url: width: 2000 }}){% endif %}
+      {% if section.settings.bg_top != blank and section.settings.bg_bottom != blank %}, {% endif %} 
+      {% if section.settings.bg_bottom != blank %}url({{ section.settings.bg_bottom | image_url: width: 2000 }}){% endif %};
+      
+    background-repeat: no-repeat, no-repeat;
+    background-position: top center, bottom center;
+    background-size: 100% auto, 100% auto; 
+  {% endif %}
+}
+@media screen and (min-width: 750px) {
+  #shopify-section-{{ section.id }} .rev-cards-wrap {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+}
+
+#shopify-section-{{ section.id }} .rev-cards-media-text-wrapper {
+  display: flex;
+  gap: 80px;
+}
+
+#shopify-section-{{ section.id }} .rev-cards-left,
+#shopify-section-{{ section.id }} .rev-cards-right {
+  width: 50%;
+  position: relative;
+}
+
+.rev-cards-inner {
+  position: relative;
+}
+
+/* ==========================================================
+   2. SWIPER & MEDIA (VIDEO/IMAGE)
+   ========================================================== */
+#shopify-section-{{ section.id }} .rev-cards-swiper {
+  position: relative;
+  overflow: visible;
+}
+
+#shopify-section-{{ section.id }} .rev-cards-swiper .swiper-slide {
+  width: 100% !important;
+}
+
+#shopify-section-{{ section.id }} .rev-card-media {
+  position: relative; 
+  aspect-ratio: 16/9; 
+  width: 100%;
+  border-radius: 16px; 
+  overflow: hidden; 
+  background: #000;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.22);
+}
+
+#shopify-section-{{ section.id }} .rev-card-media .yt-thumb,
+#shopify-section-{{ section.id }} .rev-card-media iframe {
+  position: absolute; 
+  inset: 0; 
+  width: 100%; 
+  height: 100%;
+  border: 0; 
+  display: block; 
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+#shopify-section-{{ section.id }} .rev-card-media .yt-play-center {
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  width: 80px; 
+  height: 56px; 
+  border: 0; 
+  background: transparent; 
+  cursor: pointer;
+}
+
+/* Swiper Media States & Layering Effects */
+#shopify-section-{{ section.id }} .rev-cards-swiper .swiper-slide:not(.swiper-slide-active) .rev-card-media {
+  opacity: 0.75; 
+  transition: opacity 0.25s ease;
+}
+
+#shopify-section-{{ section.id }} .rev-cards-swiper .swiper-slide-active .rev-card-media { 
+  opacity: 1; 
+}
+
+#shopify-section-{{ section.id }} .rev-cards-swiper .swiper-slide-active .rev-card-media::before,
+#shopify-section-{{ section.id }} .rev-cards-swiper .swiper-slide-active .rev-card-media::after {
+  content: ""; 
+  position: absolute; 
+  inset: 0; 
+  border-radius: 16px; 
+  background: #000; 
+  z-index: -1;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+}
+
+#shopify-section-{{ section.id }} .rev-cards-swiper .rev-card-media::before {
+  transform: translateY(14px) rotate(-2.2deg) scale(0.97); 
+  opacity: 0.25;
+}
+
+#shopify-section-{{ section.id }} .rev-cards-swiper .rev-card-media::after {
+  transform: translateY(28px) rotate(2.2deg) scale(0.94); 
+  opacity: 0.18;
+}
+
+/* ==========================================================
+   3. TEXT & TYPOGRAPHY
+   ========================================================== */
+#shopify-section-{{ section.id }} .rev-card-texts {
+  display: grid;
+  align-items: center;
+}
+
+#shopify-section-{{ section.id }} .rev-card-body {
+  width: 100%; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 8px;
+  align-items: flex-start;
+  grid-area: 1 / 1;
+  opacity: 0; 
+  pointer-events: none; 
+  transform: translateY(6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+#shopify-section-{{ section.id }} .rev-card-body.is-active {
+  opacity: 1; 
+  pointer-events: auto; 
+  transform: translateY(0);
+}
+
+.rev-card-body-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  text-align: left;
+}
+
+#shopify-section-{{ section.id }} .rev-card-quote { font-size: 24px; color: #121212; margin: 0; }
+#shopify-section-{{ section.id }} .rev-card-name { font-size: 30px; margin: 0; }
+#shopify-section-{{ section.id }} .rev-card-text { font-size: 16px; font-weight: 400; line-height: 1.6; color: #727B88; margin: 0; }
+
+/* ==========================================================
+   4. NAVIGATION (ARROWS)
+   ========================================================== */
+#shopify-section-{{ section.id }} .rev-cards-nav {
+  margin-top: 30px; 
+  display: flex; 
+  gap: 16px;
+  z-index: 999;
+  justify-content: flex-start;
+  position: relative; /* Keeps buttons in the normal flow */
+}
+
+#shopify-section-{{ section.id }} .rev-prev,
+#shopify-section-{{ section.id }} .rev-next {
+  width: 50px; 
+  height: 50px; 
+  border-radius: 50%; 
+  border: 0; 
+  background: #2961BE;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  cursor: pointer; 
+  color: #fff; 
+  transition: background 0.2s ease, color 0.2s ease;
+  position: relative;
+  z-index: 10;
+}
+
+#shopify-section-{{ section.id }} .rev-prev:hover,
+#shopify-section-{{ section.id }} .rev-next:hover {
+  background: #fff;
+  color: #2961BE;
+}
+
+#shopify-section-{{ section.id }} .rev-prev:hover svg path,
+#shopify-section-{{ section.id }} .rev-next:hover svg path {
+  fill: #2961BE;
+}
+
+/* Nav Disabled States */
+#shopify-section-{{ section.id }} .rev-prev.swiper-button-disabled,
+#shopify-section-{{ section.id }} .rev-next.swiper-button-disabled {
+  pointer-events: none; 
+  opacity: 0.5; 
+  background: #fff !important;
+  cursor: not-allowed !important;
+  color: #aaa !important;
+}
+
+#shopify-section-{{ section.id }} .rev-prev.swiper-button-disabled svg path,
+#shopify-section-{{ section.id }} .rev-next.swiper-button-disabled svg path {
+  fill: #aaa !important;
+}
+
+/* ==========================================================
+   5. RESPONSIVE QUERIES
+   ========================================================== */
+@media (max-width: 900px) {
+  /* Layout adjustments */
+  #shopify-section-{{ section.id }} .rev-cards-media-text-wrapper { 
+    flex-direction: column; 
+    gap: 30px; 
+    margin-top: 20px; 
+  }
+  
+  #shopify-section-{{ section.id }} .rev-cards-left,
+  #shopify-section-{{ section.id }} .rev-cards-right,
+  #shopify-section-{{ section.id }} .rev-card-media,
+  #shopify-section-{{ section.id }} .rev-card-body { 
+    width: 100%; 
+  }
+  
+  #shopify-section-{{ section.id }} .rev-card-body { 
+    align-items: center; 
+  }
+  
+  #shopify-section-{{ section.id }} .rev-card-body-inner {
+    text-align: center; /* Centers text on mobile */
+  }
+
+  #shopify-section-{{ section.id }} .rev-cards-nav { 
+    justify-content: center; /* Centers buttons on mobile */
+    margin-top: 20px;
+  }
+
+  /* Nav active/hover states for touch screens */
+  #shopify-section-{{ section.id }} .rev-prev:hover,
+  #shopify-section-{{ section.id }} .rev-next:hover {
+    background: #2961BE;
+    color: #fff;
+  }
+  
+  #shopify-section-{{ section.id }} .rev-prev:hover svg path,
+  #shopify-section-{{ section.id }} .rev-next:hover svg path {
+    fill: #fff;
+  }
+}
+
+@media (max-width: 767px) {
+  #shopify-section-{{ section.id }} .rev-cards-wrap {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+}
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded',function(){
+    if(typeof Swiper==='undefined')return;
+    const section=document.querySelector('#shopify-section-{{ section.id }}');
+    const swiperEl=section?.querySelector('.rev-cards-swiper');
+    const prevBtn=section?.querySelector('.rev-prev');
+    const nextBtn=section?.querySelector('.rev-next');
+    const swiperAuto={{ section.settings.swiper_autoplay | json }};
+    const swiperDelay={{ section.settings.autoplay_delay | times: 600 }};
+    const AUTOPLAY_VIDEO={{ section.settings.video_autoplay | json }};
+    if(!section||!swiperEl||!prevBtn||!nextBtn)return;
+
+    let ytLoaded=false;
+    function loadYT(){ if(ytLoaded) return Promise.resolve(); ytLoaded=true; return new Promise((resolve)=>{ const s=document.createElement('script'); s.src='https://www.youtube.com/iframe_api'; document.head.appendChild(s); if(window.YT&&window.YT.Player){resolve();return;} window.onYouTubeIframeAPIReady=resolve; }); }
+
+    const players=new Map();
+    function setPlayButtonVisibility(slideEl,visible){ const btn=slideEl.querySelector('.yt-play-center'); if(btn) btn.style.opacity=visible?'1':'0'; }
+    function ensurePlayer(slideEl,shouldAutoplay){
+      const lite=slideEl.querySelector('.yt-lite'); if(!lite) return;
+      const vid=lite.getAttribute('data-video-id'); if(!vid) return;
+      if(players.has(slideEl)){ const p=players.get(slideEl); try{ if(shouldAutoplay){p.mute();p.playVideo();setPlayButtonVisibility(slideEl,false);} else {p.pauseVideo();setPlayButtonVisibility(slideEl,true);} }catch(e){} return; }
+      const holder=document.createElement('div'); holder.style.position='absolute'; holder.style.inset='0'; lite.innerHTML=''; lite.appendChild(holder);
+      const player=new YT.Player(holder,{videoId:vid,playerVars:{autoplay:shouldAutoplay?1:0,mute:1,rel:0,modestbranding:1,playsinline:1,controls:1,enablejsapi:1,origin:location.origin},events:{
+        onReady:(e)=>{ if(shouldAutoplay){e.target.mute();e.target.playVideo();setPlayButtonVisibility(slideEl,false);} else {setPlayButtonVisibility(slideEl,true);} },
+        onStateChange:(e)=>{ if(!window.YT||!YT.PlayerState) return; const btn=slideEl.querySelector('.yt-play-center'); if(e.data===YT.PlayerState.PLAYING){ if(btn) btn.style.opacity='0'; if(swiper&&swiper.autoplay) swiper.autoplay.stop(); } if(e.data===YT.PlayerState.PAUSED||e.data===YT.PlayerState.ENDED||e.data===YT.PlayerState.CUED){ if(btn) btn.style.opacity='1'; if(swiper&&swiper.autoplay&&swiperAuto) swiper.autoplay.start(); } }
+      }});
+      players.set(slideEl,player);
+      const media=slideEl.querySelector('.rev-card-media'); if(media){ media.addEventListener('click',()=>{ try{player.playVideo();player.unMute();}catch(e){} },{passive:true}); }
+    }
+    function teardownNonActive(sw){ sw.slides.forEach((s,i)=>{ if(i===sw.activeIndex) return; const p=players.get(s); if(!p) return; try{p.stopVideo();p.destroy();}catch(e){} players.delete(s); const lite=s.querySelector('.yt-lite'); if(lite){ const id=lite.getAttribute('data-video-id'); lite.innerHTML='<img class="yt-thumb" src="https://i.ytimg.com/vi/'+id+'/mqdefault.jpg" alt="YouTube thumbnail" loading="lazy" decoding="async"><button class="ytp-large-play-button ytp-button ytp-large-play-button-red-bg" aria-label="Play" title="Play"><svg height="100%" viewBox="0 0 68 48" width="100%"><path class="ytp-large-play-button-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#f03"></path><path d="M 45,24 27,14 27,34" fill="#fff"></path></svg></button>'; } }); }
+
+    let last=0;
+    function setDir(sw){ const dir=sw.activeIndex>last?'next':'prev'; section.dataset.dir=dir; last=sw.activeIndex; }
+
+    // NEW: Update navigation buttons state
+    function updateNavState(sw){
+      if(sw.isBeginning){
+        prevBtn.disabled=true;
+        prevBtn.classList.add('swiper-button-disabled');
+      } else {
+        prevBtn.disabled=false;
+        prevBtn.classList.remove('swiper-button-disabled');
+      }
+      if(sw.isEnd){
+        nextBtn.disabled=true;
+        nextBtn.classList.add('swiper-button-disabled');
+      } else {
+        nextBtn.disabled=false;
+        nextBtn.classList.remove('swiper-button-disabled');
+      }
+    }
+
+    const swiper=new Swiper(swiperEl,{effect:'cards',slidesPerView:1,rewind:false,loop:false,
+      autoplay:swiperAuto?{delay:swiperDelay,disableOnInteraction:false,pauseOnMouseEnter:true}:false,
+      navigation:{prevEl:prevBtn,nextEl:nextBtn},
+      cardsEffect:{perSlideOffset:4,perSlideRotate:1.7,rotate:true,slideShadows:false},
+      on:{
+        init(){
+          last=this.activeIndex;
+          setDir(this);
+          this.slides.forEach(s=>s.classList.toggle('is-active',s.classList.contains('swiper-slide-active')));
+          const io=new IntersectionObserver((entries)=>{ if(entries[0].isIntersecting){ loadYT().then(()=>ensurePlayer(this.slides[this.activeIndex],AUTOPLAY_VIDEO)); io.disconnect(); } },{threshold:0.2});
+          io.observe(section);
+          updateNavState(this); // NEW: set initial state
+        },
+        slideChangeTransitionStart(){ setDir(this); },
+        slideChange(){
+          this.slides.forEach(s=>s.classList.toggle('is-active',s===this.slides[this.activeIndex]));
+          const allTexts = section.querySelectorAll('.rev-card-texts .rev-card-body');
+          allTexts.forEach((t, i) => t.classList.toggle('is-active', i === this.activeIndex));
+          teardownNonActive(this);
+          loadYT().then(()=>ensurePlayer(this.slides[this.activeIndex],AUTOPLAY_VIDEO));
+          updateNavState(this); // NEW: update state on change
+        }
+      }
+    });
+
+    section.querySelectorAll('.rev-card-media .yt-lite').forEach(el=>{ el.addEventListener('click',()=>{ const slide=el.closest('.swiper-slide'); loadYT().then(()=>ensurePlayer(slide,false)); },{passive:true}); });
+
+    const pauseIO=new IntersectionObserver((entries)=>{ const inView=entries[0].isIntersecting; if(inView) return; swiper&&teardownNonActive(swiper); },{threshold:0}); pauseIO.observe(section);
+
+    if(swiper&&swiper.autoplay){ swiperEl.addEventListener('mouseenter',()=>swiper.autoplay.stop()); swiperEl.addEventListener('mouseleave',()=>swiper.autoplay.start()); prevBtn.addEventListener('click',()=>swiper.autoplay.stop()); nextBtn.addEventListener('click',()=>swiper.autoplay.stop()); }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Customer Reviews",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Previous Reviews From Our Customers" },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Background Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_top",
+      "label": "Top Wave Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_bottom",
+      "label": "Bottom Wave Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "swiper_autoplay",
+      "label": "Enable slider autoplay",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_delay",
+      "label": "Autoplay delay (minutes)",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "checkbox",
+      "id": "video_autoplay",
+      "label": "Autoplay video when slide becomes active (muted)",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        { "type": "text", "id": "youtube_url", "label": "YouTube Video URL" },
+        { "type": "text", "id": "quote", "label": "Quote", "default": "Way More Reliable" },
+        { "type": "text", "id": "name", "label": "Customer name", "default": "Yousuf Shahzad" },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "On top of that, their shipping was way more reliable. My customers were getting their orders faster, and the number of complaints dropped noticeably."
+        }
+      ]
+    }
+  ],
+  "max_blocks": 15,
+  "presets": [{ "name": "Customer Reviews" }]
+}
+{% endschema %}

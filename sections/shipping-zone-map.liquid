@@ -1,0 +1,162 @@
+{% comment %}
+  -----------------------------------------------------------------------------
+  SHIPPING MAP SECTION (IMAGE BASED)
+  - Features the exact shadows and borders requested.
+  - Simple Image Picker for the map graphic.
+  - Industrial-grade responsive layout.
+  -----------------------------------------------------------------------------
+{% endcomment %}
+
+{% schema %}
+{
+  "name": "Shipping Map",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "WEST COAST WAREHOUSE SHIPPING ZONES OVERVIEW"
+    },
+    {
+      "type": "image_picker",
+      "id": "map_image",
+      "label": "Map Image",
+      "info": "Upload your shipping zone map (PNG or JPG)"
+    },
+    {
+      "type": "text",
+      "id": "footer_note",
+      "label": "Footer Note",
+      "default": "NOTE: THIS MAP ONLY REPRESENTS APPROXIMATE ZONES."
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shipping Map"
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+  .sm-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .sm-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+.sm-header.h1 {
+    text-align: center;
+}
+
+
+.sm-map-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+    max-height: 600px;
+}
+  .sm-placeholder {
+    background: #f4f4f4;
+    padding: 100px;
+    text-align: center;
+    color: #ccc;
+    border-radius: 8px;
+  }
+
+  .sm-footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #94A3B8;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 768px) {
+    .sm-map-card { padding: 10px; }
+  }
+{% endstyle %}
+
+<div class="sm-section-{{ section.id }}">
+  <div class="sm-container page-width">
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="sm-header h1">{{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    <div class="sm-map-card">
+      {% if section.settings.map_image != blank %}
+        <img 
+          src="{{ section.settings.map_image | image_url: width: 20000 }}" 
+          alt="{{ section.settings.map_image.alt | default: 'Shipping Map' }}"
+          loading="lazy"
+        >
+      {% else %}
+        <div class="sm-placeholder">
+          {{ 'image' | placeholder_svg_tag }}
+          <p>Please upload your map image in the theme editor.</p>
+        </div>
+      {% endif %}
+    </div>
+
+    {% if section.settings.footer_note != blank %}
+      <div class="sm-footer">
+        {{ section.settings.footer_note }}
+      </div>
+    {% endif %}
+
+  </div>
+</div>

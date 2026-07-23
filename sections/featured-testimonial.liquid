@@ -1,0 +1,397 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* --- Container & Layout --- */
+  .ft-wrapper {
+    max-width: 900px; 
+    margin: 0 auto;
+  }
+
+  .ft-card {
+    display: flex;
+    border-radius: 24px;
+    overflow: hidden; 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Desktop side-by-side layout */
+  @media screen and (min-width: 768px) {
+    .ft-card {
+      flex-direction: row;
+      align-items: stretch;
+    }
+  }
+
+  /* --- LEFT SIDE: Content & Gradient --- */
+  .ft-content {
+    flex: 1;
+    background: linear-gradient(187.12deg, #3F75BA 5.55%, #5DA8D5 117.12%);
+    padding: 60px 50px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+  }
+
+  /* Mobile Content Adjustments */
+  @media screen and (max-width: 767px) {
+    .ft-content {
+      padding: 40px 30px;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  /* CSS Grid Pattern Overlay */
+  .ft-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Optional Background Image uploaded by user */
+  .ft-bg-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .ft-inner {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* --- Typography --- */
+  .ft-stars {
+    color: #FFD700;
+    font-size: 24px;
+    letter-spacing: 4px;
+    margin-bottom: 20px;
+  }
+  .ft-star-img {
+    height: auto;
+    width:100px;
+    object-fit: contain;
+  }
+
+  .ft-quote {
+    color: #ffffff;
+    margin-bottom: 30px;
+  }
+
+  .ft-quote p {
+    margin: 0;
+    font-size: 26px;
+    line-height: 1.3;
+    font-weight: 500;
+  }
+
+  @media screen and (max-width: 767px) {
+    .ft-quote p {
+      font-size: 20px;
+    }
+  }
+
+  /* --- Button Styling (Outline Pill) --- */
+.ft-button-wrapper {
+    margin-top: 10px;
+}
+
+  .ft-button-wrapper a.button {
+    background: transparent !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 50px !important; 
+    padding: 12px 32px;
+    min-width: auto;
+    width: fit-content;
+    box-shadow: none !important;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.3s ease;
+  }
+
+  /* Disable Dawn's default button pseudo-elements */
+  .ft-button-wrapper a.button::after,
+  .ft-button-wrapper a.button::before {
+    display: none !important; 
+  }
+
+  .ft-button-wrapper a.button:hover {
+    background: #ffffff !important;
+    color: #3F75BA !important; 
+  }
+
+  /* --- RIGHT SIDE: Image/Video --- */
+  .ft-image-col {
+    flex: 1;
+    position: relative;
+    background: #000;
+    min-height: 400px;
+    z-index: 3;
+  }
+
+  @media screen and (max-width: 767px) {
+    .ft-image-col {
+      min-height: 350px;
+      display: none;
+    }
+  }
+
+  .ft-media-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="center" style="margin-bottom: 40px;">
+        <h2 class="h1">{{ section.settings.heading }}</h2>
+      </div>
+    {%- endif -%}
+
+    <div class="ft-wrapper">
+      {%- for block in section.blocks -%}
+        <div class="ft-card" {{ block.shopify_attributes }}>
+          
+          <div class="ft-content">
+            {%- if block.settings.bg_image != blank -%}
+              <img class="ft-bg-image" src="{{ block.settings.bg_image | image_url: width: 800 }}" loading="lazy" alt="">
+            {%- endif -%}
+
+            <div class="ft-inner">
+              
+          {%- if block.settings.show_stars -%}
+  <div class="ft-stars">
+    {% if block.settings.star_image != blank %}
+      {{ block.settings.star_image | image_url: width: 400 | image_tag: class: 'ft-star-img', loading: 'lazy', alt: block.settings.star_image_alt | default: "" }}
+    {% else %}
+      {%- for i in (1..block.settings.stars) -%}★{%- endfor -%}
+    {% endif %}
+  </div>
+{%- endif -%}
+              
+              <div class="ft-quote">
+                {{ block.settings.quote }}
+              </div>
+
+              {%- if block.settings.button_label != blank -%}
+                <div class="ft-button-wrapper">
+                  <a href="{{ block.settings.button_link | default: '#' }}" 
+                     class="button button--secondary">
+                    {{ block.settings.button_label | escape }}
+                  </a>
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+
+          <div class="ft-image-col">
+            {%- if block.settings.video != blank -%}
+              {{ block.settings.video | video_tag: autoplay: true, loop: true, muted: true, controls: false, class: 'ft-media-element' }}
+            {%- elsif block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'ft-media-element' }}
+            {%- else -%}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg ft-media-element' }}
+            {%- endif -%}
+          </div>
+
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Featured Testimonial",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Featured Success Story"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Dawn Color Scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial Block",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_stars",
+          "label": "Show Star Rating",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "stars",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "label": "Star Rating",
+          "default": 5
+        },
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": "Review Text",
+          "default": "<p>How Harry Coleman Built a Multi-Million Dollar Dropshipping Empire</p>"
+        },
+        {
+          "type": "header",
+          "content": "Button Settings"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        },
+        {
+          "type": "header",
+          "content": "Media Settings"
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_image",
+          "label": "Background Overlay Image",
+          "info": "Upload the grid pattern image to overlay on top of the blue gradient."
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video",
+          "info": "Selecting a video will override the main image below. It will autoplay silently."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Main Image",
+          "info": "Will display if no video is selected above."
+        },
+         { "type": "header", "content": "Rating Icons" },
+    {
+      "type": "image_picker",
+      "id": "star_image",
+      "label": "Custom Rating Image (Optional)",
+      "info": "Replaces the star characters. Useful for uploading a custom pill/badge image."
+    },
+    {
+      "type": "text",
+      "id": "star_image_alt",
+      "label": "Rating Image Alt Text"
+    },
+    {
+      "type": "range",
+      "id": "star_image_width",
+      "min": 10,
+      "max": 250,
+      "step": 5,
+      "unit": "px",
+      "label": "Rating Image Width",
+      "default": 100
+    },
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Testimonial",
+      "blocks": [
+        {
+          "type": "testimonial"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

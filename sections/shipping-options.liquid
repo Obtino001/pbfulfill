@@ -1,0 +1,435 @@
+{%- style -%}
+  #so-section-{{ section.id }} {
+    --bg-color: {{ section.settings.bg_color }};
+    --slider-color: {{ section.settings.slider_color }};
+    background-color: var(--bg-color);
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    overflow: hidden;
+  }
+  @media screen and (min-width: 750px) {
+    #so-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+
+<style>
+  .so-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .so-heading {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #4A5568;
+    margin-bottom: 40px;
+  }
+
+  /* Swiper Container */
+  .so-swiper-container {
+    width: 100%;
+    padding: 20px 20px 50px 20px !important;
+    margin: -20px -20px 0 -20px !important;
+    overflow: visible !important;
+  }
+
+  /* --- CARD STYLING --- */
+  .so-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    max-height: 400px;
+  }
+
+  .so-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .so-image-wrapper {
+    width: 100%;
+    {% comment %} aspect-ratio: 4/3; {% endcomment %}
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 24px;
+    background-color: #f5f5f5;
+  }
+
+.so-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    max-height: 200px;
+}
+  .so-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2D3748;
+    margin: 0 0 16px 0;
+  }
+
+  /* List Styling */
+  .so-desc {
+    color: #4A5568;
+    font-size: 14px;
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+
+  .so-desc ul {
+    padding-left: 20px;
+    margin: 0;
+  }
+
+  .so-desc li {
+    margin-bottom: 6px;
+  }
+
+  /* --- DESKTOP GRID LAYOUT (Min-width 769px) --- */
+  @media (min-width: 769px) {
+    .so-swiper-container .swiper-wrapper {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      transform: none !important;
+      align-items: stretch;
+    }
+
+    .so-swiper-container .swiper-slide {
+      width: auto !important;
+      height: auto !important;
+    }
+
+    .so-controls {
+      display: none !important;
+    }
+  }
+
+  /* --- MOBILE SWIPER LAYOUT (Max-width 768px) --- */
+  @media (max-width: 768px) {
+    .so-heading {
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+
+    /* Fallback CSS before JS loads */
+    .so-swiper-container .swiper-wrapper {
+      display: flex;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .so-swiper-container .swiper-slide {
+      width: 85%;
+      flex-shrink: 0;
+      height: auto !important;
+    }
+
+    /* Navigation Controls - Custom Pill UI */
+    .so-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .so-arrow {
+      width: 48px;
+      height: 48px;
+      background-color: var(--slider-color);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #fff;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .so-arrow:active {
+      transform: scale(0.95);
+    }
+
+    .so-arrow.swiper-button-disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .so-arrow svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .so-pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #ffffff;
+      padding: 12px 20px;
+      border-radius: 40px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+      width: auto !important; 
+      position: static !important;
+    }
+
+    .so-pagination .swiper-pagination-bullet {
+      width: 14px;
+      height: 6px;
+      background: #EAEAEA; 
+      border-radius: 10px;
+      opacity: 1;
+      margin: 0 !important;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .so-pagination .swiper-pagination-bullet-active {
+      background: var(--slider-color);
+      width: 16px; 
+    }
+  }
+</style>
+
+<div id="so-section-{{ section.id }}" class="so-section">
+  <div class="so-container">
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="h1">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="swiper so-swiper-container">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide so-slide">
+            <div class="so-card" {{ block.shopify_attributes }}>
+              
+              <div class="so-image-wrapper">
+                {% if block.settings.image != blank %}
+                  <img src="{{ block.settings.image | image_url: width: 600 }}" 
+                       loading="lazy" 
+                       alt="{{ block.settings.title }}" 
+                       class="so-img">
+                {% else %}
+                  {{ 'image' | placeholder_svg_tag: 'so-img placeholder-svg' }}
+                {% endif %}
+              </div>
+
+              <h3 class="so-title">{{ block.settings.title }}</h3>
+              
+              <div class="so-desc">
+                {{ block.settings.description }}
+              </div>
+
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="so-controls">
+      <div class="so-arrow so-prev">
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"></polyline></svg>
+      </div>
+      
+      <div class="so-pagination"></div>
+      
+      <div class="so-arrow so-next">
+        <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"></polyline></svg>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  (function() {
+    let swiperInstance = null;
+    const sectionId = '{{ section.id }}';
+    const sectionEl = document.getElementById('so-section-' + sectionId);
+    if (!sectionEl) return;
+    
+    const container = sectionEl.querySelector('.so-swiper-container');
+
+    function initSwiper() {
+      const isMobile = window.innerWidth <= 768;
+
+      if (isMobile && !swiperInstance) {
+        // Init Swiper on Mobile
+        if (typeof Swiper === 'undefined') return;
+        
+        swiperInstance = new Swiper(container, {
+          slidesPerView: 1.15, // Creates the "peek" effect for the next slide
+          spaceBetween: 20,
+          loop: false, // Turned off loop so the edge cards align properly with the screen
+          navigation: {
+            nextEl: sectionEl.querySelector('.so-next'),
+            prevEl: sectionEl.querySelector('.so-prev'),
+          },
+          pagination: {
+            el: sectionEl.querySelector('.so-pagination'),
+            clickable: true,
+          },
+        });
+      } else if (!isMobile && swiperInstance) {
+        // Destroy Swiper on Desktop to let CSS Grid take over
+        swiperInstance.destroy(true, true);
+        swiperInstance = null;
+        
+        // Clean up styles
+        if(container) {
+            container.querySelector('.swiper-wrapper').removeAttribute('style');
+            container.querySelectorAll('.swiper-slide').forEach(slide => slide.removeAttribute('style'));
+        }
+      }
+    }
+
+    // Wait for Swiper to load if it hasn't already
+    if (typeof Swiper === 'undefined') {
+      const swiperScript = document.querySelector('script[src*="swiper-bundle"]');
+      if(swiperScript) {
+        swiperScript.addEventListener('load', initSwiper);
+      }
+    } else {
+      document.addEventListener('DOMContentLoaded', initSwiper);
+    }
+    
+    window.addEventListener('resize', initSwiper);
+
+    if (Shopify.designMode) {
+      document.addEventListener('shopify:section:load', function(event) {
+        if (event.detail.sectionId === sectionId) {
+          setTimeout(initSwiper, 100);
+        }
+      });
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Shipping Options",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shipping Options"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "slider_color",
+      "label": "Controls Accent Color",
+      "default": "#2961BE"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "option",
+      "name": "Shipping Option",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Express Air"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description List",
+          "default": "<ul><li>Fast delivery (3-5 days)</li><li>Real-time tracking</li><li>Insurance included</li></ul>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shipping Options",
+      "blocks": [
+        { "type": "option", "settings": { "title": "Air Freight" } },
+        { "type": "option", "settings": { "title": "Sea Freight" } },
+        { "type": "option", "settings": { "title": "Rail Freight" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

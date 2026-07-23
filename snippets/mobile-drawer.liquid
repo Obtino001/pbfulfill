@@ -1,0 +1,179 @@
+{%- liquid
+  assign mobile_menu = linklists[section.settings.mobile_menu]
+  if mobile_menu == blank
+    assign mobile_menu = linklists[section.settings.menu]
+  endif
+-%}
+
+<mobile-drawer class="mobile-drawer" id="MobileDrawer" aria-hidden="true">
+  <div class="mobile-drawer-inner">
+
+    <div class="mobile-drawer-body">
+      <ul class="mobile-drawer-nav" role="list">
+        {%- if mobile_menu != blank -%}
+          {%- for link in mobile_menu.links -%}
+            {%- if link.links != blank -%}
+              <li class="mobile-has-submenu">
+                <div class="mobile-nav-item-wrapper" style="display: flex; align-items: center; justify-content: space-between; width: 100%;">
+                  <a href="{{ link.url }}" class="mobile-nav-link" style="flex-grow: 1;">{{ link.title | escape }}</a>
+                  
+                  <button class="mobile-nav-toggle" aria-expanded="{% if link.active_child_link %}true{% else %}false{% endif %}" style="background: transparent; border: none; padding: 10px; cursor: pointer;">
+                    <span class="mobile-nav-icon">
+                      <svg width="12" height="8" viewBox="0 0 12 8" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1.5L6 6.5L11 1.5"/></svg>
+                    </span>
+                  </button>
+                </div>
+
+                <div class="mobile-submenu-wrapper">
+                  <ul class="mobile-submenu" role="list">
+                    {%- for child_link in link.links -%}
+                      <li>
+                        <a href="{{ child_link.url }}" class="mobile-sub-link">{{ child_link.title | escape }}</a>
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              </li>
+            {%- else -%}
+              <li>
+                <a href="{{ link.url }}" class="mobile-nav-link">{{ link.title | escape }}</a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endif -%}
+      </ul>
+
+      {%- if section.settings.button_text != blank -%}
+        <div class="mobile-drawer-cta">
+          <a href="{{ section.settings.button_link | default: '#' }}" class="mobile-cta-button button button--primary">
+            {{ section.settings.button_text | escape }}
+          </a>
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="mobile-drawer-footer">
+      <div class="mobile-socials">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'social_icon' -%}
+             <a href="{{ block.settings.link }}" class="mobile-social-link" target="_blank" {{ block.shopify_attributes }}>
+              {%- if block.settings.icon != blank -%}
+                <img src="{{ block.settings.icon | image_url: width: 40 }}" alt="{{ block.settings.icon.alt | escape }}" loading="lazy">
+              {%- endif -%}
+             </a>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+      <div class="mobile-trust-row">
+        <span>Review us on</span>
+        <a href="https://www.trustpilot.com/review/pbfulfill.com" target="_blank" class="mobile-trust-link">
+          <span style="display: flex; align-items: center;"><img src="https://cdn.trustpilot.net/brand-assets/1.8.0/logo-white.svg" height="20" style="margin-left: 5px;"></span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</mobile-drawer>
+
+<script>
+  if (!customElements.get('mobile-drawer')) {
+    class MobileDrawer extends HTMLElement {
+      constructor() {
+        super();
+        this.isOpen = false;
+      }
+
+      connectedCallback() {
+        this.burger = document.querySelector('.mc-burger');
+        this.closeBtn = this.querySelector('[data-drawer-close]');
+        this.toggles = this.querySelectorAll('.mobile-nav-toggle');
+
+        // Burger button opens drawer
+        if (this.burger) {
+          this.burger.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.isOpen ? this.close() : this.open();
+          });
+        }
+
+        // Close button
+        if (this.closeBtn) {
+          this.closeBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.close();
+          });
+        }
+
+        // Accordion submenus
+        this.toggles.forEach((toggle) => {
+          toggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            this.handleAccordion(toggle);
+          });
+
+          // Set initial state
+          const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+          if (isExpanded) {
+            const wrapper = toggle.closest('.mobile-has-submenu').querySelector('.mobile-submenu-wrapper');
+            wrapper.style.height = 'auto';
+          }
+        });
+      }
+
+      open() {
+        this.isOpen = true;
+        this.classList.add('is-open');
+        this.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        // Swap hamburger icon to close icon
+        if (this.burger) {
+          this.burger.setAttribute('aria-expanded', 'true');
+          const ham = this.burger.querySelector('.ham');
+          const hamClose = this.burger.querySelector('.ham-close');
+          if (ham) ham.style.display = 'none';
+          if (hamClose) hamClose.style.display = 'block';
+        }
+      }
+
+      close() {
+        this.isOpen = false;
+        this.classList.remove('is-open');
+        this.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+
+        // Swap close icon back to hamburger
+        if (this.burger) {
+          this.burger.setAttribute('aria-expanded', 'false');
+          const ham = this.burger.querySelector('.ham');
+          const hamClose = this.burger.querySelector('.ham-close');
+          if (ham) ham.style.display = 'block';
+          if (hamClose) hamClose.style.display = 'none';
+        }
+      }
+
+      handleAccordion(toggle) {
+        const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+        
+        // Updated logic to find the wrapper now that HTML structure has changed
+        const wrapper = toggle.closest('.mobile-has-submenu').querySelector('.mobile-submenu-wrapper');
+        const inner = wrapper.querySelector('.mobile-submenu');
+
+        if (isExpanded) {
+          toggle.setAttribute('aria-expanded', 'false');
+          wrapper.style.height = wrapper.scrollHeight + 'px';
+          requestAnimationFrame(() => { wrapper.style.height = '0px'; });
+        } else {
+          toggle.setAttribute('aria-expanded', 'true');
+          wrapper.style.height = inner.scrollHeight + 'px';
+          wrapper.addEventListener('transitionend', function handler() {
+            if (wrapper.style.height !== '0px') wrapper.style.height = 'auto';
+            wrapper.removeEventListener('transitionend', handler);
+          });
+        }
+      }
+    }
+
+    customElements.define('mobile-drawer', MobileDrawer);
+  }
+</script>

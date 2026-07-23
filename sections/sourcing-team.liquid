@@ -1,0 +1,329 @@
+{% schema %}
+{
+  "name": "Sourcing Team",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Sourcing Team"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Background Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "select",
+      "id": "bg_size",
+      "label": "Image Size",
+      "options": [
+        { "value": "cover", "label": "Cover (Fills section)" },
+        { "value": "contain", "label": "Contain (Shows full image)" },
+        { "value": "auto", "label": "Auto (Original size)" }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "select",
+      "id": "bg_position",
+      "label": "Image Position",
+      "options": [
+        { "value": "top left", "label": "Top Left" },
+        { "value": "top center", "label": "Top Center" },
+        { "value": "top right", "label": "Top Right" },
+        { "value": "center left", "label": "Center Left" },
+        { "value": "center center", "label": "Center Center" },
+        { "value": "center right", "label": "Center Right" },
+        { "value": "bottom left", "label": "Bottom Left" },
+        { "value": "bottom center", "label": "Bottom Center" },
+        { "value": "bottom right", "label": "Bottom Right" }
+      ],
+      "default": "top center"
+    },
+    {
+      "type": "select",
+      "id": "bg_repeat",
+      "label": "Image Repeat",
+      "options": [
+        { "value": "no-repeat", "label": "No Repeat" },
+        { "value": "repeat", "label": "Repeat" },
+        { "value": "repeat-x", "label": "Repeat Horizontally" },
+        { "value": "repeat-y", "label": "Repeat Vertically" }
+      ],
+      "default": "no-repeat"
+    },
+    {
+      "type": "header",
+      "content": "Feature Bar Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "tick_icon",
+      "label": "Custom Tick Icon"
+    },
+    {
+      "type": "text",
+      "id": "feat_1",
+      "label": "Feature 1",
+      "default": "Fluent English communication"
+    },
+    {
+      "type": "text",
+      "id": "feat_2",
+      "label": "Feature 2",
+      "default": "Skilled at negotiation & supplier audits"
+    },
+    {
+      "type": "text",
+      "id": "feat_3",
+      "label": "Feature 3",
+      "default": "Strong Yiwu / Guangzhou market coverage"
+    },
+    {
+      "type": "text",
+      "id": "feat_4",
+      "label": "Feature 4",
+      "default": "Familiar with materials & product categories"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer Text",
+      "default": "We find the right suppliers — so you don't have to."
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "team_member",
+      "name": "Team Member",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Photo" },
+        { "type": "text", "id": "name", "label": "Name & Title", "default": "Bryan – Founder & CEO" },
+        { "type": "text", "id": "desc", "label": "Description", "default": "Supply chain strategy & business development" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sourcing Team",
+      "blocks": [
+        { "type": "team_member" },
+        { "type": "team_member" },
+        { "type": "team_member" },
+        { "type": "team_member" },
+        { "type": "team_member" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-wrapper {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+     {% if section.settings.bg_image != blank %}
+     style="
+       background-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}');
+       background-size: {{ section.settings.bg_size }};
+       background-position: {{ section.settings.bg_position }};
+       background-repeat: {{ section.settings.bg_repeat }};
+     "
+     {% endif %}>
+  
+  {% if section.settings.bg_image == blank %}
+    <div class="st-bg-grid"></div>
+  {% endif %}
+
+  <div class="page-width st-inner-wrapper st-section-{{ section.id }}">
+    <div class="center">
+      <h2 class="{{ section.settings.heading_size }} st-heading">{{ section.settings.heading }}</h2>
+    </div>
+
+    <div class="st-grid-container">
+      <div class="st-grid">
+        {% for block in section.blocks %}
+          <div class="st-card center color-background-1" {{ block.shopify_attributes }}>
+            <div class="st-image-wrapper">
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 200 | image_tag: loading: 'lazy', class: 'st-img' }}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+              {% endif %}
+            </div>
+            <h3 class="st-name">{{ block.settings.name }}</h3>
+            <p class="st-desc">{{ block.settings.desc }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="st-feature-bar color-background-1">
+      {% for i in (1..4) %}
+        {% capture feat_id %}feat_{{ i }}{% endcapture %}
+        {% if section.settings[feat_id] != blank %}
+          <div class="st-feat-item">
+            <div class="st-check-icon">
+              {% if section.settings.tick_icon != blank %}
+                 {{ section.settings.tick_icon | image_url: width: 60 | image_tag: loading: 'lazy' }}
+              {% else %}
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="24" height="24" rx="8" fill="#2961BE"/>
+                  <path d="M17 8L10 15L7 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              {% endif %}
+            </div>
+            <p class="st-feat-text">{{ section.settings[feat_id] }}</p>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.footer_text != blank %}
+      <div class="pl-footer-wrapper">
+      <p class="pl-footer-text">{{ section.settings.footer_text }}</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<style>
+  .section-{{ section.id }}-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
+  .st-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .st-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .st-inner-wrapper { position: relative; z-index: 2; }
+  .st-bg-grid {
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 350px;
+    background-image: linear-gradient(#e5e5e5 1px, transparent 1px), linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+    background-size: 50px 50px; transform: perspective(500px) rotateX(60deg) translateY(100px) scale(2);
+    opacity: 0.5; z-index: 1; pointer-events: none;
+  }
+  .st-heading { margin-bottom: 3rem; color: #4a5568; font-weight: 600; }
+  .st-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-bottom: 4rem; }
+.st-card {
+    flex: 0 0 calc(33.333% - 1.35rem);
+    min-width: 260px;
+    max-width: 320px;
+    padding: 3rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0px 4px 4px -2px #0A0D120A;
+    border: 1px solid #E9EAEB;
+    box-shadow: 0px 24px 48px -12px #0A0D122E;
+    background: #fff;
+}
+  .st-card:hover { transform: translateY(-5px); box-shadow: 0px 20px 40px rgba(0,0,0,0.08); }
+  .st-image-wrapper { width: 90px; height: 90px; margin: 0 auto 1.5rem; border-radius: 50%; overflow: hidden; background: #f4f4f4; }
+  .st-img { width: 100%; height: 100%; object-fit: cover; }
+  .st-name { margin: 0 0 0.5rem; font-size: 1.4rem; font-weight: 700; color: #333; }
+  .st-desc { margin: 0; opacity: 0.6; font-size: 1.3rem; line-height: 1.4; }
+  .st-feature-bar {
+    max-width: 1000px; margin: 0 auto; padding: 3rem; border-radius: 16px;
+    display: flex; justify-content: space-around; align-items: flex-start; gap: 2rem;
+    background: #F5FAFF; box-shadow: 0px 4px 4px -2px #0A0D120A;
+    box-shadow: 0px 24px 48px -12px #0A0D122E;
+
+  }
+.st-feat-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.2rem;
+    min-width: 140px;
+    padding-inline: 50px;
+}
+  .st-check-icon img, .st-check-icon svg { width: 28px; height: 28px; display: block; }
+  .st-feat-text { margin: 0; font-size: 1.3rem; font-weight: 600; color: #333; line-height: 1.4; }
+  .st-footer-text { margin-top: 4rem; font-size: 1.2rem; color: #888; letter-spacing: 0.5px; }
+
+  @media screen and (max-width: 749px) {
+    .st-grid-container { margin: 0 -1.5rem; width: 100vw; }
+    .st-grid {
+      display: flex; flex-wrap: nowrap; overflow-x: auto;
+      scroll-snap-type: x mandatory; scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none;
+      gap: 15px; padding: 0 12.5% 2rem 12.5%; justify-content: flex-start;
+    }
+    .st-grid::-webkit-scrollbar { display: none; }
+    .st-card { flex: 0 0 100%; scroll-snap-align: center; max-width: none; }
+    .st-feature-bar { flex-direction: column; padding: 2.5rem 2rem; align-items: center; }
+    .st-feat-item { width: 100%; }
+  }
+</style>

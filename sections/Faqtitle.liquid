@@ -1,0 +1,108 @@
+
+
+{%- style -%}
+  .ifaq-section-{{ section.id }} { 
+    background-color: {{ section.settings.bg_color }}; 
+    --card-bg: {{ section.settings.card_bg }};
+    --ifaq-accent: {{ section.settings.accent_color }};
+    --pt-desktop: {{ section.settings.pt_desktop }}px;
+    --pb-desktop: {{ section.settings.pb_desktop }}px;
+    --pt-mobile: {{ section.settings.pt_mobile }}px;
+    --pb-mobile: {{ section.settings.pb_mobile }}px;
+  }
+{%- endstyle -%}
+
+<div class="ifaq-section ifaq-section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="ifaq-container">
+    {% if section.settings.heading != blank %}
+      <h2 class="ifaq-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+    
+    <div class="ifaq-list">
+      {% for block in section.blocks %}
+        <div class="ifaq-item" {{ block.shopify_attributes }}>
+          <div class="ifaq-header">
+            <h3 class="ifaq-question">{{ block.settings.question }}</h3>
+            <div class="ifaq-icon-wrapper">
+              <div class="ifaq-icon icon-plus">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="26" viewBox="0 0 24 26" fill="none">
+                    <path d="M12 10V18M8 14H16M22 14C22 19.5228 17.5228 24 12 24C6.47715 24 2 19.5228 2 14C2 8.47715 6.47715 4 12 4C17.5228 4 22 8.47715 22 14Z" stroke="#2961BE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                 </svg>
+              </div>
+              <div class="ifaq-icon icon-minus">
+                <svg width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M8 14H16M22 14C22 19.5228 17.5228 24 12 24C6.47715 24 2 19.5228 2 14C2 8.47715 6.47715 4 12 4C17.5228 4 22 8.47715 22 14Z" stroke="#A4A7AE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="ifaq-body">
+            <div class="ifaq-content-inner">
+              <div class="ifaq-separator"></div>
+              <div class="ifaq-answer-text">{{ block.settings.answer }}</div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    
+    {% if section.settings.btn_text != blank %}
+      <div class="ifaq-footer">
+        <a href="{{ section.settings.btn_link }}" class="button button--secondary" >{{ section.settings.btn_text }}</a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const items = document.querySelectorAll('.ifaq-item');
+    items.forEach(item => {
+      item.querySelector('.ifaq-header').addEventListener('click', () => {
+        const body = item.querySelector('.ifaq-body');
+        const isOpen = item.classList.contains('active');
+        items.forEach(other => {
+          if (other !== item && other.classList.contains('active')) {
+            other.classList.remove('active');
+            other.querySelector('.ifaq-body').style.height = '0';
+          }
+        });
+        item.classList.toggle('active');
+        body.style.height = item.classList.contains('active') ? body.scrollHeight + "px" : '0';
+      });
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "FAQ Section",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color Scheme", "default": "background-1" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "FAQ" },
+    { "type": "text", "id": "btn_text", "label": "Button Label", "default": "See All FAQ" },
+    { "type": "url", "id": "btn_link", "label": "Button Link" },
+    { "type": "header", "content": "Colors" },
+    { "type": "color", "id": "accent_color", "label": "Accent Color", "default": "#2b59c3" },
+    { "type": "color", "id": "bg_color", "label": "Section Background", "default": "transparent" },
+    { "type": "color", "id": "card_bg", "label": "Card Background", "default": "#ffffff" },
+    { "type": "header", "content": "Padding (Desktop)" },
+    { "type": "range", "id": "pt_desktop", "min": 0, "max": 150, "step": 5, "unit": "px", "label": "Padding Top", "default": 80 },
+    { "type": "range", "id": "pb_desktop", "min": 0, "max": 150, "step": 5, "unit": "px", "label": "Padding Bottom", "default": 80 },
+    { "type": "header", "content": "Padding (Mobile)" },
+    { "type": "range", "id": "pt_mobile", "min": 0, "max": 150, "step": 5, "unit": "px", "label": "Padding Top", "default": 40 },
+    { "type": "range", "id": "pb_mobile", "min": 0, "max": 150, "step": 5, "unit": "px", "label": "Padding Bottom", "default": 40 }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "Question",
+      "settings": [
+        { "type": "text", "id": "question", "label": "Question", "default": "Do I need a large audience?" },
+        { "type": "richtext", "id": "answer", "label": "Answer", "default": "<p>Lorem ipsum sir dolor amet.</p>" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "FAQ Section" } ]
+}
+{% endschema %}

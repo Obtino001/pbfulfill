@@ -1,0 +1,157 @@
+{%- style -%}
+  .dl-section-{{ section.id }} {
+    --bg-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .dl-section-{{ section.id }} {
+       padding-top: {{ section.settings.padding_top }}px;
+       padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="dl-section dl-section-{{ section.id }}">
+  <div class="dl-container">
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="dl-heading">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="dl-grid">
+      {% for block in section.blocks %}
+        <div class="dl-card" {{ block.shopify_attributes }}>
+          
+          <div class="dl-icon-wrapper">
+            {% if block.settings.icon != blank %}
+              {{ block.settings.icon | image_url: width: 100 | image_tag: loading: 'lazy', class: 'dl-custom-icon' }}
+            {% else %}
+              <svg width="40" height="50" viewBox="0 0 38 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.5 0H27.5L37.5 10V43C37.5 45.7614 35.2614 48 32.5 48H5.5C2.73858 48 0.5 45.7614 0.5 43V5C0.5 2.23858 2.73858 0 5.5 0H10.5Z" fill="#E53935"/>
+                <path d="M27.5 0V10H37.5L27.5 0Z" fill="#B71C1C"/>
+                <path d="M27.5 10H37.5V43C37.5 45.7614 35.2614 48 32.5 48H27.5V10Z" fill="#D32F2F"/>
+                <path d="M10 25C10 25 13 25 15 23C16.5 21.5 17 19 16.5 17.5C16 16 14.5 15 13.5 15.5C12.5 16 12 17.5 11.5 20C11 22.5 10 25 10 25ZM9.5 27C9.5 27 7.5 35 6.5 37.5C5.5 40 6 40.5 7 40C8 39.5 10 37 11.5 34.5C13 32 15 28.5 15 28.5C15 28.5 19 28 21.5 28.5C24 29 24.5 28 24 27C23.5 26 21 26 17.5 26.5C14 27 9.5 27 9.5 27Z" fill="white"/>
+                <path d="M13.5 31.5C13.5 31.5 12.5 33.5 11.5 35.5C13.5 33 13.5 31.5 13.5 31.5ZM16.5 27.5C16.5 27.5 18.5 27.5 20.5 27.5C19 27.5 16.5 27.5 16.5 27.5Z" fill="#FFEBEE"/>
+              </svg>
+            {% endif %}
+          </div>
+
+          <h3 class="dl-title">{{ block.settings.title }}</h3>
+
+          <a href="{{ block.settings.link | default: '#' }}" class="dl-button" target="_blank" rel="noopener noreferrer">
+            {{ block.settings.btn_label }}
+          </a>
+
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Downloadable Resources",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Downloadable"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "resource",
+      "name": "Resource Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Custom Icon",
+          "info": "Upload an icon or leave blank to use the default PDF icon."
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Resource Title",
+          "default": "2025 Annual Niche Report"
+        },
+        {
+          "type": "text",
+          "id": "btn_label",
+          "label": "Button Label",
+          "default": "Download Now"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Download Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Downloadable Resources",
+      "blocks": [
+        { "type": "resource", "settings": { "title": "2025 Annual Niche Report" } },
+        { "type": "resource", "settings": { "title": "Winning Products Checklist" } },
+        { "type": "resource", "settings": { "title": "Seasonal Trend Calendar" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

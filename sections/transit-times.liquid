@@ -1,0 +1,266 @@
+<div class="transit-container" id="TransitSection-{{ section.id }}">
+  <h2 class="h1">{{ section.settings.title }}</h2>
+  
+  <div class="swiper transit-swiper-{{ section.id }}">
+    <div class="swiper-wrapper transit-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide transit-item" {{ block.shopify_attributes }}>
+          <div class="flag-container">
+            {% if block.settings.image != blank %}
+              <img src="{{ block.settings.image | img_url: '200x' }}" alt="{{ block.settings.region }}" loading="lazy">
+            {% else %}
+              {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+          </div>
+          <h3 class="region-name">{{ block.settings.region }}</h3>
+          <p class="transit-days">{{ block.settings.days }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<style>
+  #TransitSection-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden; /* Hide overflow for the slider */
+  }
+  @media screen and (min-width: 750px) {
+    #TransitSection-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .transit-title {
+    font-size: 32px;
+    color: #4a5568;
+    margin-bottom: 50px;
+    font-weight: 700;
+  }
+
+  .transit-swiper-{{ section.id }} {
+    width: 100%;
+    padding-bottom: 20px;
+    overflow: visible; /* Allows slides to bleed off edge nicely */
+  }
+
+  /* This is the magic that makes the marquee perfectly smooth */
+  .transit-swiper-{{ section.id }} .swiper-wrapper {
+    {% if section.settings.enable_marquee %}
+      transition-timing-function: linear !important; 
+    {% endif %}
+  }
+
+  .transit-swiper-{{ section.id }} .swiper-slide {
+    width: auto; /* Allows the slides to size based on content/padding */
+    display: flex;
+    justify-content: center;
+  }
+
+  .transit-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 180px; /* Minimum width so they don't squish */
+    padding: 0 15px;
+  }
+
+  .flag-container {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .flag-container img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .flag-container svg {
+    height: 100%;
+    width: 40px;
+    background: #f4f4f4;
+    border-radius: 50%;
+  }
+
+  .region-name {
+    font-size: 18px;
+    margin: 0 0 6px 0;
+    color: #2d3748;
+    font-weight: 700;
+  }
+
+  .transit-days {
+    font-size: 14px;
+    color: #718096;
+    margin: 0;
+  }
+
+  /* Mobile Adjustments */
+  @media (max-width: 600px) {
+    .transit-title { 
+      font-size: 24px; 
+      margin-bottom: 40px;
+    }
+    .transit-item {
+      min-width: 150px;
+    }
+    .region-name { 
+      font-size: 16px; 
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const initTransitSwiper = () => {
+      let swiperOptions = {
+        slidesPerView: 'auto',
+        spaceBetween: {{ section.settings.gap }},
+        loop: true,
+        grabCursor: true,
+        freeMode: true, // Allows smooth, frictionless drag
+      };
+
+      {% if section.settings.enable_marquee %}
+        swiperOptions.autoplay = {
+          delay: 0, // No delay between ticks
+          disableOnInteraction: false, // Keeps playing after user swipes
+          pauseOnMouseEnter: true // Optional: pauses when hovered
+        };
+        swiperOptions.speed = {{ section.settings.marquee_speed | times: 1000 }}; // Control speed
+      {% endif %}
+
+      new Swiper('.transit-swiper-{{ section.id }}', swiperOptions);
+    };
+
+    if (typeof Swiper !== 'undefined') {
+      initTransitSwiper();
+    } else {
+      const swiperScript = document.querySelector('script[src*="swiper-bundle"]');
+      if(swiperScript) {
+        swiperScript.addEventListener('load', initTransitSwiper);
+      }
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Transit Times",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Average Global Transit Times"
+    },
+    {
+      "type": "header",
+      "content": "Slider & Marquee Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_marquee",
+      "label": "Enable Auto-Scroll (Marquee)",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "marquee_speed",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Marquee Speed",
+      "info": "Higher number = Slower scrolling",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Space between items",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "region",
+      "name": "Region",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Flag Image", "info": "Upload the circular flags as a single transparent PNG here." },
+        { "type": "text", "id": "region", "label": "Region Name", "default": "North America" },
+        { "type": "text", "id": "days", "label": "Days (e.g. 8-12 days)", "default": "8-12 days" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Transit Times",
+      "blocks": [
+        { "type": "region", "settings": { "region": "North America", "days": "8-12 days" } },
+        { "type": "region", "settings": { "region": "Japan", "days": "3-5 days" } },
+        { "type": "region", "settings": { "region": "Southeast Asia", "days": "12-14 days" } },
+        { "type": "region", "settings": { "region": "Europe", "days": "7-10 days" } },
+        { "type": "region", "settings": { "region": "Australia", "days": "9-15 days" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

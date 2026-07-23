@@ -1,0 +1,85 @@
+{%- style -%}
+  .section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top_mobile }}px; padding-bottom: {{ section.settings.padding_bottom_mobile }}px; }
+  @media screen and (min-width: 750px) { .section-{{ section.id }}-padding { padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px; } }
+  #shopify-section-{{ section.id }} .mq-wrap { --gap-desktop: {{ section.settings.gap }}px; --h: {{ section.settings.item_height }}px; --dur: {{ section.settings.speed }}s; --dir: {% if section.settings.direction == 'right' %}-1{% else %}1{% endif %}; --gap-mobile: {{ section.settings.gap_mobile }}px; overflow: hidden; gap: var(--gap-desktop); }
+  #shopify-section-{{ section.id }} .mq-item { padding-left: 70px; display: inline-flex; align-items: center; justify-content: center; flex: 0 0 auto; height: var(--h); }
+  #shopify-section-{{ section.id }} .mq-track { display: flex; flex-wrap: nowrap; align-items: center; will-change: transform; transform: translateZ(0); animation: mq-scroll var(--dur) linear infinite; }
+  #shopify-section-{{ section.id }} .mq-pausable:hover { animation-play-state: paused; }
+  #shopify-section-{{ section.id }} .mq-img { height: 100%; width: auto; object-fit: contain; filter: drop-shadow(0 1px 0 rgba(0,0,0,.04)); }
+  @keyframes mq-scroll { from { transform: translateX(0); } to { transform: translateX(calc(var(--dir) * -50%)); } }
+  @media(max-width: 768px) { #shopify-section-{{ section.id }} .mq-wrap { --h: {{ section.settings.item_height_mobile }}px; } #shopify-section-{{ section.id }} .mq-item { padding-left: 30px; } }
+{%- endstyle -%}
+
+<section class="mq-wrap {{ section.settings.custom_class }} section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient" aria-label="Logo Marquee">
+  <div class="mq-inner">
+    <div class="mq-track{% if section.settings.pause_hover %} mq-pausable{% endif %}">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'item' -%}
+          <a class="mq-item" href="{{ block.settings.link | default: '#' }}" {{ block.shopify_attributes }} aria-label="Marquee item">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', class: 'mq-img', aria-hidden: 'true' }}
+            {%- endif -%}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'item' -%}
+          <a class="mq-item" href="{{ block.settings.link | default: '#' }}" aria-hidden="true" tabindex="-1">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 400 | image_tag: loading: 'lazy', class: 'mq-img', aria-hidden: 'true' }}
+            {%- endif -%}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const sec = document.querySelector('#shopify-section-{{ section.id }}');
+    const inner = sec?.querySelector('.mq-inner'), track = sec?.querySelector('.mq-track');
+    if (!inner || !track) return;
+    const children = Array.from(track.children), half = Math.floor(children.length / 2), firstSet = children.slice(0, half);
+    let guard = 0;
+    while (track.scrollWidth < inner.clientWidth * 2 && guard < 6) {
+      firstSet.forEach(n => track.appendChild(n.cloneNode(true)));
+      guard++;
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Scrolling Image Section",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "background-1" },
+    { "type": "text", "id": "custom_class", "label": "Custom CSS class" },
+    { "type": "range", "id": "gap", "label": "Item gap (px)", "min": 0, "max": 80, "step": 2, "default": 48 },
+    { "type": "header", "content": "Padding Settings" },
+    { "type": "range", "id": "padding_top", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding Top (Desktop)", "default": 40 },
+    { "type": "range", "id": "padding_bottom", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding Bottom (Desktop)", "default": 40 },
+    { "type": "range", "id": "padding_top_mobile", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding Top (Mobile)", "default": 20 },
+    { "type": "range", "id": "padding_bottom_mobile", "min": 0, "max": 100, "step": 1, "unit": "px", "label": "Padding Bottom (Mobile)", "default": 20 },
+    { "type": "range", "id": "item_height", "label": "Item height desktop (px)", "min": 24, "max": 140, "step": 2, "default": 64 },
+    { "type": "range", "id": "item_height_mobile", "label": "Item height mobile (px)", "min": 20, "max": 120, "step": 2, "default": 48 },
+    { "type": "range", "id": "speed", "label": "Scroll duration (s, lower=faster)", "min": 5, "max": 60, "step": 1, "default": 24 },
+    { "type": "select", "id": "direction", "label": "Direction", "default": "left", "options": [ { "value": "left", "label": "Left" }, { "value": "right", "label": "Right" } ] },
+    { "type": "checkbox", "id": "pause_hover", "label": "Pause on hover", "default": true },
+    { "type": "range", "id": "gap_mobile", "label": "Gap (mobile)", "min": 0, "max": 100, "step": 1, "default": 10 }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image (SVG/PNG recommended)" },
+        { "type": "url", "id": "link", "label": "Optional link" }
+      ]
+    }
+  ],
+  "max_blocks": 30,
+  "presets": [{ "name": "Scrolling Image Section" }]
+}
+{% endschema %}

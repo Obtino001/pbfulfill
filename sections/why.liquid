@@ -1,0 +1,129 @@
+{%- style -%}
+  .wcm-wrap-{{ section.id }} { 
+    --gap: {{ section.settings.gap }}px; 
+    --accent: {{ section.settings.accent_color }}; 
+    --pad-top: {{ section.settings.padding_top }}px; 
+    --pad-bottom: {{ section.settings.padding_bottom }}px; 
+    --pad-top-mobile: {{ section.settings.padding_top_mobile }}px; 
+    --pad-bottom-mobile: {{ section.settings.padding_bottom_mobile }}px;
+    --bg-image: {% if section.settings.bg_image != blank %}url('{{ section.settings.bg_image | image_url: width: 2000 }}'){% else %}none{% endif %};
+    --bg-size: {{ section.settings.bg_size }};
+    --bg-pos: {{ section.settings.bg_position }};
+    --bg-repeat: {{ section.settings.bg_repeat }};
+  }
+{%- endstyle -%}
+
+<section class="wcm-wrap wcm-wrap-{{ section.id }} color-{{ section.settings.color_scheme }} gradient {{ section.settings.custom_class }}" data-scroll-stagger aria-label="{{ section.settings.heading | default: 'Why Choose Us?' | escape }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="h1">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    <div class="wcm-grid">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'feature' -%}
+          <article class="wcm-card {% if block.settings.highlight %}wcm-card--highlight{% endif %}" {{ block.shopify_attributes }}>
+            <div class="wcm-icon" style="--icon-color: {{ block.settings.icon_color }}; --icon-bg: {{ block.settings.icon_bg }};">
+              {%- if block.settings.icon_type == 'image' and block.settings.icon -%}
+                {{ block.settings.icon | image_url: width: 96 | image_tag: alt: block.settings.title, class: 'wcm-icon-img', loading: 'lazy' }}
+              {%- else -%}
+                {%- case block.settings.icon_preset -%}
+                  {%- when 'quote' -%}<svg viewBox="0 0 24 24" class="wcm-svg" aria-hidden="true"><path d="M10 7H5v6h5V7Zm9 0h-5v6h5V7Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {%- when 'support' -%}<svg viewBox="0 0 24 24" class="wcm-svg" aria-hidden="true"><path d="M6 10a6 6 0 0 1 12 0v8H6v-8Zm12 4h2M4 14h2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {%- when 'pricing' -%}<svg viewBox="0 0 24 24" class="wcm-svg" aria-hidden="true"><path d="M7 7h10v10H7zM7 11h10M12 7v10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {%- when 'quality' -%}<svg viewBox="0 0 24 24" class="wcm-svg" aria-hidden="true"><path d="M12 3l3 6 6 .9-4.5 4.4L17 21l-5-2.7L7 21l.5-6.7L3 9.9 9 9z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {%- when 'custom' -%}<svg viewBox="0 0 24 24" class="wcm-svg" aria-hidden="true"><path d="M7 3h10v6H7zM4 15h6v6H4zM14 13h6v8h-6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {%- when 'service' -%}<svg viewBox="0 0 24 24" class="wcm-svg" aria-hidden="true"><path d="M4 10a8 8 0 0 1 16 0v8H4v-8Zm12 8v3M8 18v3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  {%- else -%}<svg viewBox="0 0 24 24" class="wcm-svg" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+                {%- endcase -%}
+              {%- endif -%}
+            </div>
+
+            {%- if block.settings.title != blank -%}
+              <h3 class="wcm-title">{{ block.settings.title | escape }}</h3>
+            {%- endif -%}
+            
+            {%- if block.settings.text != blank -%}
+              <p class="wcm-text">{{ block.settings.text | escape }}</p>
+            {%- endif -%}
+          </article>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Features Cards",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "background-1" },
+    { "type": "text", "id": "custom_class", "label": "Custom CSS class" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Why Choose Us?" },
+    { "type": "image_picker", "id": "bg_image", "label": "Background image (optional)" },
+    { "type": "select", "id": "bg_size", "label": "Background size", "default": "cover", "options": [ { "value": "cover", "label": "Cover" }, { "value": "contain", "label": "Contain" }, { "value": "auto", "label": "Auto" } ] },
+    { "type": "select", "id": "bg_position", "label": "Background position", "default": "center", "options": [ { "value": "left top", "label": "Left Top" }, { "value": "center", "label": "Center" }, { "value": "right bottom", "label": "Right Bottom" } ] },
+    { "type": "select", "id": "bg_repeat", "label": "Background repeat", "default": "no-repeat", "options": [ { "value": "no-repeat", "label": "No repeat" }, { "value": "repeat", "label": "Repeat" }, { "value": "repeat-x", "label": "Repeat X" }, { "value": "repeat-y", "label": "Repeat Y" } ] },
+    { "type": "color", "id": "accent_color", "label": "Highlight card color", "default": "#2f5fb6" },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    },
+    { "type": "range", "id": "gap", "label": "Grid gap (px)", "min": 8, "max": 40, "step": 2, "default": 18 }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature card",
+      "limit": 12,
+      "settings": [
+        { "type": "select", "id": "icon_type", "label": "Icon source", "default": "preset", "options": [ { "value": "preset", "label": "Preset icon (SVG)" }, { "value": "image", "label": "Upload image" } ] },
+        { "type": "image_picker", "id": "icon", "label": "Icon image (if 'Upload image')" },
+        { "type": "select", "id": "icon_preset", "label": "Preset icon", "default": "quote", "options": [ { "value": "quote", "label": "Free Quote" }, { "value": "support", "label": "After-Sales / Support" }, { "value": "pricing", "label": "Transparent Pricing" }, { "value": "custom", "label": "Customized Solutions" }, { "value": "quality", "label": "Quality Assurance" }, { "value": "service", "label": "1v1 Customer Service" } ] },
+        { "type": "color", "id": "icon_color", "label": "Icon color", "default": "#2f5fb6" },
+        { "type": "color", "id": "icon_bg", "label": "Icon background", "default": "#EAF1FF" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Feature title" },
+        { "type": "text", "id": "text", "label": "Description", "default": "Short supporting copy." },
+        { "type": "checkbox", "id": "highlight", "label": "Highlight this card", "default": false }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Features Cards" }]
+}
+{% endschema %}

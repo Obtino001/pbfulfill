@@ -1,0 +1,292 @@
+{% schema %}
+{
+  "name": "Support Channels",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Pattern Image",
+      "info": "Upload the faint diagonal lines image here."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Text Content"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Communication &\nSupport Channels"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Our support team works 1-on-1 to resolve after-sales issues — from supplier coordination to shipment verification."
+    },
+    {
+      "type": "header",
+      "content": "Main Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Right Side Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "icon",
+      "name": "Social Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image",
+          "info": "Upload PNG of WhatsApp, Slack, Gmail, etc."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Icon Link"
+        },
+        {
+          "type": "range",
+          "id": "width",
+          "label": "Icon Width",
+          "min": 20,
+          "max": 100,
+          "step": 5,
+          "default": 45,
+          "unit": "px"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Support Channels",
+      "blocks": [
+        { "type": "icon" },
+        { "type": "icon" },
+        { "type": "icon" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="comm-section-{{ section.id }}" style="
+  background-color: {{ section.settings.bg_color }};
+  {% if section.settings.bg_image != blank %}
+    background-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}');
+    background-size: cover;
+    background-position: center;
+  {% endif %}
+">
+{%- style -%}
+  .comm-section-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .comm-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+  <div class="comm-container">
+    <div class="comm-grid">
+      
+      <div class="comm-content">
+        {% if section.settings.heading != blank %}
+          <h2 class="h1">{{ section.settings.heading | newline_to_br }}</h2>
+        {% endif %}
+
+        {% if section.settings.subtext != blank %}
+          <p class="comm-subtext">{{ section.settings.subtext }}</p>
+        {% endif %}
+
+        <div class="comm-icons-wrapper">
+          {% for block in section.blocks %}
+            {% if block.settings.icon_image != blank %}
+              <a href="{{ block.settings.link }}" class="comm-icon-link" {{ block.shopify_attributes }}>
+                {{ block.settings.icon_image | image_url: width: 200 | image_tag: style: 'width: ' | append: block.settings.width | append: 'px', loading: 'lazy' }}
+              </a>
+            {% else %}
+               <div class="comm-icon-placeholder" {{ block.shopify_attributes }}>
+                 <svg width="40" height="40" viewBox="0 0 24 24" fill="#eee"><rect width="24" height="24" rx="5"/></svg>
+               </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="comm-image-col">
+        <div class="comm-image-wrapper">
+          {% if section.settings.main_image != blank %}
+            {{ section.settings.main_image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'comm-img' }}
+          {% else %}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg comm-placeholder' }}
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<style>
+  .comm-section {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .comm-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .comm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr; /* Image side slightly wider */
+    gap: 60px;
+    align-items: center;
+  }
+
+  /* --- LEFT CONTENT --- */
+  .comm-heading {
+    font-size: 38px;
+    font-weight: 700;
+    color: #4a545e;
+    line-height: 1.2;
+    margin-bottom: 25px;
+  }
+
+  .comm-subtext {
+    font-size: 16px;
+    color: #999; /* Light grey text */
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 450px;
+  }
+
+  .comm-icons-wrapper {
+    display: flex;
+    gap: 25px; /* Spacing between icons */
+    align-items: center;
+  }
+
+  .comm-icon-link {
+    transition: transform 0.2s ease;
+    display: inline-block;
+  }
+
+  .comm-icon-link:hover {
+    transform: translateY(-3px);
+  }
+
+  .comm-icon-link img {
+    height: auto;
+    display: block;
+  }
+
+  /* --- RIGHT IMAGE --- */
+  .comm-image-wrapper {
+    position: relative;
+    border-radius: 20px; /* Rounded corners like image */
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    line-height: 0;
+  }
+
+  .comm-img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .comm-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #e0e0e0;
+    min-height: 400px;
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 900px) {
+    .comm-grid {
+      grid-template-columns: 1fr; /* Stack vertically */
+      gap: 40px;
+    }
+
+    .comm-content {
+      text-align: center; /* Center text on mobile */
+      order: 1; /* Puts text above image, remove this line to put image top */
+    }
+
+    .comm-heading {
+      font-size: 32px;
+    }
+    
+    .comm-subtext {
+      margin: 0 auto 30px auto; /* Center alignment */
+    }
+
+    .comm-icons-wrapper {
+      justify-content: center;
+    }
+  }
+</style>

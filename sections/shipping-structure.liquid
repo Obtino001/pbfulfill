@@ -1,0 +1,144 @@
+{%- style -%}
+  .shipping-structure-section {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .shipping-structure-section {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  #shipping-structure-{{ section.id }} {
+    --row-alignment: {{ section.settings.text_alignment }};
+  }
+{%- endstyle -%}
+
+<div id="shipping-structure-{{ section.id }}" class="shipping-structure-section">
+  <div class="structure-container">
+    
+    {% if section.settings.heading != blank %}
+      <h2 class="h1">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="structure-list">
+      {% for block in section.blocks %}
+        <h3 class="structure-row" {{ block.shopify_attributes }}>
+          <span class="row-text">{{ block.settings.text }}</span>
+          {% if block.settings.icon != blank %}
+            <span class="row-icon">{{ block.settings.icon }}</span>
+          {% endif %}
+        </h3>
+      {% endfor %}
+    </div>
+
+    {% if section.settings.footer_text != blank %}
+      <div class="pl-footer-wrapper">
+      <p class="pl-footer-text">{{ section.settings.footer_text }}</p>
+      </div>
+    {% endif %}
+
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Shipping Price Structure",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shipping Price Structure"
+    },
+    {
+      "type": "select",
+      "id": "text_alignment",
+      "label": "Row Text Alignment",
+      "options": [
+        { "value": "space-between", "label": "Left (Icon on Right)" },
+        { "value": "center", "label": "Center" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "textarea",
+      "id": "footer_text",
+      "label": "Footer Text",
+      "default": "We help estimate shipping cost before you launch a product."
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Price Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Row Text",
+          "default": "Weight-based billing"
+        },
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon Symbol (Optional)",
+          "default": "$"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shipping Price Structure",
+      "blocks": [
+        { "type": "row", "settings": { "text": "Weight-based billing" } },
+        { "type": "row", "settings": { "text": "Surcharge for special goods", "icon": "" } },
+        { "type": "row", "settings": { "text": "Q4 seasonal peak forecast", "icon": "" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

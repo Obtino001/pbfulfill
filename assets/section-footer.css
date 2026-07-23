@@ -1,0 +1,315 @@
+/* ===================================================================
+   1. Footer Layout & Mobile Grid Fix
+   =================================================================== */
+.footer {
+  border: none;
+  overflow: visible; /* Allows the form to overlap */
+}
+
+.footer__blocks-wrapper {
+  display: grid;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* Desktop Grid */
+@media screen and (min-width: 990px) {
+  .footer__blocks-wrapper {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
+    gap: 50px;
+  }
+}
+
+/* Mobile Grid: Brand Full Width, Menus Side-by-Side */
+@media screen and (max-width: 989px) {
+  .footer__blocks-wrapper {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 20px;
+  }
+  .footer-block--brand {
+    grid-column: span 2; /* Forces logo/socials to take the full top row */
+  }
+}
+
+/* Typography */
+.footer-block__heading {
+  font-family: var(--font-heading-family);
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 14px;
+  margin-top: 0;
+}
+
+.footer-block__details-content li {
+  margin-bottom: 6px;
+}
+
+.footer-block__details-content .link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+
+.footer-block__details-content .link:hover {
+  color: #ffffff;
+}
+
+/* ===================================================================
+   2. Brand Info & White Logo Box
+   =================================================================== */
+.fc-brand-white-box {
+  margin-bottom: 24px;
+  /* Bleeds the white background to the far left of the screen */
+  box-shadow: -50vw 0 0 0 #ffffff; 
+  width: 100%;
+}
+.footer-block__brand-info {
+    display: flex;
+    flex-direction: column;
+}
+.fc-brand-logo {
+  max-width: 200px;
+  height: auto;
+  display: block;
+}
+.fc-brand-white-box {
+    margin-bottom: 2rem;
+    overflow: hidden!important;
+    background: #fff;
+    min-width: 381px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 100px 100px 0;
+}
+.footer-block {
+    padding-inline: 20px;
+}
+.footer-block.footer-block--brand {
+    padding-inline: 0px;
+}
+.fc-social-icons {
+  display: flex;
+  gap: 0px;
+  flex-wrap: wrap;
+}
+
+.fc-social-icons img {
+  width: 46px;
+  height: 46px;
+  transition: transform 0.2s ease;
+  border-radius: 4px;
+}
+
+.fc-social-icons img:hover {
+  transform: translateY(-3px);
+}
+
+/* ===================================================================
+   3. The Overlapping Contact Form
+   =================================================================== */
+.fc-footer-form-wrapper {
+  position: relative;
+  z-index: 10;
+}
+
+.fc-footer-form-card {
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  color: #111111;
+  /* Pulls the form up to overlap the section above it */
+  margin-top: -250px; 
+  max-width: 500px;
+}
+
+.fc-form-title {
+  font-family: var(--font-heading-family);
+  font-size: 28px;
+  font-weight: 700;
+  color: #334155;
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+
+.fc-form-subtitle {
+  font-family: var(--font-body-family);
+  font-size: 14px;
+  color: #64748b;
+  margin: 0 0 24px;
+  line-height: 1.5;
+}
+
+.fc-input {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  background: #ffffff;
+  border-radius: 6px;
+  padding: 12px 14px;
+  font-family: var(--font-body-family);
+  font-size: 14px;
+  color: #111;
+  margin-bottom: 12px;
+  transition: border-color 0.2s;
+  box-shadow: none !important;
+}
+
+.fc-input:focus {
+  outline: none;
+  border-color: #3260ad;
+}
+
+.fc-input::placeholder {
+  color: #94a3b8;
+}
+
+.fc-select {
+  appearance: none;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+.fc-form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.fc-country-code { flex: 0 0 110px; }
+.fc-phone { flex: 1; }
+.fc-textarea { resize: vertical; min-height: 80px; }
+
+/* The Submit Button */
+.fc-submit-btn {
+  width: 100%;
+  background: #3260ad; /* Matches screenshot blue */
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  margin-top: 10px;
+}
+
+.fc-submit-btn:hover {
+  background: #1e4582;
+}
+
+@media screen and (max-width: 989px) {
+  .fc-footer-form-card {
+    display: none; /* Hides form entirely on mobile as requested */
+  }
+}
+
+/* ===================================================================
+   4. Partner Logos & Bottom Border
+   =================================================================== */
+.fc-footer-logos-wrapper {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 30px;
+}
+
+.fc-footer-logos-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.fc-footer-logos-row img {
+  height: 35px;
+  width: auto;
+  object-fit: contain;
+  /* Turns colored/black logos stark white */
+  filter: brightness(0) invert(1);
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+
+.fc-footer-logos-row img:hover {
+  opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .fc-footer-logos-wrapper {
+  margin-top: 0px;
+}
+  .fc-footer-logos-row img {
+    height: 25px; /* Shrinks slightly on mobile */
+  }
+}
+
+.footer__copyright.caption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    border-top: 1px solid white;
+}
+
+small.copyright__content {
+    font-family: Inter;
+    font-weight: 600;
+    font-size: 16px;
+    leading-trim: NONE;
+    line-height: 24px;
+    letter-spacing: 0%;
+}
+.footer-block__image-wrapper {
+    margin-bottom: 2rem;
+    overflow: hidden!important;
+    background: white;
+    min-width: 381px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px 100px 100px 0px;
+}
+footer .mc-icons {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+footer .mc-icons img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    transition: opacity .2s ease;
+}
+footer .mc-social {
+    padding-left: 50px;
+}
+@media screen and (max-width: 750px) {
+  footer .mc-icons {
+    gap: 0px;
+}
+footer .mc-social {
+    padding-left: 10px;
+}
+    .footer-block__image-wrapper {
+        min-width: 266px;
+        padding: 10px;
+    }
+    .footer-block__brand-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.footer-block__image-wrapper img {
+    width: 70%;
+}
+}

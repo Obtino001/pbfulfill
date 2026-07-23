@@ -1,0 +1,415 @@
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* --- HEADER & SEARCH --- */
+  .blog-filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .blog-search-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .blog-search-input {
+    width: 100%;
+    padding: 10px 35px 10px 15px;
+    border: 1px solid #E1E3E5;
+    border-radius: 4px;
+    outline: none;
+  }
+
+  /* --- SWIPER MOBILE CONTROLS --- */
+  .mobile-swiper-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .custom-swiper-btn {
+    position: static;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: #4070d6;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 0;
+    transition: all 0.2s;
+    box-shadow: 0 4px 12px rgba(64, 112, 214, 0.25);
+  }
+
+  .custom-swiper-btn::after { display: none; }
+
+  .custom-swiper-btn.swiper-button-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .custom-swiper-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+  }
+
+  .custom-swiper-pagination {
+    position: static !important;
+    width: auto !important;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: #ffffff;
+    padding: 10px 16px;
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  }
+
+  .custom-swiper-pagination .swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    background-color: #d1d5db;
+    border-radius: 8px;
+    opacity: 1;
+    margin: 0 !important;
+    transition: all 0.3s ease;
+  }
+
+  .custom-swiper-pagination .swiper-pagination-bullet-active {
+    width: 24px;
+    background-color: #4070d6 !important;
+  }
+
+  /* --- PAGINATION BOTTOM BAR --- */
+  .blog-bottom-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .blog-pagination-center {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .blog-pagination-center a, .blog-pagination-center span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #333;
+    border: 1px solid transparent;
+  }
+
+  .blog-pagination-center .current {
+    border-color: #4070d6;
+    color: #4070d6;
+    font-weight: bold;
+  }
+
+  .blog-pagination-center a:hover {
+    background-color: #f3f4f6;
+  }
+
+  /* --- ARTICLE CARD CUSTOM STYLES (2 lines & Read More) --- */
+  .article-card__excerpt {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 10px;
+    margin-bottom: 12px;
+    font-size: 1.4rem;
+    line-height: 1.5;
+    color: #555;
+  }
+
+  .article-card__image-wrapper.card__media img {
+    border-radius: 12px;
+  }
+
+  .article-read-more {
+    display: inline-block;
+    color: #3b5bdb;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.4rem;
+    margin-top: auto; 
+  }
+
+  .article-read-more:hover {
+    text-decoration: underline;
+  }
+
+  /* --- RESPONSIVE GRID OVERRIDES --- */
+  @media screen and (min-width: 768px) {
+    .hide-on-desktop {
+      display: none !important;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+      column-gap: 30px;
+      row-gap: 40px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .blog-bottom-bar {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+{%- endstyle -%}
+
+{%- paginate blog.articles by section.settings.posts_per_page -%}
+  <div class="main-blog page-width section-{{ section.id }}-padding">
+    
+    <div class="blog-filter-header">
+      <h1 class="title--primary h1">
+        {{ blog.title | escape }}
+      </h1>
+    </div>
+
+    <div class="swiper blog-swiper-container">
+      <div class="swiper-wrapper blog-grid">
+        {%- for article in blog.articles -%}
+          <div class="swiper-slide blog-articles__article article">
+            {%- render 'article-card',
+              article: article,
+              media_height: section.settings.image_height,
+              media_aspect_ratio: article.image.aspect_ratio,
+              show_image: section.settings.show_image,
+              show_date: section.settings.show_date,
+              show_author: section.settings.show_author,
+              show_excerpt: true
+            -%}
+          </div>
+        {%- endfor -%}
+        
+      </div>
+
+      <div class="mobile-swiper-controls hide-on-desktop">
+        <div class="swiper-button-prev custom-swiper-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </div>
+        <div class="swiper-pagination custom-swiper-pagination"></div>
+        <div class="swiper-button-next custom-swiper-btn">
+          <svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    {%- if paginate.pages > 1 -%}
+      <div class="blog-bottom-bar">
+        <div class="blog-total-count">Total <strong>{{ blog.articles_count }}</strong> Blogs</div>
+        
+        <div class="blog-pagination-wrapper" style="display: flex; align-items: center; gap: 15px;">
+          {%- if paginate.previous -%}
+            <a href="{{ paginate.previous.url }}" class="pagination-arrow prev-arrow" aria-label="Previous Page" style="text-decoration: none; color: #333; display: flex; align-items: center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5"></path>
+                <path d="M12 19l-7-7 7-7"></path>
+              </svg>
+            </a>
+          {%- endif -%}
+
+          <div class="blog-pagination-center">
+            {%- for part in paginate.parts -%}
+              {%- if part.is_link -%}
+                <a href="{{ part.url }}">{{ part.title }}</a>
+              {%- else -%}
+                {%- if part.title == paginate.current_page -%}
+                  <span class="current">{{ part.title }}</span>
+                {%- else -%}
+                  <span>{{ part.title }}</span>
+                {%- endif -%}
+              {%- endif -%}
+            {%- endfor -%}
+          </div> 
+
+          {%- if paginate.next -%}
+            <a href="{{ paginate.next.url }}" class="pagination-arrow next-arrow" aria-label="Next Page" style="text-decoration: none; color: #333; display: flex; align-items: center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          {%- endif -%}
+        </div>
+
+        <div class="blog-pagination-jump" style="display: flex; align-items: center; gap: 10px;">
+          <label for="page-jump-input" style="font-weight: 500;">Page</label>
+          <input type="number" id="page-jump-input" min="1" max="{{ paginate.pages }}" style="width: 50px; height: 36px; text-align: center; border: 1px solid #E1E3E5; border-radius: 4px;">
+          <button type="button" id="btn-page-jump" data-base-url="{{ blog.url }}" style="background-color: #3b5bdb; color: white; border: none; border-radius: 4px; padding: 0 15px; height: 36px; cursor: pointer; font-weight: 600;">Go</button>
+        </div>
+      </div>
+    {%- endif -%}
+
+  </div>
+{%- endpaginate -%}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let blogSwiper = null;
+
+    function initBlogSwiper() {
+      const isMobile = window.innerWidth < 768;
+
+      if (isMobile && !blogSwiper) {
+        blogSwiper = new Swiper('.blog-swiper-container', {
+          slidesPerView: 1,
+          spaceBetween: 20,
+          observer: true,
+          observeParents: true,
+          pagination: {
+            el: '.custom-swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next.custom-swiper-btn',
+            prevEl: '.swiper-button-prev.custom-swiper-btn',
+          }
+        });
+      } else if (!isMobile && blogSwiper) {
+        blogSwiper.destroy(true, true);
+        blogSwiper = null;
+      }
+    }
+
+    initBlogSwiper();
+    window.addEventListener('resize', initBlogSwiper);
+
+    const jumpBtn = document.getElementById('btn-page-jump');
+    const jumpInput = document.getElementById('page-jump-input');
+
+    if (jumpBtn && jumpInput) {
+      jumpBtn.addEventListener('click', function() {
+        const page = jumpInput.value;
+        const baseUrl = this.getAttribute('data-base-url');
+        if (page && page > 0) {
+          window.location.href = baseUrl + '?page=' + page;
+        }
+      });
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "t:sections.main-blog.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 4,
+      "step": 1,
+      "label": "Columns on desktop",
+      "default": 3
+    },
+    {
+      "type": "range",
+      "id": "posts_per_page",
+      "min": 6,
+      "max": 24,
+      "step": 3,
+      "label": "Posts per page",
+      "default": 9
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_image.label"
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        { "value": "adapt", "label": "t:sections.main-blog.settings.image_height.options__1.label" },
+        { "value": "small", "label": "t:sections.main-blog.settings.image_height.options__2.label" },
+        { "value": "medium", "label": "t:sections.main-blog.settings.image_height.options__3.label" },
+        { "value": "large", "label": "t:sections.main-blog.settings.image_height.options__4.label" }
+      ],
+      "default": "medium",
+      "label": "t:sections.main-blog.settings.image_height.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "default": false,
+      "label": "t:sections.main-blog.settings.show_author.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

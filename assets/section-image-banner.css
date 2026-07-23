@@ -1,0 +1,123 @@
+/* ===================================================================
+   1. Base Banner Structure
+   =================================================================== */
+.banner {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  isolation: isolate;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.banner__media {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.banner__media img, 
+.banner__media svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner::after,
+.banner__media::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0;
+  z-index: 1;
+}
+
+/* ===================================================================
+   2. Content Container & Layout
+   =================================================================== */
+.banner__content {
+  display: flex;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner__box {
+  padding: 4rem 2rem;
+  width: 100%;
+  word-wrap: break-word;
+  z-index: 1;
+  text-align: center;
+}
+
+.banner--desktop-transparent .banner__box {
+  background: transparent !important;
+  border: none;
+  box-shadow: none;
+}
+
+/* Content Positioning Logic */
+@media screen and (min-width: 750px) {
+  .banner { flex-direction: row; }
+  .banner__content { padding: 5rem; }
+  /* Vertical Alignment */
+  .banner__content--top-left, .banner__content--top-center, .banner__content--top-right { align-items: flex-start; }
+  .banner__content--middle-left, .banner__content--middle-center, .banner__content--middle-right { align-items: center; }
+  .banner__content--bottom-left, .banner__content--bottom-center, .banner__content--bottom-right { align-items: flex-end; }
+
+  /* Horizontal Alignment */
+  .banner__content--top-left, .banner__content--middle-left, .banner__content--bottom-left { justify-content: flex-start; text-align: left; }
+  .banner__content--top-center, .banner__content--middle-center, .banner__content--bottom-center { justify-content: center; text-align: center; }
+  .banner__content--top-right, .banner__content--middle-right, .banner__content--bottom-right { justify-content: flex-end; text-align: right; }
+}
+
+/* ===================================================================
+   3. Elements (Heading, Text, Buttons)
+   =================================================================== */
+.banner__heading { margin: 0; }
+
+.banner__box > * + * { margin-top: 1.5rem; }
+
+.banner__buttons {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.banner--content-align-left .banner__buttons { justify-content: flex-start; }
+.banner--content-align-right .banner__buttons { justify-content: flex-end; }
+
+/* ===================================================================
+   4. Mobile Adjustments
+   =================================================================== */
+@media screen and (max-width: 749px) {
+  .banner--stacked { height: auto; }
+  .banner--stacked .banner__media { position: relative; height: 30rem; }
+  
+  .banner--content-align-mobile-left .banner__box { text-align: left; }
+  .banner--content-align-mobile-right .banner__box { text-align: right; }
+  
+  .banner--mobile-bottom .banner__box {
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+  }
+}
+
+/* Zoom Animation */
+.banner__media.animate--zoom-in img {
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.banner:hover .banner__media.animate--zoom-in img {
+  transform: scale(1.08);
+}

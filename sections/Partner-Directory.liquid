@@ -1,0 +1,628 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+{% assign categories = '' %}
+{% for block in section.blocks %}
+  {% assign cat = block.settings.category | strip %}
+  {% unless categories contains cat %}
+    {% assign categories = categories | append: cat | append: '|' %}
+  {% endunless %}
+{% endfor %}
+{% assign unique_categories = categories | split: '|' | compact %}
+
+<style>
+.section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+}
+@media screen and (min-width: 750px) {
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+}
+
+.partner-section-title {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 3rem;
+}
+
+.partner-grid-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+@media screen and (min-width: 991px) {
+  .partner-grid-layout {
+    flex-direction: row;
+    align-items: start;
+  }
+  .partner-filter {
+    width: 280px;
+    flex-shrink: 0;
+  }
+  .filter-content {
+    flex-grow: 1;
+    min-width: 0; /* Prevents flex items from overflowing */
+  }
+  {% unless section.settings.show_categories %}
+    .filter-content {
+      width: 100%;
+    }
+  {% endunless %}
+}
+
+.partner-filter {
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  position: sticky;
+  top: 12rem;
+  background-color: #f0f2f5;
+  border: none;
+}
+.partner-filter-title {
+  font-size: 2rem;
+  color: #1c274c;
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+.line-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #d1d5db;
+  margin-bottom: 2.5rem;
+}
+.partner-filter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* --- TOGGLE SWITCH CSS --- */
+.partner-filter-checkbox {
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  gap: 1.25rem !important;
+  position: relative !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.partner-filter-checkbox input[type="checkbox"].filter-checkbox-input {
+  position: absolute !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  z-index: -1 !important;
+  pointer-events: none !important;
+  appearance: none !important;
+}
+.toggle-track {
+  width: 48px !important;
+  height: 28px !important;
+  background-color: #cbd5e1 !important;
+  border-radius: 30px !important;
+  position: relative !important;
+  transition: background-color 0.3s ease !important;
+  flex-shrink: 0 !important;
+  display: block !important;
+  box-sizing: border-box !important;
+  border: none !important;
+}
+.toggle-thumb {
+  width: 24px !important;
+  height: 24px !important;
+  background-color: #ffffff !important;
+  border-radius: 50% !important;
+  position: absolute !important;
+  top: 2px !important;
+  left: 2px !important;
+  transition: transform 0.3s ease !important;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2) !important;
+  display: block !important;
+  box-sizing: border-box !important;
+  border: none !important;
+}
+.filter-checkbox-input:checked + .toggle-track {
+  background-color: #2961BE !important;
+}
+.filter-checkbox-input:checked + .toggle-track .toggle-thumb {
+  transform: translateX(20px) !important;
+}
+.checkbox-label {
+    font-size: 1.4rem;
+    color: rgba(var(--color-foreground), 0.7);
+    margin: 0;
+    line-height: 1.5;
+}
+.filter-checkbox-input:checked ~ .checkbox-label {
+  color: #1c274c;
+}
+
+/* --- CARD STYLE --- */
+.partnership-item-wrapper {
+  background-color: #FFFFFF;
+  background-position: 0 0, 50%;
+  background-size: auto, cover;
+  border-radius: 1em;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 2rem;
+  display: flex;
+  box-shadow: 0 4px 20px rgba(41, 97, 190, 0.15); 
+  border: 1px solid rgba(83, 88, 98, 0.1);
+  text-align: center;
+  height: 100%;
+  box-sizing: border-box;
+}
+.partnership-logo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: rgb(var(--color-background));
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(var(--color-foreground), 0.1);
+}
+.partnership-card-name {
+    margin: 0 0 15px 0;
+    font-size: 1.6rem;
+    color: rgb(var(--color-foreground));
+    font-family: inherit;
+}
+.partnership-subtitle {
+    font-size: 1.4rem;
+    color: rgba(var(--color-foreground), 0.7);
+    line-height: 1.5;
+    margin-block: 5px 30px;
+}
+.partnership-button-wrapper {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+  margin-top: auto;
+}
+.partnership-button-wrapper .button {
+  min-width: 120px;
+  min-height: 44px;
+  padding: 0 1.5rem;
+}
+
+/* --- SWIPER CONTROLS --- */
+.partner-swiper-container {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.partner-controls {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    max-width: 70%;
+    flex-wrap: nowrap;
+    margin: 30px auto;
+}
+.partner-arrow {
+  width: 44px;
+  height: 44px;
+  background-color: #2961BE;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+.partner-arrow:hover {
+  opacity: 0.85;
+}
+.partner-arrow.swiper-button-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.partner-arrow svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+}
+.partner-pagination {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  min-width: 60px;
+}
+.partner-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 8px;
+  background: #d1d5db;
+  opacity: 1;
+  margin: 0 !important;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+.partner-pagination .swiper-pagination-bullet-active {
+  background: #2961BE !important;
+  width: 24px;
+}
+
+/* --- DESKTOP FLEXBOX (Replaces Grid) --- */
+@media screen and (min-width: 991px) {
+  .partnerships-list-{{ section.id }} {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+  
+  .partnerships-list-item {
+    /* Calculate exact width based on number of columns and the 2rem gap */
+    width: calc((100% - (2rem * ({{ section.settings.columns_desktop }} - 1))) / {{ section.settings.columns_desktop }}) !important;
+    flex-shrink: 0;
+  }
+  
+  /* Center align if only one card and no sidebar */
+  {% unless section.settings.show_categories %}
+    .partnerships-list-{{ section.id }}:has(> :last-child:first-child) {
+       justify-content: center;
+    }
+    .partnerships-list-item:only-child {
+       max-width: 450px;
+       width: 100% !important;
+    }
+  {% endunless %}
+  
+  .partner-swiper-container { overflow: visible; }
+}
+
+/* --- MOBILE SLIDER --- */
+@media screen and (max-width: 990px) {
+  .partner-filter {
+    position: relative;
+    top: 0;
+  }
+  .partnerships-list-{{ section.id }} { 
+    display: flex; 
+  }
+  .partnership-button-wrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+  .partnership-button-wrapper .button {
+    width: 100%;
+  }
+  .partner-controls {
+    display: flex; /* Show controls on mobile */
+  }
+}
+</style>
+
+<div class="partner-overview-section color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  <div class="page-width">
+    
+    {% if section.settings.section_title != blank %}
+      <h2 class="h1">{{ section.settings.section_title }}</h2>
+    {% endif %}
+
+    <div class="partner-grid-layout">
+      
+      {% if section.settings.show_categories %}
+      <div class="partner-filter">
+        <div class="partner-filter-title">Select by category</div>
+        <div class="line-divider"> </div>
+        <div class="partner-filter-form" id="FilterForm-{{ section.id }}">
+          {% for cat in unique_categories %}
+            <label class="partner-filter-checkbox">
+              <input type="checkbox" class="filter-checkbox-input" value="{{ cat | escape }}">
+              <div class="toggle-track">
+                <div class="toggle-thumb"> </div>
+              </div>
+              <span class="checkbox-label">{{ cat }}</span>
+            </label>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="filter-content">
+        <div class="swiper partner-swiper-container">
+          <div class="swiper-wrapper partnerships-list-{{ section.id }}" id="PartnerList-{{ section.id }}">
+            {% for block in section.blocks %}
+              <div class="swiper-slide partnerships-list-item scroll-trigger animate--slide-in" 
+                   data-category="{{ block.settings.category | escape }}" 
+                   {{ block.shopify_attributes }}
+                   data-cascade
+                   style="--animation-order: {{ forloop.index }};"
+              >
+                
+                <div class="partnership-item-wrapper color-{{ block.settings.card_color_scheme }} gradient"
+                     {% if block.settings.bg_image != blank %}
+                     style="background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.95)), url('{{ block.settings.bg_image | image_url: width: 800 }}');"
+                     {% else %}
+                     style="background-image: linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.95)), url('https://cdn.prod.website-files.com/64bfca2ced1b82f490a58a1a/64c1896dcd0ae020f7c6c7e1_Home%20Hero%20bg%20-%20chart.png');"
+                     {% endif %}>
+                  
+                  {% if block.settings.image %}
+                    <img src="{{ block.settings.image | image_url: width: 220 }}" alt="{{ block.settings.title }}" class="partnership-logo" loading="lazy">
+                  {% endif %}
+                  
+                  <div class="partnership-detail-wrapper">
+                    <h3 class="partnership-card-name ">{{ block.settings.title }}</h3>
+                  </div>
+                  
+                  <p class="partnership-subtitle">{{ block.settings.subtitle }}</p>
+                  
+                  <div class="partnership-button-wrapper">
+                    {% if block.settings.more_info_text != blank %}
+                      <a href="{{ block.settings.more_info_link }}" class="button button--secondary">
+                        {{ block.settings.more_info_text }}
+                      </a>
+                    {% endif %}
+                    {% if block.settings.get_in_touch_text != blank %}
+                      <a href="{{ block.settings.get_in_touch_link }}" class="button button--primary">
+                        {{ block.settings.get_in_touch_text }}
+                      </a>
+                    {% endif %}
+                  </div>
+                  
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="partner-controls">
+          <div class="partner-arrow partner-prev-{{ section.id }}">
+            <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+          </div>
+          <div class="partner-pagination" id="partner-pag-{{ section.id }}"></div>
+          <div class="partner-arrow partner-next-{{ section.id }}">
+            <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+          </div>
+        </div>
+
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  let swiperInstance = null;
+  const sectionId = '{{ section.id }}';
+
+  // Initialize Swiper only on Mobile (< 990px)
+  function initPartnerSwiper() {
+    const isMobile = window.innerWidth <= 990;
+    
+    if (isMobile && !swiperInstance) {
+      swiperInstance = new Swiper('.partner-swiper-container', {
+        slidesPerView: {{ section.settings.columns_mobile | default: 1 }},
+        spaceBetween: 20,
+        observer: true,
+        observeParents: true,
+        watchSlidesProgress: true,
+        pagination: {
+          el: `#partner-pag-${sectionId}`,
+          clickable: true,
+        },
+        navigation: {
+          nextEl: `.partner-next-${sectionId}`,
+          prevEl: `.partner-prev-${sectionId}`,
+        },
+      });
+    } else if (!isMobile && swiperInstance) {
+      swiperInstance.destroy(true, true);
+      swiperInstance = null;
+    }
+  }
+
+  initPartnerSwiper();
+  window.addEventListener('resize', initPartnerSwiper);
+
+  // --- SHOPIFY THEME EDITOR FIXES ---
+  if (Shopify && Shopify.designMode) {
+    document.addEventListener('shopify:section:load', (e) => {
+      if (e.detail.sectionId === sectionId) {
+        initPartnerSwiper();
+      }
+    });
+    document.addEventListener('shopify:block:select', (e) => {
+      if (swiperInstance) {
+        swiperInstance.update();
+      }
+    });
+  }
+
+  // Category Filter Logic
+  const form = document.getElementById(`FilterForm-${sectionId}`);
+  const container = document.getElementById(`PartnerList-${sectionId}`);
+  
+  if (form && container) {
+    const filterInputs = form.querySelectorAll('.filter-checkbox-input');
+    const partnerItems = container.querySelectorAll('.partnerships-list-item');
+
+    filterInputs.forEach(input => {
+      input.addEventListener('change', () => {
+        const activeFilters = Array.from(filterInputs)
+          .filter(cb => cb.checked)
+          .map(cb => cb.value);
+
+        partnerItems.forEach(item => {
+          let shouldShow = activeFilters.length === 0 || activeFilters.includes(item.dataset.category);
+          
+          if (shouldShow) {
+            item.style.display = '';
+            item.classList.add('swiper-slide'); // Re-add to swiper loop
+          } else {
+            item.style.display = 'none';
+            item.classList.remove('swiper-slide'); // Remove from swiper loop
+          }
+        });
+
+        // Update swiper dynamically after filtering
+        if (swiperInstance) {
+          swiperInstance.update();
+          swiperInstance.slideTo(0); // Reset to first slide
+        }
+      });
+    });
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Partner Directory",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title (Optional)",
+      "default": "Our Partners"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_categories",
+      "label": "Show Categories Sidebar",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Main Color Scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 2,
+      "label": "Cards per row (Desktop)"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "options": [
+        {
+          "value": "1",
+          "label": "1 Card"
+        },
+        {
+          "value": "2",
+          "label": "2 Cards"
+        }
+      ],
+      "default": "1",
+      "label": "Cards per row (Mobile)"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "partner",
+      "name": "Partner Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Company Name",
+          "default": "Company Name"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "High converting ads"
+        },
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Category"
+        },
+        {
+          "type": "image_picker",
+          "id": "bg_image",
+          "label": "Card Background Image"
+        },
+        {
+          "type": "color_scheme",
+          "id": "card_color_scheme",
+          "label": "Card Color Scheme",
+          "default": "inverse"
+        },
+        {
+          "type": "url",
+          "id": "more_info_link",
+          "label": "More Info Link"
+        },
+        {
+          "type": "text",
+          "id": "more_info_text",
+          "label": "More Info Button Text",
+          "default": "More info"
+        },
+        {
+          "type": "url",
+          "id": "get_in_touch_link",
+          "label": "Get in Touch Link"
+        },
+        {
+          "type": "text",
+          "id": "get_in_touch_text",
+          "label": "Get in Touch Button Text",
+          "default": "Get in touch"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Partner Directory"
+    }
+  ]
+}
+{% endschema %}

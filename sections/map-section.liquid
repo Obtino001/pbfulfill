@@ -1,0 +1,162 @@
+{% schema %}
+{
+  "name": "Custom Map Embed",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Map Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Visit Us"
+    },
+    {
+      "type": "html",
+      "id": "map_code",
+      "label": "Map Embed Code (iframe)",
+      "info": "Go to Google Maps -> Share -> Embed a map. Copy the HTML and paste it here."
+    },
+    {
+      "type": "header",
+      "content": "Styling"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "map_height",
+      "min": 200,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "Map Height",
+      "default": 450
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full Width Map",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Map Embed"
+    }
+  ]
+}
+{% endschema %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .map-heading-{{ section.id }} {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 30px 0;
+    color: rgba(var(--color-foreground), 1);
+  }
+
+  .map-frame-wrapper-{{ section.id }} iframe {
+    width: 100%;
+    height: {{ section.settings.map_height }}px;
+    border: 0;
+    border-radius: 8px;
+    display: block;
+  }
+
+  .map-placeholder-{{ section.id }} {
+    width: 100%;
+    height: {{ section.settings.map_height }}px;
+    background-color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #718096;
+    font-size: 18px;
+    border-radius: 8px;
+  }
+{%- endstyle -%}
+
+<div class="section-{{ section.id }}-padding">
+  <div class="{% if section.settings.full_width == false %}page-width{% endif %}">
+    
+    {%- if section.settings.heading != blank -%}
+      <h2 class="map-heading-{{ section.id }}">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="map-frame-wrapper-{{ section.id }}">
+      {%- if section.settings.map_code != blank -%}
+        {{ section.settings.map_code }}
+      {%- else -%}
+        <div class="map-placeholder-{{ section.id }}">
+          Paste your Google Maps iframe code in the section settings.
+        </div>
+      {%- endif -%}
+    </div>
+    
+  </div>
+</div>

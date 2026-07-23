@@ -1,0 +1,236 @@
+{%- style -%}
+  .quality-stats-wrapper-{{ section.id }} {
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .quality-stats-wrapper-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  /* .quality-stats-container { max-width: 1200px; margin: 0 auto; } */
+  .quality-stats-heading { text-align: center; margin-bottom: 50px; }
+  .quality-heading-text { font-size: 3.6rem; font-weight: 700; color: rgb(var(--color-foreground)); margin: 0; padding-bottom: 8px; display: inline-block; font-family: inherit; }
+  .quality-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 24px; }
+  .quality-stat-card { background: rgb(var(--color-background)); border-radius: 16px; padding: 32px 28px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 20px rgba(0, 0, 0, 0.05); transition: all 0.3s ease; border: 1px solid rgba(var(--color-foreground), 0.04); }
+  .quality-stat-card:hover { transform: translateY(-4px); box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1), 0 16px 32px rgba(0, 0, 0, 0.1); }
+  .quality-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+  .quality-card-icon { width: 24px; height: 24px; color: rgb(var(--color-foreground)); }
+  .quality-card-title { font-size: 1.6rem; font-weight: 600; color: rgb(var(--color-foreground)); margin: 0; font-family: inherit; }
+  .quality-stat-display { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 20px; }
+  .quality-stat-left { display: flex; align-items: baseline; gap: 12px; }
+  .quality-stat-number { font-size: 4.8rem; font-weight: 700; color: rgb(var(--color-foreground)); line-height: 1; }
+  .quality-stat-badge { display: inline-flex; align-items: center; gap: 4px; background: rgba(220, 38, 38, 0.1); color: #DC2626; padding: 4px 10px; border-radius: 6px; font-size: 1.4rem; font-weight: 600; }
+  .quality-trend-arrow { width: 14px; height: 14px; }
+  .quality-trend-graph { width: 100px; height: 60px; position: relative; }
+  .quality-trend-graph img { width: 100%; height: 100%; object-fit: contain; }
+  .quality-card-description { font-size: 1.4rem; color: rgba(var(--color-foreground), 0.75); line-height: 1.6; margin: 0; font-family: inherit; }
+  @media (max-width: 968px) { .quality-stats-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .quality-heading-text { font-size: 2.8rem; } .quality-stat-number { font-size: 3.6rem; } .quality-stat-display { flex-direction: column; align-items: flex-start; gap: 16px; } }
+{%- endstyle -%}
+
+<div class="quality-stats-wrapper-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+  <div class="quality-stats-container page-width">
+    
+    <div class="quality-stats-heading">
+      {%- if section.settings.section_heading != blank -%}
+        <h2 class="h1">{{ section.settings.section_heading | escape }}</h2>
+      {%- endif -%}
+    </div>
+    
+    <div class="quality-stats-grid">
+      {%- for block in section.blocks -%}
+        <div class="quality-stat-card" {{ block.shopify_attributes }}>
+          
+          <div class="quality-card-header">
+            <svg class="quality-card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              {%- if block.settings.icon_class == 'package' -%}
+                <path d="M16.5 9.4 7.55 4.24"></path>
+                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                <polyline points="3.29 7 12 12 20.71 7"></polyline>
+                <line x1="12" x2="12" y1="22" y2="12"></line>
+              {%- elsif block.settings.icon_class == 'trending-down' -%}
+                <polyline points="22 17 13.5 8.5 8.5 13.5 2 7"></polyline>
+                <polyline points="16 17 22 17 22 11"></polyline>
+              {%- else -%}
+                <circle cx="12" cy="12" r="10"></circle>
+              {%- endif -%}
+            </svg>
+            <h3 class="quality-card-title">{{ block.settings.card_title | escape }}</h3>
+          </div>
+          
+          <div class="quality-stat-display">
+            <div class="quality-stat-left">
+              <span class="quality-stat-number">{{ block.settings.stat_number | escape }}</span>
+              {%- if block.settings.percentage != blank -%}
+                <span class="quality-stat-badge">
+                  <svg class="quality-trend-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="m7 11 5 5 5-5"/>
+                    <path d="M12 18V3"/>
+                  </svg>
+                  {{ block.settings.percentage | escape }}
+                </span>
+              {%- endif -%}
+            </div>
+            
+            {%- if block.settings.trend_graph != blank -%}
+              <div class="quality-trend-graph">
+                {{ block.settings.trend_graph | image_url: width: 200 | image_tag: loading: 'lazy', alt: 'Trend' }}
+              </div>
+            {%- endif -%}
+          </div>
+          
+          {%- if block.settings.description != blank -%}
+            <p class="quality-card-description">{{ block.settings.description | escape }}</p>
+          {%- endif -%}
+          
+        </div>
+      {%- endfor -%}
+    </div>
+    
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Quality Inspection Stats",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Section Heading",
+      "default": "Why Quality Inspection Matters?"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Override",
+      "default": "transparent"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat_card",
+      "name": "Stat Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon_class",
+          "label": "Icon (Lucide Icon Name)",
+          "default": "package",
+          "info": "Enter lucide icon name like: package, trending-down, users, etc."
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Card Title",
+          "default": "Dropship Returns"
+        },
+        {
+          "type": "text",
+          "id": "stat_number",
+          "label": "Statistic Number",
+          "default": "316"
+        },
+        {
+          "type": "text",
+          "id": "percentage",
+          "label": "Percentage",
+          "default": "30%"
+        },
+        {
+          "type": "image_picker",
+          "id": "trend_graph",
+          "label": "Trend Graph Image"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "30% of dropshipping returns are caused by poor product quality"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quality Inspection Stats",
+      "blocks": [
+        {
+          "type": "stat_card",
+          "settings": {
+            "icon_class": "package",
+            "card_title": "Dropship Returns",
+            "stat_number": "316",
+            "percentage": "30%",
+            "description": "30% of dropshipping returns are caused by poor product quality"
+          }
+        },
+        {
+          "type": "stat_card",
+          "settings": {
+            "icon_class": "trending-down",
+            "card_title": "Refund Rates",
+            "stat_number": "2,420",
+            "percentage": "70%",
+            "description": "One inspection can reduce refund rates by up to 70%"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

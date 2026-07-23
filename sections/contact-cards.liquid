@@ -1,0 +1,247 @@
+{% schema %}
+{
+  "name": "Contact Grid Cards",
+  "tag": "section",
+  "class": "contact-grid-section section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "contact_card",
+      "name": "Contact Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Image"
+        },
+        {
+          "type": "range",
+          "id": "icon_width",
+          "min": 20,
+          "max": 70,
+          "step": 2,
+          "unit": "px",
+          "label": "Icon Width",
+          "default": 28
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label (Small Text)",
+          "default": "WHATSAPP"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value (Main Text)",
+          "default": "123-456-7890"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (Optional)"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Grid Cards",
+      "blocks": [
+        {
+          "type": "contact_card",
+          "settings": {
+            "label": "WHATSAPP",
+            "value": "8613738054252"
+          }
+        },
+        {
+          "type": "contact_card",
+          "settings": {
+            "label": "EMAIL ADDRESS",
+            "value": "PBdropshipping@163.com"
+          }
+        },
+        {
+          "type": "contact_card",
+          "settings": {
+            "label": "SLACK",
+            "value": "PB Fulfill"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .contact-grid-container {
+    max-width: var(--page-width, 1200px);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+
+  .contact-grid-card {
+    background: rgb(var(--color-background));
+    border-radius: 12px;
+    padding: 40px 20px;
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 0px 4px -2px #0A0D120A;
+border: 1px solid #E9EAEB;
+box-shadow: 0px 0px 48px -12px #0A0D122E;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgb(var(--color-foreground));
+  }
+
+  .contact-grid-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(var(--color-foreground), 0.12);
+  }
+
+  .contact-grid-icon-circle {
+    width: 90px;
+    height: 90px;
+    background-color: #2961BE1A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .contact-grid-icon-circle img {
+    object-fit: contain;
+    display: block;
+  }
+
+  .contact-grid-label {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(var(--color-foreground), 0.6);
+    margin: 0 0 8px 0;
+    font-weight: 500;
+  }
+
+  .contact-grid-value {
+    font-size: 1.6rem;
+    color: rgb(var(--color-foreground));
+    font-weight: 700;
+    margin: 0;
+    word-break: break-word;
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .contact-grid-card {
+      width: 100%;
+      max-width: 100%;
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+  <div class="contact-grid-container">
+    {% for block in section.blocks %}
+      {%- assign card_tag = 'div' -%}
+      {%- if block.settings.link != blank -%}
+        {%- assign card_tag = 'a' -%}
+      {%- endif -%}
+
+      <{{ card_tag }} {% if block.settings.link != blank %}href="{{ block.settings.link }}"{% endif %} class="contact-grid-card" {{ block.shopify_attributes }}>
+        <div class="contact-grid-icon-circle">
+          {% if block.settings.icon != blank %}
+            <img src="{{ block.settings.icon | image_url: width: 140 }}" 
+                 alt="{{ block.settings.label | escape }}" 
+                 style="width: {{ block.settings.icon_width }}px; height: auto;"
+                 loading="lazy">
+          {% else %}
+            <span style="font-size: 24px; color: rgba(var(--color-foreground), 0.7);">&bull;</span>
+          {% endif %}
+        </div>
+        
+        <div class="contact-grid-label">{{ block.settings.label }}</div>
+        <p class="contact-grid-value">{{ block.settings.value }}</p>
+      </{{ card_tag }}>
+    {% endfor %}
+  </div>
+</div>

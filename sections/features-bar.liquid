@@ -1,0 +1,281 @@
+{%- style -%}
+  .tfb-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    position: relative;
+    overflow: hidden;
+    background-color: {{ section.settings.bg_color }};
+  }
+
+  @media screen and (min-width: 750px) {
+    .tfb-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+    {% if section.settings.bg_image != blank %}
+      background-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}');
+      background-size: cover;
+      background-position: center;
+    {% endif %}
+  }
+
+  .tfb-{{ section.id }}::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, {{ section.settings.overlay_opacity | divided_by: 100.0 }});
+    z-index: 1;
+  }
+
+  .tfb-container {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+
+  .tfb-promise {
+    font-size: 24px;
+    font-weight: 700;
+    max-width: 700px;
+    margin: 0 auto 50px;
+    line-height: 1.4;
+    color: {{ section.settings.text_color }};
+  }
+
+  .tfb-grid { 
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); /* Forces 4 columns on desktop */
+    gap: 20px; 
+    max-width: 1000px; /* Made wider to fit 4 items nicely */
+    margin: 0 auto; 
+    background: {{ section.settings.card_bg }}; 
+    padding: 50px 40px; 
+    border-radius: 12px; /* Slightly sharper corners like the screenshot */
+    border: 1px solid rgba(41, 97, 190, 0.1);
+    box-shadow: 0px 24px 48px -12px rgba(10, 13, 18, 0.12);
+  }
+
+  .tfb-item { 
+    display: flex; 
+    flex-direction: column; /* Stacks icon above text on desktop too */
+    align-items: center; 
+    justify-content: flex-start;
+    gap: 16px; 
+    font-weight: 600; 
+    font-size: 14px; 
+    color: #101828;
+    text-align: center;
+  }
+
+  .tfb-item span {
+    max-width: 160px;
+    line-height: 1.3;
+  }
+
+  .tfb-icon-wrapper {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .tfb-custom-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .tfb-default-check { 
+    width: 24px; height: 24px; 
+    background: {{ section.settings.accent_color }}; 
+    border-radius: 50%; 
+    display: flex; align-items: center; justify-content: center; 
+    color: white;
+    /* Double-ring halo effect */
+    box-shadow: 0 0 0 5px {{ section.settings.accent_color | color_modify: 'alpha', 0.2 }};
+  }
+
+  @media (max-width: 768px) {
+    .tfb-promise { 
+      font-size: 18px; 
+      padding: 0 15px; 
+      margin-bottom: 30px;
+    }
+    .tfb-grid { 
+      grid-template-columns: repeat(2, 1fr); /* Drops to 2x2 grid on mobile */
+      padding: 40px 15px;
+      gap: 35px 15px;
+      margin: 0 15px;
+    }
+    .tfb-item span {
+      font-size: 13px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="tfb-{{ section.id }}">
+  <div class="tfb-container page-width">
+    {% if section.settings.promise_text != blank %}
+      <h2 class="tfb-promise">{{ section.settings.promise_text }}</h2>
+    {% endif %}
+
+    <div class="tfb-grid">
+      {%- for block in section.blocks -%}
+        <div class="tfb-item" {{ block.shopify_attributes }}>
+          <div class="tfb-icon-wrapper">
+            {%- if block.settings.custom_icon != blank -%}
+              {{ block.settings.custom_icon | image_url: width: 64 | image_tag: class: 'tfb-custom-icon', loading: 'lazy' }}
+            {%- else -%}
+              <div class="tfb-default-check">
+                <svg width="12" height="10" viewBox="0 0 12 10" fill="none">
+                  <path d="M1 5.2L4.2 8.4L11 1.6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+            {%- endif -%}
+          </div>
+          <span>{{ block.settings.text }}</span>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Trust Features Bar",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Background Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 90,
+      "step": 10,
+      "unit": "%",
+      "label": "Image Overlay Opacity",
+      "default": 0
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Section Background Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "card_bg",
+      "label": "Feature Box Color",
+      "default": "#F5FAFF"
+    },
+    {
+      "type": "header",
+      "content": "Text & Colors"
+    },
+    {
+      "type": "textarea",
+      "id": "promise_text",
+      "label": "Promise Text",
+      "default": "We promise transparency. We promise reliability. We promise to care about your business as much as you do"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Heading Color",
+      "default": "#101828"
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Default Checkmark Color",
+      "info": "Used only if no custom icon is uploaded",
+      "default": "#2961BE"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "custom_icon",
+          "label": "Custom Icon",
+          "info": "Upload a PNG or SVG. Leave blank for default checkmark."
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Feature Text",
+          "default": "Clear pricing"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust Features Bar",
+      "blocks": [
+        { "type": "feature", "settings": { "text": "Clear pricing" } },
+        { "type": "feature", "settings": { "text": "Verified suppliers" } },
+        { "type": "feature", "settings": { "text": "Real-time support" } },
+        { "type": "feature", "settings": { "text": "Quality check on order" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

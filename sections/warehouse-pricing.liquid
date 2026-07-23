@@ -1,0 +1,474 @@
+{% schema %}
+{
+  "name": "Warehouse Pricing Table",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Main Heading",
+      "default": "U.S Warehouse Pricing"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Section Color Scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Table Design"
+    },
+    {
+      "type": "color",
+      "id": "primary_color",
+      "label": "Primary Blue Color",
+      "default": "#2b5cbd"
+    },
+    {
+      "type": "select",
+      "id": "header_icon_style",
+      "label": "Header Symbol Style",
+      "options": [
+        { "value": "icon", "label": "Icons" },
+        { "value": "number", "label": "Numbers" }
+      ],
+      "default": "icon"
+    },
+    {
+      "type": "image_picker",
+      "id": "weight_image",
+      "label": "Weight Icon Image (Optional)"
+    },
+    {
+      "type": "image_picker",
+      "id": "closer_image",
+      "label": "Closer Icon Image (Optional)"
+    },
+    {
+      "type": "image_picker",
+      "id": "further_image",
+      "label": "Further Icon Image (Optional)"
+    },
+    {
+      "type": "text",
+      "id": "weight_num",
+      "label": "Weight Number (If Numbers Selected)",
+      "default": "1"
+    },
+    {
+      "type": "text",
+      "id": "closer_num",
+      "label": "Closer Number (If Numbers Selected)",
+      "default": "2"
+    },
+    {
+      "type": "text",
+      "id": "further_num",
+      "label": "Further Number (If Numbers Selected)",
+      "default": "3"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "price_row",
+      "name": "Price Row",
+      "settings": [
+        { "type": "text", "id": "weight", "label": "Weight Range", "default": "0-0.02kg" },
+        { "type": "header", "content": "Closer Zones (1-3)" },
+        { "type": "text", "id": "z1", "label": "Zone 1", "default": "$3.82" },
+        { "type": "text", "id": "z2", "label": "Zone 2", "default": "$4.37" },
+        { "type": "text", "id": "z3", "label": "Zone 3", "default": "$4.59" },
+        { "type": "header", "content": "Further Zones (4-8)" },
+        { "type": "text", "id": "z4", "label": "Zone 4", "default": "$4.86" },
+        { "type": "text", "id": "z5", "label": "Zone 5", "default": "$4.41" },
+        { "type": "text", "id": "z6", "label": "Zone 6", "default": "$4.76" },
+        { "type": "text", "id": "z7", "label": "Zone 7", "default": "$5.01" },
+        { "type": "text", "id": "z8", "label": "Zone 8", "default": "$5.54" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Warehouse Pricing Table",
+      "blocks": [
+        { "type": "price_row", "settings": { "weight": "0-0.02kg" } },
+        { "type": "price_row", "settings": { "weight": "0.02-0.03kg" } },
+        { "type": "price_row", "settings": { "weight": "0.03-0.05kg" } },
+        { "type": "price_row", "settings": { "weight": "0.05-0.06kg" } },
+        { "type": "price_row", "settings": { "weight": "0.06-0.31kg" } },
+        { "type": "price_row", "settings": { "weight": "0.38-0.62kg" } },
+        { "type": "price_row", "settings": { "weight": "0.69-1.25kg" } },
+        { "type": "price_row", "settings": { "weight": "1.31-1.56kg" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{% style %}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .wp-wrapper-{{ section.id }} {
+    --wp-blue: {{ section.settings.primary_color }};
+    --wp-text: rgba(var(--color-foreground), 1);
+    --wp-border: rgba(var(--color-foreground), 0.08);
+    --wp-bg: #F5FBFF;
+  }
+
+  .wp-wrapper-{{ section.id }} .wp-heading {
+    text-align: center;
+  }
+
+  /* Table Container - Mobile Sliding & Desktop Grid */
+  .wp-wrapper-{{ section.id }} .wp-table-container {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    align-items: stretch;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--wp-blue) var(--wp-border);
+  }
+
+  .wp-table-container::-webkit-scrollbar {
+    height: 6px;
+  }
+  .wp-table-container::-webkit-scrollbar-track {
+    background: var(--wp-border);
+    border-radius: 10px;
+  }
+  .wp-table-container::-webkit-scrollbar-thumb {
+    background: var(--wp-blue);
+    border-radius: 10px;
+  }
+
+  /* Sticky Weight Column */
+  .wp-wrapper-{{ section.id }} .wp-col-weight {
+    flex: 0 0 160px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Columns */
+  .wp-wrapper-{{ section.id }} .wp-col-closer {
+    flex: 0 0 33%;
+    border: 1px solid var(--wp-blue);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    background: var(--wp-bg);
+  }
+
+  .wp-wrapper-{{ section.id }} .wp-col-further {
+    flex: 0 0 54%;
+    border: 1px solid var(--wp-blue);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    background: var(--wp-bg);
+  }
+  .wp-header-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+  }
+  /* Header Cards */
+  .wp-wrapper-{{ section.id }} .wp-header-card {
+    background-color: var(--wp-blue);
+    color: #ffffff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85px;
+    font-size: 18px;
+    font-weight: 600;
+    gap: 6px;
+  }
+
+.wp-col-closer .wp-header-card, .wp-col-further .wp-header-card {
+    margin: 8px;
+    padding: 30px;
+}
+
+  .wp-col-weight .wp-header-card {
+    margin-top: 9px; /* Align visually with bordered boxes */
+  }
+
+  .wp-header-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .wp-header-number {
+    width: 28px;
+    height: 28px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+  }
+
+  /* Sub Header (Weight Range Label) */
+  .wp-wrapper-{{ section.id }} .wp-weight-label {
+    height: 60px; /* Matches zone pills height + padding */
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-size: 12px;
+    color: var(--wp-text);
+    opacity: 0.8;
+    text-align: center;
+    line-height: 1.2;
+    padding: 0 10px;
+  }
+
+  /* Zone Pills */
+  .wp-wrapper-{{ section.id }} .wp-zones-row {
+    display: flex;
+    gap: 6px;
+    padding: 0 8px 12px 8px;
+    height: 52px; /* Force uniform height across columns */
+  }
+
+  .wp-wrapper-{{ section.id }} .wp-zone-pill {
+    background-color: var(--wp-blue);
+    color: #ffffff;
+    border-radius: 6px;
+    flex: 1;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 6px 0;
+    line-height: 1.3;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    justify-content: center;
+  }
+
+  /* Data Rows */
+  .wp-wrapper-{{ section.id }} .wp-row {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 10px;
+    font-size: 12px;
+    color: var(--wp-text);
+    opacity: 0.8;
+    border-top: 1px solid var(--wp-border);
+  }
+
+  .wp-wrapper-{{ section.id }} .wp-prices-grid {
+    display: flex;
+    width: 100%;
+    height: 48px;
+    padding: 0 8px;
+    border-top: 1px solid var(--wp-border);
+  }
+
+  .wp-wrapper-{{ section.id }} .wp-price-cell {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Specific border removals for flawless look */
+  .wp-col-weight .wp-row:first-of-type,
+  .wp-col-closer .wp-prices-grid:first-of-type,
+  .wp-col-further .wp-prices-grid:first-of-type {
+    border-top: none; 
+  }
+
+
+  @media screen and (min-width: 800px) {
+    .wp-wrapper-{{ section.id }} .wp-table-container {
+      justify-content: center;
+      overflow-x: visible;
+    }
+    .wp-wrapper-{{ section.id }} .wp-col-weight {
+      flex: 0 0 200px;
+    }
+    .wp-wrapper-{{ section.id }} .wp-row,
+    .wp-wrapper-{{ section.id }} .wp-weight-label,
+    .wp-wrapper-{{ section.id }} .wp-zone-pill,
+    .wp-wrapper-{{ section.id }} .wp-header-card {
+      font-size: calc(100% + 1px);
+    }
+  }
+  @media screen and (max-width: 800px) {
+  .wp-wrapper-{{ section.id }} .wp-col-closer {
+    flex: 0 0 80%;
+  }
+    .wp-wrapper-{{ section.id }} .wp-col-further {
+    flex: 0 0 80%;
+}
+  }
+{% endstyle %}
+
+<div class="wp-wrapper-{{ section.id }} color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
+  
+  <div class="page-width">
+    {% if section.settings.heading != blank %}
+      <h2 class="wp-heading h1">{{ section.settings.heading }}</h2>
+    {% endif %}
+
+    <div class="wp-table-container">
+      
+      <div class="wp-col-weight">
+        <div class="wp-header-card">
+          <div class="wp-header-symbol">
+            {% if section.settings.weight_image != blank %}
+              {{ section.settings.weight_image | image_url: width: 80 | image_tag: class: 'wp-header-icon', loading: 'lazy' }}
+            {% else %}
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40" fill="none" class="wp-header-icon">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M20 6.66757C19.3434 6.66757 18.6932 6.7969 18.0866 7.04818C17.48 7.29945 16.9288 7.66775 16.4645 8.13204C16.0002 8.59633 15.6319 9.14753 15.3806 9.75416C15.1293 10.3608 15 11.011 15 11.6676C15 12.3242 15.1293 12.9744 15.3806 13.581C15.6319 14.1876 16.0002 14.7388 16.4645 15.2031C16.9288 15.6674 17.48 16.0357 18.0866 16.287C18.6932 16.5382 19.3434 16.6676 20 16.6676C21.3261 16.6676 22.5979 16.1408 23.5355 15.2031C24.4732 14.2654 25 12.9937 25 11.6676C25 10.3415 24.4732 9.06972 23.5355 8.13204C22.5979 7.19436 21.3261 6.66757 20 6.66757ZM11.6667 11.6676C11.667 10.0909 12.1146 8.54659 12.9576 7.21411C13.8005 5.88164 15.0042 4.81565 16.4288 4.13995C17.8534 3.46425 19.4404 3.20657 21.0056 3.39684C22.5708 3.58711 24.0499 4.21751 25.2711 5.21484C26.4923 6.21217 27.4056 7.53549 27.9047 9.03111C28.4039 10.5267 28.4685 12.1333 28.091 13.6641C27.7136 15.195 26.9096 16.5874 25.7724 17.6796C24.6352 18.7718 23.2115 19.5189 21.6667 19.8342V28.3342C21.6667 28.7763 21.4911 29.2002 21.1785 29.5128C20.8659 29.8253 20.442 30.0009 20 30.0009C19.558 30.0009 19.134 29.8253 18.8215 29.5128C18.5089 29.2002 18.3333 28.7763 18.3333 28.3342V19.8342C16.4511 19.45 14.7593 18.4273 13.5445 16.9391C12.3296 15.4509 11.6663 13.5887 11.6667 11.6676ZM15.815 26.8342C15.8482 27.0507 15.8383 27.2716 15.7861 27.4843C15.7338 27.6969 15.6401 27.8972 15.5104 28.0737C15.3807 28.2501 15.2175 28.3993 15.0301 28.5126C14.8427 28.626 14.6348 28.7013 14.4183 28.7342C12.2883 29.0576 10.5967 29.5492 9.485 30.0926C7.45167 31.0876 9.82833 31.8026 11.0683 32.1892C13.28 32.8809 16.4383 33.3342 20 33.3342C23.5617 33.3342 26.72 32.8809 28.9317 32.1892C30.18 31.7992 32.5483 31.0892 30.515 30.0926C29.4033 29.5492 27.7117 29.0592 25.5817 28.7342C25.3628 28.7042 25.152 28.631 24.9617 28.5187C24.7714 28.4065 24.6053 28.2576 24.473 28.0806C24.3408 27.9036 24.2451 27.7021 24.1914 27.4878C24.1378 27.2735 24.1273 27.0506 24.1605 26.8322C24.1938 26.6138 24.2701 26.4041 24.3851 26.2155C24.5001 26.0268 24.6515 25.8629 24.8304 25.7333C25.0093 25.6037 25.2123 25.511 25.4273 25.4605C25.6424 25.41 25.8654 25.4028 26.0833 25.4392C28.3967 25.7892 30.4533 26.3509 31.9817 27.0992C33.455 27.8209 35 29.0359 35 30.8342C35 32.1859 34.1267 33.1676 33.2767 33.7959C29.6933 36.4426 24.2267 36.6676 20 36.6676C16.1967 36.6676 12.6883 36.1876 10.075 35.3709C7.99167 34.7209 5 33.4376 5 30.8342C5 29.0342 6.545 27.8209 8.01833 27.1009C9.54667 26.3509 11.605 25.7909 13.915 25.4392C14.1315 25.4061 14.3524 25.4159 14.565 25.4682C14.7777 25.5204 14.978 25.6141 15.1544 25.7438C15.3309 25.8735 15.4801 26.0367 15.5934 26.2241C15.7067 26.4115 15.782 26.6177 15.815 26.8342Z" fill="white"/>
+              </svg>
+            {% endif %}
+          </div>
+          Weight
+        </div>
+        <div class="wp-weight-label">Weight Range</div>
+        
+        {% for block in section.blocks %}
+          <div class="wp-row">
+            {{ block.settings.weight }}
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="wp-col-closer">
+        <div class="wp-header-card">
+          <div class="wp-header-symbol">
+            {% if section.settings.header_icon_style == 'icon' %}
+              {% if section.settings.closer_image != blank %}
+                {{ section.settings.closer_image | image_url: width: 80 | image_tag: class: 'wp-header-icon', loading: 'lazy' }}
+              {% else %}
+                <svg class="wp-header-icon" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="currentColor"/>
+                </svg>
+              {% endif %}
+            {% else %}
+              <div class="wp-header-number">{{ section.settings.closer_num }}</div>
+            {% endif %}
+          </div>
+          Closer
+        </div>
+
+        <div class="wp-zones-row">
+          <p class="wp-zone-pill">Zone 1</p>
+          <p class="wp-zone-pill">Zone 2</p>
+          <p class="wp-zone-pill">Zone 3</p>
+        </div>
+
+        {% for block in section.blocks %}
+          <div class="wp-prices-grid">
+            <div class="wp-price-cell">{{ block.settings.z1 }}</div>
+            <div class="wp-price-cell">{{ block.settings.z2 }}</div>
+            <div class="wp-price-cell">{{ block.settings.z3 }}</div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="wp-col-further">
+        <div class="wp-header-card">
+          <div class="wp-header-symbol">
+            {% if section.settings.header_icon_style == 'icon' %}
+              {% if section.settings.further_image != blank %}
+                {{ section.settings.further_image | image_url: width: 80 | image_tag: class: 'wp-header-icon', loading: 'lazy' }}
+              {% else %}
+                <svg class="wp-header-icon" viewBox="0 0 24 24">
+                  <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" fill="currentColor"/>
+                </svg>
+              {% endif %}
+            {% else %}
+              <div class="wp-header-number">{{ section.settings.further_num }}</div>
+            {% endif %}
+          </div>
+          Further
+        </div>
+
+        <div class="wp-zones-row">
+          <p class="wp-zone-pill">Zone 4</p>
+          <p class="wp-zone-pill">Zone 5</p>
+          <p class="wp-zone-pill">Zone 6</p>
+          <p class="wp-zone-pill">Zone 7</p>
+          <p class="wp-zone-pill">Zone 8</p>
+        </div>
+
+        {% for block in section.blocks %}
+          <div class="wp-prices-grid">
+            <div class="wp-price-cell">{{ block.settings.z4 }}</div>
+            <div class="wp-price-cell">{{ block.settings.z5 }}</div>
+            <div class="wp-price-cell">{{ block.settings.z6 }}</div>
+            <div class="wp-price-cell">{{ block.settings.z7 }}</div>
+            <div class="wp-price-cell">{{ block.settings.z8 }}</div>
+          </div>
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+</div>

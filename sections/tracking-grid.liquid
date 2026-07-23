@@ -1,0 +1,374 @@
+{%- style -%}
+  .tracking-wrapper-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden; 
+  }
+  @media screen and (min-width: 750px) {
+    .tracking-wrapper-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .tracking-heading-{{ section.id }} {
+    font-weight: 600;
+    margin-bottom: 40px;
+    color: rgb(var(--color-foreground));
+  }
+
+  .tracking-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    aspect-ratio: 1.1 / 1;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    background: #f4f4f4; 
+  }
+
+  .tracking-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .tracking-img, .tracking-placeholder {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .tracking-placeholder {
+    background: rgba(var(--color-foreground), 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tracking-placeholder svg {
+    width: 40%;
+    opacity: 0.3;
+  }
+
+  .tracking-label {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    width: max-content;
+    max-width: 90%;
+    z-index: 2;
+    border: 1px solid rgba(var(--color-foreground), 0.05);
+    margin: 0;
+  }
+
+  .tracking-footer-{{ section.id }} {
+    margin-top: 40px;
+    font-size: 15px;
+    font-weight: 500;
+    opacity: 0.7;
+    color: rgb(var(--color-foreground));
+  }
+
+  /* --- Desktop Grid Override --- */
+  @media (min-width: 769px) {
+    .tracking-swiper-{{ section.id }} .swiper-wrapper {
+      display: grid !important;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 24px !important;
+      transform: none !important;
+    }
+    .tracking-swiper-{{ section.id }} .swiper-slide {
+      width: 100% !important;
+      margin-right: 0 !important;
+    }
+    .tracking-controls-{{ section.id }} {
+      display: none !important;
+    }
+  }
+
+  /* --- Mobile Swiper Controls --- */
+  @media (max-width: 768px) {
+    .tracking-wrapper-{{ section.id }} {
+      padding: 40px 15px;
+    }
+    .tracking-heading-{{ section.id }} {
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+    
+    /* Layout for Nav and Pagination */
+    .tracking-controls-{{ section.id }} {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px; /* Space between buttons and center pill */
+      margin-top: 30px;
+    }
+
+    /* Blue Nav Buttons */
+    .tracking-nav-prev-{{ section.id }},
+    .tracking-nav-next-{{ section.id }} {
+      width: 48px;
+      height: 48px;
+      background-color: {{ section.settings.slider_color }};
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity 0.3s ease, transform 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .tracking-nav-prev-{{ section.id }}:active,
+    .tracking-nav-next-{{ section.id }}:active {
+      transform: scale(0.95);
+    }
+
+    .tracking-nav-prev-{{ section.id }}.swiper-button-disabled,
+    .tracking-nav-next-{{ section.id }}.swiper-button-disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* White Pill Container for Bullets */
+    .tracking-pagination-{{ section.id }} {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: #ffffff;
+      padding: 12px 20px;
+      border-radius: 40px; /* Makes it a perfect pill */
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05); /* Very subtle shadow so it pops off the gray background */
+      width: auto !important; 
+      position: static !important; /* Overrides default Swiper absolute positioning */
+    }
+
+    /* Custom Swiper Bullets (Ovals) */
+    .tracking-pagination-{{ section.id }} .swiper-pagination-bullet {
+      width: 14px;
+      height: 6px;
+      background: #EAEAEA; /* Light gray for inactive */
+      border-radius: 10px;
+      opacity: 1;
+      margin: 0 !important;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+    }
+
+    .tracking-pagination-{{ section.id }} .swiper-pagination-bullet-active {
+      background: {{ section.settings.slider_color }};
+      width: 16px; /* Slightly wider for the active state */
+    }
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="tracking-wrapper-{{ section.id }} page-width">
+    
+    {%- if section.settings.heading != blank -%}
+      <h2 class="tracking-heading-{{ section.id }} inline-richtext h1">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <div class="swiper tracking-swiper-{{ section.id }}">
+      <div class="swiper-wrapper tracking-grid">
+        {%- for block in section.blocks -%}
+          <div class="swiper-slide tracking-card" {{ block.shopify_attributes }}>
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 800 | image_tag: class: 'tracking-img', loading: 'lazy' }}
+            {%- else -%}
+              <div class="tracking-placeholder">{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}</div>
+            {%- endif -%}
+
+            {%- if block.settings.label_text != blank -%}
+              <h3 class="tracking-label">{{ block.settings.label_text }}</h3>
+            {%- endif -%}
+          </div>
+        {%- endfor -%}
+      </div>
+      
+      <div class="tracking-controls-{{ section.id }}">
+        <div class="tracking-nav-prev-{{ section.id }}">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </div>
+        <div class="tracking-pagination-{{ section.id }}"></div>
+        <div class="tracking-nav-next-{{ section.id }}">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    {%- if section.settings.footer_text != blank -%}
+      <div class="pl-footer-wrapper">
+      <p class="pl-footer-text">{{ section.settings.footer_text }}</p>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const initTrackingSwiper = () => {
+      new Swiper('.tracking-swiper-{{ section.id }}', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        speed: 400,
+        grabCursor: true,
+        pagination: {
+          el: '.tracking-pagination-{{ section.id }}',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.tracking-nav-next-{{ section.id }}',
+          prevEl: '.tracking-nav-prev-{{ section.id }}',
+        },
+        breakpoints: {
+          769: {
+            // Disables Swiper completely on desktop, allowing the CSS grid to take over
+            enabled: false,
+          }
+        }
+      });
+    };
+
+    // Ensure Swiper is loaded before initializing
+    if (typeof Swiper !== 'undefined') {
+      initTrackingSwiper();
+    } else {
+      const swiperScript = document.querySelector('script[src*="swiper-bundle"]');
+      if(swiperScript) {
+        swiperScript.addEventListener('load', initTrackingSwiper);
+      }
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Labeled Image Section-3",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Who We Serve"
+    },
+    {
+      "type": "text",
+      "id": "footer_text",
+      "label": "Footer Text",
+      "default": "Your customer always knows where the package is."
+    },
+    {
+      "type": "header",
+      "content": "Mobile Slider Settings"
+    },
+    {
+      "type": "color",
+      "id": "slider_color",
+      "label": "Controls Accent Color",
+      "default": "#2961BE"
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Card Image"
+        },
+        {
+          "type": "text",
+          "id": "label_text",
+          "label": "Label Text",
+          "default": "Shopify & WooCommerce stores"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Labeled Image Section-3",
+      "blocks": [
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" },
+        { "type": "feature" }
+      ]
+    }
+  ]
+}
+{% endschema %}

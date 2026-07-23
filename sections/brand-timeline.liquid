@@ -1,0 +1,246 @@
+<div class="section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="section-heading center">
+      <h2 class="inline-richtext {{ section.settings.heading_size }}">{{ section.settings.title }}</h2>
+    </div>
+
+    <div class="timeline-track-wrapper">
+      <div class="timeline-track">
+        {% for block in section.blocks %}
+          <div class="timeline-node" {{ block.shopify_attributes }}>
+            <div class="timeline-icon-container">
+              <div class="timeline-icon-box">
+                {% if block.settings.image != blank %}
+                  {{ block.settings.image | image_url: width: 60 | image_tag: 
+                    loading: 'lazy', 
+                    class: 'timeline-img' 
+                  }}
+                {% else %}
+                  <span class="timeline-placeholder">🚩</span>
+                {% endif %}
+              </div>
+            </div>
+            
+            <div class="timeline-content center">
+              <h3 class="timeline-year h4">{{ block.settings.year }}</h3>
+              <p class="timeline-text rte">{{ block.settings.text }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .timeline-track-wrapper {
+    position: relative;
+    padding: 2rem 0;
+  }
+
+  .timeline-track {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    gap: 2rem;
+  }
+
+  /* Horizontal Line (Desktop) */
+  .timeline-track::before {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 5%;
+    right: 5%;
+    height: 1px;
+    background: rgba(var(--color-foreground), 0.1);
+    z-index: 1;
+  }
+
+  .timeline-node {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .timeline-icon-box {
+    width: 50px;
+    height: 50px;
+    background: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
+     background: linear-gradient(180deg, #3E74B9 0%, #5DA8D5 100%);
+border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-horizontal-offset) var(--shadow-vertical-offset) var(--shadow-blur-radius) rgba(var(--color-shadow), var(--shadow-opacity));
+  }
+
+  .timeline-img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0) invert(1); /* Forces icons to white to match Dawn primary buttons */
+  }
+
+  .timeline-year {
+    margin: 0 0 1rem 0;
+  }
+
+  .timeline-text {
+    font-size: 1.4rem;
+    max-width: 200px;
+    margin: 0 auto;
+    line-height: 1.4;
+  }
+
+  /* Mobile Layout */
+  @media screen and (max-width: 749px) {
+    .timeline-track {
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    .timeline-track::before {
+      top: 0;
+      bottom: 0;
+      left: 25px;
+      width: 1px;
+      height: 100%;
+    }
+
+    .timeline-node {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+
+    .timeline-icon-box {
+      margin-bottom: 0;
+      flex-shrink: 0;
+    }
+
+    .timeline-content {
+      text-align: left !important;
+    }
+    
+    .timeline-text {
+      max-width: 100%;
+      margin: 0;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Brand Timeline",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "label": "Heading",
+      "default": "Our Journey"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h2", "label": "Small" },
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "header",
+      "content": "Section Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "event",
+      "name": "Timeline Event",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Icon" },
+        { "type": "inline_richtext", "id": "year", "label": "Year/Title", "default": "2024" },
+        { "type": "text", "id": "text", "label": "Description", "default": "Milestone achievement description" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Timeline",
+      "blocks": [
+        { "type": "event", "settings": { "year": "2020", "text": "Company founded" } },
+        { "type": "event", "settings": { "year": "2022", "text": "Reached 10k customers" } },
+        { "type": "event", "settings": { "year": "2024", "text": "Global expansion" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

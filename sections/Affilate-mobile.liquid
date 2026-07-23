@@ -1,0 +1,180 @@
+{%- style -%}
+  .aff-wrap-{{ section.id }} {
+    --bg-color: {{ section.settings.bg_color }};
+    --bg-image: {% if section.settings.bg_image %}url('{{ section.settings.bg_image | image_url: width: 2000 }}'){% else %}none{% endif %};
+    --pad-top: {{ section.settings.padding_top }}px;
+    --pad-bottom: {{ section.settings.padding_bottom }}px;
+    --pt-mobile: {{ section.settings.padding_top_mobile }}px;
+    --pb-mobile: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  
+  .aff-btn-wrapper {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+
+  @media (max-width: 767px) {
+    .aff-btn-wrapper {
+      margin-top: 20px;
+    }
+  }
+{%- endstyle -%}
+
+<section
+  class="aff-wrap aff-wrap-{{ section.id }} {{ section.settings.custom_class }} {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+  aria-label="{{ section.settings.heading | escape }}"
+>
+  <div class="aff-inner page-width">
+    {% if section.settings.heading != blank %}
+      <h2 class="cfb-heading h1">{{ section.settings.heading | escape }}</h2>
+    {% endif %}
+
+    <div class="aff-grid">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'photo' %}
+            <article class="aff-item aff-item--photo" {{ block.shopify_attributes }}>
+              <div class="aff-photo">
+                {% if block.settings.image != blank %}
+                  <img
+                    src="{{ block.settings.image | image_url }}"
+                    alt="{{ section.settings.heading | escape }}"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                {% endif %}
+              </div>
+            </article>
+
+          {% when 'text' %}
+            <div class="aff-item aff-item--text" {{ block.shopify_attributes }}>
+              <div class="aff-title-con">
+                {% if block.settings.title != blank %}
+                  <p class="aff-title">{{ block.settings.title | escape }}</p>
+                {% endif %}
+                {% if block.settings.text != blank %}
+                  <p class="aff-text">{{ block.settings.text | escape }}</p>
+                {% endif %}
+              </div>
+            </div>
+
+          {% when 'mobile_item' %}
+            <div class="referral-block-mobile" {{ block.shopify_attributes }}>
+              <div class="referral-icon-mobile">
+                {% if block.settings.icon != blank %}
+                  <img src="{{ block.settings.icon | image_url: width: 80 }}" alt="Referral Icon" loading="lazy">
+                {% endif %}
+              </div>
+              <div class="referral-content-mobile">
+                {% if block.settings.heading_mobile != blank %}
+                  <h3 class="ref-heading-mobile">{{ block.settings.heading_mobile }}</h3>
+                {% endif %}
+                {% if block.settings.text != blank %}
+                  <p class="ref-text-mobile">{{ block.settings.text }}</p>
+                {% endif %}
+              </div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+
+    {%- if section.settings.button_label != blank -%}
+      <div class="aff-btn-wrapper">
+        <a {% if section.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link }}"{% endif %} class="button button--primary aff-btn">
+          {{ section.settings.button_label | escape }}
+        </a>
+      </div>
+    {%- endif -%}
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Affiliate",
+  "settings": [
+    { "type": "text", "id": "custom_class", "label": "Custom CSS class" },
+    { "type": "color", "id": "bg_color", "label": "Background color", "default": "#ffffff" },
+    { "type": "image_picker", "id": "bg_image", "label": "Background image (optional)" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Become An Affiliate" },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Join Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "photo",
+      "name": "Image",
+      "limit": 1,
+      "settings": [{ "type": "image_picker", "id": "image", "label": "Image" }]
+    },
+    {
+      "type": "text",
+      "name": "Text card",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Refer A Friend" },
+        { "type": "text", "id": "text", "label": "Text", "default": "We will reach out to your friend" }
+      ]
+    },
+    {
+      "type": "mobile_item",
+      "name": "Mobile Item",
+      "settings": [
+        { "type": "image_picker", "id": "icon", "label": "Icon" },
+        { "type": "text", "id": "heading_mobile", "label": "Heading" },
+        { "type": "text", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "Affiliate" }]
+}
+{% endschema %}

@@ -1,0 +1,246 @@
+<section
+  class="svc-wrap {{ section.settings.custom_class }}"
+  aria-label="{{ section.settings.heading | default: 'Services' | escape }}"
+>
+  <div class="svc-inner page-width">
+    {% if section.settings.heading != blank %}
+      <h2 class="cfb-heading h1">{{ section.settings.heading }}</h2>
+    {% endif %}
+    <div class="svc-grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'service' %}
+          <article class="svc-card" {{ block.shopify_attributes }}>
+            <a href="{{ block.settings.link | default: '#' }}" class="svc-link">
+              {% if block.settings.image %}
+                <div class="svc-media">
+                  <img
+                    srcset="
+                      {{ block.settings.image | image_url: width: 400 }} 400w,
+                      {{ block.settings.image | image_url: width: 800 }} 800w,
+                      {{ block.settings.image | image_url: width: 1200 }} 1200w
+                    "
+                    src="{{ block.settings.image | image_url: width: 800 }}"
+                    alt="{{ block.settings.image.alt | escape }}"
+                    loading="lazy"
+                    width="800"
+                    height="auto"
+                    class="service-image"
+                  >
+                </div>
+              {% endif %}
+
+              <div class="svc-body">
+                {% if block.settings.title != blank %}
+                  <h3 class="svc-title">{{ block.settings.title }}</h3>
+                {% endif %}
+                {% if block.settings.text != blank %}
+                  <div class="svc-text">{{ block.settings.text }}</div>
+                {% endif %}
+              </div>
+            </a>
+          </article>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.cta_text != blank and section.settings.cta_url != blank %}
+      <div class="svc-cta">
+        <a class="svc-btn" href="{{ section.settings.cta_url }}">{{ section.settings.cta_text }}</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<style>
+  .svc-wrap {
+    background: var(--bg);
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .svc-wrap {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  #shopify-section-{{ section.id }} .svc-heading{    text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 40px;
+  color: rgba(59, 69, 87, 1);}
+  #shopify-section-{{ section.id }} .svc-grid{display:grid;grid-template-columns:1fr;gap:25px}
+  @media(min-width:768px){#shopify-section-{{ section.id }} .svc-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1024px){#shopify-section-{{ section.id }} .svc-grid{grid-template-columns:repeat(3,1fr)}}
+  #shopify-section-{{ section.id }} .svc-card{    background: #fff;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  max-height: 440px;
+  cursor: pointer;
+  box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 32px 4px 32px 4px;}
+  #shopify-section-{{ section.id }} .svc-media{overflow:hidden;border-bottom:1px solid #eef0f4;     border-radius: 32px 4px 32px 4px;}
+  #shopify-section-{{ section.id }} .svc-media img{width:100%;height:100%;object-fit:cover;display:block; max-height: 256px; }
+  #shopify-section-{{ section.id }} .svc-body{padding:18px 18px 22px}
+  #shopify-section-{{ section.id }} .svc-title{    font-size: 20px;
+  font-weight: 600;
+  margin: 12px 0 8px;
+  text-align: center;
+  color: rgba(59, 69, 87, 1);}
+  #shopify-section-{{ section.id }} .svc-text{    font-size: 16px;
+  line-height: 26px;
+  color: rgba(114, 123, 136, 1);
+  text-align: center;
+  margin-block: 20px;
+  font-weight: 400;}
+  #shopify-section-{{ section.id }} .svc-cta{display:flex;justify-content:center;margin-top:26px}
+  #shopify-section-{{ section.id }} .svc-btn{display:inline-block;background:#315fab;color:#fff;text-decoration:none;padding:10px 18px;border-radius:999px;font-weight:600;box-shadow:0 4px 12px rgba(49,95,171,.25);transition:opacity .2s}
+  #shopify-section-{{ section.id }} .svc-btn:hover{opacity:.85}
+  article.svc-card:hover img {
+  scale: 1.1;
+  transition: scale 0.3s ease;
+  }
+  @media (max-width:768px){
+  #shopify-section-{{ section.id }}  .svc-inner {
+  margin-top: 0px;
+  }
+  #shopify-section-{{ section.id }} .svc-card{        border-radius: 16px 4px 16px 4px;
+  }
+  #shopify-section-{{ section.id }}  .svc-media {
+  width: 50%;
+  max-height: 168px;
+  border-radius: 16px 4px 16px 4px;
+  margin: 0 !important;
+  max-width: 168px;
+
+  }
+  #shopify-section-{{ section.id }} .svc-media img{width:100%;min-height:168px;object-fit:cover;display:block; }
+
+  #shopify-section-{{ section.id }}   h3.svc-title {
+  margin: 0px;
+  text-align: start;
+  line-height: 120%;
+  font-size: 17px;
+
+  }
+  #shopify-section-{{ section.id }} .svc-text {
+  text-align: start;
+  line-height: 120%;
+  margin: 0 !important;
+
+
+  }
+  #shopify-section-{{ section.id }} a.svc-link {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  }
+  #shopify-section-{{ section.id }} .svc-wrap {
+          --bg: #F9F9F9;
+  }
+  #shopify-section-{{ section.id }} .svc-body{    padding: 0px;
+  width: 50%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;}
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Services Cards",
+  "settings": [
+    { "type": "text", "id": "custom_class", "label": "Custom CSS class" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Services We Provide" },
+    { "type": "color", "id": "bg_color", "label": "Section background", "default": "#EEF3FA" },
+    {
+      "type": "range",
+      "id": "desc_size",
+      "label": "Description text size (px)",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "Learn More" },
+    { "type": "url", "id": "cta_url", "label": "CTA link" }
+  ],
+  "blocks": [
+    {
+      "type": "service",
+      "name": "Service card",
+      "limit": 12,
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image (hi-res)" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Service Title" },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Description",
+          "default": "<p>Your service description goes here.</p>"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Services Cards",
+      "blocks": [
+        { "type": "service" },
+        { "type": "service" },
+        { "type": "service" },
+        { "type": "service" },
+        { "type": "service" },
+        { "type": "service" }
+      ]
+    }
+  ]
+}
+{% endschema %}

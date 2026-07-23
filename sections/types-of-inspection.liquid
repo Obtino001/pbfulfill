@@ -1,0 +1,399 @@
+{% schema %}
+{
+  "name": "Inspection Facility",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Text Content"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Inspection Facility"
+    },
+    {
+      "type": "richtext",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "<p>Our warehouse is equipped with professional tools — weight scales, inspection lamps, precision instruments, humidity control — ensuring accuracy in every test</p>"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color",
+      "default": "#F8F9FA"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_pattern",
+      "label": "Background Pattern"
+    },
+    {
+      "type": "header",
+      "content": "Slider Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "loop",
+      "label": "Enable Loop",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Enable Autoplay",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 1000,
+      "max": 8000,
+      "step": 500,
+      "unit": "ms",
+      "label": "Autoplay Speed",
+      "default": 3000
+    },
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "facility_image",
+      "name": "Facility Image",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Badge Label",
+          "default": "Facility Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Inspection Facility Slider",
+      "blocks": [
+        { "type": "facility_image" },
+        { "type": "facility_image" },
+        { "type": "facility_image" },
+        { "type": "facility_image" }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .ins-section-{{ section.id }} {
+    position: relative;
+    background-color: {{ section.settings.bg_color }};
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+    overflow: hidden; 
+    {% if section.settings.bg_pattern != blank %}
+      background-image: url('{{ section.settings.bg_pattern | image_url: width: 1920 }}');
+      background-size: cover;
+      background-position: center;
+    {% else %}
+      background-image: linear-gradient(#e5e5e5 1px, transparent 1px), linear-gradient(90deg, #e5e5e5 1px, transparent 1px);
+      background-size: 40px 40px;
+    {% endif %}
+  }
+
+  @media screen and (min-width: 750px) {
+    .ins-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .ins-header-{{ section.id }} {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .ins-heading-{{ section.id }} {
+    margin: 0 0 12px;
+  }
+
+  .ins-subtext-{{ section.id }} {
+    max-width: 70rem;
+    margin: 0 auto;
+    color: rgba(var(--color-foreground), 0.75);
+  }
+
+  .swiper-container-{{ section.id }} {
+    width: 100%;
+    padding: 10px 0 40px;
+    overflow: visible !important;
+  }
+
+  .swiper-container-{{ section.id }} .swiper-wrapper {
+    display: flex;
+  }
+
+  .swiper-container-{{ section.id }} .swiper-slide {
+    height: auto;
+    width: 80%;
+  }
+
+  @media (min-width: 750px) {
+    .swiper-container-{{ section.id }} .swiper-slide { width: 45%; }
+  }
+
+  @media (min-width: 990px) {
+    .swiper-container-{{ section.id }} .swiper-slide { width: 33.33%; }
+  }
+
+  .ins-slide-card {
+    position: relative;
+    border-radius: var(--media-radius);
+    overflow: hidden;
+    background: rgb(var(--color-background));
+    aspect-ratio: 1 / 1; 
+    transition: transform 0.3s ease;
+    box-shadow: var(--shadow-horizontal-offset) var(--shadow-vertical-offset) var(--shadow-blur-radius) rgba(var(--color-shadow), var(--shadow-opacity));
+  }
+
+  .ins-slide-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .ins-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .ins-badge {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(var(--color-background));
+    padding: 0.8rem 2rem;
+    border-radius: 5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    white-space: nowrap;
+    z-index: 2;
+    border: 1px solid rgba(var(--color-foreground), 0.08);
+  }
+
+  .ins-badge-icon {
+    width: 1.8rem;
+    height: 1.8rem;
+    background: #2D68C4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+  }
+
+  .ins-badge-icon svg {
+    width: 1rem;
+    height: 1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 4;
+  }
+
+  .ins-badge-text {
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  .ins-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .ins-arrow {
+    width: 4.4rem;
+    height: 4.4rem;
+    background-color: #2D68C4;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #fff;
+    transition: opacity 0.3s;
+    border: none;
+  }
+
+  .ins-arrow:hover { opacity: 0.8; }
+  .ins-arrow svg { width: 2rem; height: 2rem; fill: none; stroke: currentColor; stroke-width: 2; }
+
+  .ins-pagination {
+    display: flex;
+    gap: 0.8rem;
+  }
+
+  .ins-pagination .swiper-pagination-bullet {
+    width: 1rem;
+    height: 1rem;
+    background: rgba(var(--color-foreground), 0.2);
+    opacity: 1;
+    margin: 0 !important;
+    transition: all 0.3s;
+  }
+
+  .ins-pagination .swiper-pagination-bullet-active {
+    background: #2D68C4;
+    width: 2.5rem;
+    border-radius: 1rem;
+  }
+</style>
+
+<div class="ins-section-{{ section.id }}">
+  <div class="page-width">
+    
+    <div class="ins-header-{{ section.id }}">
+      {% if section.settings.heading != blank %}
+        <h2 class="ins-heading-{{ section.id }} h1">{{ section.settings.heading }}</h2>
+      {% endif %}
+      
+      {% if section.settings.subtext != blank %}
+        <div class="ins-subtext-{{ section.id }} rte">{{ section.settings.subtext }}</div>
+      {% endif %}
+    </div>
+
+    <div class="swiper swiper-container-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide" {{ block.shopify_attributes }}>
+            <div class="ins-slide-card">
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 800 | image_tag: 
+                  loading: 'lazy', 
+                  class: 'ins-img',
+                  widths: '400, 600, 800'
+                }}
+              {% else %}
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg ins-img' }}
+              {% endif %}
+
+              <div class="ins-badge">
+                <div class="ins-badge-icon">
+                  <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+                <h3 class="ins-badge-text">{{ block.settings.label }}</h3>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="ins-controls">
+      <button class="ins-arrow ins-prev-{{ section.id }}" aria-label="Previous slide">
+        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+
+      <div class="ins-pagination ins-pagination-{{ section.id }}"></div>
+
+      <button class="ins-arrow ins-next-{{ section.id }}" aria-label="Next slide">
+        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  (function() {
+    const init = () => {
+      const container = document.querySelector('.swiper-container-{{ section.id }}');
+      if (!container || typeof Swiper === 'undefined') return;
+
+      new Swiper(container, {
+        slidesPerView: 1.2,
+        spaceBetween: 20,
+        centeredSlides: true,
+        loop: {{ section.settings.loop }},
+        autoplay: {% if section.settings.autoplay %}{ delay: {{ section.settings.autoplay_speed }} }{% else %}false{% endif %},
+        navigation: {
+          nextEl: '.ins-next-{{ section.id }}',
+          prevEl: '.ins-prev-{{ section.id }}',
+        },
+        pagination: {
+          el: '.ins-pagination-{{ section.id }}',
+          clickable: true,
+        },
+        breakpoints: {
+          750: { slidesPerView: 2, centeredSlides: false },
+          990: { slidesPerView: 3, centeredSlides: false }
+        }
+      });
+    };
+
+    document.addEventListener('DOMContentLoaded', init);
+    if (Shopify.designMode) {
+      document.addEventListener('shopify:section:load', (e) => e.detail.sectionId === '{{ section.id }}' && init());
+    }
+  })();
+</script>

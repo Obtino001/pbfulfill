@@ -1,0 +1,270 @@
+{%- style -%}
+  .mc-blog-wrap-{{ section.id }} {
+    --pt-desktop: {{ section.settings.pad_top }}px;
+    --pb-desktop: {{ section.settings.pad_bottom }}px;
+    --pt-mobile: {{ section.settings.pad_top_mobile }}px;
+    --pb-mobile: {{ section.settings.pad_bottom_mobile }}px;
+    --arrow-size: {{ section.settings.arrow_size }}px;
+  }
+{%- endstyle -%}
+
+<section class="mc-blog-wrap mc-blog-wrap-{{ section.id }}" aria-label="{{ section.settings.heading | escape }}">
+  <div class="mc-blog-inner page-width">
+    {% if section.settings.heading != blank %}
+      <h2 class="cfb-heading h1">{{ section.settings.heading | escape }}</h2>
+    {% endif %}
+    {%- assign mode = section.settings.display_mode | default: 'manual' -%}
+    {%- if mode == 'latest' -%}
+      {%- capture combined -%}{% endcapture -%}
+      {%- capture combined -%}
+        {%- assign have_sources = false -%}
+        {%- for b in section.blocks -%}
+          {%- if b.type == 'blog_source' and b.settings.source_blog != blank -%}
+            {%- assign have_sources = true -%}
+            {%- assign blog_obj = blogs[b.settings.source_blog] -%}
+            {%- if blog_obj and blog_obj.articles_count > 0 -%}
+              {%- for a in blog_obj.articles -%}
+                {%- assign ts_src = a.published_at | default: a.created_at -%}
+                {{- ts_src | date: "%s" -}}::{{- a.url -}}::{{- a.title | escape -}}::{{- a.image | img_url: '800x' -}}::{{- a.excerpt_or_content | strip_html | replace: '::','—' -}}||
+              {%- endfor -%}
+            {%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- unless have_sources -%}
+          {%- if section.settings.auto_handles != blank -%}
+            {%- assign blog_handles = section.settings.auto_handles | replace: ' ', '' | split: ',' -%}
+            {%- for h in blog_handles -%}
+              {%- assign blog_obj = blogs[h] -%}
+              {%- if blog_obj and blog_obj.articles_count > 0 -%}
+                {%- for a in blog_obj.articles -%}
+                  {%- assign ts_src = a.published_at | default: a.created_at -%}
+                  {{- ts_src | date: "%s" -}}::{{- a.url -}}::{{- a.title | escape -}}::{{- a.image | img_url: '800x' -}}::{{- a.excerpt_or_content | strip_html | replace: '::','—' -}}||
+                {%- endfor -%}
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+        {%- endunless -%}
+      {%- endcapture -%}
+      {%- assign arr = combined | split: '||' | compact -%}
+      {%- assign sorted = arr | sort | reverse -%}
+    {%- endif -%}
+    <div class="swiper mc-blog-swiper mc-blog-swiper-{{ section.id }}">
+      <div class="swiper-wrapper">
+        {%- if mode == 'latest' -%}
+          {%- for item in sorted limit: section.settings.article_limit -%}
+            {%- assign p = item | split: '::' -%}
+            {%- assign article_url = p[1] -%}
+            {%- assign article_title = p[2] -%}
+            {%- assign article_img = p[3] -%}
+            {%- assign article_excerpt = p[4] -%}
+            {%- if article_url and article_title -%}
+              <div class="swiper-slide">
+                <article class="mc-blog-card">
+                  <a class="mc-blog-media" href="{{ article_url }}" title="{{ article_title }}">
+                    {%- if article_img != blank -%}
+                      <img class="mc-blog-img" src="{{ article_img }}" alt="{{ article_title }}" loading="lazy" width="400" height="260">
+                    {%- endif -%}
+                  </a>
+                  <div class="mc-blog-body">
+                    <p class="mc-blog-title"><a href="{{ article_url }}">{{ article_title }}</a></p>
+                    <p class="mc-blog-excerpt">{{ article_excerpt | truncate: section.settings.excerpt_len }}</p>
+                    <a class="button button--primary" href="{{ article_url }}"><span class="text">{{ section.settings.read_more }}</span><span class="circle"></span></a>
+                  </div>
+                </article>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if sorted.size == 0 -%}
+            <div class="swiper-slide">
+              <article class="mc-blog-card">
+                <div class="mc-blog-body">
+                  <p class="mc-blog-title">No articles found</p>
+                  <p class="mc-blog-excerpt">Add “Blog source (Auto)” blocks or set blog handles CSV in settings.</p>
+                </div>
+              </article>
+            </div>
+          {%- endif -%}
+        {%- else -%}
+          {%- assign manual_count = 0 -%}
+          
+          {%- comment -%} 1. Render manual articles from section settings (1 to 10) {%- endcomment -%}
+          {%- for i in (1..10) -%}
+            {%- assign setting_key = 'manual_article_' | append: i -%}
+            {%- assign a = articles[section.settings[setting_key]] -%}
+            {%- if a != blank and a.title != blank -%}
+              {%- assign manual_count = manual_count | plus: 1 -%}
+              <div class="swiper-slide">
+                <article class="mc-blog-card">
+                  <a class="mc-blog-media" href="{{ a.url }}" title="{{ a.title | escape }}">
+                    {% if a.image %}
+                      {{ a.image | image_url: width: 800 | image_tag: class: 'mc-blog-img', alt: a.title, loading: 'lazy', decoding: 'async' }}
+                    {% else %}
+                      <img class="mc-blog-img" src="https://via.placeholder.com/840x1050?text=Blog" alt="{{ a.title | escape }}" loading="lazy" decoding="async">
+                    {% endif %}
+                  </a>
+                  <div class="mc-blog-body">
+                    <p class="mc-blog-title"><a href="{{ a.url }}">{{ a.title }}</a></p>
+                    <p class="mc-blog-excerpt">{{ a.excerpt_or_content | strip_html | truncate: section.settings.excerpt_len }}</p>
+                    <a class="button button--primary" href="{{ a.url }}"><span class="text">{{ section.settings.read_more }}</span></a>
+                  </div>
+                </article>
+              </div>
+            {%- endif -%}
+          {%- endfor -%}
+
+          {%- comment -%} 2. Render manual articles from blocks {%- endcomment -%}
+          {% for block in section.blocks %}
+            {% if block.type == 'blog_post' %}
+              {% assign a = articles[block.settings.selected_article] %}
+              {% if a %}
+                {%- assign manual_count = manual_count | plus: 1 -%}
+                <div class="swiper-slide">
+                  <article class="mc-blog-card" {{ block.shopify_attributes }}>
+                    <a class="mc-blog-media" href="{{ a.url }}" title="{{ a.title | escape }}">
+                      {% if a.image %}
+                        {{ a.image | image_url: width: 800 | image_tag: class: 'mc-blog-img', alt: a.title, loading: 'lazy', decoding: 'async' }}
+                      {% else %}
+                        <img class="mc-blog-img" src="https://via.placeholder.com/840x1050?text=Blog" alt="{{ a.title | escape }}" loading="lazy" decoding="async">
+                      {% endif %}
+                    </a>
+                    <div class="mc-blog-body">
+                      <p class="mc-blog-title"><a href="{{ a.url }}">{{ a.title }}</a></p>
+                      <p class="mc-blog-excerpt">{{ a.excerpt_or_content | strip_html | truncate: section.settings.excerpt_len }}</p>
+                      <a class="button button--primary" href="{{ a.url }}"><span class="text">{{ section.settings.read_more }}</span></a>
+                    </div>
+                  </article>
+                </div>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+          {%- if manual_count == 0 -%}
+            <div class="swiper-slide">
+              <article class="mc-blog-card">
+                <div class="mc-blog-body">
+                  <p class="mc-blog-title">No articles picked</p>
+                  <p class="mc-blog-excerpt">Select Manual Articles in the section settings or add “Blog Post” blocks.</p>
+                </div>
+              </article>
+            </div>
+          {%- endif -%}
+        {%- endif -%}
+      </div>
+    </div>
+    {% if section.settings.show_arrows %}
+      <div class="blog-nav-container">
+        <button class="mc-blog-prev" aria-label="Previous">
+          <svg viewBox="0 0 24 24" width="{{ section.settings.arrow_size }}" height="{{ section.settings.arrow_size }}"><path d="M15.5 19a1 1 0 0 1-.7-.3l-6-6a1 1 0 0 1 0-1.4l6-6a1 1 0 1 1 1.4 1.4L10.9 12l5.3 5.3A1 1 0 0 1 15.5 19z" fill="currentColor"/></svg>
+        </button>
+        <button class="mc-blog-next" aria-label="Next">
+          <svg viewBox="0 0 24 24" width="{{ section.settings.arrow_size }}" height="{{ section.settings.arrow_size }}"><path d="M8.5 19a1 1 0 0 0 .7-.3l6-6a1 1 0 0 0 0-1.4l-6-6A1 1 0 1 0 7.8 6.7L13.1 12l-5.3 5.3A1 1 0 0 0 8.5 19z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded',function(){
+    const root = document.querySelector('.mc-blog-swiper-{{ section.id }}');
+    if(!root) return;
+    const sectionWrap = root.closest('.mc-blog-wrap');
+    const prevEl = sectionWrap.querySelector('.mc-blog-prev');
+    const nextEl = sectionWrap.querySelector('.mc-blog-next');
+    
+    const slidesMobile = {{ section.settings.slides_mobile | default:1 }};
+    const slidesLaptop = {{ section.settings.slides_laptop | default:2 }};
+    const slidesDesktop = {{ section.settings.slides_desktop | default:3 }};
+    const space = {{ section.settings.space_between | default:20 }};
+    const speed = {{ section.settings.speed | default:700 }};
+    const loopEnabled = {{ section.settings.loop | json }};
+    const smoothFree = {{ section.settings.smooth_free_mode | json }};
+    const autoplayOn = {{ section.settings.autoplay | json }};
+    const autoplayDelay = {{ section.settings.autoplay_delay | default:2500 }};
+    const pauseOnHover = {{ section.settings.pause_on_hover | json }};
+    const resumeAfterInteraction = {{ section.settings.resume_after_interaction | json }};
+    const useAutoplay = !!autoplayOn;
+    const useFreeMode = smoothFree && !useAutoplay;
+    
+    if(root.swiper){ root.swiper.destroy(true,true); }
+    
+    const swiper = new Swiper(root, {
+      slidesPerView: slidesMobile,
+      spaceBetween: space,
+      loop: loopEnabled,
+      speed: speed,
+      lazy: true,
+      freeMode: smoothFree ? {enabled:true, momentum:true, momentumRatio:1, momentumBounce:true} : false,
+      autoplay: useAutoplay ? {delay:autoplayDelay, disableOnInteraction:false, pauseOnMouseEnter:pauseOnHover} : false,
+      navigation: (prevEl && nextEl) ? {prevEl, nextEl} : undefined,
+      breakpoints: {
+        {{ section.settings.bp_laptop | default:992 }}: {slidesPerView:slidesLaptop, spaceBetween:space},
+        {{ section.settings.bp_desktop | default:1280 }}: {slidesPerView:slidesDesktop, spaceBetween:space}
+      }
+    });
+    
+    if(useAutoplay){
+      const stopAutoplay = () => { if(swiper && swiper.autoplay) { swiper.autoplay.stop(); }};
+      const resumeAutoplay = () => { if(swiper && swiper.autoplay && resumeAfterInteraction) { swiper.autoplay.start(); }};
+      if(prevEl) prevEl.addEventListener('click', stopAutoplay);
+      if(nextEl) nextEl.addEventListener('click', stopAutoplay);
+      if(prevEl) { prevEl.addEventListener('mouseenter', stopAutoplay); prevEl.addEventListener('mouseleave', resumeAutoplay); }
+      if(nextEl) { nextEl.addEventListener('mouseenter', stopAutoplay); nextEl.addEventListener('mouseleave', resumeAutoplay); }
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Blog",
+  "settings": [
+    { "type": "select", "id": "display_mode", "label": "Content mode", "default": "manual", "options": [ { "value": "manual", "label": "Manual (pick articles)" }, { "value": "latest", "label": "Latest (auto from blogs)" } ] },
+    { "type": "text", "id": "auto_handles", "label": "Blog handles CSV (fallback for Latest)", "default": "news,marketing-strategy" },
+    { "type": "range", "id": "article_limit", "label": "Max articles in Latest mode", "min": 1, "max": 24, "default": 10 },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Blog" },
+    { "type": "range", "id": "pad_top", "label": "Padding top", "min": 0, "max": 200, "step": 4, "default": 40 },
+    { "type": "range", "id": "pad_bottom", "label": "Padding bottom", "min": 0, "max": 200, "step": 4, "default": 40 },
+    { "type": "range", "id": "pad_top_mobile", "label": "Padding top (mobile)", "min": 0, "max": 100, "step": 1, "default": 20 },
+    { "type": "range", "id": "pad_bottom_mobile", "label": "Padding bottom (mobile)", "min": 0, "max": 100, "step": 1, "default": 20 },
+    { "type": "range", "id": "excerpt_len", "label": "Excerpt length", "min": 60, "max": 220, "step": 10, "default": 140 },
+    { "type": "text", "id": "read_more", "label": "Read more text", "default": "Read More" },
+    
+    { "type": "header", "content": "Manual Articles" },
+    { "type": "article", "id": "manual_article_1", "label": "Manual Article 1" },
+    { "type": "article", "id": "manual_article_2", "label": "Manual Article 2" },
+    { "type": "article", "id": "manual_article_3", "label": "Manual Article 3" },
+    { "type": "article", "id": "manual_article_4", "label": "Manual Article 4" },
+    { "type": "article", "id": "manual_article_5", "label": "Manual Article 5" },
+    { "type": "article", "id": "manual_article_6", "label": "Manual Article 6" },
+    { "type": "article", "id": "manual_article_7", "label": "Manual Article 7" },
+    { "type": "article", "id": "manual_article_8", "label": "Manual Article 8" },
+    { "type": "article", "id": "manual_article_9", "label": "Manual Article 9" },
+    { "type": "article", "id": "manual_article_10", "label": "Manual Article 10" },
+
+    { "type": "header", "content": "Slider layout" },
+    { "type": "range", "id": "slides_mobile", "label": "Slides on mobile", "default": 1, "min": 1, "max": 3, "step": 1 },
+    { "type": "range", "id": "slides_laptop", "label": "Slides on laptop", "default": 2, "min": 1, "max": 3, "step": 1 },
+    { "type": "range", "id": "slides_desktop", "label": "Slides on desktop", "default": 3, "min": 1, "max": 4, "step": 1 },
+    { "type": "range", "id": "space_between", "label": "Space between slides", "default": 20, "min": 0, "max": 60, "step": 2 },
+    { "type": "range", "id": "bp_laptop", "label": "Laptop breakpoint (px)", "default": 900, "min": 700, "max": 1600, "step": 100 },
+    { "type": "range", "id": "bp_desktop", "label": "Desktop breakpoint (px)", "default": 1200, "min": 900, "max": 1900, "step": 100 },
+    { "type": "header", "content": "Behavior" },
+    { "type": "checkbox", "id": "loop", "label": "Loop", "default": true },
+    { "type": "checkbox", "id": "smooth_free_mode", "label": "Smooth free scrolling (disables snap & autoplay)", "default": true },
+    { "type": "checkbox", "id": "autoplay", "label": "Autoplay (slide-by-slide)", "default": false },
+    { "type": "range", "id": "autoplay_delay", "label": "Autoplay delay (ms)", "default": 0, "min": 0, "max": 900, "step": 100 },
+    { "type": "range", "id": "speed", "label": "Slide speed (ms)", "default": 700, "min": 100, "max": 2000, "step": 100 },
+    { "type": "checkbox", "id": "pause_on_hover", "label": "Pause on hover (autoplay only)", "default": true },
+    { "type": "checkbox", "id": "resume_after_interaction", "label": "Resume autoplay after nav click", "default": true },
+    { "type": "header", "content": "Navigation arrows" },
+    { "type": "checkbox", "id": "show_arrows", "label": "Show custom prev/next", "default": true },
+    { "type": "range", "id": "arrow_size", "label": "Arrow icon size", "default": 22, "min": 16, "max": 40 }
+  ],
+  "blocks": [
+    { "type": "blog_post", "name": "Blog Post", "settings": [{ "type": "article", "id": "selected_article", "label": "Select article" }] },
+    { "type": "blog_source", "name": "Blog source (Latest mode)", "limit": 8, "settings": [{ "type": "blog", "id": "source_blog", "label": "Blog" }] }
+  ],
+  "max_blocks": 12,
+  "presets": [{ "name": "Blog" }]
+}
+{% endschema %}

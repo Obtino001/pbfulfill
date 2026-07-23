@@ -1,0 +1,133 @@
+{%- liquid
+  assign menu = linklists[section.settings.menu]
+-%}
+
+<section class="mc-header page-width color-{{ section.settings.color_scheme }} gradient {{ section.settings.custom_class }}">
+  <div class="mc-header-inner">
+    <a href="{{ routes.root_url }}" class="mc-logo">
+      <img src="{{ settings.logo | image_url }}" width="{{ section.settings.logo_width }}" height="{{ section.settings.logo_height }}" alt="{{ shop.name | escape }}" loading="eager">
+    </a>
+
+    <nav class="mc-nav" aria-label="Primary">
+      <ul class="mc-nav-list" role="list">
+        {%- if menu != blank -%}
+          {%- for link in menu.links -%}
+            {%- if link.links != blank -%}
+              <li class="mc-has-dropdown">
+                <div class="mc-nav-link-wrapper">
+                  <a class="mc-nav-link" href="{{ link.url }}">{{ link.title | escape }}</a>
+                  <button class="mc-drop-toggle" aria-expanded="false" aria-haspopup="true" aria-label="Toggle dropdown">
+                    <span class="mc-arrow">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="1.66" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                  </button>
+                </div>
+                <ul class="mc-dropdown" role="list">
+                  {%- for child_link in link.links -%}
+                    <li>
+                      <a class="mc-drop-link" href="{{ child_link.url }}">{{ child_link.title | escape }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </li>
+            {%- else -%}
+              <li>
+                <a class="mc-nav-link" href="{{ link.url }}">{{ link.title | escape }}</a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        {%- else -%}
+          <li><a class="mc-nav-link" href="{{ routes.root_url }}">Home</a></li>
+          <li><a class="mc-nav-link" href="/pages/about-us">About Us</a></li>
+          <li><a class="mc-nav-link" href="/blogs/news">Blogs</a></li>
+          <li><a class="mc-nav-link" href="/pages/contact-us">Contact Us</a></li>
+        {%- endif -%}
+      </ul>
+    </nav>
+
+    {%- if section.settings.button_text != blank -%}
+      <div class="custom-button">
+        <a href="{{ section.settings.button_link }}" class="button button--primary">
+          <span class="text">{{ section.settings.button_text | escape }}</span>
+        </a>
+      </div>
+    {%- endif -%}
+
+    <button class="mc-burger burger-icon" aria-expanded="false" aria-controls="mc-mobile-menu" aria-label="Toggle Menu">
+      <div class="burger">
+        <svg class="ham" xmlns="http://www.w3.org/2000/svg" width="24" height="16" viewBox="0 0 24 16" fill="none"><path d="M0 16V13.3333H24V16H0ZM0 9.33333V6.66667H24V9.33333H0ZM0 2.66667V0H24V2.66667H0Z" fill="currentColor"/></svg>
+        <svg class="ham-close" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" style="display:none;"><path d="M2.53317 19.3333L0.666504 17.4667L8.13317 10L0.666504 2.53333L2.53317 0.666668L9.99984 8.13333L17.4665 0.666668L19.3332 2.53333L11.8665 10L19.3332 17.4667L17.4665 19.3333L9.99984 11.8667L2.53317 19.3333Z" fill="currentColor"/></svg>
+      </div>
+    </button>
+  </div>
+</section>
+
+{% render 'mobile-drawer' %}
+{%- style -%}
+  #shopify-section-{{ section.id }} { --pt: {{ section.settings.pad_top }}px; --pb: {{ section.settings.pad_bottom }}px; --logo-height: {{ section.settings.logo_height }}px; background: none; position: absolute; width: 100%; top: 85px; z-index: 1000; }
+  @media(max-width:990px) { #shopify-section-{{ section.id }} { top: 55px; } }
+  @media(max-width:450px) { #shopify-section-{{ section.id }} { --pt: 14px; --pb: 14px; } }
+{%- endstyle -%}
+
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "range",
+      "id": "logo_height",
+      "label": "Logo height (px)",
+      "min": 20,
+      "max": 120,
+      "step": 2,
+      "default": 40
+    },
+    { "type": "link_list", "id": "menu", "label": "Desktop Menu", "default": "main-menu" },
+    { "type": "link_list", "id": "mobile_menu", "label": "Mobile Menu" },
+    { "type": "text", "id": "button_text", "label": "Button text", "default": "Get a Free Quote" },
+    { "type": "url", "id": "button_link", "label": "Button link" },
+    { "type": "text", "id": "custom_class", "label": "Custom CSS class" },
+    { "type": "range", "id": "pad_top", "label": "Padding top (px)", "min": 0, "max": 120, "step": 2, "default": 12 },
+    {
+      "type": "range",
+      "id": "pad_bottom",
+      "label": "Padding bottom (px)",
+      "min": 0,
+      "max": 120,
+      "step": 2,
+      "default": 12
+    },
+    { "type": "color", "id": "bg_color", "label": "Background color", "default": "#ffffff" }
+  ],
+  "blocks": [
+        {
+      "type": "social_icon",
+      "name": "Social Icon",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link URL"
+        },
+        {
+          "type": "range",
+          "id": "width",
+          "min": 10,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Icon Width",
+          "default": 24
+        }
+      ]
+    },
+  ],
+  "presets": [{ "name": "Header" }]
+}
+{% endschema %}

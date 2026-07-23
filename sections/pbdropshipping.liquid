@@ -1,0 +1,241 @@
+{%- style -%}
+  .mc-drop-{{ section.id }} { 
+    --pt: {{ section.settings.padding_top }}px; 
+    --pb: {{ section.settings.padding_bottom }}px; 
+    --pt-mob: {{ section.settings.padding_top_mobile }}px; 
+    --pb-mob: {{ section.settings.padding_bottom_mobile }}px; 
+    --bg-color: {{ section.settings.bg_color }}; 
+    --bg-image: {% if section.settings.bg_image %}url({{ section.settings.bg_image | image_url: width: 2400 }}){% else %}none{% endif %}; 
+    --bg-size: {{ section.settings.bg_size }}; 
+    --bg-pos: {{ section.settings.bg_position }}; 
+    --bg-overlay: {{ section.settings.bg_overlay }}; 
+    --bg-opacity: {{ section.settings.bg_overlay_opacity | divided_by: 100.0 }}; 
+  }
+
+  /* --- Mobile Layout Logic --- */
+  @media screen and (max-width: 768px) {
+    .mc-drop-{{ section.id }} .mc-drop-grid {
+      display: flex !important;
+      flex-direction: column !important; /* Resets any row-reverse from desktop */
+    }
+    
+    /* 1. Force Image on Top */
+    .mc-drop-{{ section.id }}.mobile-image-top .mc-drop-media {
+      order: 1 !important;
+      width: 100%;
+    }
+    .mc-drop-{{ section.id }}.mobile-image-top .mc-drop-content {
+      order: 2 !important;
+      width: 100%;
+
+    }
+
+    /* 2. Force Content on Top */
+    .mc-drop-{{ section.id }}.mobile-content-top .mc-drop-media {
+      order: 2 !important;
+      width: 100%;
+
+    }
+    .mc-drop-{{ section.id }}.mobile-content-top .mc-drop-content {
+      order: 1 !important;
+      width: 100%;
+
+    }
+
+    /* 3. Hide Media Entirely */
+    .mc-drop-{{ section.id }}.mobile-hide-media .mc-drop-media {
+      display: none !important;
+    }
+    .mc-drop-{{ section.id }}.mobile-hide-media .mc-drop-content {
+      order: 1 !important;
+    }
+  }
+{%- endstyle -%}
+
+<section class="mc-drop mc-drop-{{ section.id }} {{ section.settings.custom_class }} {% if section.settings.layout == 'image-right' %}is-right{% endif %} mobile-{{ section.settings.mobile_layout }} text-{{ section.settings.content_align }} color-{{ section.settings.color_scheme }} gradient">
+  <div class="mc-drop-grid page-width">
+    
+    <div class="mc-drop-media">
+      {% assign media_block = section.blocks | where: 'type', 'media' | first %}
+      {% assign video_block = section.blocks | where: 'type', 'video_block' | first %}
+      
+      {% if media_block %}
+        <div class="mc-media-container" style="--media-radius: {{ media_block.settings.border_radius }}px; --media-height: {% if media_block.settings.height_mode == 'fixed' %}{{ media_block.settings.fixed_height }}px{% else %}auto{% endif %};" {{ media_block.shopify_attributes }}>
+          {% if media_block.settings.image %}{{ media_block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', sizes: '(min-width: 768px) 50vw, 100vw', widths: '600, 800, 1000' }}{% else %}{{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}{% endif %}
+        </div>
+      
+      {% elsif video_block %}
+        <div class="mc-media-container mc-video-wrapper" 
+             style="--media-radius: {{ video_block.settings.border_radius }}px; --media-height: {% if video_block.settings.height_mode == 'fixed' %}{{ video_block.settings.fixed_height }}px{% else %}auto{% endif %};" 
+             data-video-id="{{ video_block.settings.video_url.id }}"
+             data-video-type="{{ video_block.settings.video_url.type }}"
+             onclick="playYouTubeVideo(this)" 
+             {{ video_block.shopify_attributes }}>
+          
+          {% if video_block.settings.cover_image %}
+            {{ video_block.settings.cover_image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'mc-video-element' }}
+          {% else %}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg mc-video-element' }}
+          {% endif %}
+          
+          <div class="mc-video-overlay">
+            <div class="mc-play-button">
+              <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                <g filter="url(#filter0_i_255_27330)">
+                  <path d="M40 0C62.0914 0 80 17.9086 80 40C80 62.0914 62.0914 80 40 80C17.9086 80 0 62.0914 0 40C0 17.9086 17.9086 0 40 0ZM33.75 25.3281C32.0834 24.3966 30 25.5607 30 27.4238V52.5762C30 54.4393 32.0834 55.6034 33.75 54.6719L56.25 42.0957C57.9165 41.1641 57.9165 38.8359 56.25 37.9043L33.75 25.3281Z" fill="white"/>
+                </g>
+                <defs>
+                  <filter id="filter0_i_255_27330" x="0" y="0" width="80" height="81" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                    <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                    <feOffset dy="1"/>
+                    <feGaussianBlur stdDeviation="0.5"/>
+                    <feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+                    <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.2 0"/>
+                    <feBlend mode="normal" in2="shape" result="effect1_innerShadow_255_27330"/>
+                  </filter>
+                </defs>
+              </svg>
+            </div>
+          </div>
+          
+          <div class="mc-iframe-container" style="display:none; position:absolute; inset:0; z-index:5;"></div>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="mc-drop-content">
+      {% for block in section.blocks %}
+        {% case block.type %}
+      {% when 'subhead' %}
+        <div class="mc-drop-title-main-container" {{ block.shopify_attributes }}>
+          <h2 class="h1">
+            {{ block.settings.text | escape }}
+          </h2>
+        </div>
+
+      {% when 'title' %}
+        {%- assign heading_tag = 'div' -%}
+        {%- if block.settings.make_h2 -%}
+          {%- assign heading_tag = 'h2' -%}
+        {%- endif -%}
+
+        <{{ heading_tag }} class="hiw-heading-start" {{ block.shopify_attributes }}>
+          <span class="mc-drop-title-blue-style">
+            {{ block.settings.bold | escape }}
+          </span>
+          {% if block.settings.rest %}
+             {{ block.settings.rest | escape }}
+          {% endif %}
+        </{{ heading_tag }}>
+          {% when 'richtext' %}<div class="mc-drop-desc" {{ block.shopify_attributes }}>{{ block.settings.content }}</div>
+          {% when 'contact_icons' %}
+            <div class="mc-contact-icons" {{ block.shopify_attributes }}>
+              {% for i in (1..3) %}{% capture icon_id %}icon_{{ i }}{% endcapture %}{% capture link_id %}link_{{ i }}{% endcapture %}
+                {% if block.settings[icon_id] %}<a href="{{ block.settings[link_id] }}" class="mc-icon-link">{{ block.settings[icon_id] | image_url: width: 100 | image_tag: loading: 'lazy' }}</a>{% endif %}
+              {% endfor %}
+            </div>
+          {% when 'button' %}<a href="{{ block.settings.link }}" class="button {% if block.settings.button_style == 'animated' %}button--primary{% else %}button--secondary{% endif %}" {{ block.shopify_attributes }}>{{ block.settings.label }}</a>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+  function playYouTubeVideo(container) {
+    if (container.classList.contains('is-playing')) return;
+    
+    var videoId = container.getAttribute('data-video-id');
+    var videoType = container.getAttribute('data-video-type');
+    var iframeContainer = container.querySelector('.mc-iframe-container');
+    
+    if (!videoId) return;
+
+    var iframeUrl = '';
+    if (videoType === 'youtube') {
+      iframeUrl = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0&playsinline=1';
+    } else if (videoType === 'vimeo') {
+      iframeUrl = 'https://player.vimeo.com/video/' + videoId + '?autoplay=1';
+    }
+
+    if (iframeUrl) {
+      iframeContainer.innerHTML = '<iframe width="100%" height="100%" src="' + iframeUrl + '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border-radius: var(--media-radius);"></iframe>';
+      iframeContainer.style.display = 'block';
+      container.classList.add('is-playing');
+      
+      var overlay = container.querySelector('.mc-video-overlay');
+      if(overlay) overlay.style.display = 'none';
+    }
+  }
+</script>
+
+{% schema %}
+{
+  "name": "Img With Text",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Scheme", "default": "background-1" },
+    { "type": "range", "id": "padding_top", "label": "Top Pad", "min": 0, "max": 120, "step": 4, "default": 40 },
+    { "type": "range", "id": "padding_bottom", "label": "Bottom Pad", "min": 0, "max": 120, "step": 4, "default": 40 },
+    { "type": "range", "id": "padding_top_mobile", "label": "Mobile Top", "min": 0, "max": 80, "step": 4, "default": 20 },
+    { "type": "range", "id": "padding_bottom_mobile", "label": "Mobile Bottom", "min": 0, "max": 80, "step": 4, "default": 20 },
+    { "type": "select", "id": "layout", "label": "Desktop Layout", "default": "image-left", "options": [{ "value": "image-left", "label": "Img Left" }, { "value": "image-right", "label": "Img Right" }] },
+    
+    { 
+      "type": "select", 
+      "id": "mobile_layout", 
+      "label": "Mobile Layout", 
+      "default": "image-top", 
+      "options": [
+        { "value": "image-top", "label": "Image First" }, 
+        { "value": "content-top", "label": "Content First" },
+        { "value": "hide-media", "label": "Hide Image/Video" }
+      ] 
+    },
+
+    { "type": "select", "id": "content_align", "label": "Align", "default": "left", "options": [{ "value": "left", "label": "Left" }, { "value": "center", "label": "Center" }, { "value": "right", "label": "Right" }] },
+    { "type": "color", "id": "bg_color", "label": "BG Color", "default": "transparent" },
+    { "type": "image_picker", "id": "bg_image", "label": "BG Image" },
+    { "type": "select", "id": "bg_size", "label": "BG Size", "default": "cover", "options": [{ "value": "cover", "label": "Cover" }, { "value": "contain", "label": "Contain" }] },
+    { "type": "select", "id": "bg_position", "label": "Position", "default": "center center", "options": [{ "value": "center center", "label": "Center" }, { "value": "top center", "label": "Top" }] },
+    { "type": "color", "id": "bg_overlay", "label": "Overlay", "default": "#000000" },
+    { "type": "range", "id": "bg_overlay_opacity", "label": "Opacity", "min": 0, "max": 100, "step": 5, "default": 0, "unit": "%" }
+  ],
+  "blocks": [
+    { 
+      "type": "media", "name": "Img", "limit": 1, 
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Img" }, 
+        { "type": "range", "id": "border_radius", "label": "Radius", "min": 0, "max": 60, "default": 24, "unit": "px" }, 
+        { "type": "select", "id": "height_mode", "label": "Height", "default": "auto", "options": [{ "value": "auto", "label": "Auto" }, { "value": "fixed", "label": "Fixed" }] }, 
+        { "type": "range", "id": "fixed_height", "label": "Height px", "min": 200, "max": 800, "step": 10, "default": 400, "unit": "px" }
+      ] 
+    },
+    { 
+      "type": "video_block", "name": "YouTube Video", "limit": 1, 
+      "settings": [
+        { "type": "video_url", "id": "video_url", "label": "YouTube/Vimeo Link", "accept": ["youtube", "vimeo"], "info": "Paste standard YouTube link here" }, 
+        { "type": "image_picker", "id": "cover_image", "label": "Cover Image", "info": "Shows a play button before clicking. Highly recommended." },
+        { "type": "range", "id": "border_radius", "label": "Radius", "min": 0, "max": 60, "default": 24, "unit": "px" }, 
+        { "type": "select", "id": "height_mode", "label": "Height", "default": "auto", "options": [{ "value": "auto", "label": "Auto" }, { "value": "fixed", "label": "Fixed" }] }, 
+        { "type": "range", "id": "fixed_height", "label": "Height px", "min": 200, "max": 800, "step": 10, "default": 400, "unit": "px" }
+      ] 
+    },
+    { "type": "subhead", "name": "Sub", "settings": [{ "type": "text", "id": "text", "label": "Txt" }] },
+    { "type": "title", "name": "Title", "settings": [{ "type": "text", "id": "bold", "label": "Bold" }, { "type": "text", "id": "rest", "label": "Rest" },
+      {
+  "type": "checkbox",
+  "id": "make_h2",
+  "label": "Make this an H2 heading",
+  "default": false
+}
+    ] },
+
+    { "type": "richtext", "name": "Txt", "settings": [{ "type": "richtext", "id": "content", "label": "Txt" }] },
+    { "type": "contact_icons", "name": "Icons", "settings": [{ "type": "image_picker", "id": "icon_1", "label": "Ico 1" }, { "type": "url", "id": "link_1", "label": "Lnk 1" }, { "type": "image_picker", "id": "icon_2", "label": "Ico 2" }, { "type": "url", "id": "link_2", "label": "Lnk 2" }, { "type": "image_picker", "id": "icon_3", "label": "Ico 3" }, { "type": "url", "id": "link_3", "label": "Lnk 3" }] },
+    { "type": "button", "name": "Btn", "settings": [{ "type": "text", "id": "label", "label": "Lbl" }, { "type": "url", "id": "link", "label": "Lnk" }, { "type": "select", "id": "button_style", "label": "Sty", "default": "animated", "options": [{ "value": "animated", "label": "Pri" }, { "value": "simple", "label": "Sec" }] }] }
+  ],
+  "presets": [{ "name": "Image With Text" }]
+}
+{% endschema %}

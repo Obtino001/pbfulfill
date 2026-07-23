@@ -1,0 +1,410 @@
+
+
+<div class="packaging-section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient" style="--bg-color: {{ section.settings.bg_color }}; --grid-color: {{ section.settings.grid_color }};">
+  <div class="packaging-page-width">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="packaging-heading">{{ section.settings.heading | escape }}</h2>
+    {%- endif -%}
+
+    <div class="packaging-desktop-view">
+      <div class="packaging-container">
+        <div class="packaging-card feature-card">
+          <div class="image-wrapper">
+            {%- if section.settings.main_image != blank -%}
+              {{ section.settings.main_image | image_url: width: 1600 | image_tag: loading: 'lazy', alt: section.settings.main_label, class: 'cover-img' }}
+            {%- else -%}
+              {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg cover-img' }}
+            {%- endif -%}
+            <h3 class="card-label">{{ section.settings.main_label | escape }}</h3>
+          </div>
+        </div>
+
+        <div class="sub-grid">
+          {%- for block in section.blocks -%}
+            <div class="packaging-card sub-card" {{ block.shopify_attributes }}>
+              <div class="image-wrapper">
+                {%- if block.settings.image != blank -%}
+                  {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', alt: block.settings.label, class: 'cover-img' }}
+                {%- else -%}
+                  {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg cover-img' }}
+                {%- endif -%}
+                <h3 class="card-label">{{ block.settings.label | escape }}</h3>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+
+    <div class="packaging-mobile-view">
+      <div class="swiper swiper-{{ section.id }}">
+        <div class="swiper-wrapper">
+          
+          <div class="swiper-slide">
+            <div class="packaging-card slider-card">
+              <div class="image-wrapper">
+                {%- if section.settings.main_image != blank -%}
+                  {{ section.settings.main_image | image_url: width: 800 | image_tag: loading: 'lazy', alt: section.settings.main_label, class: 'cover-img' }}
+                {%- else -%}
+                  {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg cover-img' }}
+                {%- endif -%}
+                <h3 class="card-label">{{ section.settings.main_label | escape }}</h3>
+              </div>
+            </div>
+          </div>
+
+          {%- for block in section.blocks -%}
+            <div class="swiper-slide" {{ block.shopify_attributes }}>
+              <div class="packaging-card slider-card">
+                <div class="image-wrapper">
+                  {%- if block.settings.image != blank -%}
+                    {{ block.settings.image | image_url: width: 600 | image_tag: loading: 'lazy', alt: block.settings.label, class: 'cover-img' }}
+                  {%- else -%}
+                    {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'placeholder-svg cover-img' }}
+                  {%- endif -%}
+                  <h3 class="card-label">{{ block.settings.label | escape }}</h3>
+                </div>
+              </div>
+            </div>
+          {%- endfor -%}
+          
+        </div>
+      </div>
+
+      <div class="slider-controls-{{ section.id }}">
+        <div class="nav-prev-{{ section.id }}">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </div>
+        <div class="pagination-{{ section.id }}"></div>
+        <div class="nav-next-{{ section.id }}">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+{%- style -%}
+  .packaging-section-{{ section.id }} { 
+    position: relative; 
+    width: 100%; 
+    overflow: hidden; 
+    padding-top: {{ section.settings.padding_top_mobile }}px; 
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px; 
+    {% if section.settings.bg_image != blank %} 
+      background-image: url('{{ section.settings.bg_image | image_url: width: 2000 }}'); 
+      background-size: cover; 
+      background-position: center; 
+    {% elsif section.settings.show_grid %} 
+      background-color: var(--bg-color); 
+      background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px), radial-gradient(circle at 50% 50%, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 80%); 
+      background-size: 60px 60px, 60px 60px, 100% 100%; 
+      background-position: center center; 
+    {% else %} 
+      background-color: var(--bg-color); 
+    {% endif %} 
+  }
+  @media screen and (min-width: 750px) { 
+    .packaging-section-{{ section.id }} { 
+      padding-top: {{ section.settings.padding_top }}px; 
+      padding-bottom: {{ section.settings.padding_bottom }}px; 
+    } 
+  }
+  .packaging-page-width { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  .packaging-heading { text-align: center; font-size: 3.6rem; font-weight: 700; color: rgb(var(--color-foreground)); margin-bottom: 50px; letter-spacing: -0.5px; font-family: inherit; }
+  
+  .packaging-container { display: flex; flex-direction: column; gap: 24px; width: 100%; }
+  .sub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; width: 100%; }
+  
+  .packaging-card { position: relative; border-radius: 24px; overflow: hidden; background: rgb(var(--color-background)); box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.12), 0 10px 20px -5px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid rgba(var(--color-foreground), 0.04); }
+  .packaging-card:hover { transform: translateY(-5px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.18); }
+  
+  .feature-card { width: 100%; aspect-ratio: 2.35 / 1; }
+  .sub-card { width: 100%; aspect-ratio: 1 / 1; }
+  
+  .image-wrapper { position: relative; width: 100%; height: 100%; }
+  .cover-img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+  .packaging-card:hover .cover-img { transform: scale(1.03); }
+  .placeholder-svg { background-color: rgba(var(--color-foreground), 0.05); width: 100%; height: 100%; }
+  
+  .card-label { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); background: #ffffff; padding: 12px 28px; border-radius: 50px; font-size: 1.5rem; font-weight: 600; color: #101828; white-space: nowrap; box-shadow: 0 4px 15px rgba(0,0,0,0.08); z-index: 2; pointer-events: none; border: 1px solid rgba(var(--color-foreground), 0.04); }
+
+  /* Desktop Visibility */
+  @media screen and (min-width: 769px) {
+    .packaging-mobile-view { display: none !important; }
+  }
+
+  /* Mobile Visibility & Swiper Styling */
+  @media screen and (max-width: 768px) {
+    .packaging-desktop-view { display: none !important; }
+    
+    .packaging-heading { font-size: 2.8rem; margin-bottom: 30px; }
+    .card-label { padding: 10px 20px; font-size: 1.3rem; bottom: 16px; }
+
+    .packaging-mobile-view {
+      display: block;
+      overflow: visible !important;
+      clip-path: inset(-100px 0px -100px 0px); /* Prevents vertical shadow clipping */
+      padding-bottom: 10px;
+    }
+
+    .swiper-{{ section.id }} { overflow: visible !important; }
+
+    .swiper-{{ section.id }} .swiper-slide {
+      width: 85%; /* Leave 15% for peeking */
+      height: auto;
+    }
+
+    .slider-card {
+      width: 100%;
+      aspect-ratio: 1 / 1; /* Makes all cards square on mobile */
+    }
+
+    /* Slider Controls Styling */
+    .slider-controls-{{ section.id }} {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px; 
+      margin-top: 30px;
+    }
+
+    .nav-prev-{{ section.id }},
+    .nav-next-{{ section.id }} {
+      width: 44px;
+      height: 44px;
+      background-color: {{ section.settings.slider_color }};
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: opacity 0.3s ease, transform 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .nav-prev-{{ section.id }}:active,
+    .nav-next-{{ section.id }}:active { transform: scale(0.95); }
+    .nav-prev-{{ section.id }}.swiper-button-disabled,
+    .nav-next-{{ section.id }}.swiper-button-disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .pagination-{{ section.id }} {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: #ffffff;
+      padding: 10px 18px;
+      border-radius: 40px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+      width: auto !important; 
+      position: static !important; 
+    }
+
+    .pagination-{{ section.id }} .swiper-pagination-bullet {
+      width: 8px;
+      height: 8px;
+      background: #EAEAEA; 
+      border-radius: 10px;
+      opacity: 1;
+      margin: 0 !important;
+      transition: all 0.3s ease;
+    }
+
+    .pagination-{{ section.id }} .swiper-pagination-bullet-active {
+      background: {{ section.settings.slider_color }};
+      width: 16px; 
+    }
+  }
+{%- endstyle -%}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const initPkgSwiper = () => {
+      let swiperOptions = {
+        slidesPerView: 'auto', 
+        centeredSlides: false, 
+        spaceBetween: 16,
+        grabCursor: true,
+        slidesOffsetBefore: 20, 
+        slidesOffsetAfter: 20,  
+        pagination: {
+          el: '.pagination-{{ section.id }}',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.nav-next-{{ section.id }}',
+          prevEl: '.nav-prev-{{ section.id }}',
+        },
+        breakpoints: {
+          769: {
+            enabled: false // Disables completely on desktop
+          }
+        }
+      };
+
+      new Swiper('.swiper-{{ section.id }}', swiperOptions);
+    };
+
+    if (typeof Swiper !== 'undefined') {
+      initPkgSwiper();
+    } else {
+      const swiperScript = document.querySelector('script[src*="swiper-bundle"]');
+      if(swiperScript) {
+        swiperScript.addEventListener('load', initPkgSwiper);
+      }
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Custom Packaging",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "background-1"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Custom Packaging Options"
+    },
+    {
+      "type": "header",
+      "content": "Background Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image (Optional)",
+      "info": "Upload the grid image here, or leave blank to use the CSS grid generator below."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_grid",
+      "label": "Show CSS Grid Pattern",
+      "default": true,
+      "info": "Generates the graph paper look automatically."
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Base Background Color Override",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "grid_color",
+      "label": "Grid Line Color Override",
+      "default": "#e6e9f0"
+    },
+    {
+      "type": "header",
+      "content": "Main Card (Top)"
+    },
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "Main Image"
+    },
+    {
+      "type": "text",
+      "id": "main_label",
+      "label": "Main Label",
+      "default": "Eco-friendly Packaging"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Slider Settings"
+    },
+    {
+      "type": "color",
+      "id": "slider_color",
+      "label": "Slider Controls Color",
+      "default": "#2961BE"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Packaging Card",
+      "limit": 4,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label Text",
+          "default": "Product Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Packaging",
+      "blocks": [
+        { "type": "card", "settings": { "label": "Product Boxes" }},
+        { "type": "card", "settings": { "label": "Pouches & Bags" }},
+        { "type": "card", "settings": { "label": "Stickers & Seals" }},
+        { "type": "card", "settings": { "label": "Retail Packaging" }}
+      ]
+    }
+  ]
+}
+{% endschema %}

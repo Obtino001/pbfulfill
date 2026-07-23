@@ -1,0 +1,166 @@
+<section class="wm-section-{{ section.id }}" id="wm-{{ section.id }}">
+  <div class="wm-container">
+    <div class="wm-header">
+      <h2 class="h1">{{ section.settings.title }}</h2>
+      <p class="wm-subtitle">{{ section.settings.subtitle }}</p>
+    </div>
+
+    <div class="wm-map-wrapper">
+      {% if section.settings.map_image != blank %}
+        <img src="{{ section.settings.map_image | image_url: width: 2000 }}" class="wm-bg-map" alt="World Map">
+      {% else %}
+        {{ 'lifestyle-1' | placeholder_svg_tag: 'wm-placeholder' }}
+      {% endif %}
+
+      {% for block in section.blocks %}
+        <div class="wm-pin-container" style="top: {{ block.settings.top_pos }}%; left: {{ block.settings.left_pos }}%;">
+          <div class="wm-marker">
+            <svg viewBox="0 0 24 24" width="24" height="24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+          </div>
+          
+          <div class="wm-card">
+            <h4 class="wm-card-title">{{ block.settings.location_name }}</h4>
+            <ul class="wm-card-list">
+              <li><span>{{ block.settings.stat_1_val }}</span> {{ block.settings.stat_1_lab }}</li>
+              <li><span>{{ block.settings.stat_2_val }}</span> {{ block.settings.stat_2_lab }}</li>
+              <li><span>{{ block.settings.stat_3_val }}</span> {{ block.settings.stat_3_lab }}</li>
+            </ul>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<style>
+  .wm-section-{{ section.id }} { 
+    background: #f8fafc; 
+    padding-top: {{ section.settings.padding_top_mobile }}px;
+    padding-bottom: {{ section.settings.padding_bottom_mobile }}px;
+  }
+  @media screen and (min-width: 750px) {
+    .wm-section-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+.wm-container { max-width: 1300px; margin: 0 auto; padding: 0 20px; }
+.wm-header { margin-bottom: 40px; }
+.wm-title { font-size: 32px; font-weight: 800; color: #1e293b; margin: 0; }
+
+.wm-map-wrapper { 
+  position: relative; 
+  width: 100%; 
+  overflow: visible; /* Allows cards to overlap map edges */
+}
+
+.wm-bg-map { width: 100%; height: auto; display: block; filter: opacity(0.6); }
+
+/* Pin and Card Positioning */
+.wm-pin-container {
+  position: absolute;
+  z-index: 10;
+  transform: translate(-50%, -50%); /* Centers the pin exactly on coordinates */
+}
+
+.wm-marker {
+  color: #3b82f6;
+  filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.wm-pin-container:hover .wm-marker { transform: scale(1.2); }
+
+/* The Hover Card */
+.wm-card {
+  position: absolute;
+  top: -10px;
+  left: 30px;
+  width: 220px;
+  background: rgba(59, 130, 246, 0.85); /* Blue tint from image */
+  backdrop-filter: blur(8px);
+  padding: 16px;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  pointer-events: none; /* Card doesn't block mouse */
+}
+
+.wm-card-title { margin: 0 0 10px 0; font-size: 16px; font-weight: 700; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 5px; }
+.wm-card-list { list-style: none; padding: 0; margin: 0; }
+.wm-card-list li { font-size: 12px; margin-bottom: 4px; opacity: 0.9; display: flex; gap: 5px; }
+.wm-card-list li span { font-weight: 700; }
+
+/* Responsive: Shrink cards on mobile */
+@media (max-width: 768px) {
+  .wm-card { width: 150px; padding: 10px; font-size: 10px; left: 10px; }
+  .wm-card-title { font-size: 12px; }
+}
+
+</style>
+{% schema %}
+{
+  "name": "Warehouse Map",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "2 Warehouse Locations" },
+    { "type": "text", "id": "subtitle", "label": "Subtitle", "default": "Main Headings" },
+    { "type": "image_picker", "id": "map_image", "label": "Dot Map PNG Vector" },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Top Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom Pad",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Top",
+      "default": 30
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom_mobile",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile Bottom",
+      "default": 30
+    }
+  ],
+  "blocks": [
+    {
+      "type": "location",
+      "name": "Map Location",
+      "settings": [
+        { "type": "text", "id": "location_name", "label": "Location Name", "default": "New Jersey" },
+        { "type": "range", "id": "top_pos", "min": 0, "max": 100, "step": 1, "unit": "%", "label": "Vertical Position", "default": 50 },
+        { "type": "range", "id": "left_pos", "min": 0, "max": 100, "step": 1, "unit": "%", "label": "Horizontal Position", "default": 50 },
+        { "type": "text", "id": "stat_1_val", "label": "Stat 1 Value", "default": "21 Ha" },
+        { "type": "text", "id": "stat_1_lab", "label": "Stat 1 Label",  },
+        { "type": "text", "id": "stat_2_val", "label": "Stat 2 Value", "default": "Daily Processing" },
+        { "type": "text", "id": "stat_2_lab", "label": "Stat 2 Label", "default": "Capacity" }
+      ]
+    }
+  ],
+  "presets": [ { "name": "Warehouse Map" } ]
+}
+{% endschema %}
