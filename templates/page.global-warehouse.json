@@ -8,604 +8,603 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {
-    "main": {
-      "type": "main-page",
-      "disabled": true,
-      "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
-      }
-    },
-    "hero_banner_C4PHtq": {
-      "type": "Hero-banner",
-      "blocks": {
-        "heading_iiFbWw": {
-          "type": "heading",
-          "settings": {
-            "text": "Global Warehouses for Dropshipping Fulfillment",
-            "mb": 24
-          }
+    "sections": {
+        "main": {
+            "type": "main-page",
+            "disabled": true,
+            "settings": {
+                "padding_top": 28,
+                "padding_bottom": 28
+            }
         },
-        "text_GeYYcW": {
-          "type": "text",
-          "settings": {
-            "text": "PBfulfill’s international warehouse network covers the U.S., Europe, and China. It enables us to offer faster fulfillment, local returns, and reduced shipping costs.",
-            "mb": 40
-          }
+        "hero_banner_C4PHtq": {
+            "type": "Hero-banner",
+            "blocks": {
+                "heading_iiFbWw": {
+                    "type": "heading",
+                    "settings": {
+                        "text": "Global Warehouses for Dropshipping Fulfillment",
+                        "mb": 24
+                    }
+                },
+                "text_GeYYcW": {
+                    "type": "text",
+                    "settings": {
+                        "text": "PBfulfill’s international warehouse network covers the U.S., Europe, and China. It enables us to offer faster fulfillment, local returns, and reduced shipping costs.",
+                        "mb": 40
+                    }
+                },
+                "button_RTbig3": {
+                    "type": "button",
+                    "settings": {
+                        "label": "Get a Free Quote",
+                        "link": "shopify://pages/contact",
+                        "btn_color": "#ffffff",
+                        "btn_bg_hover": "#ffffff",
+                        "btn_text_hover": "#3b75b5",
+                        "mb": 0
+                    }
+                }
+            },
+            "block_order": [
+                "heading_iiFbWw",
+                "text_GeYYcW",
+                "button_RTbig3"
+            ],
+            "name": "Hero Banner",
+            "settings": {
+                "image_top_offset": -36,
+                "content_top_offset": 24,
+                "mobile_banner_height": 50,
+                "mobile_image_top_offset": 0,
+                "mobile_content_top_offset": 14,
+                "image_1": "shopify://shop_images/Group_1_ed6dda67-3870-4331-a2d7-8dbe33c6998a.png",
+                "overlay_opacity": 0,
+                "banner_height": "large",
+                "desktop_content_position": "middle-center",
+                "color_scheme": "scheme-5",
+                "container": false
+            }
         },
-        "button_RTbig3": {
-          "type": "button",
-          "settings": {
-            "label": "Get a Free Quote",
-            "link": "shopify://pages/contact",
-            "btn_color": "#ffffff",
-            "btn_bg_hover": "#ffffff",
-            "btn_text_hover": "#3b75b5",
-            "mb": 0
-          }
+        "global_warehouses_Kh6AwX": {
+            "type": "global-warehouses",
+            "blocks": {
+                "feature_card_Pk6kRa": {
+                    "type": "feature_card",
+                    "settings": {
+                        "icon": "shopify://shop_images/fast_deliver_from_local_wearhouses.png",
+                        "text": "Reduce average delivery time by up to 70%."
+                    }
+                },
+                "feature_card_wyUg6h": {
+                    "type": "feature_card",
+                    "settings": {
+                        "icon": "shopify://shop_images/low_shipping_returns.png",
+                        "text": "Lower return and replacement costs."
+                    }
+                },
+                "feature_card_46yFWC": {
+                    "type": "feature_card",
+                    "settings": {
+                        "icon": "shopify://shop_images/Parcel_packing.png",
+                        "text": "Higher Conversion from Faster Shipping"
+                    }
+                }
+            },
+            "block_order": [
+                "feature_card_Pk6kRa",
+                "feature_card_wyUg6h",
+                "feature_card_46yFWC"
+            ],
+            "name": "Feature Card Section-3",
+            "settings": {
+                "heading": "Why Global Warehouses Matter",
+                "footer_text": "Local inventory and global reach helps you scale your business without limits.",
+                "bg_color": "#ffffff",
+                "text_color": "#4a5568",
+                "padding_top": 60,
+                "padding_bottom": 60,
+                "padding_top_mobile": 30,
+                "padding_bottom_mobile": 30
+            }
+        },
+        "shipping_zone_map_ejTPtj": {
+            "type": "shipping-zone-map",
+            "name": "Annotated Image",
+            "settings": {
+                "heading": "Our Warehouse Locations in the US and China",
+                "map_image": "shopify://shop_images/Group_1_5.svg",
+                "footer_note": "Each warehouse supports inventory storage, local delivery, and return handling.",
+                "padding_top": 36,
+                "padding_bottom": 36,
+                "padding_top_mobile": 30,
+                "padding_bottom_mobile": 30
+            }
+        },
+        "what_you_can_customize_Hn7arW": {
+            "type": "what-you-can-customize",
+            "blocks": {
+                "item_8E7WLM": {
+                    "type": "item",
+                    "name": "Labeled Image",
+                    "settings": {
+                        "image": "shopify://shop_images/Image_e7d9c600-fab9-4f75-a9b7-6263db96a155.png",
+                        "label": "Inventory Storage and Stock Management",
+                        "desc": "We store, track, and manage your inventory across our warehouses with real-time visibility, ensuring stock accuracy and smooth fulfillment during sales peaks."
+                    }
+                },
+                "item_dpcxxd": {
+                    "type": "item",
+                    "name": "Labeled Image",
+                    "settings": {
+                        "image": "shopify://shop_images/Image-1.png",
+                        "label": "Local Return Handling and Restocking",
+                        "desc": "Returned orders are received, inspected, and processed locally, allowing faster resolution, restocking decisions, and reduced international return costs."
+                    }
+                },
+                "item_qAh6Vr": {
+                    "type": "item",
+                    "name": "Labeled Image",
+                    "settings": {
+                        "image": "shopify://shop_images/Image-2.png",
+                        "label": "Pick and Pack Fulfillment Services",
+                        "desc": "Our team picks, packs, and prepares orders based on your requirements, ensuring accuracy, protective packaging, and consistent presentation for every shipment."
+                    }
+                },
+                "item_BpxHpp": {
+                    "type": "item",
+                    "name": "Labeled Image",
+                    "settings": {
+                        "image": "shopify://shop_images/Image-3.png",
+                        "label": "Labeling and Repackaging",
+                        "desc": "We handle relabeling, SKU updates, and repackaging to meet branding, compliance, or marketplace requirements before orders are shipped out."
+                    }
+                },
+                "item_xxJ7L9": {
+                    "type": "item",
+                    "name": "Labeled Image",
+                    "settings": {
+                        "image": "shopify://shop_images/Image-4.png",
+                        "label": "Same-Day Delivery in the U.S",
+                        "desc": "Orders fulfilled from our U.S. warehouses can ship same day or within 1–3 days, improving delivery speed, customer satisfaction, and conversion rates."
+                    }
+                }
+            },
+            "block_order": [
+                "item_8E7WLM",
+                "item_dpcxxd",
+                "item_qAh6Vr",
+                "item_BpxHpp",
+                "item_xxJ7L9"
+            ],
+            "name": "Labeled Image Section-1",
+            "settings": {
+                "color_scheme": "",
+                "heading": "Warehouse and Fulfillment Services at Every Location",
+                "bg_color": "#ffffff",
+                "slider_color": "#2961be",
+                "enable_autoplay": true,
+                "autoplay_delay": 3,
+                "padding_top": 60,
+                "padding_bottom": 60,
+                "padding_top_mobile": 30,
+                "padding_bottom_mobile": 30
+            }
+        },
+        "pbdropshipping_RWa9py": {
+            "type": "pbdropshipping",
+            "blocks": {
+                "title_yrq4ex": {
+                    "type": "title",
+                    "settings": {
+                        "bold": "U.S. Warehouse Details",
+                        "rest": "",
+                        "make_h2": true
+                    }
+                },
+                "richtext_N6jFfb": {
+                    "type": "richtext",
+                    "settings": {
+                        "content": "<h3>– East Coast: Faster access to EU-bound customers.<br/></h3>"
+                    }
+                },
+                "richtext_3B6MyJ": {
+                    "type": "richtext",
+                    "settings": {
+                        "content": "<h3>– West Coast: Perfect for U.S. & Canada distribution.</h3>"
+                    }
+                },
+                "media_FwQCbB": {
+                    "type": "media",
+                    "name": "Image",
+                    "settings": {
+                        "image": "shopify://shop_images/Image_a3bcdd4a-2df0-424e-83c6-40a33dd5b89e.png",
+                        "border_radius": 24,
+                        "height_mode": "auto",
+                        "fixed_height": 400
+                    }
+                },
+                "richtext_bTQFiP": {
+                    "type": "richtext",
+                    "settings": {
+                        "content": "<h3>1–2 days U.S. delivery & local return support.</h3>"
+                    }
+                },
+                "button_zbjxUU": {
+                    "type": "button",
+                    "settings": {
+                        "label": "Check Price Overview",
+                        "link": "shopify://pages/contact",
+                        "button_style": "animated"
+                    }
+                }
+            },
+            "block_order": [
+                "title_yrq4ex",
+                "richtext_N6jFfb",
+                "richtext_3B6MyJ",
+                "media_FwQCbB",
+                "richtext_bTQFiP",
+                "button_zbjxUU"
+            ],
+            "name": "Image With Text-2",
+            "settings": {
+                "color_scheme": "",
+                "padding_top": 96,
+                "padding_bottom": 96,
+                "padding_top_mobile": 24,
+                "padding_bottom_mobile": 24,
+                "layout": "image-right",
+                "mobile_layout": "image-top",
+                "content_align": "left",
+                "bg_color": "#ffffff",
+                "bg_image": "shopify://shop_images/Frame_1000001208.svg",
+                "bg_size": "cover",
+                "bg_position": "center center",
+                "bg_overlay": "#000000",
+                "bg_overlay_opacity": 0
+            }
+        },
+        "warehouse_pricing_HU79qC": {
+            "type": "warehouse-pricing",
+            "blocks": {
+                "price_row_M9Dwt9": {
+                    "type": "price_row",
+                    "settings": {
+                        "weight": "0-0.02 kg",
+                        "z1": "$3.82",
+                        "z2": "$4.37",
+                        "z3": "$4.59",
+                        "z4": "$4.86",
+                        "z5": "$4.41",
+                        "z6": "$4.76",
+                        "z7": "$5.01",
+                        "z8": "$5.54"
+                    }
+                },
+                "price_row_mty8Ug": {
+                    "type": "price_row",
+                    "settings": {
+                        "weight": "0.02-0.03 kg",
+                        "z1": "$3.84",
+                        "z2": "$4.5",
+                        "z3": "$4.74",
+                        "z4": "$4.99",
+                        "z5": "$4.82",
+                        "z6": "$5.2",
+                        "z7": "$5.54",
+                        "z8": "$6.05"
+                    }
+                },
+                "price_row_PXaien": {
+                    "type": "price_row",
+                    "settings": {
+                        "weight": "0.03-0.05 kg",
+                        "z1": "$3.93",
+                        "z2": "$4.6",
+                        "z3": "$4.76",
+                        "z4": "$5.09",
+                        "z5": "$5.19",
+                        "z6": "$5.57",
+                        "z7": "$5.94",
+                        "z8": "$6.5"
+                    }
+                },
+                "price_row_79Qx8f": {
+                    "type": "price_row",
+                    "settings": {
+                        "weight": "0.05-0.06 kg",
+                        "z1": "$4.05",
+                        "z2": "$4.8",
+                        "z3": "$4.88",
+                        "z4": "$5.34",
+                        "z5": "$5.58",
+                        "z6": "$6.06",
+                        "z7": "$6.22",
+                        "z8": "$6.84"
+                    }
+                },
+                "price_row_kxpPbT": {
+                    "type": "price_row",
+                    "settings": {
+                        "weight": "0.06-0.31 kg",
+                        "z1": "$4.25",
+                        "z2": "$5.11",
+                        "z3": "$5.2",
+                        "z4": "$5.52",
+                        "z5": "$5.78",
+                        "z6": "$6.58",
+                        "z7": "$6.83",
+                        "z8": "$7.21"
+                    }
+                },
+                "price_row_wVpNKD": {
+                    "type": "price_row",
+                    "settings": {
+                        "weight": "0.38-0.62 kg",
+                        "z1": "$4.64",
+                        "z2": "$5.34",
+                        "z3": "$5.83",
+                        "z4": "$6.67",
+                        "z5": "$7.55",
+                        "z6": "$8.4",
+                        "z7": "$9.01",
+                        "z8": "$10.19"
+                    }
+                },
+                "price_row_PBweEd": {
+                    "type": "price_row",
+                    "settings": {
+                        "weight": "0.69-1.25 kg",
+                        "z1": "$5.82",
+                        "z2": "$6.47",
+                        "z3": "$8.02",
+                        "z4": "$9.99",
+                        "z5": "$10.7",
+                        "z6": "$11.79",
+                        "z7": "$13.28",
+                        "z8": "$15.77"
+                    }
+                },
+                "price_row_Ra3hJx": {
+                    "type": "price_row",
+                    "settings": {
+                        "weight": "1.31-1.56 kg",
+                        "z1": "$7.34",
+                        "z2": "$8.61",
+                        "z3": "$12.01",
+                        "z4": "$13.51",
+                        "z5": "$13.51",
+                        "z6": "$15.31",
+                        "z7": "$17.44",
+                        "z8": "$25.61"
+                    }
+                }
+            },
+            "block_order": [
+                "price_row_M9Dwt9",
+                "price_row_mty8Ug",
+                "price_row_PXaien",
+                "price_row_79Qx8f",
+                "price_row_kxpPbT",
+                "price_row_wVpNKD",
+                "price_row_PBweEd",
+                "price_row_Ra3hJx"
+            ],
+            "name": "Shipping Pricing Table",
+            "settings": {
+                "heading": "US Warehouse Fulfillment Pricing by Weight and Zone",
+                "color_scheme": "scheme-3",
+                "primary_color": "#2961be",
+                "header_icon_style": "icon",
+                "weight_image": "shopify://shop_images/Weight.svg",
+                "closer_image": "shopify://shop_images/Closer.svg",
+                "further_image": "shopify://shop_images/Further.svg",
+                "weight_num": "1",
+                "closer_num": "2",
+                "further_num": "3",
+                "padding_top": 40,
+                "padding_bottom": 60,
+                "padding_top_mobile": 30,
+                "padding_bottom_mobile": 30
+            }
+        },
+        "shipping_zone_map_iqaFhx": {
+            "type": "shipping-zone-map",
+            "name": "Annotated Image",
+            "settings": {
+                "heading": "WEST COAST WAREHOUSE SHIPPING ZONES",
+                "map_image": "shopify://shop_images/75cbfe0eb3894ced725e4f9e0e2ecd2839b81a59.png",
+                "footer_note": "NOTE: THIS MAP ONLY REPRESENTS APPROXIMATE ZONES.",
+                "padding_top": 36,
+                "padding_bottom": 36,
+                "padding_top_mobile": 30,
+                "padding_bottom_mobile": 30
+            }
+        },
+        "shipping_zone_map_mULwRq": {
+            "type": "shipping-zone-map",
+            "name": "Annotated Image",
+            "settings": {
+                "heading": "EAST COAST WAREHOUSE SHIPPING ZONES",
+                "map_image": "shopify://shop_images/3ba379f2eb2e2cea3321e5eb45d86a28c8939986.png",
+                "footer_note": "NOTE: THIS MAP ONLY REPRESENTS APPROXIMATE ZONES.",
+                "padding_top": 36,
+                "padding_bottom": 36,
+                "padding_top_mobile": 30,
+                "padding_bottom_mobile": 30
+            }
+        },
+        "real_sourcing_cases_bEDqyA": {
+            "type": "real-sourcing-cases",
+            "blocks": {
+                "case_study_z8yCcT": {
+                    "type": "case_study",
+                    "settings": {
+                        "width": "full",
+                        "image": "shopify://shop_images/racks_in_our_wearhouse.jpg",
+                        "avatar_group": "shopify://shop_images/Real_Sourcing_Cases1.png",
+                        "title": "48-Hour Fulfillment from West Coast Warehouse",
+                        "description": "We enabled a US seller to fulfill orders from our West Coast warehouse, achieving 48-hour delivery for most customers and significantly improving shipping speed and customer satisfaction.",
+                        "card_link": ""
+                    }
+                },
+                "case_study_cL83t4": {
+                    "type": "case_study",
+                    "settings": {
+                        "width": "half",
+                        "image": "shopify://shop_images/5597fe89d55d97250710c5b8760283a3dba5e5a6.jpg",
+                        "avatar_group": "shopify://shop_images/Real_Sourcing_Cases2.png",
+                        "title": "35% Cost Reduction with EU Return System",
+                        "description": "By using our European return handling system, we helped a German client reduce international return shipping and processing costs by 35% while improving post-sale efficiency.",
+                        "card_link": ""
+                    }
+                },
+                "case_study_hhji9F": {
+                    "type": "case_study",
+                    "settings": {
+                        "width": "half",
+                        "image": "shopify://shop_images/our_wearhouse.jpg",
+                        "avatar_group": "shopify://shop_images/Real_Sourcing_Cases3.png",
+                        "title": "Faster Delivery Through Dual-Warehouse Setup",
+                        "description": "We supported a Canadian seller with a dual-warehouse fulfillment strategy, coordinating cross-border inventory to shorten delivery times and stabilize order processing.",
+                        "card_link": ""
+                    }
+                }
+            },
+            "block_order": [
+                "case_study_z8yCcT",
+                "case_study_cL83t4",
+                "case_study_hhji9F"
+            ],
+            "name": "Case Study Card Section",
+            "settings": {
+                "color_scheme": "",
+                "heading": "Warehouse Fulfillment Case Studies",
+                "mobile_autoplay": false,
+                "btn_text": "Explore Customer Reviews",
+                "btn_link": "shopify://pages/testimonials-case-studies",
+                "btn_color": "#e32c2b",
+                "bg_color": "#ffffff",
+                "padding_top": 50,
+                "padding_bottom": 50,
+                "padding_top_mobile": 30,
+                "padding_bottom_mobile": 30,
+                "heading_fs": 36,
+                "heading_color": "#333333",
+                "card_title_fs": 18,
+                "card_desc_fs": 13
+            }
+        },
+        "faqtitle_FkiYkb": {
+            "type": "Faqtitle",
+            "blocks": {
+                "faq_item_ppj7aA": {
+                    "type": "faq_item",
+                    "name": "QA",
+                    "settings": {
+                        "question": "Do you offer US local warehouse fulfillment?",
+                        "answer": "<p>Yes. We support fulfillment from US East Coast and West Coast warehouses.</p><ul><li>US East Warehouse:</li></ul><p>1384 Yardville Hamilton Square Rd, Hamilton Township, NJ 08691</p><ul><li>US West Warehouse:</li></ul><p>SUNYOU CROSS-BORDER LOGISTICS (US) INC415 S 7th Ave, City of Industry, CA 91746</p>"
+                    }
+                },
+                "faq_item_jDP8zi": {
+                    "type": "faq_item",
+                    "name": "QA",
+                    "settings": {
+                        "question": "If I have a high order volume, can I pre-stock inventory in advance?",
+                        "answer": "<p>Yes. We begin pre-stocking only after the product cost has been paid.If you expect a high order volume, we strongly recommend purchasing inventory in advance. This helps reduce lead time from the factory to our warehouse.</p>"
+                    }
+                },
+                "faq_item_NgiyGA": {
+                    "type": "faq_item",
+                    "name": "QA",
+                    "settings": {
+                        "question": "Can unused inventory be refunded?",
+                        "answer": "<p>We first consult the factory. If returns are not accepted, refunds are not possible. We recommend stocking based on recent order trends.</p>"
+                    }
+                },
+                "faq_item_46iLXN": {
+                    "type": "faq_item",
+                    "name": "QA",
+                    "settings": {
+                        "question": "How do you charge for warehousing?",
+                        "answer": "<p>We offer free warehousing as long as you have ongoing orders.</p>"
+                    }
+                }
+            },
+            "block_order": [
+                "faq_item_ppj7aA",
+                "faq_item_jDP8zi",
+                "faq_item_NgiyGA",
+                "faq_item_46iLXN"
+            ],
+            "name": "FAQ Section",
+            "settings": {
+                "color_scheme": "scheme-2",
+                "heading": "Warehouse Fulfillment FAQs",
+                "btn_text": "See All FAQs",
+                "btn_link": "shopify://pages/faq",
+                "accent_color": "#2b59c3",
+                "bg_color": "#ffffff",
+                "card_bg": "#ffffff",
+                "pt_desktop": 80,
+                "pb_desktop": 80,
+                "pt_mobile": 20,
+                "pb_mobile": 40
+            }
+        },
+        "cta_banner_DpfEfX": {
+            "type": "cta-banner",
+            "blocks": {
+                "heading_NEUzHV": {
+                    "type": "heading",
+                    "settings": {
+                        "heading": "Get a Warehouse Fulfillment Quote in 24 Hours",
+                        "heading_size": "h1",
+                        "font_weight": "600"
+                    }
+                },
+                "button_UaLMqg": {
+                    "type": "button",
+                    "settings": {
+                        "button_label": "Get a Free Quote",
+                        "button_link": "shopify://pages/contact",
+                        "button_style_secondary": true
+                    }
+                }
+            },
+            "block_order": [
+                "heading_NEUzHV",
+                "button_UaLMqg"
+            ],
+            "name": "CTA-3",
+            "settings": {
+                "color_scheme": "",
+                "card_bg_image": "shopify://shop_images/Background_pattern_1.png",
+                "rainbow_image": "shopify://shop_images/c23e5f4e08119a8d0c0458e0f3678534efaeda2c_1.png",
+                "rainbow_alt": "",
+                "airplane_image": "shopify://shop_images/Group_10.png",
+                "airplane_alt": "",
+                "grid_opacity": 20,
+                "padding_top": 36,
+                "padding_bottom": 36,
+                "padding_top_mobile": 30,
+                "padding_bottom_mobile": 30
+            }
         }
-      },
-      "block_order": [
-        "heading_iiFbWw",
-        "text_GeYYcW",
-        "button_RTbig3"
-      ],
-      "name": "Hero Banner",
-      "settings": {
-        "image_top_offset": -22,
-        "content_top_offset": 24,
-        "mobile_banner_height": 50,
-        "mobile_image_top_offset": 0,
-        "mobile_content_top_offset": 14,
-        "image_1": "shopify://shop_images/banner_2.webp",
-        "image_scale": 110,
-        "overlay_opacity": 0,
-        "banner_height": "medium",
-        "desktop_content_position": "middle-center",
-        "color_scheme": "scheme-5",
-        "container": false
-      }
     },
-    "global_warehouses_Kh6AwX": {
-      "type": "global-warehouses",
-      "blocks": {
-        "feature_card_Pk6kRa": {
-          "type": "feature_card",
-          "settings": {
-            "icon": "shopify://shop_images/fast_deliver_from_local_wearhouses.png",
-            "text": "Reduce average delivery time by up to 70%."
-          }
-        },
-        "feature_card_wyUg6h": {
-          "type": "feature_card",
-          "settings": {
-            "icon": "shopify://shop_images/low_shipping_returns.png",
-            "text": "Lower return and replacement costs."
-          }
-        },
-        "feature_card_46yFWC": {
-          "type": "feature_card",
-          "settings": {
-            "icon": "shopify://shop_images/Parcel_packing.png",
-            "text": "Higher Conversion from Faster Shipping"
-          }
-        }
-      },
-      "block_order": [
-        "feature_card_Pk6kRa",
-        "feature_card_wyUg6h",
-        "feature_card_46yFWC"
-      ],
-      "name": "Feature Card Section-3",
-      "settings": {
-        "heading": "Why Global Warehouses Matter",
-        "footer_text": "Local inventory and global reach helps you scale your business without limits.",
-        "bg_color": "#ffffff",
-        "text_color": "#4a5568",
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "padding_top_mobile": 30,
-        "padding_bottom_mobile": 30
-      }
-    },
-    "shipping_zone_map_ejTPtj": {
-      "type": "shipping-zone-map",
-      "name": "Annotated Image",
-      "settings": {
-        "heading": "Our Warehouse Locations in the US and China",
-        "map_image": "shopify://shop_images/Group_1_5.svg",
-        "footer_note": "Each warehouse supports inventory storage, local delivery, and return handling.",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 30,
-        "padding_bottom_mobile": 30
-      }
-    },
-    "what_you_can_customize_Hn7arW": {
-      "type": "what-you-can-customize",
-      "blocks": {
-        "item_8E7WLM": {
-          "type": "item",
-          "name": "Labeled Image",
-          "settings": {
-            "image": "shopify://shop_images/Image_e7d9c600-fab9-4f75-a9b7-6263db96a155.png",
-            "label": "Inventory Storage and Stock Management",
-            "desc": "We store, track, and manage your inventory across our warehouses with real-time visibility, ensuring stock accuracy and smooth fulfillment during sales peaks."
-          }
-        },
-        "item_dpcxxd": {
-          "type": "item",
-          "name": "Labeled Image",
-          "settings": {
-            "image": "shopify://shop_images/Image-1.png",
-            "label": "Local Return Handling and Restocking",
-            "desc": "Returned orders are received, inspected, and processed locally, allowing faster resolution, restocking decisions, and reduced international return costs."
-          }
-        },
-        "item_qAh6Vr": {
-          "type": "item",
-          "name": "Labeled Image",
-          "settings": {
-            "image": "shopify://shop_images/Image-2.png",
-            "label": "Pick and Pack Fulfillment Services",
-            "desc": "Our team picks, packs, and prepares orders based on your requirements, ensuring accuracy, protective packaging, and consistent presentation for every shipment."
-          }
-        },
-        "item_BpxHpp": {
-          "type": "item",
-          "name": "Labeled Image",
-          "settings": {
-            "image": "shopify://shop_images/Image-3.png",
-            "label": "Labeling and Repackaging",
-            "desc": "We handle relabeling, SKU updates, and repackaging to meet branding, compliance, or marketplace requirements before orders are shipped out."
-          }
-        },
-        "item_xxJ7L9": {
-          "type": "item",
-          "name": "Labeled Image",
-          "settings": {
-            "image": "shopify://shop_images/Image-4.png",
-            "label": "Same-Day Delivery in the U.S",
-            "desc": "Orders fulfilled from our U.S. warehouses can ship same day or within 1–3 days, improving delivery speed, customer satisfaction, and conversion rates."
-          }
-        }
-      },
-      "block_order": [
-        "item_8E7WLM",
-        "item_dpcxxd",
-        "item_qAh6Vr",
-        "item_BpxHpp",
-        "item_xxJ7L9"
-      ],
-      "name": "Labeled Image Section-1",
-      "settings": {
-        "color_scheme": "",
-        "heading": "Warehouse and Fulfillment Services at Every Location",
-        "bg_color": "#ffffff",
-        "slider_color": "#2961be",
-        "enable_autoplay": true,
-        "autoplay_delay": 3,
-        "padding_top": 60,
-        "padding_bottom": 60,
-        "padding_top_mobile": 30,
-        "padding_bottom_mobile": 30
-      }
-    },
-    "pbdropshipping_RWa9py": {
-      "type": "pbdropshipping",
-      "blocks": {
-        "title_yrq4ex": {
-          "type": "title",
-          "settings": {
-            "bold": "U.S. Warehouse Details",
-            "rest": "",
-            "make_h2": true
-          }
-        },
-        "richtext_N6jFfb": {
-          "type": "richtext",
-          "settings": {
-            "content": "<h3>– East Coast: Faster access to EU-bound customers.<br/></h3>"
-          }
-        },
-        "richtext_3B6MyJ": {
-          "type": "richtext",
-          "settings": {
-            "content": "<h3>– West Coast: Perfect for U.S. & Canada distribution.</h3>"
-          }
-        },
-        "media_FwQCbB": {
-          "type": "media",
-          "name": "Image",
-          "settings": {
-            "image": "shopify://shop_images/Image_a3bcdd4a-2df0-424e-83c6-40a33dd5b89e.png",
-            "border_radius": 24,
-            "height_mode": "auto",
-            "fixed_height": 400
-          }
-        },
-        "richtext_bTQFiP": {
-          "type": "richtext",
-          "settings": {
-            "content": "<h3>1–2 days U.S. delivery & local return support.</h3>"
-          }
-        },
-        "button_zbjxUU": {
-          "type": "button",
-          "settings": {
-            "label": "Check Price Overview",
-            "link": "shopify://pages/contact",
-            "button_style": "animated"
-          }
-        }
-      },
-      "block_order": [
-        "title_yrq4ex",
-        "richtext_N6jFfb",
-        "richtext_3B6MyJ",
-        "media_FwQCbB",
-        "richtext_bTQFiP",
-        "button_zbjxUU"
-      ],
-      "name": "Image With Text-2",
-      "settings": {
-        "color_scheme": "",
-        "padding_top": 96,
-        "padding_bottom": 96,
-        "padding_top_mobile": 24,
-        "padding_bottom_mobile": 24,
-        "layout": "image-right",
-        "mobile_layout": "image-top",
-        "content_align": "left",
-        "bg_color": "#ffffff",
-        "bg_image": "shopify://shop_images/Frame_1000001208.svg",
-        "bg_size": "cover",
-        "bg_position": "center center",
-        "bg_overlay": "#000000",
-        "bg_overlay_opacity": 0
-      }
-    },
-    "warehouse_pricing_HU79qC": {
-      "type": "warehouse-pricing",
-      "blocks": {
-        "price_row_M9Dwt9": {
-          "type": "price_row",
-          "settings": {
-            "weight": "0-0.02 kg",
-            "z1": "$3.82",
-            "z2": "$4.37",
-            "z3": "$4.59",
-            "z4": "$4.86",
-            "z5": "$4.41",
-            "z6": "$4.76",
-            "z7": "$5.01",
-            "z8": "$5.54"
-          }
-        },
-        "price_row_mty8Ug": {
-          "type": "price_row",
-          "settings": {
-            "weight": "0.02-0.03 kg",
-            "z1": "$3.84",
-            "z2": "$4.5",
-            "z3": "$4.74",
-            "z4": "$4.99",
-            "z5": "$4.82",
-            "z6": "$5.2",
-            "z7": "$5.54",
-            "z8": "$6.05"
-          }
-        },
-        "price_row_PXaien": {
-          "type": "price_row",
-          "settings": {
-            "weight": "0.03-0.05 kg",
-            "z1": "$3.93",
-            "z2": "$4.6",
-            "z3": "$4.76",
-            "z4": "$5.09",
-            "z5": "$5.19",
-            "z6": "$5.57",
-            "z7": "$5.94",
-            "z8": "$6.5"
-          }
-        },
-        "price_row_79Qx8f": {
-          "type": "price_row",
-          "settings": {
-            "weight": "0.05-0.06 kg",
-            "z1": "$4.05",
-            "z2": "$4.8",
-            "z3": "$4.88",
-            "z4": "$5.34",
-            "z5": "$5.58",
-            "z6": "$6.06",
-            "z7": "$6.22",
-            "z8": "$6.84"
-          }
-        },
-        "price_row_kxpPbT": {
-          "type": "price_row",
-          "settings": {
-            "weight": "0.06-0.31 kg",
-            "z1": "$4.25",
-            "z2": "$5.11",
-            "z3": "$5.2",
-            "z4": "$5.52",
-            "z5": "$5.78",
-            "z6": "$6.58",
-            "z7": "$6.83",
-            "z8": "$7.21"
-          }
-        },
-        "price_row_wVpNKD": {
-          "type": "price_row",
-          "settings": {
-            "weight": "0.38-0.62 kg",
-            "z1": "$4.64",
-            "z2": "$5.34",
-            "z3": "$5.83",
-            "z4": "$6.67",
-            "z5": "$7.55",
-            "z6": "$8.4",
-            "z7": "$9.01",
-            "z8": "$10.19"
-          }
-        },
-        "price_row_PBweEd": {
-          "type": "price_row",
-          "settings": {
-            "weight": "0.69-1.25 kg",
-            "z1": "$5.82",
-            "z2": "$6.47",
-            "z3": "$8.02",
-            "z4": "$9.99",
-            "z5": "$10.7",
-            "z6": "$11.79",
-            "z7": "$13.28",
-            "z8": "$15.77"
-          }
-        },
-        "price_row_Ra3hJx": {
-          "type": "price_row",
-          "settings": {
-            "weight": "1.31-1.56 kg",
-            "z1": "$7.34",
-            "z2": "$8.61",
-            "z3": "$12.01",
-            "z4": "$13.51",
-            "z5": "$13.51",
-            "z6": "$15.31",
-            "z7": "$17.44",
-            "z8": "$25.61"
-          }
-        }
-      },
-      "block_order": [
-        "price_row_M9Dwt9",
-        "price_row_mty8Ug",
-        "price_row_PXaien",
-        "price_row_79Qx8f",
-        "price_row_kxpPbT",
-        "price_row_wVpNKD",
-        "price_row_PBweEd",
-        "price_row_Ra3hJx"
-      ],
-      "name": "Shipping Pricing Table",
-      "settings": {
-        "heading": "US Warehouse Fulfillment Pricing by Weight and Zone",
-        "color_scheme": "scheme-3",
-        "primary_color": "#2961be",
-        "header_icon_style": "icon",
-        "weight_image": "shopify://shop_images/Weight.svg",
-        "closer_image": "shopify://shop_images/Closer.svg",
-        "further_image": "shopify://shop_images/Further.svg",
-        "weight_num": "1",
-        "closer_num": "2",
-        "further_num": "3",
-        "padding_top": 40,
-        "padding_bottom": 60,
-        "padding_top_mobile": 30,
-        "padding_bottom_mobile": 30
-      }
-    },
-    "shipping_zone_map_iqaFhx": {
-      "type": "shipping-zone-map",
-      "name": "Annotated Image",
-      "settings": {
-        "heading": "WEST COAST WAREHOUSE SHIPPING ZONES",
-        "map_image": "shopify://shop_images/75cbfe0eb3894ced725e4f9e0e2ecd2839b81a59.png",
-        "footer_note": "NOTE: THIS MAP ONLY REPRESENTS APPROXIMATE ZONES.",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 30,
-        "padding_bottom_mobile": 30
-      }
-    },
-    "shipping_zone_map_mULwRq": {
-      "type": "shipping-zone-map",
-      "name": "Annotated Image",
-      "settings": {
-        "heading": "EAST COAST WAREHOUSE SHIPPING ZONES",
-        "map_image": "shopify://shop_images/3ba379f2eb2e2cea3321e5eb45d86a28c8939986.png",
-        "footer_note": "NOTE: THIS MAP ONLY REPRESENTS APPROXIMATE ZONES.",
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 30,
-        "padding_bottom_mobile": 30
-      }
-    },
-    "real_sourcing_cases_bEDqyA": {
-      "type": "real-sourcing-cases",
-      "blocks": {
-        "case_study_z8yCcT": {
-          "type": "case_study",
-          "settings": {
-            "width": "full",
-            "image": "shopify://shop_images/racks_in_our_wearhouse.jpg",
-            "avatar_group": "shopify://shop_images/Real_Sourcing_Cases1.png",
-            "title": "48-Hour Fulfillment from West Coast Warehouse",
-            "description": "We enabled a US seller to fulfill orders from our West Coast warehouse, achieving 48-hour delivery for most customers and significantly improving shipping speed and customer satisfaction.",
-            "card_link": ""
-          }
-        },
-        "case_study_cL83t4": {
-          "type": "case_study",
-          "settings": {
-            "width": "half",
-            "image": "shopify://shop_images/5597fe89d55d97250710c5b8760283a3dba5e5a6.jpg",
-            "avatar_group": "shopify://shop_images/Real_Sourcing_Cases2.png",
-            "title": "35% Cost Reduction with EU Return System",
-            "description": "By using our European return handling system, we helped a German client reduce international return shipping and processing costs by 35% while improving post-sale efficiency.",
-            "card_link": ""
-          }
-        },
-        "case_study_hhji9F": {
-          "type": "case_study",
-          "settings": {
-            "width": "half",
-            "image": "shopify://shop_images/our_wearhouse.jpg",
-            "avatar_group": "shopify://shop_images/Real_Sourcing_Cases3.png",
-            "title": "Faster Delivery Through Dual-Warehouse Setup",
-            "description": "We supported a Canadian seller with a dual-warehouse fulfillment strategy, coordinating cross-border inventory to shorten delivery times and stabilize order processing.",
-            "card_link": ""
-          }
-        }
-      },
-      "block_order": [
-        "case_study_z8yCcT",
-        "case_study_cL83t4",
-        "case_study_hhji9F"
-      ],
-      "name": "Case Study Card Section",
-      "settings": {
-        "color_scheme": "",
-        "heading": "Warehouse Fulfillment Case Studies",
-        "mobile_autoplay": false,
-        "btn_text": "Explore Customer Reviews",
-        "btn_link": "shopify://pages/testimonials-case-studies",
-        "btn_color": "#e32c2b",
-        "bg_color": "#ffffff",
-        "padding_top": 50,
-        "padding_bottom": 50,
-        "padding_top_mobile": 30,
-        "padding_bottom_mobile": 30,
-        "heading_fs": 36,
-        "heading_color": "#333333",
-        "card_title_fs": 18,
-        "card_desc_fs": 13
-      }
-    },
-    "faqtitle_FkiYkb": {
-      "type": "Faqtitle",
-      "blocks": {
-        "faq_item_ppj7aA": {
-          "type": "faq_item",
-          "name": "QA",
-          "settings": {
-            "question": "Do you offer US local warehouse fulfillment?",
-            "answer": "<p>Yes. We support fulfillment from US East Coast and West Coast warehouses.</p><ul><li>US East Warehouse:</li></ul><p>1384 Yardville Hamilton Square Rd, Hamilton Township, NJ 08691</p><ul><li>US West Warehouse:</li></ul><p>SUNYOU CROSS-BORDER LOGISTICS (US) INC415 S 7th Ave, City of Industry, CA 91746</p>"
-          }
-        },
-        "faq_item_jDP8zi": {
-          "type": "faq_item",
-          "name": "QA",
-          "settings": {
-            "question": "If I have a high order volume, can I pre-stock inventory in advance?",
-            "answer": "<p>Yes. We begin pre-stocking only after the product cost has been paid.If you expect a high order volume, we strongly recommend purchasing inventory in advance. This helps reduce lead time from the factory to our warehouse.</p>"
-          }
-        },
-        "faq_item_NgiyGA": {
-          "type": "faq_item",
-          "name": "QA",
-          "settings": {
-            "question": "Can unused inventory be refunded?",
-            "answer": "<p>We first consult the factory. If returns are not accepted, refunds are not possible. We recommend stocking based on recent order trends.</p>"
-          }
-        },
-        "faq_item_46iLXN": {
-          "type": "faq_item",
-          "name": "QA",
-          "settings": {
-            "question": "How do you charge for warehousing?",
-            "answer": "<p>We offer free warehousing as long as you have ongoing orders.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "faq_item_ppj7aA",
-        "faq_item_jDP8zi",
-        "faq_item_NgiyGA",
-        "faq_item_46iLXN"
-      ],
-      "name": "FAQ Section",
-      "settings": {
-        "color_scheme": "scheme-2",
-        "heading": "Warehouse Fulfillment FAQs",
-        "btn_text": "See All FAQs",
-        "btn_link": "shopify://pages/faq",
-        "accent_color": "#2b59c3",
-        "bg_color": "#ffffff",
-        "card_bg": "#ffffff",
-        "pt_desktop": 80,
-        "pb_desktop": 80,
-        "pt_mobile": 20,
-        "pb_mobile": 40
-      }
-    },
-    "cta_banner_DpfEfX": {
-      "type": "cta-banner",
-      "blocks": {
-        "heading_NEUzHV": {
-          "type": "heading",
-          "settings": {
-            "heading": "Get a Warehouse Fulfillment Quote in 24 Hours",
-            "heading_size": "h1",
-            "font_weight": "600"
-          }
-        },
-        "button_UaLMqg": {
-          "type": "button",
-          "settings": {
-            "button_label": "Get a Free Quote",
-            "button_link": "shopify://pages/contact",
-            "button_style_secondary": true
-          }
-        }
-      },
-      "block_order": [
-        "heading_NEUzHV",
-        "button_UaLMqg"
-      ],
-      "name": "CTA-3",
-      "settings": {
-        "color_scheme": "",
-        "card_bg_image": "shopify://shop_images/Background_pattern_1.png",
-        "rainbow_image": "shopify://shop_images/c23e5f4e08119a8d0c0458e0f3678534efaeda2c_1.png",
-        "rainbow_alt": "",
-        "airplane_image": "shopify://shop_images/Group_10.png",
-        "airplane_alt": "",
-        "grid_opacity": 20,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "padding_top_mobile": 30,
-        "padding_bottom_mobile": 30
-      }
-    }
-  },
-  "order": [
-    "main",
-    "hero_banner_C4PHtq",
-    "global_warehouses_Kh6AwX",
-    "shipping_zone_map_ejTPtj",
-    "what_you_can_customize_Hn7arW",
-    "pbdropshipping_RWa9py",
-    "warehouse_pricing_HU79qC",
-    "shipping_zone_map_iqaFhx",
-    "shipping_zone_map_mULwRq",
-    "real_sourcing_cases_bEDqyA",
-    "faqtitle_FkiYkb",
-    "cta_banner_DpfEfX"
-  ]
+    "order": [
+        "main",
+        "hero_banner_C4PHtq",
+        "global_warehouses_Kh6AwX",
+        "shipping_zone_map_ejTPtj",
+        "what_you_can_customize_Hn7arW",
+        "pbdropshipping_RWa9py",
+        "warehouse_pricing_HU79qC",
+        "shipping_zone_map_iqaFhx",
+        "shipping_zone_map_mULwRq",
+        "real_sourcing_cases_bEDqyA",
+        "faqtitle_FkiYkb",
+        "cta_banner_DpfEfX"
+    ]
 }
