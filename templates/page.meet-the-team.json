@@ -8,492 +8,494 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "main": {
-            "type": "main-page",
-            "disabled": true,
-            "settings": {
-                "padding_top": 28,
-                "padding_bottom": 28
-            }
-        },
-        "hero_banner_h3xyyQ": {
-            "type": "Hero-banner",
-            "blocks": {
-                "breadcrumbs_BDRJdj": {
-                    "type": "breadcrumbs",
-                    "disabled": true,
-                    "settings": {
-                        "color": "#ffffff",
-                        "mb": 16
-                    }
-                },
-                "heading_MqWQxQ": {
-                    "type": "heading",
-                    "settings": {
-                        "text": "The People Behind Every Order",
-                        "mb": 20
-                    }
-                },
-                "text_7pzhMd": {
-                    "type": "text",
-                    "settings": {
-                        "text": "Meet the sourcing experts, warehouse veterans, and support specialists who help your business run smoothly — every day.",
-                        "mb": 30
-                    }
-                },
-                "button_PnaWVh": {
-                    "type": "button",
-                    "settings": {
-                        "label": "Get a Free Quote",
-                        "link": "shopify:\/\/pages\/contact",
-                        "btn_color": "#ffffff",
-                        "btn_bg_hover": "#ffffff",
-                        "btn_text_hover": "#000000",
-                        "mb": 0
-                    }
-                }
-            },
-            "block_order": [
-                "breadcrumbs_BDRJdj",
-                "heading_MqWQxQ",
-                "text_7pzhMd",
-                "button_PnaWVh"
-            ],
-            "name": "Hero Banner",
-            "settings": {
-                "image_top_offset": -22,
-                "content_top_offset": 24,
-                "mobile_banner_height": 50,
-                "mobile_image_top_offset": 0,
-                "mobile_content_top_offset": 40,
-                "image_1": "shopify:\/\/shop_images\/Group_1_ed6dda67-3870-4331-a2d7-8dbe33c6998a.png",
-                "overlay_opacity": 0,
-                "banner_height": "medium",
-                "desktop_content_position": "middle-center",
-                "color_scheme": "scheme-5",
-                "container": false
-            }
-        },
-        "pbdropshipping_RHwhiL": {
-            "type": "pbdropshipping",
-            "blocks": {
-                "media_qkfPpR": {
-                    "type": "media",
-                    "name": "Image",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/4da76fc757d3ff802bd8a90d6d8593d89b1f8d7f.jpg",
-                        "border_radius": 24,
-                        "height_mode": "fixed",
-                        "fixed_height": 430
-                    }
-                },
-                "title_8gedhc": {
-                    "type": "title",
-                    "settings": {
-                        "bold": "",
-                        "rest": "A Team Built for Reliable Fulfillment",
-                        "make_h2": true
-                    }
-                },
-                "richtext_jUfb7w": {
-                    "type": "richtext",
-                    "settings": {
-                        "content": "<p>At PBfulfill, every order, every inspection, and every customer message is handled by real specialists — not automated systems. We believe a great dropshipping partner starts with a great team.<\/p>"
-                    }
-                }
-            },
-            "block_order": [
-                "media_qkfPpR",
-                "title_8gedhc",
-                "richtext_jUfb7w"
-            ],
-            "name": "Image With Text",
-            "settings": {
-                "color_scheme": "",
-                "padding_top": 40,
-                "padding_bottom": 40,
-                "padding_top_mobile": 20,
-                "padding_bottom_mobile": 20,
-                "layout": "image-right",
-                "mobile_layout": "image-top",
-                "content_align": "left",
-                "bg_color": "rgba(0,0,0,0)",
-                "bg_image": "shopify:\/\/shop_images\/Pattern.png",
-                "bg_size": "contain",
-                "bg_position": "center center",
-                "bg_overlay": "#000000",
-                "bg_overlay_opacity": 0
-            }
-        },
-        "leadership_team_BHCt6J": {
-            "type": "leadership-team",
-            "blocks": {
-                "team_member_NYnCPm": {
-                    "type": "team_member",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/1_7d7c5012-b52f-40c4-a946-a3aecb2dfb64.jpg",
-                        "name": "Bryan",
-                        "description": "Founder & CEO"
-                    }
-                },
-                "team_member_RHteAb": {
-                    "type": "team_member",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/2_b666b36b-f4ba-44a4-a49e-e029c35fb077.jpg",
-                        "name": "Jay",
-                        "description": "Operations Manager"
-                    }
-                }
-            },
-            "block_order": [
-                "team_member_NYnCPm",
-                "team_member_RHteAb"
-            ],
-            "name": "Team Member Section-1",
-            "settings": {
-                "color_scheme": "",
-                "heading": "Leadership Team",
-                "padding_top": 60,
-                "padding_bottom": 60,
-                "padding_top_mobile": 30,
-                "padding_bottom_mobile": 30
-            }
-        },
-        "sourcing_team_a6Px4G": {
-            "type": "sourcing-team",
-            "blocks": {
-                "team_member_wfzQRR": {
-                    "type": "team_member",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/7_d9877967-aea2-4ba2-83dd-551245f5604c.jpg",
-                        "name": "John",
-                        "desc": "Sourcing Manager"
-                    }
-                },
-                "team_member_PAdHKx": {
-                    "type": "team_member",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/9_7f753a03-3936-4985-8485-0f1fb64e4cd4.jpg",
-                        "name": "Grace",
-                        "desc": "Product Sourcing Specialist"
-                    }
-                }
-            },
-            "block_order": [
-                "team_member_wfzQRR",
-                "team_member_PAdHKx"
-            ],
-            "name": "Team Member Section-2",
-            "settings": {
-                "heading": "Sourcing Team",
-                "heading_size": "h1",
-                "color_scheme": "",
-                "bg_image": "shopify:\/\/shop_images\/Pattern_Bot.svg",
-                "bg_size": "contain",
-                "bg_position": "bottom center",
-                "bg_repeat": "no-repeat",
-                "tick_icon": "shopify:\/\/shop_images\/Step_icon_base_1.svg",
-                "feat_1": "Fluent English Communication",
-                "feat_2": "Experienced Factory Audits",
-                "feat_3": "Strong Negotiation Skills",
-                "feat_4": "Material & Process Expertise",
-                "footer_text": "Deep factory access, strong negotiation skills, and market-level sourcing expertise.",
-                "padding_top": 36,
-                "padding_bottom": 36,
-                "padding_top_mobile": 30,
-                "padding_bottom_mobile": 30
-            }
-        },
-        "sourcing_team_KaF6Dx": {
-            "type": "sourcing-team",
-            "blocks": {
-                "team_member_UTCCgn": {
-                    "type": "team_member",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/4_edf6d343-fae9-491c-a3f1-ddd1b2b10058.jpg",
-                        "name": "Dahl",
-                        "desc": "Quality Control Supervisor"
-                    }
-                },
-                "team_member_tVAKDi": {
-                    "type": "team_member",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/5_e3ed8500-c8f3-46f3-8d98-ebb6e7465830.jpg",
-                        "name": "Leon",
-                        "desc": "Quality Inspection Specialist"
-                    }
-                }
-            },
-            "block_order": [
-                "team_member_UTCCgn",
-                "team_member_tVAKDi"
-            ],
-            "name": "Team Member Section-2",
-            "settings": {
-                "heading": "Quality Inspection Team",
-                "heading_size": "h1",
-                "color_scheme": "",
-                "bg_image": "shopify:\/\/shop_images\/Background_pattern_5.png",
-                "bg_size": "cover",
-                "bg_position": "top center",
-                "bg_repeat": "no-repeat",
-                "tick_icon": "shopify:\/\/shop_images\/Step_icon_base_1.svg",
-                "feat_1": "Trained QC Specialists",
-                "feat_2": "Multi-Category Product Training",
-                "feat_3": "Photo & Video Documentation",
-                "feat_4": "Size & Detail Verification",
-                "footer_text": "Trained inspectors handling high-volume checks with detailed photo and size verification.",
-                "padding_top": 36,
-                "padding_bottom": 36,
-                "padding_top_mobile": 30,
-                "padding_bottom_mobile": 30
-            }
-        },
-        "sourcing_team_BE796y": {
-            "type": "sourcing-team",
-            "blocks": {
-                "team_member_HptkWm": {
-                    "type": "team_member",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/8_d3711a04-a701-426a-adc1-9b98c0450c0d.jpg",
-                        "name": "Bruce",
-                        "desc": "Warehouse Manager"
-                    }
-                },
-                "team_member_idMdyU": {
-                    "type": "team_member",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/6_4a75ffb2-ff4c-403d-acdd-98fbe0674d26.jpg",
-                        "name": "Annie",
-                        "desc": "Fulfillment Operations Specialist"
-                    }
-                }
-            },
-            "block_order": [
-                "team_member_HptkWm",
-                "team_member_idMdyU"
-            ],
-            "name": "Team Member Section-2",
-            "settings": {
-                "heading": "Warehouse & Fulfillment Team",
-                "heading_size": "h1",
-                "color_scheme": "",
-                "bg_image": "shopify:\/\/shop_images\/Background_pattern_5.png",
-                "bg_size": "cover",
-                "bg_position": "top center",
-                "bg_repeat": "no-repeat",
-                "tick_icon": "shopify:\/\/shop_images\/Step_icon_base_1.svg",
-                "feat_1": "High-Volume Order Handling",
-                "feat_2": "US & EU Team Coordination",
-                "feat_3": "Scan-to-Ship Visibility",
-                "feat_4": "10,000+ sqm Warehouse Space",
-                "footer_text": "Large-scale warehouses with visualized workflows and US–EU team coordination.",
-                "padding_top": 36,
-                "padding_bottom": 36,
-                "padding_top_mobile": 30,
-                "padding_bottom_mobile": 30
-            }
-        },
-        "why_private_label_RdAArR": {
-            "type": "why-private-label",
-            "blocks": {
-                "column_rcnLCj": {
-                    "type": "column",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/25bf02b769ecc5e07ba0a3c82f4ce5f6b0ca6138_1.png",
-                        "text": "Online 7 Days × 16 Hours"
-                    }
-                },
-                "column_4yHVJB": {
-                    "type": "column",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/9e78a3be695a94f7176dba6a7cb6571daff07414.png",
-                        "text": "Avg Response ≤ 1 Hour"
-                    }
-                },
-                "column_ncan9x": {
-                    "type": "column",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/be18b574c6adfe58a25bb73fd5fe5a9b5eb947b8_1.png",
-                        "text": "Product & Order Guidance"
-                    }
-                }
-            },
-            "block_order": [
-                "column_rcnLCj",
-                "column_4yHVJB",
-                "column_ncan9x"
-            ],
-            "name": "Feature Card Section-3",
-            "settings": {
-                "color_scheme": "scheme-2",
-                "heading": "Customer Success & After-Sales",
-                "footer_text": "Fast support with practical operations guidance.",
-                "footer_button_label": "Return Policy Pages",
-                "footer_button_link": "",
-                "button_style_secondary": true,
-                "padding_top": 40,
-                "padding_bottom": 0,
-                "padding_top_mobile": 30,
-                "padding_bottom_mobile": 30
-            }
-        },
-        "behind_scenes_mFwRDX": {
-            "type": "behind-scenes",
-            "blocks": {
-                "item_enYMRU": {
-                    "type": "item",
-                    "name": "Labeled Image",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/e93203c4bfd4e045d34181e2818888b78a2c8cb8.jpg",
-                        "label": "On-Site Supplier Audits"
-                    }
-                },
-                "item_g9qrJy": {
-                    "type": "item",
-                    "name": "Labeled Image",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/cabbc46540ae439a6799237bb1221da7c13db29a.jpg",
-                        "label": "Team Training"
-                    }
-                },
-                "item_4fhmCc": {
-                    "type": "item",
-                    "name": "Labeled Image",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/bbcfc847f0de4c95d25126caf09ada9674f4ac85.jpg",
-                        "label": "WH Audits"
-                    }
-                },
-                "item_WLNPXP": {
-                    "type": "item",
-                    "name": "Labeled Image",
-                    "settings": {
-                        "image": "shopify:\/\/shop_images\/912731db63008e92122e6e50dd2e3c48169e92f5.jpg",
-                        "label": "Sampling & Packaging Mockups"
-                    }
-                }
-            },
-            "block_order": [
-                "item_enYMRU",
-                "item_g9qrJy",
-                "item_4fhmCc",
-                "item_WLNPXP"
-            ],
-            "name": "Labeled Image Section-4",
-            "settings": {
-                "heading": "Behind the Scenes",
-                "footer_text": "Inside our day-to-day operational work.",
-                "bg_color": "#ffffff",
-                "text_color": "#334155",
-                "padding_top": 0,
-                "padding_bottom": 50,
-                "padding_top_mobile": 30,
-                "padding_bottom_mobile": 30
-            }
-        },
-        "pbdropshipping_TMj8bJ": {
-            "type": "pbdropshipping",
-            "blocks": {
-                "video_block_tPrHnr": {
-                    "type": "video_block",
-                    "name": "Video",
-                    "settings": {
-                        "video_url": "https:\/\/www.youtube.com\/watch?v=MFOU85O7cSI",
-                        "cover_image": "shopify:\/\/shop_images\/maxresdefault.jpg",
-                        "border_radius": 24,
-                        "height_mode": "auto",
-                        "fixed_height": 380
-                    }
-                },
-                "title_6iYLQY": {
-                    "type": "title",
-                    "settings": {
-                        "bold": "",
-                        "rest": "Fulfillment Onboarding",
-                        "make_h2": true
-                    }
-                },
-                "richtext_9HqGAm": {
-                    "type": "richtext",
-                    "settings": {
-                        "content": "<p>Step inside PBfulfill — get to know the people behind your daily operations.<\/p>"
-                    }
-                }
-            },
-            "block_order": [
-                "video_block_tPrHnr",
-                "title_6iYLQY",
-                "richtext_9HqGAm"
-            ],
-            "name": "Image With Text",
-            "settings": {
-                "color_scheme": "",
-                "padding_top": 40,
-                "padding_bottom": 40,
-                "padding_top_mobile": 20,
-                "padding_bottom_mobile": 20,
-                "layout": "image-right",
-                "mobile_layout": "image-top",
-                "content_align": "left",
-                "bg_color": "rgba(0,0,0,0)",
-                "bg_image": "shopify:\/\/shop_images\/Pattern.png",
-                "bg_size": "contain",
-                "bg_position": "center center",
-                "bg_overlay": "#000000",
-                "bg_overlay_opacity": 0
-            }
-        },
-        "cta_banner_g6EYCy": {
-            "type": "cta-banner",
-            "blocks": {
-                "heading_hywNXC": {
-                    "type": "heading",
-                    "settings": {
-                        "heading": "Work With a Team That Cares!",
-                        "heading_size": "h1",
-                        "font_weight": "600"
-                    }
-                },
-                "button_k3cjzx": {
-                    "type": "button",
-                    "settings": {
-                        "button_label": "Get a Free Quote",
-                        "button_link": "shopify:\/\/pages\/contact",
-                        "button_style_secondary": true
-                    }
-                }
-            },
-            "block_order": [
-                "heading_hywNXC",
-                "button_k3cjzx"
-            ],
-            "name": "CTA-3",
-            "settings": {
-                "color_scheme": "",
-                "card_bg_image": "shopify:\/\/shop_images\/Background_pattern_1.png",
-                "rainbow_image": "shopify:\/\/shop_images\/c23e5f4e08119a8d0c0458e0f3678534efaeda2c_1.png",
-                "airplane_image": "shopify:\/\/shop_images\/Group_4.png",
-                "grid_opacity": 20,
-                "padding_top": 36,
-                "padding_bottom": 36,
-                "padding_top_mobile": 30,
-                "padding_bottom_mobile": 30
-            }
-        }
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
     },
-    "order": [
-        "main",
-        "hero_banner_h3xyyQ",
-        "pbdropshipping_RHwhiL",
-        "leadership_team_BHCt6J",
-        "sourcing_team_a6Px4G",
-        "sourcing_team_KaF6Dx",
-        "sourcing_team_BE796y",
-        "why_private_label_RdAArR",
-        "behind_scenes_mFwRDX",
-        "pbdropshipping_TMj8bJ",
-        "cta_banner_g6EYCy"
-    ]
+    "hero_banner_h3xyyQ": {
+      "type": "Hero-banner",
+      "blocks": {
+        "breadcrumbs_BDRJdj": {
+          "type": "breadcrumbs",
+          "disabled": true,
+          "settings": {
+            "color": "#ffffff",
+            "mb": 16
+          }
+        },
+        "heading_MqWQxQ": {
+          "type": "heading",
+          "settings": {
+            "text": "The People Behind Every Order",
+            "mb": 20
+          }
+        },
+        "text_7pzhMd": {
+          "type": "text",
+          "settings": {
+            "text": "Meet the sourcing experts, warehouse veterans, and support specialists who help your business run smoothly — every day.",
+            "mb": 30
+          }
+        },
+        "button_PnaWVh": {
+          "type": "button",
+          "settings": {
+            "label": "Get a Free Quote",
+            "link": "shopify://pages/contact",
+            "btn_color": "#ffffff",
+            "btn_bg_hover": "#ffffff",
+            "btn_text_hover": "#000000",
+            "mb": 0
+          }
+        }
+      },
+      "block_order": [
+        "breadcrumbs_BDRJdj",
+        "heading_MqWQxQ",
+        "text_7pzhMd",
+        "button_PnaWVh"
+      ],
+      "name": "Hero Banner",
+      "settings": {
+        "image_top_offset": -36,
+        "content_top_offset": 24,
+        "mobile_banner_height": 50,
+        "mobile_image_top_offset": 0,
+        "mobile_content_top_offset": 40,
+        "image_1": "shopify://shop_images/Group_10628_91ee102c-9635-4253-bbce-04c267c67809.png",
+        "overlay_opacity": 0,
+        "banner_height": "large",
+        "desktop_content_position": "middle-center",
+        "color_scheme": "scheme-5",
+        "container": false
+      }
+    },
+    "pbdropshipping_RHwhiL": {
+      "type": "pbdropshipping",
+      "blocks": {
+        "media_qkfPpR": {
+          "type": "media",
+          "name": "Image",
+          "settings": {
+            "image": "shopify://shop_images/4da76fc757d3ff802bd8a90d6d8593d89b1f8d7f.jpg",
+            "border_radius": 24,
+            "height_mode": "fixed",
+            "fixed_height": 430
+          }
+        },
+        "title_8gedhc": {
+          "type": "title",
+          "settings": {
+            "bold": "",
+            "rest": "A Team Built for Reliable Fulfillment",
+            "make_h2": true
+          }
+        },
+        "richtext_jUfb7w": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>At PBfulfill, every order, every inspection, and every customer message is handled by real specialists — not automated systems. We believe a great dropshipping partner starts with a great team.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "media_qkfPpR",
+        "title_8gedhc",
+        "richtext_jUfb7w"
+      ],
+      "name": "Image With Text",
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "layout": "image-right",
+        "mobile_layout": "image-top",
+        "content_align": "left",
+        "bg_color": "rgba(0,0,0,0)",
+        "bg_image": "shopify://shop_images/Pattern.png",
+        "bg_size": "contain",
+        "bg_position": "center center",
+        "bg_overlay": "#000000",
+        "bg_overlay_opacity": 0
+      }
+    },
+    "leadership_team_BHCt6J": {
+      "type": "leadership-team",
+      "blocks": {
+        "team_member_NYnCPm": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/1_7d7c5012-b52f-40c4-a946-a3aecb2dfb64.jpg",
+            "name": "Bryan",
+            "description": "Founder & CEO"
+          }
+        },
+        "team_member_RHteAb": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/2_b666b36b-f4ba-44a4-a49e-e029c35fb077.jpg",
+            "name": "Jay",
+            "description": "Operations Manager"
+          }
+        }
+      },
+      "block_order": [
+        "team_member_NYnCPm",
+        "team_member_RHteAb"
+      ],
+      "name": "Team Member Section-1",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Leadership Team",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "sourcing_team_a6Px4G": {
+      "type": "sourcing-team",
+      "blocks": {
+        "team_member_wfzQRR": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/7_d9877967-aea2-4ba2-83dd-551245f5604c.jpg",
+            "name": "John",
+            "desc": "Sourcing Manager"
+          }
+        },
+        "team_member_PAdHKx": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/9_7f753a03-3936-4985-8485-0f1fb64e4cd4.jpg",
+            "name": "Grace",
+            "desc": "Product Sourcing Specialist"
+          }
+        }
+      },
+      "block_order": [
+        "team_member_wfzQRR",
+        "team_member_PAdHKx"
+      ],
+      "name": "Team Member Section-2",
+      "settings": {
+        "heading": "Sourcing Team",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "bg_image": "shopify://shop_images/Pattern_Bot.svg",
+        "bg_size": "contain",
+        "bg_position": "bottom center",
+        "bg_repeat": "no-repeat",
+        "tick_icon": "shopify://shop_images/Step_icon_base_1.svg",
+        "feat_1": "Fluent English Communication",
+        "feat_2": "Experienced Factory Audits",
+        "feat_3": "Strong Negotiation Skills",
+        "feat_4": "Material & Process Expertise",
+        "footer_text": "Deep factory access, strong negotiation skills, and market-level sourcing expertise.",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "sourcing_team_KaF6Dx": {
+      "type": "sourcing-team",
+      "blocks": {
+        "team_member_UTCCgn": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/4_edf6d343-fae9-491c-a3f1-ddd1b2b10058.jpg",
+            "name": "Dahl",
+            "desc": "Quality Control Supervisor"
+          }
+        },
+        "team_member_tVAKDi": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/5_e3ed8500-c8f3-46f3-8d98-ebb6e7465830.jpg",
+            "name": "Leon",
+            "desc": "Quality Inspection Specialist"
+          }
+        }
+      },
+      "block_order": [
+        "team_member_UTCCgn",
+        "team_member_tVAKDi"
+      ],
+      "name": "Team Member Section-2",
+      "settings": {
+        "heading": "Quality Inspection Team",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "bg_image": "shopify://shop_images/Background_pattern_5.png",
+        "bg_size": "cover",
+        "bg_position": "top center",
+        "bg_repeat": "no-repeat",
+        "tick_icon": "shopify://shop_images/Step_icon_base_1.svg",
+        "feat_1": "Trained QC Specialists",
+        "feat_2": "Multi-Category Product Training",
+        "feat_3": "Photo & Video Documentation",
+        "feat_4": "Size & Detail Verification",
+        "footer_text": "Trained inspectors handling high-volume checks with detailed photo and size verification.",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "sourcing_team_BE796y": {
+      "type": "sourcing-team",
+      "blocks": {
+        "team_member_HptkWm": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/8_d3711a04-a701-426a-adc1-9b98c0450c0d.jpg",
+            "name": "Bruce",
+            "desc": "Warehouse Manager"
+          }
+        },
+        "team_member_idMdyU": {
+          "type": "team_member",
+          "settings": {
+            "image": "shopify://shop_images/6_4a75ffb2-ff4c-403d-acdd-98fbe0674d26.jpg",
+            "name": "Annie",
+            "desc": "Fulfillment Operations Specialist"
+          }
+        }
+      },
+      "block_order": [
+        "team_member_HptkWm",
+        "team_member_idMdyU"
+      ],
+      "name": "Team Member Section-2",
+      "settings": {
+        "heading": "Warehouse & Fulfillment Team",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "bg_image": "shopify://shop_images/Background_pattern_5.png",
+        "bg_size": "cover",
+        "bg_position": "top center",
+        "bg_repeat": "no-repeat",
+        "tick_icon": "shopify://shop_images/Step_icon_base_1.svg",
+        "feat_1": "High-Volume Order Handling",
+        "feat_2": "US & EU Team Coordination",
+        "feat_3": "Scan-to-Ship Visibility",
+        "feat_4": "10,000+ sqm Warehouse Space",
+        "footer_text": "Large-scale warehouses with visualized workflows and US–EU team coordination.",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "why_private_label_RdAArR": {
+      "type": "why-private-label",
+      "blocks": {
+        "column_rcnLCj": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/25bf02b769ecc5e07ba0a3c82f4ce5f6b0ca6138_1.png",
+            "text": "Online 7 Days × 16 Hours"
+          }
+        },
+        "column_4yHVJB": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/9e78a3be695a94f7176dba6a7cb6571daff07414.png",
+            "text": "Avg Response ≤ 1 Hour"
+          }
+        },
+        "column_ncan9x": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/be18b574c6adfe58a25bb73fd5fe5a9b5eb947b8_1.png",
+            "text": "Product & Order Guidance"
+          }
+        }
+      },
+      "block_order": [
+        "column_rcnLCj",
+        "column_4yHVJB",
+        "column_ncan9x"
+      ],
+      "name": "Feature Card Section-3",
+      "settings": {
+        "color_scheme": "scheme-2",
+        "heading": "Customer Success & After-Sales",
+        "footer_text": "Fast support with practical operations guidance.",
+        "footer_button_label": "Return Policy Pages",
+        "footer_button_link": "",
+        "button_style_secondary": true,
+        "padding_top": 40,
+        "padding_bottom": 0,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "behind_scenes_mFwRDX": {
+      "type": "behind-scenes",
+      "blocks": {
+        "item_enYMRU": {
+          "type": "item",
+          "name": "Labeled Image",
+          "settings": {
+            "image": "shopify://shop_images/e93203c4bfd4e045d34181e2818888b78a2c8cb8.jpg",
+            "label": "On-Site Supplier Audits"
+          }
+        },
+        "item_g9qrJy": {
+          "type": "item",
+          "name": "Labeled Image",
+          "settings": {
+            "image": "shopify://shop_images/cabbc46540ae439a6799237bb1221da7c13db29a.jpg",
+            "label": "Team Training"
+          }
+        },
+        "item_4fhmCc": {
+          "type": "item",
+          "name": "Labeled Image",
+          "settings": {
+            "image": "shopify://shop_images/bbcfc847f0de4c95d25126caf09ada9674f4ac85.jpg",
+            "label": "WH Audits"
+          }
+        },
+        "item_WLNPXP": {
+          "type": "item",
+          "name": "Labeled Image",
+          "settings": {
+            "image": "shopify://shop_images/912731db63008e92122e6e50dd2e3c48169e92f5.jpg",
+            "label": "Sampling & Packaging Mockups"
+          }
+        }
+      },
+      "block_order": [
+        "item_enYMRU",
+        "item_g9qrJy",
+        "item_4fhmCc",
+        "item_WLNPXP"
+      ],
+      "name": "Labeled Image Section-4",
+      "settings": {
+        "heading": "Behind the Scenes",
+        "footer_text": "Inside our day-to-day operational work.",
+        "bg_color": "#ffffff",
+        "text_color": "#334155",
+        "padding_top": 0,
+        "padding_bottom": 50,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    },
+    "pbdropshipping_TMj8bJ": {
+      "type": "pbdropshipping",
+      "blocks": {
+        "video_block_tPrHnr": {
+          "type": "video_block",
+          "name": "Video",
+          "settings": {
+            "video_url": "https://www.youtube.com/watch?v=MFOU85O7cSI",
+            "cover_image": "shopify://shop_images/maxresdefault.jpg",
+            "border_radius": 24,
+            "height_mode": "auto",
+            "fixed_height": 380
+          }
+        },
+        "title_6iYLQY": {
+          "type": "title",
+          "settings": {
+            "bold": "",
+            "rest": "Fulfillment Onboarding",
+            "make_h2": true
+          }
+        },
+        "richtext_9HqGAm": {
+          "type": "richtext",
+          "settings": {
+            "content": "<p>Step inside PBfulfill — get to know the people behind your daily operations.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "video_block_tPrHnr",
+        "title_6iYLQY",
+        "richtext_9HqGAm"
+      ],
+      "name": "Image With Text",
+      "settings": {
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "padding_top_mobile": 20,
+        "padding_bottom_mobile": 20,
+        "layout": "image-right",
+        "mobile_layout": "image-top",
+        "content_align": "left",
+        "bg_color": "rgba(0,0,0,0)",
+        "bg_image": "shopify://shop_images/Pattern.png",
+        "bg_size": "contain",
+        "bg_position": "center center",
+        "bg_overlay": "#000000",
+        "bg_overlay_opacity": 0
+      }
+    },
+    "cta_banner_g6EYCy": {
+      "type": "cta-banner",
+      "blocks": {
+        "heading_hywNXC": {
+          "type": "heading",
+          "settings": {
+            "heading": "Work With a Team That Cares!",
+            "heading_size": "h1",
+            "font_weight": "600"
+          }
+        },
+        "button_k3cjzx": {
+          "type": "button",
+          "settings": {
+            "button_label": "Get a Free Quote",
+            "button_link": "shopify://pages/contact",
+            "button_style_secondary": true
+          }
+        }
+      },
+      "block_order": [
+        "heading_hywNXC",
+        "button_k3cjzx"
+      ],
+      "name": "CTA-3",
+      "settings": {
+        "color_scheme": "",
+        "card_bg_image": "shopify://shop_images/Background_pattern_1.png",
+        "rainbow_image": "shopify://shop_images/c23e5f4e08119a8d0c0458e0f3678534efaeda2c_1.png",
+        "rainbow_alt": "",
+        "airplane_image": "shopify://shop_images/Group_4.png",
+        "airplane_alt": "",
+        "grid_opacity": 20,
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_banner_h3xyyQ",
+    "pbdropshipping_RHwhiL",
+    "leadership_team_BHCt6J",
+    "sourcing_team_a6Px4G",
+    "sourcing_team_KaF6Dx",
+    "sourcing_team_BE796y",
+    "why_private_label_RdAArR",
+    "behind_scenes_mFwRDX",
+    "pbdropshipping_TMj8bJ",
+    "cta_banner_g6EYCy"
+  ]
 }
