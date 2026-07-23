@@ -1,1 +1,709 @@
-{"sections":{"main":{"type":"main-page","disabled":true,"settings":{"padding_top":28,"padding_bottom":28}},"hero_banner_BMycji":{"type":"Hero-banner","blocks":{"heading_6mTBJk":{"type":"heading","settings":{"text":"Frequently Asked Questions About PBfulfill","mb":20}},"text_QX8iB7":{"type":"text","settings":{"text":"Quick answers to common questions about our services, workflows, pricing, and how we help sellers scale.","mb":30}},"button_KqTRJd":{"type":"button","settings":{"label":"Get a Free Quote","link":"shopify:\/\/pages\/contact","btn_color":"#ffffff","btn_bg_hover":"#ffffff","btn_text_hover":"#000000","mb":0}}},"block_order":["heading_6mTBJk","text_QX8iB7","button_KqTRJd"],"name":"Hero Banner Pro","settings":{"image_top_offset":-22,"content_top_offset":24,"mobile_image_top_offset":0,"mobile_content_top_offset":14,"image_1":"shopify:\/\/shop_images\/Group_10633.png","overlay_opacity":0,"banner_height":"medium","desktop_content_position":"middle-center","color_scheme":"scheme-5","container":false}},"faq_page_34DydW":{"type":"Faq-page","blocks":{"faq_item_ttpHwj":{"type":"faq_item","settings":{"category":"Partnership & Trust Building","question":"Do you offer a no-MOQ trial solution?","answer":"<p>Yes. We support trial cooperation with no minimum order requirement.<\/p>"}},"faq_item_CdfN8T":{"type":"faq_item","settings":{"category":"Partnership & Trust Building","question":"How is responsibility handled if goods are damaged or lost in transit?","answer":"<ul><li>Carrier: responsible during custody<\/li><li>Shipper: responsible for unauthorized subcontracting<\/li><li>Exceptions: force majeure or natural product loss<\/li><\/ul>"}},"faq_item_w9BRqY":{"type":"faq_item","settings":{"category":"Partnership & Trust Building","question":"How do you support us if end customers file quality claims?","answer":"<p>We:<\/p><ol><li>Reassure the customer<\/li><li>Provide clear action steps<\/li><li>Define responsibility transparently<\/li><li>Focus on long-term resolution<\/li><\/ol>"}},"faq_item_39c8VK":{"type":"faq_item","settings":{"category":"Partnership & Trust Building","question":"What are your communication channels and frequency?","answer":"<p>Each key client is supported by an Account Manager + Order Specialist.<\/p><ul><li>ERP: Mabang<\/li><li>Daily communication: WhatsApp \/ WeChat<\/li><li>Support hours: 9am–6pm (business days)<\/li><\/ul>"}},"faq_item_RqLMNV":{"type":"faq_item","settings":{"category":"Compliance & Taxation","question":"Do your products have CE or FDA certification?","answer":"<p>Yes. Products are CE-certified and FDA-registered, with third-party testing reports available upon request.<\/p>"}},"faq_item_4QgbNi":{"type":"faq_item","settings":{"category":"Warehousing & Inventory Planning","question":"Can unused inventory be refunded?","answer":"<p>We first consult the factory. If returns are not accepted, refunds are not possible. We recommend stocking based on recent order trends.<\/p>"}},"faq_item_ttiaNp":{"type":"faq_item","settings":{"category":"Warehousing & Inventory Planning","question":"Can you inspect product quality after it arrives at the warehouse?","answer":"<p>Yes. We can provide real product photos and videos upon arrival.<\/p>"}},"faq_item_G84kGA":{"type":"faq_item","settings":{"category":"Warehousing & Inventory Planning","question":"Do you have your own warehouse? Where is it located?","answer":"<p>Yes. Our main warehouse is located in Yuyao, Zhejiang Province, close to the airport, allowing tracking updates on the same shipping day.<\/p>"}},"faq_item_UReDLK":{"type":"faq_item","settings":{"category":"Warehousing & Inventory Planning","question":"Can you help with advance inventory stocking?","answer":"<p>Yes. Once inventory costs are paid, we can stock products in advance.<\/p>"}},"faq_item_dXBzjx":{"type":"faq_item","settings":{"category":"Warehousing & Inventory Planning","question":"How do you charge for warehousing?","answer":"<p>We offer free warehousing as long as you have ongoing orders.<\/p>"}},"faq_item_ira7Uj":{"type":"faq_item","settings":{"category":"Warehousing & Inventory Planning","question":"If I have a high order volume, can I pre-stock inventory in advance?","answer":"<p>Yes. We begin pre-stocking only after the product cost has been paid.<\/p><p>If you expect a high order volume, we strongly recommend purchasing inventory in advance. This helps reduce lead time from the factory to our warehouse.<\/p>"}},"faq_item_KfXXtz":{"type":"faq_item","settings":{"category":"Warehousing & Inventory Planning","question":"Do you have overseas warehouses?","answer":"<p>Yes. We operate warehouses in the US East & West. Inventory can be shipped in advance and fulfilled locally.<\/p>"}},"faq_item_kNjdJD":{"type":"faq_item","settings":{"category":"Communication & After-Sales Support","question":"Do you offer a dedicated account manager?","answer":"<p>Yes. Each client is assigned a dedicated account manager to ensure smooth communication and tailored support.<\/p>"}},"faq_item_NRncbr":{"type":"faq_item","settings":{"category":"Communication & After-Sales Support","question":"Will time zone differences be a problem?","answer":"<p>We plan schedules in advance to minimize delays. You can contact us anytime via email or instant messaging, and we’ll respond as quickly as possible.<\/p>"}},"faq_item_XMiJpX":{"type":"faq_item","settings":{"category":"Communication & After-Sales Support","question":"What if customers complain or a package is lost?","answer":"<p>We take customer experience seriously.<\/p><ul><li>For lost packages, you may choose a refund or reshipment.<\/li><li>We actively assist in resolving issues and minimizing losses.<\/li><\/ul>"}},"faq_item_V6epJ6":{"type":"faq_item","settings":{"category":"Communication & After-Sales Support","question":"What if I’m not satisfied with after-sales service?","answer":"<p>You can submit a complaint through our support channels. We investigate and improve accordingly.<\/p>"}},"faq_item_VUiXKF":{"type":"faq_item","settings":{"category":"Communication & After-Sales Support","question":"Can orders be canceled?","answer":"<ul><li>Orders can be canceled before shipment.<\/li><li>Once shipped, returns are required instead.<\/li><\/ul>"}},"faq_item_hfAbtJ":{"type":"faq_item","settings":{"category":"Communication & After-Sales Support","question":"How can I change the delivery address?","answer":"<ul><li>Before shipment: contact customer service.<\/li><li>After shipment: address changes depend on the carrier and must be handled urgently.<\/li><\/ul>"}},"faq_item_DeqWe7":{"type":"faq_item","settings":{"category":"Communication & After-Sales Support","question":"Is there a time limit for after-sales service?","answer":"<p>Yes. Service periods vary by product and service type.<\/p>"}},"faq_item_YbeRT4":{"type":"faq_item","settings":{"category":"Communication & After-Sales Support","question":"What after-sales support do you offer for defective products?","answer":"<p>We offer refunds or replacements for quality issues. Contact support for the full process.<\/p>"}},"faq_item_fxLjEz":{"type":"faq_item","settings":{"category":"Communication & After-Sales Support","question":"Can customers return or exchange items if they don’t like them?","answer":"<p>Yes, if the item meets return conditions. Return shipping is borne by the customer.<\/p>"}},"faq_item_VDjHp3":{"type":"faq_item","settings":{"category":"System Integration & Connectivity","question":"Can your system integrate with Shopify or WooCommerce?","answer":"<p>Yes. We have our own ERP system that can be connected directly to your store.<\/p><ul><li>For Shopify:<br\/>You’ll install our ERP app from the Shopify App Store and follow our account manager’s guidance to complete the connection.<\/li><li>For WooCommerce:<br\/>You’ll provide your website URL, Consumer Key, and Consumer Secret. We’ll send a connection request, and once approved, your store will be successfully linked.<\/li><\/ul><p>After the connection:<\/p><ul><li>All unprocessed orders will sync automatically.<\/li><li>Orders already fulfilled by a previous dropshipping system will not be duplicated.<\/li><li>The full order sync usually completes within about 10 minutes.<\/li><li>Orders already fulfilled by a previous dropshipping system will not be duplicated.<\/li><li>The full order sync usually completes within about 10 minutes.<\/li><\/ul>"}},"faq_item_iQ6DdU":{"type":"faq_item","settings":{"category":"System Integration & Connectivity","question":"Can your system automatically sync inventory?","answer":"<p>Yes.<\/p><p>If you choose to pre-stock inventory:<\/p><ul><li>We purchase and store products in advance at our warehouse.<\/li><li>Each product and SKU is mapped to your store’s corresponding SKU.<\/li><li>Inventory levels are synced in real time.<\/li><\/ul><p>When an order is placed:<\/p><ul><li>The system reserves the required SKU quantity.<\/li><li>After shipping, inventory is automatically deducted.<\/li><li>You can clearly see SKU-level demand and remaining stock inside the system.<\/li><\/ul>"}},"faq_item_JjPzUy":{"type":"faq_item","settings":{"category":"System Integration & Connectivity","question":"Can tracking numbers be automatically sent to my customers?","answer":"<p>Yes.<\/p><ul><li>Tracking numbers can be synced to your Shopify backend.<\/li><li>When an order status changes to “Shipped,” the system automatically triggers email or SMS notifications.<\/li><li>Notification content and sender email can be customized.<\/li><li>If you prefer not to send notifications, this feature can be disabled.<\/li><\/ul><p>Order updates usually sync within 1–2 minutes after processing.<\/p>"}},"faq_item_MHny78":{"type":"faq_item","settings":{"category":"System Integration & Connectivity","question":"Can I bulk import products into my store?","answer":"<p>Yes.<\/p><p>We can help upload products to your store. Product selection, pricing, and product page content are discussed and confirmed with you in advance. We also recommend currently trending products based on market demand.<\/p>"}},"faq_item_PNEWYt":{"type":"faq_item","settings":{"category":"System Integration & Connectivity","question":"If a customer changes their address in Shopify, will your system sync it?","answer":"<p>Yes.<\/p><p>If an address is modified:<\/p><ul><li>The order is moved to a “Pending Review” status in our system.<\/li><li>A note such as “Address mismatch” or “Order information updated” is added.<\/li><li>Our staff verifies the address before proceeding to avoid delivery errors.<\/li><\/ul>"}},"faq_item_F4Lr4P":{"type":"faq_item","settings":{"category":"System Integration & Connectivity","question":"Can I disconnect my store if I stop working with you?","answer":"<p>Yes.<\/p><p>Once cooperation ends, we will remove your store from our system.<\/p>"}},"faq_item_hzGajV":{"type":"faq_item","settings":{"category":"System Integration & Connectivity","question":"Does your system support managing multiple stores?","answer":"<p>Yes.<\/p><p>You can connect multiple Shopify and\/or WooCommerce stores to one account and manage orders, inventory, and products centrally. Orders are automatically distinguished by store source.<\/p>"}},"faq_item_AF6nHT":{"type":"faq_item","settings":{"category":"System Integration & Connectivity","question":"Can the system merge multiple orders from the same customer?","answer":"<p>Yes.<\/p><p>When multiple orders share:<\/p><ul><li>The same recipient name<\/li><li>The same address<\/li><li>The same phone number<\/li><\/ul><p>They are flagged for merging to reduce shipping costs.<br\/>Important notes:<\/p><ul><li>Orders remain separate in your Shopify backend.<\/li><li>The same tracking number is uploaded to each related order.<\/li><\/ul>"}},"faq_item_kXJGpj":{"type":"faq_item","settings":{"category":"System Integration & Connectivity","question":"Does your system support multi-warehouse fulfillment?","answer":"<p>Yes.<\/p><p>You can:<\/p><ul><li>Set inventory and shipping rules for different warehouses.<\/li><li>Automatically route orders to the nearest warehouse based on customer location.<\/li><\/ul><p>We also operate East Coast and West Coast US warehouses, which you can use directly.<\/p>"}},"faq_item_rNydwJ":{"type":"faq_item","settings":{"category":"Pricing & Costs","question":"Can you offer lower prices?","answer":"<p>Possibly. Pricing depends on daily order volume.<\/p><p>We can also recommend slower but cheaper shipping options if delivery speed is flexible.<\/p>"}},"faq_item_YYaQLF":{"type":"faq_item","settings":{"category":"Pricing & Costs","question":"Are there hidden fees?","answer":"<p>No. Costs include product price + shipping only.<\/p><p>All fees are clearly itemized in advance.<\/p>"}},"faq_item_bBAdQF":{"type":"faq_item","settings":{"category":"Pricing & Costs","question":"Do you offer volume discounts?","answer":"<p>Yes:<\/p><ul><li>30 orders\/day → 3% discount<\/li><li>50 orders\/day → 5% discount<\/li><\/ul>"}},"faq_item_JXmAKn":{"type":"faq_item","settings":{"category":"Pricing & Costs","question":"How are refunds handled if orders are canceled due to stock issues?","answer":"<p>You may choose to:<\/p><ol><li>Receive a direct refund, or<\/li><li>Apply the amount as a credit toward future orders.<\/li><\/ol>"}},"faq_item_mMR4pT":{"type":"faq_item","settings":{"category":"Pricing & Costs","question":"When do I need to pay?","answer":"<p>Initially, payment is required before shipment.<\/p><p>As cooperation grows, flexible billing cycles (bi-weekly or monthly) can be arranged.<\/p>"}},"faq_item_NJNgrE":{"type":"faq_item","settings":{"category":"Pricing & Costs","question":"What payment methods and currencies do you accept?","answer":"<p>We support:<\/p><ul><li>Bank transfer (recommended)<\/li><li>PayPal<\/li><li>USD & EUR settlements<\/li><\/ul>"}},"faq_item_rThB4t":{"type":"faq_item","settings":{"category":"Pricing & Costs","question":"Why is shipping so expensive for some products?","answer":"<p>Common reasons:<\/p><ul><li>Products with batteries, magnets, or supplements require special logistics.<\/li><li>Large or oversized items are charged by volumetric weight or incur surcharges.<\/li><\/ul>"}},"faq_item_KmhrKX":{"type":"faq_item","settings":{"category":"Pricing & Costs","question":"Is the quoted price valid for a certain period?","answer":"<p>Yes. Our pricing may be adjusted based on updates from logistics providers.<\/p><p>If there are any changes, we will update the price promptly and notify you as soon as possible.<\/p>"}},"faq_item_FtbLKP":{"type":"faq_item","settings":{"category":"Pricing & Costs","question":"Can I purchase a sample first? Is the sample price calculated the same way?","answer":"<p>Yes, you can purchase a sample.<\/p><p>Please send us your shipping address, and we will calculate the total cost for you.<\/p><p>The sample price is calculated the same way as regular orders, consisting of product cost + shipping cost.<\/p>"}},"faq_item_rRdXFb":{"type":"faq_item","settings":{"category":"Pricing & Costs","question":"If I need to change the shipping address or cancel the order after payment, will there be any extra fees?","answer":"<ul><li>Before shipment: We can help cancel the order or contact the carrier to modify the address at no extra cost.<\/li><li>After shipment: Orders can no longer be canceled. If the package is returned to an overseas warehouse due to an incorrect customer address and a refund is required, shipping costs will be charged.<\/li><\/ul>"}},"faq_item_z6XFJk":{"type":"faq_item","settings":{"category":"Shipping & Fulfillment","question":"Will shipments be held by customs?","answer":"<p>Our logistics partners have stable clearance processes.<\/p><p>In rare inspection cases, we will assist throughout the process.<\/p>"}},"faq_item_AkA6Mh":{"type":"faq_item","settings":{"category":"Shipping & Fulfillment","question":"Do you ship during holidays?","answer":"<p>Holiday shipments may be delayed by 1–2 days. We will notify you in advance if early stocking is recommended.<\/p>"}},"faq_item_EtzdaK":{"type":"faq_item","settings":{"category":"Shipping & Fulfillment","question":"Can addresses be changed after ordering?","answer":"<ul><li>Before shipment: Address changes are free.<\/li><li>After shipment: Changes depend on carrier policies.<\/li><\/ul>"}},"faq_item_QiFEWx":{"type":"faq_item","settings":{"category":"Shipping & Fulfillment","question":"Can I choose carriers like UPS, DHL, or FedEx?","answer":"<p>Yes. Customers can select carriers based on delivery speed and budget.<\/p>"}},"faq_item_UhzTr4":{"type":"faq_item","settings":{"category":"Shipping & Fulfillment","question":"Can you ship to remote areas like Alaska or Puerto Rico?","answer":"<p>Yes. We support delivery to some remote areas. Additional fees or delays may apply.<\/p>"}},"faq_item_b7FMUr":{"type":"faq_item","settings":{"category":"Shipping & Fulfillment","question":"When will tracking information be available?","answer":"<p>Tracking numbers are usually updated and can be tracked within 24 hours after shipment.<\/p>"}},"faq_item_bMgJ6g":{"type":"faq_item","settings":{"category":"Shipping & Fulfillment","question":"Do you handle customs clearance and taxes (DDP \/ DDU)?","answer":"<p>Yes.<\/p><ul><li>We can provide DDP (duties & taxes included) shipping options.<\/li><li>If you prefer to pay taxes yourself, non-tax-included channels are also available.<\/li><\/ul><p>Most shipments currently use DDP, but DDU is available upon request.<\/p>"}},"faq_item_JGqzbe":{"type":"faq_item","settings":{"category":"Shipping & Fulfillment","question":"Do you offer US local warehouse fulfillment?","answer":"<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. No specific audience size is required to start.Yes. We support fulfillment from US East Coast and West Coast warehouses.<\/p><ul><li>US East Warehouse:<br\/>1384 Yardville Hamilton Square Rd, Hamilton Township, NJ 08691<\/li><li>US West Warehouse:<br\/>SUNYOU CROSS-BORDER LOGISTICS (US) INC<br\/>415 S 7th Ave, City of Industry, CA 91746<\/li><\/ul>"}},"faq_item_JYhzUE":{"type":"faq_item","settings":{"category":"Shipping & Fulfillment","question":"What shipping methods do you support?","answer":"<p>We offer multiple logistics options, including:<\/p><ul><li>Dedicated lines<\/li><li>Air freight<\/li><li>Sea freight<\/li><li>ePacket<\/li><li>4PX<\/li><li>YunExpress<\/li><li>SunYou<\/li><li>YSD<\/li><li>SFC<\/li><\/ul><p>Delivery time and cost vary by channel.<\/p>"}},"faq_item_cLhiCw":{"type":"faq_item","settings":{"category":"Product Information","question":"Do you have your own factory?","answer":"<p>We operate our own production facilities and can also source products from other factories, then package and ship them on your behalf.<\/p>"}},"faq_item_NG8xKF":{"type":"faq_item","settings":{"category":"Product Information","question":"Can you find cheaper factories?","answer":"<p>Different factories offer different pricing levels. Lower prices often mean lower quality. We recommend balancing cost and product reliability carefully.<\/p>"}},"faq_item_Fncizn":{"type":"faq_item","settings":{"category":"Product Information","question":"Do you recommend best-selling products?","answer":"<p>We can suggest recently well-performing products, but we do not share other clients’ store links. Store design and branding should remain unique to your business.<\/p>"}},"faq_item_kPPkeQ":{"type":"faq_item","settings":{"category":"Product Information","question":"Do you offer protective or anti-drop packaging?","answer":"<p>Yes. We use thickened shockproof foam packaging to ensure safe transportation.<\/p>"}},"faq_item_3YjXtE":{"type":"faq_item","settings":{"category":"Product Information","question":"Do you inspect products before shipping?","answer":"<p>Yes. All products undergo basic quality inspection after arriving from the factory.<br\/>If needed, we can also provide product photos for additional reassurance.<\/p>"}},"faq_item_cMifiJ":{"type":"faq_item","settings":{"category":"Product Information","question":"Can products be bundled or sold with accessories?","answer":"<p>Yes. We can offer bundle packaging or kit fulfillment based on your sales plan.<br\/>Please note that bundled shipments may increase shipping costs.<\/p>"}},"faq_item_BgQCE3":{"type":"faq_item","settings":{"category":"Product Information","question":"Can I place small test orders?","answer":"<p>Yes. For most products, we can source as little as one unit.<br\/>However, if a factory does not have stock, inventory may need to be produced first. We recommend checking with us before listing products for testing.<\/p>"}},"faq_item_EWifqL":{"type":"faq_item","settings":{"category":"Product Information","question":"Can you provide product information and materials?","answer":"<p>For most products, we can provide:<\/p><ul><li>Detailed dimensions<\/li><li>High-resolution image packs<\/li><li>Relevant certifications for specific countries or regions<\/li><\/ul>"}},"faq_item_iWf3qc":{"type":"faq_item","settings":{"category":"Product Information","question":"Can you provide samples? How long does it take?","answer":"<p>Yes.<\/p><ul><li>If the factory has stock, samples can be sent immediately.<\/li><li>If not, sample production usually takes around 10 days, depending on complexity.<\/li><\/ul>"}},"faq_item_B744tm":{"type":"faq_item","settings":{"category":"Partnership & Trust Building","question":"How do you provide early warnings and communication for potential risks during order fulfillment (such as raw material price increases or shipping delays)?","answer":"<p>We operate under a transparent management approach.<\/p><p>For example, we regularly share raw material market updates. When we anticipate potential price increases or logistics delays, we proactively issue risk alert reports and provide alternative solutions in advance. We never wait until the last minute to inform our clients.<\/p>"}},"faq_item_wMkCqA":{"type":"faq_item","settings":{"category":"Partnership & Trust Building","question":"Which brands or sellers have you worked with?","answer":"<p>We respect confidentiality agreements. While specific names cannot be disclosed, we provide clear case profiles to demonstrate our experience.<\/p>"}},"faq_item_cYgWeD":{"type":"faq_item","settings":{"category":"Compliance & Taxation","question":"Can you assist if customs clearance is delayed?","answer":"<p>Absolutely. We prepare invoices, certificates of origin, and testing reports. We also coordinate with customs brokers to resolve issues, usually within 1–3 business days.<\/p>"}},"faq_item_wnrqRf":{"type":"faq_item","settings":{"category":"Compliance & Taxation","question":"Do you support overseas warehouse shipping? How fast is delivery?","answer":"<p>Yes.<\/p><ul><li>Local overseas fulfillment: 3–7 days<\/li><li>China direct shipping: 15–30 days<\/li><li>Express (DHL): 5–7 days<\/li><\/ul>"}},"faq_item_ExDhQd":{"type":"faq_item","settings":{"category":"Compliance & Taxation","question":"Do you support OEM\/ODM customization? What’s the MOQ?","answer":"<p>Yes.<br\/>Logo & packaging customization supported<\/p><ul><li>Standard MOQ: 50 units<\/li><li>Custom molds: 100 units<\/li><li>Sample lead time: 3–5 days<\/li><li>Production lead time: 7–15 days<\/li><\/ul>"}},"faq_item_7tHV8c":{"type":"faq_item","settings":{"category":"Compliance & Taxation","question":"Is there a compensation plan if goods are damaged or lost?","answer":"<p>Yes. All orders are automatically covered by basic shipping insurance.<\/p><ul><li>If goods are damaged, you can provide photos of the damage along with logistics records to request a replacement or a full refund.<\/li><li>If goods are confirmed lost, we will verify the case within 48 hours and complete the compensation process within 3 business days.<\/li><li>You may also choose to reship the same batch of goods, helping minimize your losses as much as possible.<\/li><\/ul>"}},"faq_item_be6x3j":{"type":"faq_item","settings":{"category":"Warehousing & Inventory Planning","question":"Can you ship from my own European warehouse?","answer":"<p>Currently no. We only support shipments from inventory stored in China or our partnered overseas warehouses.<\/p>"}},"faq_item_kxzwYP":{"type":"faq_item","settings":{"category":"Communication & After-Sales Support","question":"What if an order is delayed?","answer":"<p>Check tracking first. If delayed, contact us and we’ll follow up with the carrier.<\/p>"}},"faq_item_fwf4VV":{"type":"faq_item","settings":{"category":"System Integration & Connectivity","question":"Do I need a large audience?","answer":"<p>Yes.<\/p><p>After setting a stock warning threshold:<\/p><ul><li>The system tracks daily SKU-level sales.<\/li><li>It forecasts demand for the next 7 and 30 days.<\/li><li>You’ll be notified when inventory drops below the alert level.<\/li><\/ul>"}},"faq_item_AMkKeK":{"type":"faq_item","settings":{"category":"Pricing & Costs","question":"What cross-border payment methods do you support? Can I pay in multiple currencies?","answer":"<p>Yes, we support multiple payment methods, including:<\/p><ul><li>PayPal<\/li><li>Visa<\/li><li>MasterCard<\/li><li>Local payment options such as SEPA bank transfer (Europe) and GrabPay (Southeast Asia)<\/li><\/ul><p>We support multi-currency settlement, including USD, EUR, and GBP.<\/p><p>After payment, you will receive an automatic confirmation with exchange rate details to avoid any settlement disputes.<\/p>"}},"faq_item_Nkgpe6":{"type":"faq_item","settings":{"category":"Shipping & Fulfillment","question":"How long does shipping take? When will customers receive their orders?","answer":"<p>After an order is placed, procurement and processing usually take 2–3 days.<br\/>Shipping time depends on the selected logistics method and typically ranges from 7–20 days.<\/p>"}},"faq_item_cndGd6":{"type":"faq_item","settings":{"category":"Product Information","question":"Can you help with logo customization and custom packaging?","answer":"<p>Yes. Logo customization and packaging requirements vary by product and factory. Please contact us with your specific product so we can confirm minimum quantities and feasibility.<\/p>"}}},"block_order":["faq_item_ttpHwj","faq_item_CdfN8T","faq_item_w9BRqY","faq_item_39c8VK","faq_item_RqLMNV","faq_item_4QgbNi","faq_item_ttiaNp","faq_item_G84kGA","faq_item_UReDLK","faq_item_dXBzjx","faq_item_ira7Uj","faq_item_KfXXtz","faq_item_kNjdJD","faq_item_NRncbr","faq_item_XMiJpX","faq_item_V6epJ6","faq_item_VUiXKF","faq_item_hfAbtJ","faq_item_DeqWe7","faq_item_YbeRT4","faq_item_fxLjEz","faq_item_VDjHp3","faq_item_iQ6DdU","faq_item_JjPzUy","faq_item_MHny78","faq_item_PNEWYt","faq_item_F4Lr4P","faq_item_hzGajV","faq_item_AF6nHT","faq_item_kXJGpj","faq_item_rNydwJ","faq_item_YYaQLF","faq_item_bBAdQF","faq_item_JXmAKn","faq_item_mMR4pT","faq_item_NJNgrE","faq_item_rThB4t","faq_item_KmhrKX","faq_item_FtbLKP","faq_item_rRdXFb","faq_item_z6XFJk","faq_item_AkA6Mh","faq_item_EtzdaK","faq_item_QiFEWx","faq_item_UhzTr4","faq_item_b7FMUr","faq_item_bMgJ6g","faq_item_JGqzbe","faq_item_JYhzUE","faq_item_cLhiCw","faq_item_NG8xKF","faq_item_Fncizn","faq_item_kPPkeQ","faq_item_3YjXtE","faq_item_cMifiJ","faq_item_BgQCE3","faq_item_EWifqL","faq_item_iWf3qc","faq_item_B744tm","faq_item_wMkCqA","faq_item_cYgWeD","faq_item_wnrqRf","faq_item_ExDhQd","faq_item_7tHV8c","faq_item_be6x3j","faq_item_kxzwYP","faq_item_fwf4VV","faq_item_AMkKeK","faq_item_Nkgpe6","faq_item_cndGd6"],"name":"Advanced FAQ Tabs","settings":{"heading":"","color_scheme":"scheme-1","padding_top":60,"padding_bottom":60}}},"order":["main","hero_banner_BMycji","faq_page_34DydW"]}
+{
+    "sections": {
+        "main": {
+            "type": "main-page",
+            "disabled": true,
+            "settings": {
+                "padding_top": 28,
+                "padding_bottom": 28
+            }
+        },
+        "hero_banner_BMycji": {
+            "type": "Hero-banner",
+            "blocks": {
+                "heading_6mTBJk": {
+                    "type": "heading",
+                    "settings": {
+                        "text": "Frequently Asked Questions About PBfulfill",
+                        "mb": 20
+                    }
+                },
+                "text_QX8iB7": {
+                    "type": "text",
+                    "settings": {
+                        "text": "Quick answers to common questions about our services, workflows, pricing, and how we help sellers scale.",
+                        "mb": 30
+                    }
+                },
+                "button_KqTRJd": {
+                    "type": "button",
+                    "settings": {
+                        "label": "Get a Free Quote",
+                        "link": "shopify:\/\/pages\/contact",
+                        "btn_color": "#ffffff",
+                        "btn_bg_hover": "#ffffff",
+                        "btn_text_hover": "#000000",
+                        "mb": 0
+                    }
+                }
+            },
+            "block_order": [
+                "heading_6mTBJk",
+                "text_QX8iB7",
+                "button_KqTRJd"
+            ],
+            "name": "Hero Banner Pro",
+            "settings": {
+                "image_top_offset": -22,
+                "content_top_offset": 24,
+                "mobile_image_top_offset": 0,
+                "mobile_content_top_offset": 14,
+                "image_1": "shopify:\/\/shop_images\/Group_1_ed6dda67-3870-4331-a2d7-8dbe33c6998a.png",
+                "overlay_opacity": 0,
+                "banner_height": "medium",
+                "desktop_content_position": "middle-center",
+                "color_scheme": "scheme-5",
+                "container": false
+            }
+        },
+        "faq_page_34DydW": {
+            "type": "Faq-page",
+            "blocks": {
+                "faq_item_ttpHwj": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Partnership & Trust Building",
+                        "question": "Do you offer a no-MOQ trial solution?",
+                        "answer": "<p>Yes. We support trial cooperation with no minimum order requirement.<\/p>"
+                    }
+                },
+                "faq_item_CdfN8T": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Partnership & Trust Building",
+                        "question": "How is responsibility handled if goods are damaged or lost in transit?",
+                        "answer": "<ul><li>Carrier: responsible during custody<\/li><li>Shipper: responsible for unauthorized subcontracting<\/li><li>Exceptions: force majeure or natural product loss<\/li><\/ul>"
+                    }
+                },
+                "faq_item_w9BRqY": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Partnership & Trust Building",
+                        "question": "How do you support us if end customers file quality claims?",
+                        "answer": "<p>We:<\/p><ol><li>Reassure the customer<\/li><li>Provide clear action steps<\/li><li>Define responsibility transparently<\/li><li>Focus on long-term resolution<\/li><\/ol>"
+                    }
+                },
+                "faq_item_39c8VK": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Partnership & Trust Building",
+                        "question": "What are your communication channels and frequency?",
+                        "answer": "<p>Each key client is supported by an Account Manager + Order Specialist.<\/p><ul><li>ERP: Mabang<\/li><li>Daily communication: WhatsApp \/ WeChat<\/li><li>Support hours: 9am–6pm (business days)<\/li><\/ul>"
+                    }
+                },
+                "faq_item_RqLMNV": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Compliance & Taxation",
+                        "question": "Do your products have CE or FDA certification?",
+                        "answer": "<p>Yes. Products are CE-certified and FDA-registered, with third-party testing reports available upon request.<\/p>"
+                    }
+                },
+                "faq_item_4QgbNi": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Warehousing & Inventory Planning",
+                        "question": "Can unused inventory be refunded?",
+                        "answer": "<p>We first consult the factory. If returns are not accepted, refunds are not possible. We recommend stocking based on recent order trends.<\/p>"
+                    }
+                },
+                "faq_item_ttiaNp": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Warehousing & Inventory Planning",
+                        "question": "Can you inspect product quality after it arrives at the warehouse?",
+                        "answer": "<p>Yes. We can provide real product photos and videos upon arrival.<\/p>"
+                    }
+                },
+                "faq_item_G84kGA": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Warehousing & Inventory Planning",
+                        "question": "Do you have your own warehouse? Where is it located?",
+                        "answer": "<p>Yes. Our main warehouse is located in Yuyao, Zhejiang Province, close to the airport, allowing tracking updates on the same shipping day.<\/p>"
+                    }
+                },
+                "faq_item_UReDLK": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Warehousing & Inventory Planning",
+                        "question": "Can you help with advance inventory stocking?",
+                        "answer": "<p>Yes. Once inventory costs are paid, we can stock products in advance.<\/p>"
+                    }
+                },
+                "faq_item_dXBzjx": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Warehousing & Inventory Planning",
+                        "question": "How do you charge for warehousing?",
+                        "answer": "<p>We offer free warehousing as long as you have ongoing orders.<\/p>"
+                    }
+                },
+                "faq_item_ira7Uj": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Warehousing & Inventory Planning",
+                        "question": "If I have a high order volume, can I pre-stock inventory in advance?",
+                        "answer": "<p>Yes. We begin pre-stocking only after the product cost has been paid.<\/p><p>If you expect a high order volume, we strongly recommend purchasing inventory in advance. This helps reduce lead time from the factory to our warehouse.<\/p>"
+                    }
+                },
+                "faq_item_KfXXtz": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Warehousing & Inventory Planning",
+                        "question": "Do you have overseas warehouses?",
+                        "answer": "<p>Yes. We operate warehouses in the US East & West. Inventory can be shipped in advance and fulfilled locally.<\/p>"
+                    }
+                },
+                "faq_item_kNjdJD": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Communication & After-Sales Support",
+                        "question": "Do you offer a dedicated account manager?",
+                        "answer": "<p>Yes. Each client is assigned a dedicated account manager to ensure smooth communication and tailored support.<\/p>"
+                    }
+                },
+                "faq_item_NRncbr": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Communication & After-Sales Support",
+                        "question": "Will time zone differences be a problem?",
+                        "answer": "<p>We plan schedules in advance to minimize delays. You can contact us anytime via email or instant messaging, and we’ll respond as quickly as possible.<\/p>"
+                    }
+                },
+                "faq_item_XMiJpX": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Communication & After-Sales Support",
+                        "question": "What if customers complain or a package is lost?",
+                        "answer": "<p>We take customer experience seriously.<\/p><ul><li>For lost packages, you may choose a refund or reshipment.<\/li><li>We actively assist in resolving issues and minimizing losses.<\/li><\/ul>"
+                    }
+                },
+                "faq_item_V6epJ6": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Communication & After-Sales Support",
+                        "question": "What if I’m not satisfied with after-sales service?",
+                        "answer": "<p>You can submit a complaint through our support channels. We investigate and improve accordingly.<\/p>"
+                    }
+                },
+                "faq_item_VUiXKF": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Communication & After-Sales Support",
+                        "question": "Can orders be canceled?",
+                        "answer": "<ul><li>Orders can be canceled before shipment.<\/li><li>Once shipped, returns are required instead.<\/li><\/ul>"
+                    }
+                },
+                "faq_item_hfAbtJ": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Communication & After-Sales Support",
+                        "question": "How can I change the delivery address?",
+                        "answer": "<ul><li>Before shipment: contact customer service.<\/li><li>After shipment: address changes depend on the carrier and must be handled urgently.<\/li><\/ul>"
+                    }
+                },
+                "faq_item_DeqWe7": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Communication & After-Sales Support",
+                        "question": "Is there a time limit for after-sales service?",
+                        "answer": "<p>Yes. Service periods vary by product and service type.<\/p>"
+                    }
+                },
+                "faq_item_YbeRT4": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Communication & After-Sales Support",
+                        "question": "What after-sales support do you offer for defective products?",
+                        "answer": "<p>We offer refunds or replacements for quality issues. Contact support for the full process.<\/p>"
+                    }
+                },
+                "faq_item_fxLjEz": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Communication & After-Sales Support",
+                        "question": "Can customers return or exchange items if they don’t like them?",
+                        "answer": "<p>Yes, if the item meets return conditions. Return shipping is borne by the customer.<\/p>"
+                    }
+                },
+                "faq_item_VDjHp3": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "System Integration & Connectivity",
+                        "question": "Can your system integrate with Shopify or WooCommerce?",
+                        "answer": "<p>Yes. We have our own ERP system that can be connected directly to your store.<\/p><ul><li>For Shopify:<br\/>You’ll install our ERP app from the Shopify App Store and follow our account manager’s guidance to complete the connection.<\/li><li>For WooCommerce:<br\/>You’ll provide your website URL, Consumer Key, and Consumer Secret. We’ll send a connection request, and once approved, your store will be successfully linked.<\/li><\/ul><p>After the connection:<\/p><ul><li>All unprocessed orders will sync automatically.<\/li><li>Orders already fulfilled by a previous dropshipping system will not be duplicated.<\/li><li>The full order sync usually completes within about 10 minutes.<\/li><li>Orders already fulfilled by a previous dropshipping system will not be duplicated.<\/li><li>The full order sync usually completes within about 10 minutes.<\/li><\/ul>"
+                    }
+                },
+                "faq_item_iQ6DdU": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "System Integration & Connectivity",
+                        "question": "Can your system automatically sync inventory?",
+                        "answer": "<p>Yes.<\/p><p>If you choose to pre-stock inventory:<\/p><ul><li>We purchase and store products in advance at our warehouse.<\/li><li>Each product and SKU is mapped to your store’s corresponding SKU.<\/li><li>Inventory levels are synced in real time.<\/li><\/ul><p>When an order is placed:<\/p><ul><li>The system reserves the required SKU quantity.<\/li><li>After shipping, inventory is automatically deducted.<\/li><li>You can clearly see SKU-level demand and remaining stock inside the system.<\/li><\/ul>"
+                    }
+                },
+                "faq_item_JjPzUy": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "System Integration & Connectivity",
+                        "question": "Can tracking numbers be automatically sent to my customers?",
+                        "answer": "<p>Yes.<\/p><ul><li>Tracking numbers can be synced to your Shopify backend.<\/li><li>When an order status changes to “Shipped,” the system automatically triggers email or SMS notifications.<\/li><li>Notification content and sender email can be customized.<\/li><li>If you prefer not to send notifications, this feature can be disabled.<\/li><\/ul><p>Order updates usually sync within 1–2 minutes after processing.<\/p>"
+                    }
+                },
+                "faq_item_MHny78": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "System Integration & Connectivity",
+                        "question": "Can I bulk import products into my store?",
+                        "answer": "<p>Yes.<\/p><p>We can help upload products to your store. Product selection, pricing, and product page content are discussed and confirmed with you in advance. We also recommend currently trending products based on market demand.<\/p>"
+                    }
+                },
+                "faq_item_PNEWYt": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "System Integration & Connectivity",
+                        "question": "If a customer changes their address in Shopify, will your system sync it?",
+                        "answer": "<p>Yes.<\/p><p>If an address is modified:<\/p><ul><li>The order is moved to a “Pending Review” status in our system.<\/li><li>A note such as “Address mismatch” or “Order information updated” is added.<\/li><li>Our staff verifies the address before proceeding to avoid delivery errors.<\/li><\/ul>"
+                    }
+                },
+                "faq_item_F4Lr4P": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "System Integration & Connectivity",
+                        "question": "Can I disconnect my store if I stop working with you?",
+                        "answer": "<p>Yes.<\/p><p>Once cooperation ends, we will remove your store from our system.<\/p>"
+                    }
+                },
+                "faq_item_hzGajV": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "System Integration & Connectivity",
+                        "question": "Does your system support managing multiple stores?",
+                        "answer": "<p>Yes.<\/p><p>You can connect multiple Shopify and\/or WooCommerce stores to one account and manage orders, inventory, and products centrally. Orders are automatically distinguished by store source.<\/p>"
+                    }
+                },
+                "faq_item_AF6nHT": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "System Integration & Connectivity",
+                        "question": "Can the system merge multiple orders from the same customer?",
+                        "answer": "<p>Yes.<\/p><p>When multiple orders share:<\/p><ul><li>The same recipient name<\/li><li>The same address<\/li><li>The same phone number<\/li><\/ul><p>They are flagged for merging to reduce shipping costs.<br\/>Important notes:<\/p><ul><li>Orders remain separate in your Shopify backend.<\/li><li>The same tracking number is uploaded to each related order.<\/li><\/ul>"
+                    }
+                },
+                "faq_item_kXJGpj": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "System Integration & Connectivity",
+                        "question": "Does your system support multi-warehouse fulfillment?",
+                        "answer": "<p>Yes.<\/p><p>You can:<\/p><ul><li>Set inventory and shipping rules for different warehouses.<\/li><li>Automatically route orders to the nearest warehouse based on customer location.<\/li><\/ul><p>We also operate East Coast and West Coast US warehouses, which you can use directly.<\/p>"
+                    }
+                },
+                "faq_item_rNydwJ": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Pricing & Costs",
+                        "question": "Can you offer lower prices?",
+                        "answer": "<p>Possibly. Pricing depends on daily order volume.<\/p><p>We can also recommend slower but cheaper shipping options if delivery speed is flexible.<\/p>"
+                    }
+                },
+                "faq_item_YYaQLF": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Pricing & Costs",
+                        "question": "Are there hidden fees?",
+                        "answer": "<p>No. Costs include product price + shipping only.<\/p><p>All fees are clearly itemized in advance.<\/p>"
+                    }
+                },
+                "faq_item_bBAdQF": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Pricing & Costs",
+                        "question": "Do you offer volume discounts?",
+                        "answer": "<p>Yes:<\/p><ul><li>30 orders\/day → 3% discount<\/li><li>50 orders\/day → 5% discount<\/li><\/ul>"
+                    }
+                },
+                "faq_item_JXmAKn": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Pricing & Costs",
+                        "question": "How are refunds handled if orders are canceled due to stock issues?",
+                        "answer": "<p>You may choose to:<\/p><ol><li>Receive a direct refund, or<\/li><li>Apply the amount as a credit toward future orders.<\/li><\/ol>"
+                    }
+                },
+                "faq_item_mMR4pT": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Pricing & Costs",
+                        "question": "When do I need to pay?",
+                        "answer": "<p>Initially, payment is required before shipment.<\/p><p>As cooperation grows, flexible billing cycles (bi-weekly or monthly) can be arranged.<\/p>"
+                    }
+                },
+                "faq_item_NJNgrE": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Pricing & Costs",
+                        "question": "What payment methods and currencies do you accept?",
+                        "answer": "<p>We support:<\/p><ul><li>Bank transfer (recommended)<\/li><li>PayPal<\/li><li>USD & EUR settlements<\/li><\/ul>"
+                    }
+                },
+                "faq_item_rThB4t": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Pricing & Costs",
+                        "question": "Why is shipping so expensive for some products?",
+                        "answer": "<p>Common reasons:<\/p><ul><li>Products with batteries, magnets, or supplements require special logistics.<\/li><li>Large or oversized items are charged by volumetric weight or incur surcharges.<\/li><\/ul>"
+                    }
+                },
+                "faq_item_KmhrKX": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Pricing & Costs",
+                        "question": "Is the quoted price valid for a certain period?",
+                        "answer": "<p>Yes. Our pricing may be adjusted based on updates from logistics providers.<\/p><p>If there are any changes, we will update the price promptly and notify you as soon as possible.<\/p>"
+                    }
+                },
+                "faq_item_FtbLKP": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Pricing & Costs",
+                        "question": "Can I purchase a sample first? Is the sample price calculated the same way?",
+                        "answer": "<p>Yes, you can purchase a sample.<\/p><p>Please send us your shipping address, and we will calculate the total cost for you.<\/p><p>The sample price is calculated the same way as regular orders, consisting of product cost + shipping cost.<\/p>"
+                    }
+                },
+                "faq_item_rRdXFb": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Pricing & Costs",
+                        "question": "If I need to change the shipping address or cancel the order after payment, will there be any extra fees?",
+                        "answer": "<ul><li>Before shipment: We can help cancel the order or contact the carrier to modify the address at no extra cost.<\/li><li>After shipment: Orders can no longer be canceled. If the package is returned to an overseas warehouse due to an incorrect customer address and a refund is required, shipping costs will be charged.<\/li><\/ul>"
+                    }
+                },
+                "faq_item_z6XFJk": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Shipping & Fulfillment",
+                        "question": "Will shipments be held by customs?",
+                        "answer": "<p>Our logistics partners have stable clearance processes.<\/p><p>In rare inspection cases, we will assist throughout the process.<\/p>"
+                    }
+                },
+                "faq_item_AkA6Mh": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Shipping & Fulfillment",
+                        "question": "Do you ship during holidays?",
+                        "answer": "<p>Holiday shipments may be delayed by 1–2 days. We will notify you in advance if early stocking is recommended.<\/p>"
+                    }
+                },
+                "faq_item_EtzdaK": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Shipping & Fulfillment",
+                        "question": "Can addresses be changed after ordering?",
+                        "answer": "<ul><li>Before shipment: Address changes are free.<\/li><li>After shipment: Changes depend on carrier policies.<\/li><\/ul>"
+                    }
+                },
+                "faq_item_QiFEWx": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Shipping & Fulfillment",
+                        "question": "Can I choose carriers like UPS, DHL, or FedEx?",
+                        "answer": "<p>Yes. Customers can select carriers based on delivery speed and budget.<\/p>"
+                    }
+                },
+                "faq_item_UhzTr4": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Shipping & Fulfillment",
+                        "question": "Can you ship to remote areas like Alaska or Puerto Rico?",
+                        "answer": "<p>Yes. We support delivery to some remote areas. Additional fees or delays may apply.<\/p>"
+                    }
+                },
+                "faq_item_b7FMUr": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Shipping & Fulfillment",
+                        "question": "When will tracking information be available?",
+                        "answer": "<p>Tracking numbers are usually updated and can be tracked within 24 hours after shipment.<\/p>"
+                    }
+                },
+                "faq_item_bMgJ6g": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Shipping & Fulfillment",
+                        "question": "Do you handle customs clearance and taxes (DDP \/ DDU)?",
+                        "answer": "<p>Yes.<\/p><ul><li>We can provide DDP (duties & taxes included) shipping options.<\/li><li>If you prefer to pay taxes yourself, non-tax-included channels are also available.<\/li><\/ul><p>Most shipments currently use DDP, but DDU is available upon request.<\/p>"
+                    }
+                },
+                "faq_item_JGqzbe": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Shipping & Fulfillment",
+                        "question": "Do you offer US local warehouse fulfillment?",
+                        "answer": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. No specific audience size is required to start.Yes. We support fulfillment from US East Coast and West Coast warehouses.<\/p><ul><li>US East Warehouse:<br\/>1384 Yardville Hamilton Square Rd, Hamilton Township, NJ 08691<\/li><li>US West Warehouse:<br\/>SUNYOU CROSS-BORDER LOGISTICS (US) INC<br\/>415 S 7th Ave, City of Industry, CA 91746<\/li><\/ul>"
+                    }
+                },
+                "faq_item_JYhzUE": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Shipping & Fulfillment",
+                        "question": "What shipping methods do you support?",
+                        "answer": "<p>We offer multiple logistics options, including:<\/p><ul><li>Dedicated lines<\/li><li>Air freight<\/li><li>Sea freight<\/li><li>ePacket<\/li><li>4PX<\/li><li>YunExpress<\/li><li>SunYou<\/li><li>YSD<\/li><li>SFC<\/li><\/ul><p>Delivery time and cost vary by channel.<\/p>"
+                    }
+                },
+                "faq_item_cLhiCw": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Product Information",
+                        "question": "Do you have your own factory?",
+                        "answer": "<p>We operate our own production facilities and can also source products from other factories, then package and ship them on your behalf.<\/p>"
+                    }
+                },
+                "faq_item_NG8xKF": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Product Information",
+                        "question": "Can you find cheaper factories?",
+                        "answer": "<p>Different factories offer different pricing levels. Lower prices often mean lower quality. We recommend balancing cost and product reliability carefully.<\/p>"
+                    }
+                },
+                "faq_item_Fncizn": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Product Information",
+                        "question": "Do you recommend best-selling products?",
+                        "answer": "<p>We can suggest recently well-performing products, but we do not share other clients’ store links. Store design and branding should remain unique to your business.<\/p>"
+                    }
+                },
+                "faq_item_kPPkeQ": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Product Information",
+                        "question": "Do you offer protective or anti-drop packaging?",
+                        "answer": "<p>Yes. We use thickened shockproof foam packaging to ensure safe transportation.<\/p>"
+                    }
+                },
+                "faq_item_3YjXtE": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Product Information",
+                        "question": "Do you inspect products before shipping?",
+                        "answer": "<p>Yes. All products undergo basic quality inspection after arriving from the factory.<br\/>If needed, we can also provide product photos for additional reassurance.<\/p>"
+                    }
+                },
+                "faq_item_cMifiJ": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Product Information",
+                        "question": "Can products be bundled or sold with accessories?",
+                        "answer": "<p>Yes. We can offer bundle packaging or kit fulfillment based on your sales plan.<br\/>Please note that bundled shipments may increase shipping costs.<\/p>"
+                    }
+                },
+                "faq_item_BgQCE3": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Product Information",
+                        "question": "Can I place small test orders?",
+                        "answer": "<p>Yes. For most products, we can source as little as one unit.<br\/>However, if a factory does not have stock, inventory may need to be produced first. We recommend checking with us before listing products for testing.<\/p>"
+                    }
+                },
+                "faq_item_EWifqL": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Product Information",
+                        "question": "Can you provide product information and materials?",
+                        "answer": "<p>For most products, we can provide:<\/p><ul><li>Detailed dimensions<\/li><li>High-resolution image packs<\/li><li>Relevant certifications for specific countries or regions<\/li><\/ul>"
+                    }
+                },
+                "faq_item_iWf3qc": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Product Information",
+                        "question": "Can you provide samples? How long does it take?",
+                        "answer": "<p>Yes.<\/p><ul><li>If the factory has stock, samples can be sent immediately.<\/li><li>If not, sample production usually takes around 10 days, depending on complexity.<\/li><\/ul>"
+                    }
+                },
+                "faq_item_B744tm": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Partnership & Trust Building",
+                        "question": "How do you provide early warnings and communication for potential risks during order fulfillment (such as raw material price increases or shipping delays)?",
+                        "answer": "<p>We operate under a transparent management approach.<\/p><p>For example, we regularly share raw material market updates. When we anticipate potential price increases or logistics delays, we proactively issue risk alert reports and provide alternative solutions in advance. We never wait until the last minute to inform our clients.<\/p>"
+                    }
+                },
+                "faq_item_wMkCqA": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Partnership & Trust Building",
+                        "question": "Which brands or sellers have you worked with?",
+                        "answer": "<p>We respect confidentiality agreements. While specific names cannot be disclosed, we provide clear case profiles to demonstrate our experience.<\/p>"
+                    }
+                },
+                "faq_item_cYgWeD": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Compliance & Taxation",
+                        "question": "Can you assist if customs clearance is delayed?",
+                        "answer": "<p>Absolutely. We prepare invoices, certificates of origin, and testing reports. We also coordinate with customs brokers to resolve issues, usually within 1–3 business days.<\/p>"
+                    }
+                },
+                "faq_item_wnrqRf": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Compliance & Taxation",
+                        "question": "Do you support overseas warehouse shipping? How fast is delivery?",
+                        "answer": "<p>Yes.<\/p><ul><li>Local overseas fulfillment: 3–7 days<\/li><li>China direct shipping: 15–30 days<\/li><li>Express (DHL): 5–7 days<\/li><\/ul>"
+                    }
+                },
+                "faq_item_ExDhQd": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Compliance & Taxation",
+                        "question": "Do you support OEM\/ODM customization? What’s the MOQ?",
+                        "answer": "<p>Yes.<br\/>Logo & packaging customization supported<\/p><ul><li>Standard MOQ: 50 units<\/li><li>Custom molds: 100 units<\/li><li>Sample lead time: 3–5 days<\/li><li>Production lead time: 7–15 days<\/li><\/ul>"
+                    }
+                },
+                "faq_item_7tHV8c": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Compliance & Taxation",
+                        "question": "Is there a compensation plan if goods are damaged or lost?",
+                        "answer": "<p>Yes. All orders are automatically covered by basic shipping insurance.<\/p><ul><li>If goods are damaged, you can provide photos of the damage along with logistics records to request a replacement or a full refund.<\/li><li>If goods are confirmed lost, we will verify the case within 48 hours and complete the compensation process within 3 business days.<\/li><li>You may also choose to reship the same batch of goods, helping minimize your losses as much as possible.<\/li><\/ul>"
+                    }
+                },
+                "faq_item_be6x3j": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Warehousing & Inventory Planning",
+                        "question": "Can you ship from my own European warehouse?",
+                        "answer": "<p>Currently no. We only support shipments from inventory stored in China or our partnered overseas warehouses.<\/p>"
+                    }
+                },
+                "faq_item_kxzwYP": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Communication & After-Sales Support",
+                        "question": "What if an order is delayed?",
+                        "answer": "<p>Check tracking first. If delayed, contact us and we’ll follow up with the carrier.<\/p>"
+                    }
+                },
+                "faq_item_fwf4VV": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "System Integration & Connectivity",
+                        "question": "Do I need a large audience?",
+                        "answer": "<p>Yes.<\/p><p>After setting a stock warning threshold:<\/p><ul><li>The system tracks daily SKU-level sales.<\/li><li>It forecasts demand for the next 7 and 30 days.<\/li><li>You’ll be notified when inventory drops below the alert level.<\/li><\/ul>"
+                    }
+                },
+                "faq_item_AMkKeK": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Pricing & Costs",
+                        "question": "What cross-border payment methods do you support? Can I pay in multiple currencies?",
+                        "answer": "<p>Yes, we support multiple payment methods, including:<\/p><ul><li>PayPal<\/li><li>Visa<\/li><li>MasterCard<\/li><li>Local payment options such as SEPA bank transfer (Europe) and GrabPay (Southeast Asia)<\/li><\/ul><p>We support multi-currency settlement, including USD, EUR, and GBP.<\/p><p>After payment, you will receive an automatic confirmation with exchange rate details to avoid any settlement disputes.<\/p>"
+                    }
+                },
+                "faq_item_Nkgpe6": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Shipping & Fulfillment",
+                        "question": "How long does shipping take? When will customers receive their orders?",
+                        "answer": "<p>After an order is placed, procurement and processing usually take 2–3 days.<br\/>Shipping time depends on the selected logistics method and typically ranges from 7–20 days.<\/p>"
+                    }
+                },
+                "faq_item_cndGd6": {
+                    "type": "faq_item",
+                    "settings": {
+                        "category": "Product Information",
+                        "question": "Can you help with logo customization and custom packaging?",
+                        "answer": "<p>Yes. Logo customization and packaging requirements vary by product and factory. Please contact us with your specific product so we can confirm minimum quantities and feasibility.<\/p>"
+                    }
+                }
+            },
+            "block_order": [
+                "faq_item_ttpHwj",
+                "faq_item_CdfN8T",
+                "faq_item_w9BRqY",
+                "faq_item_39c8VK",
+                "faq_item_RqLMNV",
+                "faq_item_4QgbNi",
+                "faq_item_ttiaNp",
+                "faq_item_G84kGA",
+                "faq_item_UReDLK",
+                "faq_item_dXBzjx",
+                "faq_item_ira7Uj",
+                "faq_item_KfXXtz",
+                "faq_item_kNjdJD",
+                "faq_item_NRncbr",
+                "faq_item_XMiJpX",
+                "faq_item_V6epJ6",
+                "faq_item_VUiXKF",
+                "faq_item_hfAbtJ",
+                "faq_item_DeqWe7",
+                "faq_item_YbeRT4",
+                "faq_item_fxLjEz",
+                "faq_item_VDjHp3",
+                "faq_item_iQ6DdU",
+                "faq_item_JjPzUy",
+                "faq_item_MHny78",
+                "faq_item_PNEWYt",
+                "faq_item_F4Lr4P",
+                "faq_item_hzGajV",
+                "faq_item_AF6nHT",
+                "faq_item_kXJGpj",
+                "faq_item_rNydwJ",
+                "faq_item_YYaQLF",
+                "faq_item_bBAdQF",
+                "faq_item_JXmAKn",
+                "faq_item_mMR4pT",
+                "faq_item_NJNgrE",
+                "faq_item_rThB4t",
+                "faq_item_KmhrKX",
+                "faq_item_FtbLKP",
+                "faq_item_rRdXFb",
+                "faq_item_z6XFJk",
+                "faq_item_AkA6Mh",
+                "faq_item_EtzdaK",
+                "faq_item_QiFEWx",
+                "faq_item_UhzTr4",
+                "faq_item_b7FMUr",
+                "faq_item_bMgJ6g",
+                "faq_item_JGqzbe",
+                "faq_item_JYhzUE",
+                "faq_item_cLhiCw",
+                "faq_item_NG8xKF",
+                "faq_item_Fncizn",
+                "faq_item_kPPkeQ",
+                "faq_item_3YjXtE",
+                "faq_item_cMifiJ",
+                "faq_item_BgQCE3",
+                "faq_item_EWifqL",
+                "faq_item_iWf3qc",
+                "faq_item_B744tm",
+                "faq_item_wMkCqA",
+                "faq_item_cYgWeD",
+                "faq_item_wnrqRf",
+                "faq_item_ExDhQd",
+                "faq_item_7tHV8c",
+                "faq_item_be6x3j",
+                "faq_item_kxzwYP",
+                "faq_item_fwf4VV",
+                "faq_item_AMkKeK",
+                "faq_item_Nkgpe6",
+                "faq_item_cndGd6"
+            ],
+            "name": "Advanced FAQ Tabs",
+            "settings": {
+                "heading": "",
+                "color_scheme": "scheme-1",
+                "padding_top": 60,
+                "padding_bottom": 60
+            }
+        }
+    },
+    "order": [
+        "main",
+        "hero_banner_BMycji",
+        "faq_page_34DydW"
+    ]
+}

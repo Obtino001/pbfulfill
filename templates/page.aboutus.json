@@ -1,1 +1,416 @@
-{"sections":{"main":{"type":"main-page","disabled":true,"settings":{"padding_top":28,"padding_bottom":28}},"hero_banner_MCaKmP":{"type":"Hero-banner","blocks":{"breadcrumbs_LBW7y9":{"type":"breadcrumbs","disabled":true,"settings":{"color":"#ffffff","mb":16}},"heading_38K9cw":{"type":"heading","settings":{"text":"Meet the Team Behind Your Fulfillment Operations","mb":20}},"text_cnT3Eh":{"type":"text","settings":{"text":"PBfulfill is a China-based operations team supporting global sellers with sourcing, quality control, warehousing, and fulfillment — built to be reliable, transparent, and accountable.","mb":30}},"button_CWXCbr":{"type":"button","settings":{"label":"Get a Free Quote","link":"shopify:\/\/pages\/contact","btn_color":"#ffffff","btn_bg_hover":"#ffffff","btn_text_hover":"#000000","mb":0}}},"block_order":["breadcrumbs_LBW7y9","heading_38K9cw","text_cnT3Eh","button_CWXCbr"],"name":"Hero Banner Pro","settings":{"image_top_offset":-22,"content_top_offset":24,"mobile_banner_height":50,"mobile_image_top_offset":0,"mobile_content_top_offset":14,"image_1":"shopify:\/\/shop_images\/Group_10633.png","overlay_opacity":0,"banner_height":"medium","desktop_content_position":"middle-center","color_scheme":"scheme-5","container":false}},"why_private_label_xdjzAe":{"type":"why-private-label","blocks":{"column_YLtTTK":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/refund_and_claim.png","text":"Enable Growth Through Operational Trust"}},"column_JKYzGe":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/refund_and_claim_1.png","text":"Build Efficient, Transparent Supply Chains"}},"column_C4drWq":{"type":"column","settings":{"image":"shopify:\/\/shop_images\/refund_and_claim_2.png","text":"Partner for Long-Term Success"}}},"block_order":["column_YLtTTK","column_JKYzGe","column_C4drWq"],"name":"Private Label Matters","settings":{"color_scheme":"","heading":"Our Mission & Values","footer_text":"","footer_button_label":"Learn More","footer_button_link":"shopify:\/\/pages\/our-mission-values","button_style_secondary":false,"padding_top":40,"padding_bottom":40,"padding_top_mobile":30,"padding_bottom_mobile":30}},"leadership_team_wGCgXP":{"type":"leadership-team","blocks":{"button_RfUndA":{"type":"button","settings":{"btn_label":"Learn More","btn_link":"shopify:\/\/pages\/meet-the-team"}},"team_member_KzczeP":{"type":"team_member","settings":{"image":"shopify:\/\/shop_images\/1_7d7c5012-b52f-40c4-a946-a3aecb2dfb64.jpg","name":"Bryan","description":"Founder & CEO"}},"team_member_Bc9TH4":{"type":"team_member","settings":{"image":"shopify:\/\/shop_images\/2_b666b36b-f4ba-44a4-a49e-e029c35fb077.jpg","name":"Jay","description":"Operations Manager"}},"team_member_34R78y":{"type":"team_member","settings":{"image":"shopify:\/\/shop_images\/7_d9877967-aea2-4ba2-83dd-551245f5604c.jpg","name":"John","description":"Sourcing Manager"}},"team_member_3eFd6h":{"type":"team_member","settings":{"image":"shopify:\/\/shop_images\/4_edf6d343-fae9-491c-a3f1-ddd1b2b10058.jpg","name":"Dahl","description":"Quality Control Supervisor"}},"team_member_hhWEr8":{"type":"team_member","settings":{"image":"shopify:\/\/shop_images\/8_d3711a04-a701-426a-adc1-9b98c0450c0d.jpg","name":"Bruce","description":"Warehouse Manager"}}},"block_order":["button_RfUndA","team_member_KzczeP","team_member_Bc9TH4","team_member_34R78y","team_member_3eFd6h","team_member_hhWEr8"],"name":"Leadership Team","settings":{"color_scheme":"","heading":"Meet the Team","padding_top":60,"padding_bottom":60,"padding_top_mobile":30,"padding_bottom_mobile":30}},"referral_commission_TVFBrQ":{"type":"referral-commission","blocks":{"commission_card_KrCbDn":{"type":"commission_card","settings":{"label":"Fulfillment Accuracy","value":"98%+"}},"commission_card_qKkYEJ":{"type":"commission_card","settings":{"label":"Response Time","value":"< 1 Hour"}},"commission_card_ApgdHG":{"type":"commission_card","settings":{"label":"Fewer After-Sales Issues","value":"30%+"}},"commission_card_QgiBBx":{"type":"commission_card","settings":{"label":"Client Satisfaction","value":"95%+"}}},"block_order":["commission_card_KrCbDn","commission_card_qKkYEJ","commission_card_ApgdHG","commission_card_QgiBBx"],"name":"Referral Commission","settings":{"color_scheme":"","heading":"Trusted by Growing Sellers","custom_bg":"shopify:\/\/shop_images\/Pattern_Bot_4.png","bg_size":"contain","bg_repeat":"no-repeat","bg_position":"bottom center","btn_text":"Learn More","btn_link":"shopify:\/\/pages\/testimonials-case-studies","padding_top":50,"padding_bottom":50,"padding_top_mobile":30,"padding_bottom_mobile":30}},"affiliate_xk9kWr":{"type":"affiliate","blocks":{"card_xnELbQ":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/Blog_post_card_3.png","title":"Partner with PBfulfill","description":"Work with us to support your clients and earn long-term commissions through structured partnerships."}},"card_zXq9Vx":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/Blog_post_card.png","title":"Earn as an Affiliate","description":"Refer sellers to PBfulfill and earn recurring commissions from every fulfilled order."}},"card_E7key3":{"type":"card","settings":{"image":"shopify:\/\/shop_images\/Blog_post_card_1.png","title":"Built for Long-Term Growth","description":"Tiered commissions, fast payouts, and dedicated support — designed to scale with you."}}},"block_order":["card_xnELbQ","card_zXq9Vx","card_E7key3"],"name":"Become an Affiliate","settings":{"color_scheme":"","custom_class":"small-hide","columns_desktop":3,"bg_image":"shopify:\/\/shop_images\/Background_pattern.png","title":"Partners & Affiliates","button_text":"Learn More","button_link":"shopify:\/\/pages\/partners-affiliates","padding_top":50,"padding_bottom":50,"padding_top_mobile":30,"padding_bottom_mobile":30}},"affilate_mobile_HVrDmR":{"type":"Affilate-mobile","blocks":{"photo_nf8bWG":{"type":"photo","disabled":true,"settings":{"image":"shopify:\/\/shop_images\/9b758c90-af82-493d-b60c-8dab2274dfa8_removalai_preview.png"}},"text_BUMYpJ":{"type":"text","name":"Card Text ","settings":{"title":"Refer A Friend","text":"We will reach out to your friend."}},"text_PGDQ3V":{"type":"text","name":"Card Text ","settings":{"title":"Calculate the Profit","text":"Get $0.2 from each referral order."}},"text_bBkLif":{"type":"text","name":"Card Text ","settings":{"title":"Get Your Earnings","text":"Receive your earnings via PayPal or Payoneer."}},"mobile_item_A8TD9Y":{"type":"mobile_item","name":"Card Image","settings":{"icon":"shopify:\/\/shop_images\/Refer_A_Friend_95051e38-d5b2-41db-838a-f35d58f03a3a.svg","heading_mobile":"Refer A Friend","text":"We will reach out to your friend."}},"mobile_item_b7xTkk":{"type":"mobile_item","name":"Card Image","settings":{"icon":"shopify:\/\/shop_images\/rivet-icons_money.svg","heading_mobile":"Calculate the Profit","text":"Get $0.2 from each referral order."}},"mobile_item_dp9hN4":{"type":"mobile_item","name":"Card Image","settings":{"icon":"shopify:\/\/shop_images\/What_Is_the_Profit_e33a2c67-ddfd-48df-94bc-13e8ed2b2dc7.svg","heading_mobile":"Get Your Earnings","text":"Receive your earnings via PayPal or Payoneer."}}},"block_order":["photo_nf8bWG","text_BUMYpJ","text_PGDQ3V","text_bBkLif","mobile_item_A8TD9Y","mobile_item_b7xTkk","mobile_item_dp9hN4"],"name":"Feature Card Display-2 (Mobile)","settings":{"custom_class":"desktop-hide","bg_color":"#ffffff","heading":"Become An Affiliate","button_label":"Join Now","button_link":"shopify:\/\/pages\/about-us","padding_top":50,"padding_bottom":50,"padding_top_mobile":30,"padding_bottom_mobile":30}},"cta_banner_XQhrni":{"type":"cta-banner","blocks":{"heading_9ihnzc":{"type":"heading","settings":{"heading":"Let’s scale your business with the right partner!","heading_size":"h1","font_weight":"600"}},"button_DX8Dri":{"type":"button","settings":{"button_label":"Get a Free Quote","button_link":"shopify:\/\/pages\/contact","button_style_secondary":true}}},"block_order":["heading_9ihnzc","button_DX8Dri"],"name":"HCA Custom Banner","settings":{"color_scheme":"","card_bg_image":"shopify:\/\/shop_images\/Background_pattern_1.png","rainbow_image":"shopify:\/\/shop_images\/c23e5f4e08119a8d0c0458e0f3678534efaeda2c_3_c31db788-8c70-4d56-97f7-511e8439c83e.png","airplane_image":"shopify:\/\/shop_images\/Group_4.png","grid_opacity":30,"padding_top":36,"padding_bottom":36,"padding_top_mobile":30,"padding_bottom_mobile":30}}},"order":["main","hero_banner_MCaKmP","why_private_label_xdjzAe","leadership_team_wGCgXP","referral_commission_TVFBrQ","affiliate_xk9kWr","affilate_mobile_HVrDmR","cta_banner_XQhrni"]}
+{
+    "sections": {
+        "main": {
+            "type": "main-page",
+            "disabled": true,
+            "settings": {
+                "padding_top": 28,
+                "padding_bottom": 28
+            }
+        },
+        "hero_banner_MCaKmP": {
+            "type": "Hero-banner",
+            "blocks": {
+                "breadcrumbs_LBW7y9": {
+                    "type": "breadcrumbs",
+                    "disabled": true,
+                    "settings": {
+                        "color": "#ffffff",
+                        "mb": 16
+                    }
+                },
+                "heading_38K9cw": {
+                    "type": "heading",
+                    "settings": {
+                        "text": "Meet the Team Behind Your Fulfillment Operations",
+                        "mb": 20
+                    }
+                },
+                "text_cnT3Eh": {
+                    "type": "text",
+                    "settings": {
+                        "text": "PBfulfill is a China-based operations team supporting global sellers with sourcing, quality control, warehousing, and fulfillment — built to be reliable, transparent, and accountable.",
+                        "mb": 30
+                    }
+                },
+                "button_CWXCbr": {
+                    "type": "button",
+                    "settings": {
+                        "label": "Get a Free Quote",
+                        "link": "shopify:\/\/pages\/contact",
+                        "btn_color": "#ffffff",
+                        "btn_bg_hover": "#ffffff",
+                        "btn_text_hover": "#000000",
+                        "mb": 0
+                    }
+                }
+            },
+            "block_order": [
+                "breadcrumbs_LBW7y9",
+                "heading_38K9cw",
+                "text_cnT3Eh",
+                "button_CWXCbr"
+            ],
+            "name": "Hero Banner Pro",
+            "settings": {
+                "image_top_offset": -22,
+                "content_top_offset": 24,
+                "mobile_banner_height": 50,
+                "mobile_image_top_offset": 0,
+                "mobile_content_top_offset": 14,
+                "image_1": "shopify:\/\/shop_images\/Group_1_ed6dda67-3870-4331-a2d7-8dbe33c6998a.png",
+                "overlay_opacity": 0,
+                "banner_height": "medium",
+                "desktop_content_position": "middle-center",
+                "color_scheme": "scheme-5",
+                "container": false
+            }
+        },
+        "why_private_label_xdjzAe": {
+            "type": "why-private-label",
+            "blocks": {
+                "column_YLtTTK": {
+                    "type": "column",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/refund_and_claim.png",
+                        "text": "Enable Growth Through Operational Trust"
+                    }
+                },
+                "column_JKYzGe": {
+                    "type": "column",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/refund_and_claim_1.png",
+                        "text": "Build Efficient, Transparent Supply Chains"
+                    }
+                },
+                "column_C4drWq": {
+                    "type": "column",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/refund_and_claim_2.png",
+                        "text": "Partner for Long-Term Success"
+                    }
+                }
+            },
+            "block_order": [
+                "column_YLtTTK",
+                "column_JKYzGe",
+                "column_C4drWq"
+            ],
+            "name": "Private Label Matters",
+            "settings": {
+                "color_scheme": "",
+                "heading": "Our Mission & Values",
+                "footer_text": "",
+                "footer_button_label": "Learn More",
+                "footer_button_link": "shopify:\/\/pages\/our-mission-values",
+                "button_style_secondary": false,
+                "padding_top": 40,
+                "padding_bottom": 40,
+                "padding_top_mobile": 30,
+                "padding_bottom_mobile": 30
+            }
+        },
+        "leadership_team_wGCgXP": {
+            "type": "leadership-team",
+            "blocks": {
+                "button_RfUndA": {
+                    "type": "button",
+                    "settings": {
+                        "btn_label": "Learn More",
+                        "btn_link": "shopify:\/\/pages\/meet-the-team"
+                    }
+                },
+                "team_member_KzczeP": {
+                    "type": "team_member",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/1_7d7c5012-b52f-40c4-a946-a3aecb2dfb64.jpg",
+                        "name": "Bryan",
+                        "description": "Founder & CEO"
+                    }
+                },
+                "team_member_Bc9TH4": {
+                    "type": "team_member",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/2_b666b36b-f4ba-44a4-a49e-e029c35fb077.jpg",
+                        "name": "Jay",
+                        "description": "Operations Manager"
+                    }
+                },
+                "team_member_34R78y": {
+                    "type": "team_member",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/7_d9877967-aea2-4ba2-83dd-551245f5604c.jpg",
+                        "name": "John",
+                        "description": "Sourcing Manager"
+                    }
+                },
+                "team_member_3eFd6h": {
+                    "type": "team_member",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/4_edf6d343-fae9-491c-a3f1-ddd1b2b10058.jpg",
+                        "name": "Dahl",
+                        "description": "Quality Control Supervisor"
+                    }
+                },
+                "team_member_hhWEr8": {
+                    "type": "team_member",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/8_d3711a04-a701-426a-adc1-9b98c0450c0d.jpg",
+                        "name": "Bruce",
+                        "description": "Warehouse Manager"
+                    }
+                }
+            },
+            "block_order": [
+                "button_RfUndA",
+                "team_member_KzczeP",
+                "team_member_Bc9TH4",
+                "team_member_34R78y",
+                "team_member_3eFd6h",
+                "team_member_hhWEr8"
+            ],
+            "name": "Leadership Team",
+            "settings": {
+                "color_scheme": "",
+                "heading": "Meet the Team",
+                "padding_top": 60,
+                "padding_bottom": 60,
+                "padding_top_mobile": 30,
+                "padding_bottom_mobile": 30
+            }
+        },
+        "referral_commission_TVFBrQ": {
+            "type": "referral-commission",
+            "blocks": {
+                "commission_card_KrCbDn": {
+                    "type": "commission_card",
+                    "settings": {
+                        "label": "Fulfillment Accuracy",
+                        "value": "98%+"
+                    }
+                },
+                "commission_card_qKkYEJ": {
+                    "type": "commission_card",
+                    "settings": {
+                        "label": "Response Time",
+                        "value": "< 1 Hour"
+                    }
+                },
+                "commission_card_ApgdHG": {
+                    "type": "commission_card",
+                    "settings": {
+                        "label": "Fewer After-Sales Issues",
+                        "value": "30%+"
+                    }
+                },
+                "commission_card_QgiBBx": {
+                    "type": "commission_card",
+                    "settings": {
+                        "label": "Client Satisfaction",
+                        "value": "95%+"
+                    }
+                }
+            },
+            "block_order": [
+                "commission_card_KrCbDn",
+                "commission_card_qKkYEJ",
+                "commission_card_ApgdHG",
+                "commission_card_QgiBBx"
+            ],
+            "name": "Referral Commission",
+            "settings": {
+                "color_scheme": "",
+                "heading": "Trusted by Growing Sellers",
+                "custom_bg": "shopify:\/\/shop_images\/Pattern_Bot_4.png",
+                "bg_size": "contain",
+                "bg_repeat": "no-repeat",
+                "bg_position": "bottom center",
+                "btn_text": "Learn More",
+                "btn_link": "shopify:\/\/pages\/testimonials-case-studies",
+                "padding_top": 50,
+                "padding_bottom": 50,
+                "padding_top_mobile": 30,
+                "padding_bottom_mobile": 30
+            }
+        },
+        "affiliate_xk9kWr": {
+            "type": "affiliate",
+            "blocks": {
+                "card_xnELbQ": {
+                    "type": "card",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Blog_post_card_3.png",
+                        "title": "Partner with PBfulfill",
+                        "description": "Work with us to support your clients and earn long-term commissions through structured partnerships."
+                    }
+                },
+                "card_zXq9Vx": {
+                    "type": "card",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Blog_post_card.png",
+                        "title": "Earn as an Affiliate",
+                        "description": "Refer sellers to PBfulfill and earn recurring commissions from every fulfilled order."
+                    }
+                },
+                "card_E7key3": {
+                    "type": "card",
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/Blog_post_card_1.png",
+                        "title": "Built for Long-Term Growth",
+                        "description": "Tiered commissions, fast payouts, and dedicated support — designed to scale with you."
+                    }
+                }
+            },
+            "block_order": [
+                "card_xnELbQ",
+                "card_zXq9Vx",
+                "card_E7key3"
+            ],
+            "name": "Become an Affiliate",
+            "settings": {
+                "color_scheme": "",
+                "custom_class": "small-hide",
+                "columns_desktop": 3,
+                "bg_image": "shopify:\/\/shop_images\/Background_pattern.png",
+                "title": "Partners & Affiliates",
+                "button_text": "Learn More",
+                "button_link": "shopify:\/\/pages\/partners-affiliates",
+                "padding_top": 50,
+                "padding_bottom": 50,
+                "padding_top_mobile": 30,
+                "padding_bottom_mobile": 30
+            }
+        },
+        "affilate_mobile_HVrDmR": {
+            "type": "Affilate-mobile",
+            "blocks": {
+                "photo_nf8bWG": {
+                    "type": "photo",
+                    "disabled": true,
+                    "settings": {
+                        "image": "shopify:\/\/shop_images\/9b758c90-af82-493d-b60c-8dab2274dfa8_removalai_preview.png"
+                    }
+                },
+                "text_BUMYpJ": {
+                    "type": "text",
+                    "name": "Card Text ",
+                    "settings": {
+                        "title": "Refer A Friend",
+                        "text": "We will reach out to your friend."
+                    }
+                },
+                "text_PGDQ3V": {
+                    "type": "text",
+                    "name": "Card Text ",
+                    "settings": {
+                        "title": "Calculate the Profit",
+                        "text": "Get $0.2 from each referral order."
+                    }
+                },
+                "text_bBkLif": {
+                    "type": "text",
+                    "name": "Card Text ",
+                    "settings": {
+                        "title": "Get Your Earnings",
+                        "text": "Receive your earnings via PayPal or Payoneer."
+                    }
+                },
+                "mobile_item_A8TD9Y": {
+                    "type": "mobile_item",
+                    "name": "Card Image",
+                    "settings": {
+                        "icon": "shopify:\/\/shop_images\/Refer_A_Friend_95051e38-d5b2-41db-838a-f35d58f03a3a.svg",
+                        "heading_mobile": "Refer A Friend",
+                        "text": "We will reach out to your friend."
+                    }
+                },
+                "mobile_item_b7xTkk": {
+                    "type": "mobile_item",
+                    "name": "Card Image",
+                    "settings": {
+                        "icon": "shopify:\/\/shop_images\/rivet-icons_money.svg",
+                        "heading_mobile": "Calculate the Profit",
+                        "text": "Get $0.2 from each referral order."
+                    }
+                },
+                "mobile_item_dp9hN4": {
+                    "type": "mobile_item",
+                    "name": "Card Image",
+                    "settings": {
+                        "icon": "shopify:\/\/shop_images\/What_Is_the_Profit_e33a2c67-ddfd-48df-94bc-13e8ed2b2dc7.svg",
+                        "heading_mobile": "Get Your Earnings",
+                        "text": "Receive your earnings via PayPal or Payoneer."
+                    }
+                }
+            },
+            "block_order": [
+                "photo_nf8bWG",
+                "text_BUMYpJ",
+                "text_PGDQ3V",
+                "text_bBkLif",
+                "mobile_item_A8TD9Y",
+                "mobile_item_b7xTkk",
+                "mobile_item_dp9hN4"
+            ],
+            "name": "Feature Card Display-2 (Mobile)",
+            "settings": {
+                "custom_class": "desktop-hide",
+                "bg_color": "#ffffff",
+                "heading": "Become An Affiliate",
+                "button_label": "Join Now",
+                "button_link": "shopify:\/\/pages\/about-us",
+                "padding_top": 50,
+                "padding_bottom": 50,
+                "padding_top_mobile": 30,
+                "padding_bottom_mobile": 30
+            }
+        },
+        "cta_banner_XQhrni": {
+            "type": "cta-banner",
+            "blocks": {
+                "heading_9ihnzc": {
+                    "type": "heading",
+                    "settings": {
+                        "heading": "Let’s scale your business with the right partner!",
+                        "heading_size": "h1",
+                        "font_weight": "600"
+                    }
+                },
+                "button_DX8Dri": {
+                    "type": "button",
+                    "settings": {
+                        "button_label": "Get a Free Quote",
+                        "button_link": "shopify:\/\/pages\/contact",
+                        "button_style_secondary": true
+                    }
+                }
+            },
+            "block_order": [
+                "heading_9ihnzc",
+                "button_DX8Dri"
+            ],
+            "name": "HCA Custom Banner",
+            "settings": {
+                "color_scheme": "",
+                "card_bg_image": "shopify:\/\/shop_images\/Background_pattern_1.png",
+                "rainbow_image": "shopify:\/\/shop_images\/c23e5f4e08119a8d0c0458e0f3678534efaeda2c_3_c31db788-8c70-4d56-97f7-511e8439c83e.png",
+                "airplane_image": "shopify:\/\/shop_images\/Group_4.png",
+                "grid_opacity": 30,
+                "padding_top": 36,
+                "padding_bottom": 36,
+                "padding_top_mobile": 30,
+                "padding_bottom_mobile": 30
+            }
+        }
+    },
+    "order": [
+        "main",
+        "hero_banner_MCaKmP",
+        "why_private_label_xdjzAe",
+        "leadership_team_wGCgXP",
+        "referral_commission_TVFBrQ",
+        "affiliate_xk9kWr",
+        "affilate_mobile_HVrDmR",
+        "cta_banner_XQhrni"
+    ]
+}
