@@ -37,9 +37,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: bottom center;
-    transform: scale({{ section.settings.image_scale | divided_by: 100.0 }});
-    transform-origin: bottom center;
+    object-position: center;
   }
 
   .hb-content-{{ section.id }} { 
@@ -163,22 +161,6 @@
     { "type": "range", "id": "mobile_content_top_offset", "min": -100, "max": 100, "step": 2, "unit": "%", "label": "Mobile Content Top Offset (%)", "default": 24 },
     
     { "type": "image_picker", "id": "image_1", "label": "Image 1" },
-    
-    { "type": "range", "id": "image_scale", "min": 100, "max": 150, "step": 1, "unit": "%", "label": "Image Scale (Zoom)", "default": 100 },
-
-    { "type": "select", "id": "image_fit", "label": "Image Fit", "options": [
-      { "value": "cover", "label": "Cover" },
-      { "value": "contain", "label": "Contain" },
-      { "value": "fill", "label": "Fill" }
-    ], "default": "cover" },
-
-    { "type": "select", "id": "image_position", "label": "Image Position", "options": [
-      { "value": "center", "label": "Center" },
-      { "value": "top", "label": "Top" },
-      { "value": "bottom", "label": "Bottom" },
-      { "value": "left", "label": "Left" },
-      { "value": "right", "label": "Right" }
-    ], "default": "center" },
     
     { "type": "range", "id": "overlay_opacity", "min": 0, "max": 100, "step": 1, "unit": "%", "label": "Overlay opacity", "default": 0 },
     
