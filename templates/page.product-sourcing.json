@@ -23,14 +23,14 @@
         "heading_TG4fDk": {
           "type": "heading",
           "settings": {
-            "text": "Find the Right Products, From the Right Suppliers",
+            "text": "China Product Sourcing Services",
             "mb": 24
           }
         },
         "text_jrBdUK": {
           "type": "text",
           "settings": {
-            "text": "Leverage PBfulfill’s sourcing expertise in Yiwu and Guangzhou to access millions of verified factories at the best price.",
+            "text": "Leverage our product sourcing agents' expertise in Yiwu and Guangzhou to access millions of verified factories at the best prices.",
             "mb": 40
           }
         },
@@ -73,7 +73,7 @@
           "type": "advantage",
           "name": "Collapsible Card",
           "settings": {
-            "icon": "shopify://shop_images/Gemini_Generated_Image_flbjobflbjobflbj.png",
+            "icon": "shopify://shop_images/PB_Fulfill_China_Sourcing_factory.png",
             "title": "Access to Verified Factories Only",
             "desc": "Every cost is clearly quoted upfront — product price, fulfillment, shipping, and optional services. No surprise surcharges, no post-shipment add-ons. You always know where your margin goes before orders are processed."
           }
@@ -82,8 +82,8 @@
           "type": "advantage",
           "name": "Collapsible Card",
           "settings": {
-            "icon": "shopify://shop_images/Gemini_Generated_Image_ys87hrys87hrys87.png",
-            "title": "MOQ Flexibility for small to medium sellers",
+            "icon": "shopify://shop_images/Best_MOQ.png",
+            "title": "Low MOQ Flexibility for Small and Medium Sellers",
             "desc": "You work with a dedicated fulfillment agent who understands your products, order flow, and standards. No ticket hopping, no generic replies — just direct communication and real accountability for every shipment."
           }
         },
@@ -91,8 +91,8 @@
           "type": "advantage",
           "name": "Collapsible Card",
           "settings": {
-            "icon": "shopify://shop_images/Gemini_Generated_Image_qdld8tqdld8tqdld.png",
-            "title": "Negotiation & Price Control done by experts",
+            "icon": "shopify://shop_images/Price_Control.png",
+            "title": "Expert Factory Negotiation and Price Control",
             "desc": "We source across multiple verified factories and suppliers instead of locking you into a single channel. This flexibility allows better pricing, stable inventory, and fast adjustments when demand or product strategy changes."
           }
         },
@@ -100,7 +100,7 @@
           "type": "advantage",
           "name": "Collapsible Card",
           "settings": {
-            "icon": "shopify://shop_images/Gemini_Generated_Image_kbr96zkbr96zkbr9.png",
+            "icon": "shopify://shop_images/Chinese_Sourcing_Agent.png",
             "title": "Sample Testing Before Bulk Orders",
             "desc": "From branded packaging to inserts and logo customization, we help transform generic products into brand-ready shipments. Ideal for sellers moving beyond testing and building long-term brand value with consistent presentation."
           }
@@ -115,7 +115,7 @@
       "name": "Collapsible Card Section",
       "settings": {
         "color_scheme": "",
-        "heading": "Our Key Advantages",
+        "heading": "Why Choose Our China Sourcing Agents",
         "bg_color": "#ffffff",
         "pt": 60,
         "pb": 60,
@@ -140,7 +140,7 @@
           "type": "step",
           "name": "Workflow Card",
           "settings": {
-            "step_title": "Supplier Matching & Quotation",
+            "step_title": "Supplier Matching and Quotation",
             "step_description": "We match your request with verified suppliers and provide clear quotes covering product cost, fulfillment, and shipping options.",
             "step_image": "shopify://shop_images/Supplier_matching_quotation.png"
           }
@@ -158,7 +158,7 @@
           "type": "step",
           "name": "Workflow Card",
           "settings": {
-            "step_title": "Bulk Order & Factory Production",
+            "step_title": "Bulk Order and Factory Production",
             "step_description": "Once approved, we coordinate bulk production, manage timelines, and keep you updated throughout the manufacturing process.",
             "step_image": "shopify://shop_images/Bulk_order_factory_production.png"
           }
@@ -167,7 +167,7 @@
           "type": "step",
           "name": "Workflow Card",
           "settings": {
-            "step_title": "Quality Inspection & Shipping",
+            "step_title": "Quality Inspection and Shipping",
             "step_description": "Every order undergoes inspection before packing and trackable international shipping, with issue handling handled by our team.",
             "step_image": "shopify://shop_images/Quality_inspection_shipping.png"
           }
@@ -182,7 +182,7 @@
       ],
       "name": "Workflow Card Section-2",
       "settings": {
-        "main_heading": "Product Sourcing Workflow",
+        "main_heading": "Our Product Sourcing Workflow",
         "bg_color": "#f9fafb",
         "bg_texture": "shopify://shop_images/Background_pattern_4.png",
         "padding_top": 50,
@@ -273,7 +273,7 @@
       "name": "Category Slider Section-1",
       "settings": {
         "color_scheme": "scheme-2",
-        "heading": "Categories We Source",
+        "heading": "Product Categories We Source from China",
         "col_desktop": 3,
         "col_tablet": 2,
         "col_mobile": 1.2,
@@ -335,7 +335,7 @@
       "name": "Case Study Card Section",
       "settings": {
         "color_scheme": "",
-        "heading": "Our Sourcing Cases in Action",
+        "heading": "Our Product Sourcing Case Studies",
         "mobile_autoplay": false,
         "btn_text": "Explore Customer Reviews",
         "btn_link": "shopify://pages/testimonials-case-studies",
@@ -435,7 +435,7 @@
       "name": "Comparison Chart Section-1",
       "settings": {
         "color_scheme": "",
-        "heading": "PBFulfill vs Others",
+        "heading": "PB Fulfill vs Other Sourcing Agents",
         "bg_color": "#ffffff",
         "highlight_color": "#3b99fc",
         "c1_title": "AliExpress",
@@ -497,7 +497,7 @@
       "name": "FAQ Section",
       "settings": {
         "color_scheme": "scheme-2",
-        "heading": "FAQs",
+        "heading": "China Sourcing Agent FAQs",
         "btn_text": "See All FAQ",
         "btn_link": "",
         "accent_color": "#2b59c3",
@@ -515,7 +515,7 @@
         "heading_zzBKG3": {
           "type": "heading",
           "settings": {
-            "heading": "Let’s start finding your next winning product!",
+            "heading": "Get a Free Product Sourcing Quote in 24 Hours",
             "heading_size": "h1",
             "font_weight": "600"
           }
