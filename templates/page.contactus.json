@@ -60,7 +60,7 @@
         "mobile_content_top_offset": 14,
         "image_1": "shopify://shop_images/Group_1_ed6dda67-3870-4331-a2d7-8dbe33c6998a.png",
         "overlay_opacity": 0,
-        "banner_height": "medium",
+        "banner_height": "large",
         "desktop_content_position": "middle-center",
         "color_scheme": "scheme-5",
         "container": false
