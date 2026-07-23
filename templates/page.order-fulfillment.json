@@ -87,7 +87,7 @@
         "padding_bottom_mobile": 30,
         "heading": "Product Sourcing from Verified Factories",
         "card_image": "shopify://shop_images/3dc4fc944cdc4614e15cbc6d860f56dd544dbe5a_1.jpg",
-        "card_text": "<p>Tap into PBfulfill’s on-the-ground sourcing teams in Yiwu and Guangzhou to secure reliable suppliers, competitive pricing, and stable production capacity.</p>",
+        "card_text": "<p>Most fulfillment companies start work once your inventory arrives. We start earlier. Our sourcing teams work on the ground in Yiwu and Guangzhou, auditing factories in person, negotiating unit pricing in Mandarin, and holding that pricing steady across reorders. You can order a single unit to test a product, or move to bulk production once it sells, without changing partners.</p>",
         "button_label": "Learn More",
         "button_link": "shopify://pages/product-sourcing",
         "button_color": "#e32c2b",
@@ -118,7 +118,7 @@
         "richtext_jUfb7w": {
           "type": "richtext",
           "settings": {
-            "content": "<p>Our PBfulfill QC team inspects products before dispatch — reducing defects, preventing issues, and protecting your brand reputation.</p>"
+            "content": "<p>Every order is inspected before dispatch — appearance, materials, function, packaging, labelling, and quantity — against the sample you approved. You receive a photo and video report on each batch. A defect caught in our warehouse costs a rework. The same defect caught by your customer costs the refund, the return shipping, the replacement, the support time, and the review.<br/><br/></p>"
           }
         },
         "button_YFpCgP": {
@@ -222,7 +222,7 @@
         "richtext_gtx8Nc": {
           "type": "richtext",
           "settings": {
-            "content": "<p>PBfulfill operates warehouses across the U.S., Europe, and China — supporting local shipping, easier returns, and more cost-efficient order fulfillment.</p>"
+            "content": "<p>Hold stock close to your customers. Our warehouses in the US deliver nationwide in 1–2 days, with free storage for the first 60 days. Our China facility handles direct-from-factory fulfillment for products you are still testing. Inventory is scanned in on arrival, verified against your purchase order, and synced so you can see stock levels in real time.<br/><br/></p>"
           }
         },
         "button_GgmMpM": {
