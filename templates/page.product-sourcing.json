@@ -38,7 +38,7 @@
                     "type": "button",
                     "settings": {
                         "label": "Get a Free Quote",
-                        "link": "shopify://pages/contact",
+                        "link": "shopify:\/\/pages\/contact",
                         "btn_color": "#ffffff",
                         "btn_bg_hover": "#ffffff",
                         "btn_text_hover": "#3b75b5",
@@ -58,9 +58,9 @@
                 "mobile_banner_height": 50,
                 "mobile_image_top_offset": 0,
                 "mobile_content_top_offset": 14,
-                "image_1": "shopify://shop_images/Group_1_1.png",
+                "image_1": "shopify:\/\/shop_images\/Group_1_ed6dda67-3870-4331-a2d7-8dbe33c6998a.png",
                 "overlay_opacity": 0,
-                "banner_height": "large",
+                "banner_height": "medium",
                 "desktop_content_position": "middle-center",
                 "color_scheme": "scheme-5",
                 "container": false
@@ -73,7 +73,7 @@
                     "type": "advantage",
                     "name": "Collapsible Card",
                     "settings": {
-                        "icon": "shopify://shop_images/Gemini_Generated_Image_flbjobflbjobflbj.png",
+                        "icon": "shopify:\/\/shop_images\/Gemini_Generated_Image_flbjobflbjobflbj.png",
                         "title": "Access to Verified Factories Only",
                         "desc": "Every cost is clearly quoted upfront — product price, fulfillment, shipping, and optional services. No surprise surcharges, no post-shipment add-ons. You always know where your margin goes before orders are processed."
                     }
@@ -82,7 +82,7 @@
                     "type": "advantage",
                     "name": "Collapsible Card",
                     "settings": {
-                        "icon": "shopify://shop_images/Gemini_Generated_Image_ys87hrys87hrys87.png",
+                        "icon": "shopify:\/\/shop_images\/Gemini_Generated_Image_ys87hrys87hrys87.png",
                         "title": "MOQ Flexibility for small to medium sellers",
                         "desc": "You work with a dedicated fulfillment agent who understands your products, order flow, and standards. No ticket hopping, no generic replies — just direct communication and real accountability for every shipment."
                     }
@@ -91,7 +91,7 @@
                     "type": "advantage",
                     "name": "Collapsible Card",
                     "settings": {
-                        "icon": "shopify://shop_images/Gemini_Generated_Image_qdld8tqdld8tqdld.png",
+                        "icon": "shopify:\/\/shop_images\/Gemini_Generated_Image_qdld8tqdld8tqdld.png",
                         "title": "Negotiation & Price Control done by experts",
                         "desc": "We source across multiple verified factories and suppliers instead of locking you into a single channel. This flexibility allows better pricing, stable inventory, and fast adjustments when demand or product strategy changes."
                     }
@@ -100,7 +100,7 @@
                     "type": "advantage",
                     "name": "Collapsible Card",
                     "settings": {
-                        "icon": "shopify://shop_images/Gemini_Generated_Image_kbr96zkbr96zkbr9.png",
+                        "icon": "shopify:\/\/shop_images\/Gemini_Generated_Image_kbr96zkbr96zkbr9.png",
                         "title": "Sample Testing Before Bulk Orders",
                         "desc": "From branded packaging to inserts and logo customization, we help transform generic products into brand-ready shipments. Ideal for sellers moving beyond testing and building long-term brand value with consistent presentation."
                     }
@@ -133,7 +133,7 @@
                     "settings": {
                         "step_title": "Send Us Your Request",
                         "step_description": "Share your product links, requirements, target price, and shipping regions. We review feasibility and align expectations before sourcing begins.",
-                        "step_image": "shopify://shop_images/Send_us_your_request.png"
+                        "step_image": "shopify:\/\/shop_images\/Send_us_your_request.png"
                     }
                 },
                 "step_U3aRde": {
@@ -142,7 +142,7 @@
                     "settings": {
                         "step_title": "Supplier Matching & Quotation",
                         "step_description": "We match your request with verified suppliers and provide clear quotes covering product cost, fulfillment, and shipping options.",
-                        "step_image": "shopify://shop_images/Supplier_matching_quotation.png"
+                        "step_image": "shopify:\/\/shop_images\/Supplier_matching_quotation.png"
                     }
                 },
                 "step_GDTPLq": {
@@ -151,7 +151,7 @@
                     "settings": {
                         "step_title": "Sample Confirmation",
                         "step_description": "Samples are prepared for quality, packaging, and functionality checks, ensuring standards are met before moving into production.",
-                        "step_image": "shopify://shop_images/1_2d1b4e48-5d7b-45f8-b059-fbb60b3f0ee5.jpg"
+                        "step_image": "shopify:\/\/shop_images\/1_2d1b4e48-5d7b-45f8-b059-fbb60b3f0ee5.jpg"
                     }
                 },
                 "step_pnV7rX": {
@@ -160,7 +160,7 @@
                     "settings": {
                         "step_title": "Bulk Order & Factory Production",
                         "step_description": "Once approved, we coordinate bulk production, manage timelines, and keep you updated throughout the manufacturing process.",
-                        "step_image": "shopify://shop_images/Bulk_order_factory_production.png"
+                        "step_image": "shopify:\/\/shop_images\/Bulk_order_factory_production.png"
                     }
                 },
                 "step_iPJXH7": {
@@ -169,7 +169,7 @@
                     "settings": {
                         "step_title": "Quality Inspection & Shipping",
                         "step_description": "Every order undergoes inspection before packing and trackable international shipping, with issue handling handled by our team.",
-                        "step_image": "shopify://shop_images/Quality_inspection_shipping.png"
+                        "step_image": "shopify:\/\/shop_images\/Quality_inspection_shipping.png"
                     }
                 }
             },
@@ -184,14 +184,14 @@
             "settings": {
                 "main_heading": "Product Sourcing Workflow",
                 "bg_color": "#f9fafb",
-                "bg_texture": "shopify://shop_images/Background_pattern_4.png",
+                "bg_texture": "shopify:\/\/shop_images\/Background_pattern_4.png",
                 "padding_top": 50,
                 "padding_bottom": 50,
                 "padding_top_mobile": 30,
                 "padding_bottom_mobile": 30,
                 "bottom_text": "Start your brand journey now.",
                 "button_text": "Contact Us",
-                "button_link": "shopify://pages/contact"
+                "button_link": "shopify:\/\/pages\/contact"
             }
         },
         "categories_swiper_kYNfab": {
@@ -200,64 +200,64 @@
                 "category_hUtCew": {
                     "type": "category",
                     "settings": {
-                        "image": "shopify://shop_images/Electronics.png",
+                        "image": "shopify:\/\/shop_images\/Electronics.png",
                         "title": "",
                         "button_label": "Electronics",
-                        "link": "https://admin.shopify.com/store/pbfulfill/content/articles?selectedView=all"
+                        "link": "https:\/\/admin.shopify.com\/store\/pbfulfill\/content\/articles?selectedView=all"
                     }
                 },
                 "category_eDGAqm": {
                     "type": "category",
                     "settings": {
-                        "image": "shopify://shop_images/Beauty_Personal_Care.png",
+                        "image": "shopify:\/\/shop_images\/Beauty_Personal_Care.png",
                         "title": "",
                         "button_label": "Beauty & Personal Care",
-                        "link": "https://pbfulfill.com/blogs/marketing-strategy/beauty-personal-care-is-one-of-the-best-dropshipping-niches"
+                        "link": "https:\/\/pbfulfill.com\/blogs\/marketing-strategy\/beauty-personal-care-is-one-of-the-best-dropshipping-niches"
                     }
                 },
                 "category_8PAhFN": {
                     "type": "category",
                     "settings": {
-                        "image": "shopify://shop_images/Apparel_Accessories.png",
+                        "image": "shopify:\/\/shop_images\/Apparel_Accessories.png",
                         "title": "",
                         "button_label": "Apparel & Accessories",
-                        "link": "https://pbfulfill.com/blogs/about-dropshipping/fully-design"
+                        "link": "https:\/\/pbfulfill.com\/blogs\/about-dropshipping\/fully-design"
                     }
                 },
                 "category_krqPfz": {
                     "type": "category",
                     "settings": {
-                        "image": "shopify://shop_images/Pet_Supplies.png",
+                        "image": "shopify:\/\/shop_images\/Pet_Supplies.png",
                         "title": "",
                         "button_label": "Pet Supplies",
-                        "link": "https://pbfulfill.com/blogs/marketing-strategy/dropship-pet-supplies-without-inventory"
+                        "link": "https:\/\/pbfulfill.com\/blogs\/marketing-strategy\/dropship-pet-supplies-without-inventory"
                     }
                 },
                 "category_txGgqQ": {
                     "type": "category",
                     "settings": {
-                        "image": "shopify://shop_images/Toys.png",
+                        "image": "shopify:\/\/shop_images\/Toys.png",
                         "title": "",
                         "button_label": "Toys",
-                        "link": "https://pbfulfill.com/blogs/product-recommendation/10-must-have-educational-toys-for-kids-that-parents-are-raving-about"
+                        "link": "https:\/\/pbfulfill.com\/blogs\/product-recommendation\/10-must-have-educational-toys-for-kids-that-parents-are-raving-about"
                     }
                 },
                 "category_w4LREP": {
                     "type": "category",
                     "settings": {
-                        "image": "shopify://shop_images/Sports_Outdoor.png",
+                        "image": "shopify:\/\/shop_images\/Sports_Outdoor.png",
                         "title": "",
                         "button_label": "Sports & Outdoor",
-                        "link": "https://pbfulfill.com/blogs/product-recommendation/top-10-outdoor-niches-that-make-dropshippers-rich"
+                        "link": "https:\/\/pbfulfill.com\/blogs\/product-recommendation\/top-10-outdoor-niches-that-make-dropshippers-rich"
                     }
                 },
                 "category_pNi8ny": {
                     "type": "category",
                     "settings": {
-                        "image": "shopify://shop_images/Home_Decor.png",
+                        "image": "shopify:\/\/shop_images\/Home_Decor.png",
                         "title": "",
                         "button_label": "Home Décor",
-                        "link": "https://pbfulfill.com/blogs/product-recommendation/35-home-decor-spring"
+                        "link": "https:\/\/pbfulfill.com\/blogs\/product-recommendation\/35-home-decor-spring"
                     }
                 }
             },
@@ -297,8 +297,8 @@
                     "type": "case_study",
                     "settings": {
                         "width": "full",
-                        "image": "shopify://shop_images/Our_Sourcing_Cases_in_Action1.png",
-                        "avatar_group": "shopify://shop_images/Real_Sourcing_Cases1.png",
+                        "image": "shopify:\/\/shop_images\/Our_Sourcing_Cases_in_Action1.png",
+                        "avatar_group": "shopify:\/\/shop_images\/Real_Sourcing_Cases1.png",
                         "title": "Cut sourcing costs by 30% through supplier negotiation",
                         "description": "We restructured the supplier list, negotiated factory pricing, and optimized order terms, helping a US seller reduce sourcing costs by over 30% without compromising product quality or delivery timelines.",
                         "card_link": ""
@@ -308,8 +308,8 @@
                     "type": "case_study",
                     "settings": {
                         "width": "half",
-                        "image": "shopify://shop_images/Our_Sourcing_Cases_in_Action2.png",
-                        "avatar_group": "shopify://shop_images/Real_Sourcing_Cases2.png",
+                        "image": "shopify:\/\/shop_images\/Our_Sourcing_Cases_in_Action2.png",
+                        "avatar_group": "shopify:\/\/shop_images\/Real_Sourcing_Cases2.png",
                         "title": "Sample testing prevented costly returns and delays",
                         "description": "Our team conducted pre-production sample inspections to identify quality and packaging issues early, helping a UK seller avoid return risks, customer complaints, and post-launch fulfillment disruptions.",
                         "card_link": ""
@@ -319,8 +319,8 @@
                     "type": "case_study",
                     "settings": {
                         "width": "half",
-                        "image": "shopify://shop_images/Our_Sourcing_Cases_in_Action3.png",
-                        "avatar_group": "shopify://shop_images/Real_Sourcing_Cases3.png",
+                        "image": "shopify:\/\/shop_images\/Our_Sourcing_Cases_in_Action3.png",
+                        "avatar_group": "shopify:\/\/shop_images\/Real_Sourcing_Cases3.png",
                         "title": "Custom packaging executed from sourcing to delivery",
                         "description": "We supported a European brand with custom packaging sourcing, supplier coordination, and production alignment, ensuring branded packaging was delivered consistently across all fulfillment batches.",
                         "card_link": ""
@@ -338,7 +338,7 @@
                 "heading": "Our Sourcing Cases in Action",
                 "mobile_autoplay": false,
                 "btn_text": "Explore Customer Reviews",
-                "btn_link": "shopify://pages/testimonials-case-studies",
+                "btn_link": "shopify:\/\/pages\/testimonials-case-studies",
                 "btn_color": "#e32c2b",
                 "bg_color": "#ffffff",
                 "padding_top": 50,
@@ -358,10 +358,10 @@
                 "title": "Our Sourcing Team",
                 "main_text": "Our sourcing experts are based in Yiwu & Guangzhou, fluent in English, and experienced in factory auditing.",
                 "btn_text": "Meet the Team",
-                "link": "shopify://pages/meet-the-team",
-                "box_image": "shopify://shop_images/Background_pattern_3.png",
-                "rainbow_image": "shopify://shop_images/Light_accent.png",
-                "bg_image_right": "shopify://shop_images/7da0d455a03966058e19dd231d1c3f601ba07cf6.jpg",
+                "link": "shopify:\/\/pages\/meet-the-team",
+                "box_image": "shopify:\/\/shop_images\/Background_pattern_3.png",
+                "rainbow_image": "shopify:\/\/shop_images\/Light_accent.png",
+                "bg_image_right": "shopify:\/\/shop_images\/7da0d455a03966058e19dd231d1c3f601ba07cf6.jpg",
                 "grad_1": "#3e74b9",
                 "grad_2": "#5da8d5",
                 "padding_top": 50,
@@ -439,12 +439,12 @@
                 "bg_color": "#ffffff",
                 "highlight_color": "#3b99fc",
                 "c1_title": "AliExpress",
-                "c1_logo": "shopify://shop_images/fac24c69a55836ae5659436463661fc5df579bf3.png",
+                "c1_logo": "shopify:\/\/shop_images\/fac24c69a55836ae5659436463661fc5df579bf3.png",
                 "c1_sub": "",
-                "c2_logo": "shopify://shop_images/PB_fulfill_logo1_1_-cropped_1.svg",
+                "c2_logo": "shopify:\/\/shop_images\/PB_fulfill_logo1_1_-cropped_1.svg",
                 "c2_sub": "",
                 "c3_title": "3rd-Party Agents",
-                "c3_logo": "shopify://shop_images/ec3ce8c9ad481ab94cef7f70b06f057150c3c3bc.png",
+                "c3_logo": "shopify:\/\/shop_images\/ec3ce8c9ad481ab94cef7f70b06f057150c3c3bc.png",
                 "c3_sub": "",
                 "padding_top": 50,
                 "padding_bottom": 50,
@@ -460,7 +460,7 @@
                     "name": "QA",
                     "settings": {
                         "question": "Can you provide samples? How long does it take?",
-                        "answer": "<p>Yes.</p><ul><li>If the factory has stock, samples can be sent immediately.</li><li>If not, sample production usually takes around 10 days, depending on complexity.</li></ul>"
+                        "answer": "<p>Yes.<\/p><ul><li>If the factory has stock, samples can be sent immediately.<\/li><li>If not, sample production usually takes around 10 days, depending on complexity.<\/li><\/ul>"
                     }
                 },
                 "faq_item_jDP8zi": {
@@ -468,7 +468,7 @@
                     "name": "QA",
                     "settings": {
                         "question": "Do you have your own factory?",
-                        "answer": "<p>We operate our own production facilities and can also source products from other factories, then package and ship them on your behalf.</p>"
+                        "answer": "<p>We operate our own production facilities and can also source products from other factories, then package and ship them on your behalf.<\/p>"
                     }
                 },
                 "faq_item_NgiyGA": {
@@ -476,7 +476,7 @@
                     "name": "QA",
                     "settings": {
                         "question": "Can you provide product information and materials?",
-                        "answer": "<p>For most products, we can provide:</p><ul><li>Detailed dimensions</li><li>High-resolution image packs</li><li>Relevant certifications for specific countries or regions</li></ul>"
+                        "answer": "<p>For most products, we can provide:<\/p><ul><li>Detailed dimensions<\/li><li>High-resolution image packs<\/li><li>Relevant certifications for specific countries or regions<\/li><\/ul>"
                     }
                 },
                 "faq_item_46iLXN": {
@@ -484,7 +484,7 @@
                     "name": "QA",
                     "settings": {
                         "question": "Can I place small test orders?",
-                        "answer": "<p>Yes. For most products, we can source as little as one unit. However, if a factory does not have stock, inventory may need to be produced first. We recommend checking with us before listing products for testing.</p>"
+                        "answer": "<p>Yes. For most products, we can source as little as one unit. However, if a factory does not have stock, inventory may need to be produced first. We recommend checking with us before listing products for testing.<\/p>"
                     }
                 }
             },
@@ -524,7 +524,7 @@
                     "type": "button",
                     "settings": {
                         "button_label": "Get a Free Quote",
-                        "button_link": "shopify://pages/contact",
+                        "button_link": "shopify:\/\/pages\/contact",
                         "button_style_secondary": true
                     }
                 }
@@ -536,10 +536,10 @@
             "name": "CTA-3",
             "settings": {
                 "color_scheme": "",
-                "card_bg_image": "shopify://shop_images/Background_pattern_1.png",
-                "rainbow_image": "shopify://shop_images/c23e5f4e08119a8d0c0458e0f3678534efaeda2c_1.png",
+                "card_bg_image": "shopify:\/\/shop_images\/Background_pattern_1.png",
+                "rainbow_image": "shopify:\/\/shop_images\/c23e5f4e08119a8d0c0458e0f3678534efaeda2c_1.png",
                 "rainbow_alt": "",
-                "airplane_image": "shopify://shop_images/Group_10.png",
+                "airplane_image": "shopify:\/\/shop_images\/Group_10.png",
                 "airplane_alt": "",
                 "grid_opacity": 20,
                 "padding_top": 36,
