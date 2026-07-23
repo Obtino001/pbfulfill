@@ -31,14 +31,14 @@
         "heading_38K9cw": {
           "type": "heading",
           "settings": {
-            "text": "Scale Orders with a Reliable Fulfillment Partner",
+            "text": "Order Fulfillment Services",
             "mb": 20
           }
         },
         "text_cnT3Eh": {
           "type": "text",
           "settings": {
-            "text": "From China to global warehouses, PBfulfill manages picking, packing, shipping, and tracking — helping you deliver faster, reduce errors, and keep operations under control.",
+            "text": "From China to global warehouses, PBfulfill manages picking, packing, shipping, and tracking.",
             "mb": 30
           }
         },
@@ -85,7 +85,7 @@
         "padding_bottom": 80,
         "padding_top_mobile": 30,
         "padding_bottom_mobile": 30,
-        "heading": "Source Smarter with Verified Factories",
+        "heading": "Product Sourcing from Verified Factories",
         "card_image": "shopify://shop_images/3dc4fc944cdc4614e15cbc6d860f56dd544dbe5a_1.jpg",
         "card_text": "<p>Tap into PBfulfill’s on-the-ground sourcing teams in Yiwu and Guangzhou to secure reliable suppliers, competitive pricing, and stable production capacity.</p>",
         "button_label": "Learn More",
@@ -110,8 +110,8 @@
         "title_8gedhc": {
           "type": "title",
           "settings": {
-            "bold": "",
-            "rest": "Quality You Can Trust, Every Shipment",
+            "bold": "Pre-Shipment Quality Inspection on Every Order",
+            "rest": "",
             "make_h2": true
           }
         },
@@ -160,19 +160,22 @@
         "column_aKwQpW": {
           "type": "column",
           "settings": {
-            "text": "Logo & packaging customization support"
+            "image": "shopify://shop_images/After.png",
+            "text": "Logo and Packaging Customization"
           }
         },
         "column_8T7TBd": {
           "type": "column",
           "settings": {
-            "text": "Factory-backed private label production"
+            "image": "shopify://shop_images/1_be8c588f-7622-42c9-9c9d-071c6c8561bb.jpg",
+            "text": "Factory-Backed Private Label Production"
           }
         },
         "column_nqCmMD": {
           "type": "column",
           "settings": {
-            "text": "End-to-end branding coordination"
+            "image": "shopify://shop_images/branding.jpg",
+            "text": "End-to-End Branding Coordination"
           }
         }
       },
@@ -184,7 +187,7 @@
       "name": "Feature Card Section-3",
       "settings": {
         "color_scheme": "scheme-2",
-        "heading": "PBfulfill Private Label Core Practices",
+        "heading": "PBfulfill Custom Packaging Fulfillment",
         "footer_text": "",
         "footer_button_label": "Learn More",
         "footer_button_link": "shopify://pages/private-label",
@@ -212,7 +215,7 @@
           "type": "title",
           "settings": {
             "bold": "",
-            "rest": "Strategic Warehouses for Faster Global Fulfillment",
+            "rest": "US and China Warehouses for Faster Order Fulfillment",
             "make_h2": true
           }
         },
@@ -308,7 +311,7 @@
       "type": "st-section",
       "name": "CTA-2",
       "settings": {
-        "title": "Fast, Reliable Shipping You Can Scale With",
+        "title": "Fast and Reliable Shipping You Can Scale With",
         "main_text": "From China to global destinations — PBfulfill manages carrier selection, route optimization, and real-time tracking to keep every order moving smoothly.",
         "btn_text": "Learn More",
         "link": "shopify://pages/shipping-service",
@@ -449,7 +452,7 @@
         "heading_eT4LcP": {
           "type": "heading",
           "settings": {
-            "heading": "Scale Your Business with Our Fulfillment!",
+            "heading": "Get an Order Fulfillment Quote in 24 Hours",
             "heading_size": "h1",
             "font_weight": "600"
           }
