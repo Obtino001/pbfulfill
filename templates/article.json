@@ -25,7 +25,7 @@
       ],
       "name": "Hero Banner Pro",
       "settings": {
-        "image_top_offset": -36,
+        "image_top_offset": -10,
         "content_top_offset": 24,
         "mobile_banner_height": 40,
         "mobile_image_top_offset": 0,
