@@ -41,14 +41,14 @@
       ],
       "name": "Hero Banner",
       "settings": {
-        "image_top_offset": -36,
+        "image_top_offset": -10,
         "content_top_offset": 24,
         "mobile_banner_height": 50,
         "mobile_image_top_offset": 0,
         "mobile_content_top_offset": 14,
-        "image_1": "shopify://shop_images/Group_1_ed6dda67-3870-4331-a2d7-8dbe33c6998a.png",
+        "image_1": "shopify://shop_images/Group_10633.png",
         "overlay_opacity": 0,
-        "banner_height": "large",
+        "banner_height": "medium",
         "desktop_content_position": "middle-center",
         "color_scheme": "scheme-5",
         "container": false
