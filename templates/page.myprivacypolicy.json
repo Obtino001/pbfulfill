@@ -8,134 +8,137 @@
  * ------------------------------------------------------------
  */
 {
-    "sections": {
-        "main": {
-            "type": "main-page",
-            "disabled": true,
-            "settings": {
-                "padding_top": 28,
-                "padding_bottom": 28
-            }
-        },
-        "hero_banner_M4FmQN": {
-            "type": "Hero-banner",
-            "blocks": {
-                "heading_cn87D6": {
-                    "type": "heading",
-                    "settings": {
-                        "text": "Privacy Policy",
-                        "mb": 20
-                    }
-                },
-                "breadcrumbs_46qhKG": {
-                    "type": "breadcrumbs",
-                    "settings": {
-                        "color": "#ffffff",
-                        "mb": 16
-                    }
-                }
-            },
-            "block_order": [
-                "heading_cn87D6",
-                "breadcrumbs_46qhKG"
-            ],
-            "name": "Hero Banner",
-            "settings": {
-                "image_top_offset": -22,
-                "content_top_offset": 24,
-                "mobile_image_top_offset": 0,
-                "mobile_content_top_offset": 14,
-                "image_1": "shopify:\/\/shop_images\/Group_1_ed6dda67-3870-4331-a2d7-8dbe33c6998a.png",
-                "overlay_opacity": 0,
-                "banner_height": "medium",
-                "desktop_content_position": "middle-center",
-                "color_scheme": "scheme-5",
-                "container": false
-            }
-        },
-        "toc_article_updated": {
-            "type": "toc-article",
-            "blocks": {
-                "intro": {
-                    "type": "chapter",
-                    "settings": {
-                        "title": "Introduction",
-                        "text": "<p>Operated by Handel (Ningbo) Electronic Commerce Co., Ltd., PB Fulfill values and firmly protects your privacy. By visiting our website, you agree to the policy items outlined below. They are to explain how we collect, use, and protect the user information we obtain.<\/p>"
-                    }
-                },
-                "data_collect": {
-                    "type": "chapter",
-                    "settings": {
-                        "title": "Information We Collect",
-                        "text": "<h3><strong>Personal Information<\/strong><\/h3><p>When you register, place an order, subscribe, or fill out a contact form, we collect personal information, including but not limited to:<\/p><ul><li>Name<\/li><li>Email Address<\/li><li>Phone Number<\/li><li>Billing and Address<\/li><li>Payment Details<\/li><\/ul><h3><strong>Non-Personal Information<\/strong><\/h3><p>We also gather general technical information:<\/p><ul><li>Browser Type<\/li><li>Device and operating system details<\/li><li>Usage trends<\/li><\/ul>"
-                    }
-                },
-                "order_issue": {
-                    "type": "chapter",
-                    "settings": {
-                        "title": "How We Use Information",
-                        "text": "<p>We may use the collected information to complete and improve the following processes:<\/p><ul><li><h3>To fulfill the services you've requested<\/h3><\/li><li><h3>To respond quickly to support inquiries and provide better service<\/h3><\/li><li><h3>To send updates, emails, service notices, or other marketing content<\/h3><\/li><li><h3>To analyze and further improve website performance<\/h3><\/li><\/ul>"
-                    }
-                },
-                "quality_issue": {
-                    "type": "chapter",
-                    "settings": {
-                        "title": "How We Safeguard Information",
-                        "text": "<p>We implement the following measures to protect your privacy:<\/p><ul><li><h3>SSL Encryption<\/h3><\/li><\/ul><p><br\/>All sensitive data is transmitted with Secure Socket Layer (SSL) encryption<\/p><ul><li><h3>Restrict Access<\/h3><\/li><\/ul><p><br\/>Access to our database is limited to authorized personnel only, and all activities are governed by confidentiality agreements<\/p>"
-                    }
-                },
-                "shipping_logistics": {
-                    "type": "chapter",
-                    "settings": {
-                        "title": "Information Sharing Policy",
-                        "text": "<p>We may share the collected information with business partners (who are contractually obligated to ensure your information security) to fulfill orders and optimize services. However, we will not disclose or sell your information to any other external parties for any other purposes.<\/p>"
-                    }
-                },
-                "requirements": {
-                    "type": "chapter",
-                    "settings": {
-                        "title": "Third-Party Services & Links",
-                        "text": "<p>Our website may feature links to external platforms or third-party tools. They operate their services under their own privacy policies, and we are not responsible for any privacy invasion they may cause you. We recommend you reviewing their policies carefully before providing yoiur personal information.<\/p>"
-                    }
-                },
-                "chapter_rUGtD3": {
-                    "type": "chapter",
-                    "settings": {
-                        "title": "Opt out of Our Marketing",
-                        "text": "<p>The option to unsubscribe is available at any time. Simply click the attached unsubscribe link or contact our support team if you no longer wish to receive promotional content.<\/p>"
-                    }
-                },
-                "chapter_G7GDMg": {
-                    "type": "chapter",
-                    "settings": {
-                        "title": "Updates to This Policy",
-                        "text": "<p>We may revise these policy items due to changes in our services or relevant regulations. And any updates will be announced on this page. We encourage you to periodically check this page to see how your data is being handled.<\/p>"
-                    }
-                }
-            },
-            "block_order": [
-                "intro",
-                "data_collect",
-                "order_issue",
-                "quality_issue",
-                "shipping_logistics",
-                "requirements",
-                "chapter_rUGtD3",
-                "chapter_G7GDMg"
-            ],
-            "name": "TOC Policy Page",
-            "settings": {
-                "color_scheme": "",
-                "full_width": false,
-                "toc_title": "CONTENTS",
-                "padding_top": 60,
-                "padding_bottom": 60
-            }
-        }
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
     },
-    "order": [
-        "main",
-        "hero_banner_M4FmQN",
-        "toc_article_updated"
-    ]
+    "hero_banner_M4FmQN": {
+      "type": "Hero-banner",
+      "blocks": {
+        "heading_cn87D6": {
+          "type": "heading",
+          "settings": {
+            "text": "Privacy Policy",
+            "mb": 20
+          }
+        },
+        "breadcrumbs_46qhKG": {
+          "type": "breadcrumbs",
+          "settings": {
+            "color": "#ffffff",
+            "mb": 16
+          }
+        }
+      },
+      "block_order": [
+        "heading_cn87D6",
+        "breadcrumbs_46qhKG"
+      ],
+      "name": "Hero Banner",
+      "settings": {
+        "image_top_offset": -36,
+        "content_top_offset": 24,
+        "mobile_banner_height": 50,
+        "mobile_image_top_offset": 0,
+        "mobile_content_top_offset": 14,
+        "image_1": "shopify://shop_images/Group_1_ed6dda67-3870-4331-a2d7-8dbe33c6998a.png",
+        "overlay_opacity": 0,
+        "banner_height": "large",
+        "desktop_content_position": "middle-center",
+        "color_scheme": "scheme-5",
+        "container": false
+      }
+    },
+    "toc_article_updated": {
+      "type": "toc-article",
+      "blocks": {
+        "intro": {
+          "type": "chapter",
+          "settings": {
+            "title": "Introduction",
+            "text": "<p>Operated by Handel (Ningbo) Electronic Commerce Co., Ltd., PB Fulfill values and firmly protects your privacy. By visiting our website, you agree to the policy items outlined below. They are to explain how we collect, use, and protect the user information we obtain.</p>"
+          }
+        },
+        "data_collect": {
+          "type": "chapter",
+          "settings": {
+            "title": "Information We Collect",
+            "text": "<h3><strong>Personal Information</strong></h3><p>When you register, place an order, subscribe, or fill out a contact form, we collect personal information, including but not limited to:</p><ul><li>Name</li><li>Email Address</li><li>Phone Number</li><li>Billing and Address</li><li>Payment Details</li></ul><h3><strong>Non-Personal Information</strong></h3><p>We also gather general technical information:</p><ul><li>Browser Type</li><li>Device and operating system details</li><li>Usage trends</li></ul>"
+          }
+        },
+        "order_issue": {
+          "type": "chapter",
+          "settings": {
+            "title": "How We Use Information",
+            "text": "<p>We may use the collected information to complete and improve the following processes:</p><ul><li><h3>To fulfill the services you've requested</h3></li><li><h3>To respond quickly to support inquiries and provide better service</h3></li><li><h3>To send updates, emails, service notices, or other marketing content</h3></li><li><h3>To analyze and further improve website performance</h3></li></ul>"
+          }
+        },
+        "quality_issue": {
+          "type": "chapter",
+          "settings": {
+            "title": "How We Safeguard Information",
+            "text": "<p>We implement the following measures to protect your privacy:</p><ul><li><h3>SSL Encryption</h3></li></ul><p><br/>All sensitive data is transmitted with Secure Socket Layer (SSL) encryption</p><ul><li><h3>Restrict Access</h3></li></ul><p><br/>Access to our database is limited to authorized personnel only, and all activities are governed by confidentiality agreements</p>"
+          }
+        },
+        "shipping_logistics": {
+          "type": "chapter",
+          "settings": {
+            "title": "Information Sharing Policy",
+            "text": "<p>We may share the collected information with business partners (who are contractually obligated to ensure your information security) to fulfill orders and optimize services. However, we will not disclose or sell your information to any other external parties for any other purposes.</p>"
+          }
+        },
+        "requirements": {
+          "type": "chapter",
+          "settings": {
+            "title": "Third-Party Services & Links",
+            "text": "<p>Our website may feature links to external platforms or third-party tools. They operate their services under their own privacy policies, and we are not responsible for any privacy invasion they may cause you. We recommend you reviewing their policies carefully before providing yoiur personal information.</p>"
+          }
+        },
+        "chapter_rUGtD3": {
+          "type": "chapter",
+          "settings": {
+            "title": "Opt out of Our Marketing",
+            "text": "<p>The option to unsubscribe is available at any time. Simply click the attached unsubscribe link or contact our support team if you no longer wish to receive promotional content.</p>"
+          }
+        },
+        "chapter_G7GDMg": {
+          "type": "chapter",
+          "settings": {
+            "title": "Updates to This Policy",
+            "text": "<p>We may revise these policy items due to changes in our services or relevant regulations. And any updates will be announced on this page. We encourage you to periodically check this page to see how your data is being handled.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "intro",
+        "data_collect",
+        "order_issue",
+        "quality_issue",
+        "shipping_logistics",
+        "requirements",
+        "chapter_rUGtD3",
+        "chapter_G7GDMg"
+      ],
+      "name": "TOC Policy Page",
+      "settings": {
+        "color_scheme": "",
+        "full_width": false,
+        "toc_title": "CONTENTS",
+        "padding_top": 60,
+        "padding_bottom": 60,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_banner_M4FmQN",
+    "toc_article_updated"
+  ]
 }
