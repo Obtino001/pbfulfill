@@ -59,7 +59,7 @@
         "mobile_image_top_offset": 0,
         "mobile_content_top_offset": 14,
         "image_1": "shopify://shop_images/banner_2.webp",
-        "image_fit": "fill",
+        "image_scale": 110,
         "overlay_opacity": 0,
         "banner_height": "medium",
         "desktop_content_position": "middle-center",
