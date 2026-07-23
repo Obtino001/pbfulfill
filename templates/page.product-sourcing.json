@@ -75,7 +75,7 @@
           "settings": {
             "icon": "shopify://shop_images/PB_Fulfill_China_Sourcing_factory.png",
             "title": "Access to Verified Factories Only",
-            "desc": "Every cost is clearly quoted upfront — product price, fulfillment, shipping, and optional services. No surprise surcharges, no post-shipment add-ons. You always know where your margin goes before orders are processed."
+            "desc": "Every factory in our network is audited before we route a single order to it: production capacity, quality history, export compliance, and responsiveness. Our teams visit facilities in person across Yiwu, Guangzhou, and the wider Zhejiang and Guangdong manufacturing regions, and we drop suppliers who fail a batch. You are never quoted from a directory listing we have not stood inside."
           }
         },
         "advantage_QFBYpw": {
@@ -84,7 +84,7 @@
           "settings": {
             "icon": "shopify://shop_images/Best_MOQ.png",
             "title": "Low MOQ Flexibility for Small and Medium Sellers",
-            "desc": "You work with a dedicated fulfillment agent who understands your products, order flow, and standards. No ticket hopping, no generic replies — just direct communication and real accountability for every shipment."
+            "desc": "Most factories will not quote below 500 units. We aggregate demand across our client base, which means you can order as little as one unit on the majority of products. Validate a SKU with real customer orders before committing capital to inventory, then scale to bulk production with the same supplier and the same agent when it sells."
           }
         },
         "advantage_RPkM9r": {
@@ -93,7 +93,7 @@
           "settings": {
             "icon": "shopify://shop_images/Price_Control.png",
             "title": "Expert Factory Negotiation and Price Control",
-            "desc": "We source across multiple verified factories and suppliers instead of locking you into a single channel. This flexibility allows better pricing, stable inventory, and fast adjustments when demand or product strategy changes."
+            "desc": "Our sourcing team negotiates in Mandarin, on the ground, with factory owners rather than sales agents. Every product is benchmarked against at least three suppliers before we quote, and we hold that pricing steady across reorders instead of letting it drift upward. One US seller cut sourcing costs by over 30% on an existing product line without changing factories or compromising quality."
           }
         },
         "advantage_Bddid3": {
@@ -102,7 +102,7 @@
           "settings": {
             "icon": "shopify://shop_images/Chinese_Sourcing_Agent.png",
             "title": "Sample Testing Before Bulk Orders",
-            "desc": "From branded packaging to inserts and logo customization, we help transform generic products into brand-ready shipments. Ideal for sellers moving beyond testing and building long-term brand value with consistent presentation."
+            "desc": "No bulk order proceeds without an approved sample. If the factory holds stock, samples ship immediately; if production is required, allow roughly ten days. You check materials, dimensions, function, finish, and packaging in your own hands before any money moves to production, which is where most costly sourcing mistakes are caught."
           }
         }
       },
@@ -151,7 +151,7 @@
           "settings": {
             "step_title": "Sample Confirmation",
             "step_description": "Samples are prepared for quality, packaging, and functionality checks, ensuring standards are met before moving into production.",
-            "step_image": "shopify://shop_images/1_2d1b4e48-5d7b-45f8-b059-fbb60b3f0ee5.jpg"
+            "step_image": "shopify://shop_images/Product_Sampling.jpg"
           }
         },
         "step_pnV7rX": {
@@ -439,7 +439,7 @@
         "bg_color": "#ffffff",
         "highlight_color": "#3b99fc",
         "c1_title": "AliExpress",
-        "c1_logo": "shopify://shop_images/fac24c69a55836ae5659436463661fc5df579bf3.png",
+        "c1_logo": "shopify://shop_images/Ali_Express_Logo.png",
         "c1_sub": "",
         "c2_logo": "shopify://shop_images/PB_fulfill_logo1_1_-cropped_1.svg",
         "c2_sub": "",
