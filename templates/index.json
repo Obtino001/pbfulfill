@@ -418,7 +418,7 @@
         "button_fFtb99": {
           "type": "button",
           "settings": {
-            "label": "Learn More",
+            "label": "Read Our Founder's Story",
             "link": "shopify://pages/our-mission-values",
             "button_style": "animated"
           }
@@ -828,7 +828,7 @@
         "button_pbpH3G": {
           "type": "button",
           "settings": {
-            "label": "Learn More",
+            "label": "See Our Global Warehouse Network",
             "link": "shopify://pages/global-warehouse",
             "button_style": "animated"
           }
