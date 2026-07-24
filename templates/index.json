@@ -596,7 +596,7 @@
         "padding_top_mobile": 20,
         "padding_bottom_mobile": 20,
         "heading": "Our Client's Feedback",
-        "button_label": "Learn More",
+        "button_label": "Read Seller Case Studies",
         "button_link": "shopify://pages/testimonials-case-studies",
         "autoplay_speed": 3
       }
@@ -696,7 +696,7 @@
         "columns_desktop": 3,
         "bg_image": "shopify://shop_images/Affiliate_Background_pattern.svg",
         "title": "Dropshipping Agent Affiliate Program",
-        "button_text": "Learn More",
+        "button_text": "How the Affiliate Program Works",
         "button_link": "shopify://pages/partners-affiliates",
         "padding_top": 50,
         "padding_bottom": 50,
