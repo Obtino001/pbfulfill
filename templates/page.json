@@ -67,8 +67,8 @@
         "chapter_WfnLfY": {
           "type": "chapter",
           "settings": {
-            "title": "Quality Issues",
-            "text": ""
+            "title": "What Are Cookies?",
+            "text": "<p>Cookies are small text files that a website places or stores on your browser or device.<br/><br/>Cookies can allow a website to recognize a browser or device, remember information about a visit, provide essential functions, understand website performance, and support analytics or marketing activities.<br/><br/>Some cookies are deleted when you close your browser. These are commonly called session cookies.<br/><br/>Other cookies remain on your browser or device for a defined period or until you delete them. These are commonly called persistent cookies.</p>"
           }
         },
         "chapter_qc9fga": {
