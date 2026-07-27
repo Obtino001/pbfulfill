@@ -81,8 +81,8 @@
         "quality_issue": {
           "type": "chapter",
           "settings": {
-            "title": "How We Safeguard Information",
-            "text": "<p>We implement the following measures to protect your privacy:</p><ul><li><h3>SSL Encryption</h3></li></ul><p><br/>All sensitive data is transmitted with Secure Socket Layer (SSL) encryption</p><ul><li><h3>Restrict Access</h3></li></ul><p><br/>Access to our database is limited to authorized personnel only, and all activities are governed by confidentiality agreements</p>"
+            "title": "4. Information Processed on Behalf of Business Clients",
+            "text": "<p></p><p> </p><p>To provide sourcing, warehousing, fulfillment, shipping, returns, and after-sales services, our business clients may provide us with information about their customers or order recipients.</p><p> </p><p>This information may include:</p><p> </p><p>• Recipient name;</p><p>• Shipping and delivery address;</p><p>• Telephone number;</p><p>• Email address;</p><p>• Order number;</p><p>• Product and quantity information;</p><p>• Delivery instructions;</p><p>• Shipment and tracking information;</p><p>• Customs or import information where required;</p><p>• Return, replacement, refund, or complaint information; and</p><p>• Other information reasonably required to process and deliver an order.</p><p> </p><p>We use this information to provide services to the relevant business client, including processing, packing, shipping, tracking, delivering, returning, replacing, or otherwise managing orders.</p><p> </p><p>The business client is generally responsible for determining how and why its customer information is collected and for providing any required privacy notices to its customers.</p><p> </p><p>If you are an end customer of one of our business clients and have a question or privacy request concerning your order, you should normally contact the merchant or online store from which you purchased the product.</p><p> </p><p>Where required, we will assist our business clients in responding to valid privacy requests.</p>"
           }
         },
         "shipping_logistics": {
