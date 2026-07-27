@@ -17,54 +17,88 @@
         "padding_bottom": 28
       }
     },
-    "image_banner_eNkxr9": {
-      "type": "image-banner",
+    "hero_banner_77tyFF": {
+      "type": "Hero-banner",
       "blocks": {
-        "heading_6XAcUc": {
+        "heading_C4AGFP": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
-            "heading_size": "h1"
+            "text": "Cookie Policy",
+            "mb": 20
           }
         },
-        "text_qfCRre": {
-          "type": "text",
+        "breadcrumbs_7ArTJg": {
+          "type": "breadcrumbs",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template."
-          }
-        },
-        "buttons_K7c6RF": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Button label",
-            "button_link_1": "",
-            "button_label_2": "Button label",
-            "button_link_2": ""
+            "color": "#ffffff",
+            "mb": 16
           }
         }
       },
       "block_order": [
-        "heading_6XAcUc",
-        "text_qfCRre",
-        "buttons_K7c6RF"
+        "heading_C4AGFP",
+        "breadcrumbs_7ArTJg"
       ],
-      "name": "t:sections.image-banner.presets.name",
+      "name": "Hero Banner",
       "settings": {
-        "custom_top_offset": 0,
-        "mt_percent": 20,
-        "custom_top_offset_mobile": 0,
-        "mt_percent_mobile": 0,
-        "image": "shopify://shop_images/Group_10633.png",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "desktop_content_position": "top-center",
+        "image_top_offset": -36,
+        "content_top_offset": 24,
+        "mobile_banner_height": 50,
+        "mobile_image_top_offset": 0,
+        "mobile_content_top_offset": 14,
+        "image_1": "shopify://shop_images/Group_10633.png",
+        "overlay_opacity": 0,
+        "banner_height": "medium",
+        "desktop_content_position": "middle-center",
+        "color_scheme": "scheme-5",
+        "container": false
+      }
+    },
+    "toc_article_FKA4Ri": {
+      "type": "toc-article",
+      "blocks": {
+        "chapter_9gKj6e": {
+          "type": "chapter",
+          "settings": {
+            "title": "Order Issue",
+            "text": ""
+          }
+        },
+        "chapter_WfnLfY": {
+          "type": "chapter",
+          "settings": {
+            "title": "Quality Issues",
+            "text": ""
+          }
+        },
+        "chapter_qc9fga": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        }
+      },
+      "block_order": [
+        "chapter_9gKj6e",
+        "chapter_WfnLfY",
+        "chapter_qc9fga"
+      ],
+      "name": "TOC Policy Page",
+      "settings": {
         "color_scheme": "",
-        "show_text_below": true
+        "full_width": false,
+        "toc_title": "Table of contents",
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "padding_top_mobile": 30,
+        "padding_bottom_mobile": 30
       }
     }
   },
   "order": [
     "main",
-    "image_banner_eNkxr9"
+    "hero_banner_77tyFF",
+    "toc_article_FKA4Ri"
   ]
 }
