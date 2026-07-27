@@ -166,7 +166,7 @@
           "type": "chapter",
           "settings": {
             "title": "16. Contact Us",
-            "text": "<p>For questions about this Cookie Policy, our use of cookies, or your privacy choices, please contact:</p><p> </p><p>Handel (Ningbo) Electronic Commerce Co., Ltd.</p><p>Trading as: PB Fulfill</p><p> </p><p>Email:</p><p>xwjsmart@gmail.com</p><p> </p><p>Contact page:</p><p>https://pbfulfill.com/pages/contact</p>"
+            "text": "<p>For questions about this Cookie Policy, our use of cookies, or your privacy choices, please contact:</p><p> </p><p>Handel (Ningbo) Electronic Commerce Co., Ltd.</p><p>Trading as: PB Fulfill</p><p> </p><p>Email:</p><p>xwjsmart@gmail.com</p><p> </p><p>Contact page:</p><p><a href=\"/pages/contact\" title=\"Contact Us | Start Your Dropshipping Journey Today\">https://pbfulfill.com/pages/contact</a></p>"
           }
         }
       },
