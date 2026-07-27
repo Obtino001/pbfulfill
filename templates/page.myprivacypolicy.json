@@ -147,6 +147,41 @@
             "title": "Updates to This Policy",
             "text": "<p>We may revise these policy items due to changes in our services or relevant regulations. And any updates will be announced on this page. We encourage you to periodically check this page to see how your data is being handled.</p>"
           }
+        },
+        "chapter_MkxiUp": {
+          "type": "chapter",
+          "settings": {
+            "title": "Updates to This Policy",
+            "text": "<p>We may revise these policy items due to changes in our services or relevant regulations. And any updates will be announced on this page. We encourage you to periodically check this page to see how your data is being handled.</p>"
+          }
+        },
+        "chapter_M3MrDA": {
+          "type": "chapter",
+          "settings": {
+            "title": "Updates to This Policy",
+            "text": "<p>We may revise these policy items due to changes in our services or relevant regulations. And any updates will be announced on this page. We encourage you to periodically check this page to see how your data is being handled.</p>"
+          }
+        },
+        "chapter_QDknJD": {
+          "type": "chapter",
+          "settings": {
+            "title": "Updates to This Policy",
+            "text": "<p>We may revise these policy items due to changes in our services or relevant regulations. And any updates will be announced on this page. We encourage you to periodically check this page to see how your data is being handled.</p>"
+          }
+        },
+        "chapter_8L6PU6": {
+          "type": "chapter",
+          "settings": {
+            "title": "Updates to This Policy",
+            "text": "<p>We may revise these policy items due to changes in our services or relevant regulations. And any updates will be announced on this page. We encourage you to periodically check this page to see how your data is being handled.</p>"
+          }
+        },
+        "chapter_3YBCXW": {
+          "type": "chapter",
+          "settings": {
+            "title": "Updates to This Policy",
+            "text": "<p>We may revise these policy items due to changes in our services or relevant regulations. And any updates will be announced on this page. We encourage you to periodically check this page to see how your data is being handled.</p>"
+          }
         }
       },
       "block_order": [
@@ -162,7 +197,12 @@
         "chapter_YJxXeN",
         "chapter_KkUrKC",
         "chapter_UqzVJM",
-        "chapter_Nn4hjW"
+        "chapter_Nn4hjW",
+        "chapter_MkxiUp",
+        "chapter_M3MrDA",
+        "chapter_QDknJD",
+        "chapter_8L6PU6",
+        "chapter_3YBCXW"
       ],
       "name": "TOC Policy Page",
       "settings": {
