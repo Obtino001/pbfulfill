@@ -99,6 +99,7 @@
         "social_icon_XzbHmF": {
           "type": "social_icon",
           "name": "Left Icon",
+          "disabled": true,
           "settings": {
             "icon": "shopify://shop_images/mingcute_instagram-line_470bb0d7-1811-4eb0-93f4-40dfb4632ada.svg",
             "link": "https://www.instagram.com/pbfulfill",
