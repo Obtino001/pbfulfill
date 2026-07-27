@@ -60,8 +60,8 @@
         "chapter_9gKj6e": {
           "type": "chapter",
           "settings": {
-            "title": "Order Issue",
-            "text": ""
+            "title": "Introduction",
+            "text": "<p>This Cookie Policy explains how Handel (Ningbo) Electronic Commerce Co., Ltd., trading as PB Fulfill, uses cookies and similar technologies when you visit:<br/><br/>https://pbfulfill.com<br/><br/>In this Cookie Policy, “PB Fulfill,” “we,” “us,” and “our” refer to Handel (Ningbo) Electronic Commerce Co., Ltd.<br/><br/>This Cookie Policy should be read together with our Privacy Policy:<br/><br/>https://pbfulfill.com/pages/privacy-policy<br/><br/>Our Privacy Policy explains more broadly how we collect, use, disclose, store, and protect personal information.<br/></p>"
           }
         },
         "chapter_WfnLfY": {
@@ -77,12 +77,188 @@
             "title": "Shipping & Logistics",
             "text": ""
           }
+        },
+        "chapter_jGbkBc": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_PXNrmJ": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_BMFrcn": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_hgGKFQ": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_iH6b3K": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_ti9jrE": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_wrdDcV": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_HEHz3P": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_HWWpGb": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_fBLmrV": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_9KCjcE": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_mUrxMx": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_jb4HJQ": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_tfrkKQ": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_YALMy6": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_rWM3xd": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_qVAV84": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_iEKf3r": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_VBTqYQ": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_ULW9jV": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_hAEkWk": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
+        },
+        "chapter_xk9RxE": {
+          "type": "chapter",
+          "settings": {
+            "title": "Shipping & Logistics",
+            "text": ""
+          }
         }
       },
       "block_order": [
         "chapter_9gKj6e",
         "chapter_WfnLfY",
-        "chapter_qc9fga"
+        "chapter_qc9fga",
+        "chapter_jGbkBc",
+        "chapter_PXNrmJ",
+        "chapter_BMFrcn",
+        "chapter_hgGKFQ",
+        "chapter_iH6b3K",
+        "chapter_ti9jrE",
+        "chapter_wrdDcV",
+        "chapter_HEHz3P",
+        "chapter_HWWpGb",
+        "chapter_fBLmrV",
+        "chapter_9KCjcE",
+        "chapter_mUrxMx",
+        "chapter_jb4HJQ",
+        "chapter_tfrkKQ",
+        "chapter_YALMy6",
+        "chapter_rWM3xd",
+        "chapter_qVAV84",
+        "chapter_iEKf3r",
+        "chapter_VBTqYQ",
+        "chapter_ULW9jV",
+        "chapter_hAEkWk",
+        "chapter_xk9RxE"
       ],
       "name": "TOC Policy Page",
       "settings": {
