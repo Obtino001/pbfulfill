@@ -138,14 +138,14 @@
           "type": "chapter",
           "settings": {
             "title": "12. Do Not Track and Browser Privacy Signals",
-            "text": "<p></p><p> </p><p>Some browsers offer “Do Not Track” settings or other privacy preference signals.</p><p> </p><p>There is no single universally accepted standard for responding to all such signals.</p><p> </p><p>Where required by applicable law and supported by our systems, we may recognize certain legally applicable browser-based opt-out signals, such as Global Privacy Control.</p><p> </p><p>The availability and effect of these signals may depend on your region, browser, website configuration, and applicable law.</p>"
+            "text": "<p>Some browsers offer “Do Not Track” settings or other privacy preference signals.</p><p> </p><p>There is no single universally accepted standard for responding to all such signals.</p><p> </p><p>Where required by applicable law and supported by our systems, we may recognize certain legally applicable browser-based opt-out signals, such as Global Privacy Control.</p><p> </p><p>The availability and effect of these signals may depend on your region, browser, website configuration, and applicable law.</p>"
           }
         },
         "chapter_fBLmrV": {
           "type": "chapter",
           "settings": {
             "title": "13. Cookie Duration",
-            "text": "<p></p><p>The amount of time a cookie remains on your browser or device depends on its purpose and configuration.</p><p> </p><p>Cookies may be:</p><p> </p><p>• Session cookies, which generally expire when the browser session ends; or</p><p>• Persistent cookies, which remain for a specified period or until manually deleted.</p><p> </p><p>Retention periods may vary depending on:</p><p> </p><p>• The cookie’s purpose;</p><p>• Shopify or another provider’s configuration;</p><p>• Website and privacy settings;</p><p>• Security requirements; and</p><p>• Changes to the services used on our website.</p><p> </p><p>We periodically review the cookies and related technologies used on our website.</p>"
+            "text": "<p>The amount of time a cookie remains on your browser or device depends on its purpose and configuration.</p><p> </p><p>Cookies may be:</p><p> </p><p>• Session cookies, which generally expire when the browser session ends; or</p><p>• Persistent cookies, which remain for a specified period or until manually deleted.</p><p> </p><p>Retention periods may vary depending on:</p><p> </p><p>• The cookie’s purpose;</p><p>• Shopify or another provider’s configuration;</p><p>• Website and privacy settings;</p><p>• Security requirements; and</p><p>• Changes to the services used on our website.</p><p> </p><p>We periodically review the cookies and related technologies used on our website.</p>"
           }
         },
         "chapter_9KCjcE": {
