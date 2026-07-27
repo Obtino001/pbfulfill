@@ -109,6 +109,13 @@
         "chapter_G7GDMg": {
           "type": "chapter",
           "settings": {
+            "title": "8. Shopify",
+            "text": "<p>Our website is hosted and supported by Shopify.</p><p> </p><p>Shopify provides services that may include:</p><p> </p><p>• Website hosting and infrastructure;</p><p>• Storefront and ecommerce functionality;</p><p>• Website security;</p><p>• Customer account features;</p><p>• Analytics;</p><p>• Checkout and transaction-related functionality; and</p><p>• Cookie and privacy preference management.</p><p> </p><p>Depending on how you interact with our website and which Shopify services are enabled, Shopify may process information such as:</p><p> </p><p>• IP address;</p><p>• Browser and device information;</p><p>• Cookie identifiers;</p><p>• Website activity;</p><p>• Contact details;</p><p>• Account information; and</p><p>• Transaction-related information.</p><p> </p><p>Shopify may process personal information on our behalf and, in certain circumstances, for its own purposes as described in its privacy documentation.</p><p> </p><p>You can learn more by reviewing the Shopify Consumer Privacy Policy:</p><p> </p><p>https://www.shopify.com/legal/privacy/consumers</p>"
+          }
+        },
+        "chapter_h7c36e": {
+          "type": "chapter",
+          "settings": {
             "title": "Updates to This Policy",
             "text": "<p>We may revise these policy items due to changes in our services or relevant regulations. And any updates will be announced on this page. We encourage you to periodically check this page to see how your data is being handled.</p>"
           }
@@ -122,7 +129,8 @@
         "shipping_logistics",
         "requirements",
         "chapter_rUGtD3",
-        "chapter_G7GDMg"
+        "chapter_G7GDMg",
+        "chapter_h7c36e"
       ],
       "name": "TOC Policy Page",
       "settings": {
