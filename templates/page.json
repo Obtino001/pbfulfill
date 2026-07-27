@@ -137,8 +137,8 @@
         "chapter_HWWpGb": {
           "type": "chapter",
           "settings": {
-            "title": "Shipping & Logistics",
-            "text": ""
+            "title": "12. Do Not Track and Browser Privacy Signals",
+            "text": "<p></p><p> </p><p>Some browsers offer “Do Not Track” settings or other privacy preference signals.</p><p> </p><p>There is no single universally accepted standard for responding to all such signals.</p><p> </p><p>Where required by applicable law and supported by our systems, we may recognize certain legally applicable browser-based opt-out signals, such as Global Privacy Control.</p><p> </p><p>The availability and effect of these signals may depend on your region, browser, website configuration, and applicable law.</p>"
           }
         },
         "chapter_fBLmrV": {
