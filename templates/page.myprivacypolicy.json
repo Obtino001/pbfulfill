@@ -67,8 +67,8 @@
         "data_collect": {
           "type": "chapter",
           "settings": {
-            "title": "Information We Collect",
-            "text": "<h3><strong>Personal Information</strong></h3><p>When you register, place an order, subscribe, or fill out a contact form, we collect personal information, including but not limited to:</p><ul><li>Name</li><li>Email Address</li><li>Phone Number</li><li>Billing and Address</li><li>Payment Details</li></ul><h3><strong>Non-Personal Information</strong></h3><p>We also gather general technical information:</p><ul><li>Browser Type</li><li>Device and operating system details</li><li>Usage trends</li></ul>"
+            "title": "2. Our Role When Processing Personal Information",
+            "text": "<p>PB Fulfill primarily provides business-to-business sourcing, warehousing, fulfillment, and logistics services to ecommerce merchants and other business clients.</p><p> </p><p>When we collect personal information directly from a website visitor, prospective client, business contact, or PB Fulfill client for our own business purposes, we generally determine how and why that information is processed.</p><p> </p><p>When a business client provides us with information concerning its customers, order recipients, or other individuals so that we can fulfill orders and provide related services, we generally process that information on behalf of and according to the instructions of that business client.</p><p> </p><p>The exact legal role of PB Fulfill may depend on the circumstances, the services provided, and applicable law.</p>"
           }
         },
         "order_issue": {
