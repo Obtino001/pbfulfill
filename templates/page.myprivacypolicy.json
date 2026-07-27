@@ -126,6 +126,27 @@
             "title": "Updates to This Policy",
             "text": "<p>We may revise these policy items due to changes in our services or relevant regulations. And any updates will be announced on this page. We encourage you to periodically check this page to see how your data is being handled.</p>"
           }
+        },
+        "chapter_KkUrKC": {
+          "type": "chapter",
+          "settings": {
+            "title": "Updates to This Policy",
+            "text": "<p>We may revise these policy items due to changes in our services or relevant regulations. And any updates will be announced on this page. We encourage you to periodically check this page to see how your data is being handled.</p>"
+          }
+        },
+        "chapter_UqzVJM": {
+          "type": "chapter",
+          "settings": {
+            "title": "Updates to This Policy",
+            "text": "<p>We may revise these policy items due to changes in our services or relevant regulations. And any updates will be announced on this page. We encourage you to periodically check this page to see how your data is being handled.</p>"
+          }
+        },
+        "chapter_Nn4hjW": {
+          "type": "chapter",
+          "settings": {
+            "title": "Updates to This Policy",
+            "text": "<p>We may revise these policy items due to changes in our services or relevant regulations. And any updates will be announced on this page. We encourage you to periodically check this page to see how your data is being handled.</p>"
+          }
         }
       },
       "block_order": [
@@ -138,7 +159,10 @@
         "chapter_rUGtD3",
         "chapter_G7GDMg",
         "chapter_h7c36e",
-        "chapter_YJxXeN"
+        "chapter_YJxXeN",
+        "chapter_KkUrKC",
+        "chapter_UqzVJM",
+        "chapter_Nn4hjW"
       ],
       "name": "TOC Policy Page",
       "settings": {
