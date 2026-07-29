@@ -87,9 +87,9 @@
         "padding_bottom_mobile": 30,
         "heading": "Product Sourcing from Verified Factories",
         "card_image": "shopify://shop_images/3dc4fc944cdc4614e15cbc6d860f56dd544dbe5a_1.jpg",
-        "card_text": "<p>Most fulfillment companies start work once your inventory arrives. We start earlier. Our sourcing teams work on the ground in Yiwu and Guangzhou, auditing factories in person, negotiating unit pricing in Mandarin, and holding that pricing steady across reorders. You can order a single unit to test a product, or move to bulk production once it sells, without changing partners.</p>",
-        "button_label": "Learn More",
-        "button_link": "shopify://pages/product-sourcing",
+        "card_text": "<p>Most fulfillment companies start work once your inventory arrives. We start earlier. <a href=\"https://pbfulfill.com/pages/meet-the-team\" target=\"_blank\" title=\"https://pbfulfill.com/pages/meet-the-team\">Our sourcing teams</a> work on the ground in Yiwu and Guangzhou, auditing factories in person, negotiating unit pricing in Mandarin, and holding that pricing steady across reorders. You can order a single unit to test a product, or move to bulk production once it sells, without changing partners.</p>",
+        "button_label": "Our Product Sourcing Process",
+        "button_link": "https://pbfulfill.com/pages/product-sourcing",
         "button_color": "#e32c2b",
         "footer_text": ""
       }
@@ -124,8 +124,8 @@
         "button_YFpCgP": {
           "type": "button",
           "settings": {
-            "label": "Learn More",
-            "link": "shopify://pages/quality-inspection",
+            "label": "Our Quality Inspection Process",
+            "link": "https://pbfulfill.com/pages/quality-inspection",
             "button_style": "animated"
           }
         }
@@ -189,8 +189,8 @@
         "color_scheme": "scheme-2",
         "heading": "PBfulfill Custom Packaging Fulfillment",
         "footer_text": "",
-        "footer_button_label": "Learn More",
-        "footer_button_link": "shopify://pages/private-label",
+        "footer_button_label": "Our Private Labelling Process",
+        "footer_button_link": "https://pbfulfill.com/pages/private-label",
         "button_style_secondary": true,
         "padding_top": 40,
         "padding_bottom": 40,
@@ -228,8 +228,8 @@
         "button_GgmMpM": {
           "type": "button",
           "settings": {
-            "label": "Learn More",
-            "link": "shopify://pages/global-warehouse",
+            "label": "Our Global Warehouses",
+            "link": "https://pbfulfill.com/pages/global-warehouse",
             "button_style": "animated"
           }
         }
