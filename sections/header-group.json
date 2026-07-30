@@ -65,7 +65,7 @@
           "name": "Left Icon",
           "settings": {
             "icon": "shopify://shop_images/X_2cf66647-1ee1-4b59-8d73-bee3946a67c2.svg",
-            "link": "https://x.com/i/flow/login?redirect_after_login=%2FPBdropshipping",
+            "link": "https://x.com/PBdropshipping",
             "width": 42
           }
         },
@@ -161,12 +161,13 @@
           "type": "social_icon",
           "settings": {
             "icon": "shopify://shop_images/X_2cf66647-1ee1-4b59-8d73-bee3946a67c2.svg",
-            "link": "https://x.com/i/flow/login?redirect_after_login=%2FPBdropshipping",
+            "link": "https://x.com/PBdropshipping",
             "width": 24
           }
         },
         "social_icon_wk78BD": {
           "type": "social_icon",
+          "disabled": true,
           "settings": {
             "icon": "shopify://shop_images/mingcute_instagram-line_ae60790e-2d48-45f7-8038-c67a25e0f79c.svg",
             "link": "https://www.instagram.com/accounts/login/?next=https%3A%2F%2Fwww.instagram.com%2Fpbdropship%2F&is_from_rle",
