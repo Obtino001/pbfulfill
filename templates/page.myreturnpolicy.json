@@ -61,21 +61,21 @@
           "type": "chapter",
           "settings": {
             "title": "Order Issues",
-            "text": "<h3><strong>We're responsible for the following cases:</strong></h3><ul><li>Wrong item or product style</li><li>Incorrect size or color</li><li>Actual product size differs from the listed size chart by more than 3cm</li><li>Missing items in the package</li></ul><h3><strong>We're not responsible for the following cases:</strong></h3><ul><li>The customer thinks the size does not fit, but it's on the listed measurements</li><li>The customer dislikes the product or just doesn't want it</li><li>The product matches description and sample, but customer still dissatisfied</li></ul>"
+            "text": "<h3>We're responsible for the following cases:</h3><ul><li>Wrong item or product style</li><li>Incorrect size or color</li><li>Actual product size differs from the listed size chart by more than 3cm</li><li>Missing items in the package</li></ul><h3>We're not responsible for the following cases:</h3><ul><li>The customer thinks the size does not fit, but it's on the listed measurements</li><li>The customer dislikes the product or just doesn't want it</li><li>The product matches description and sample, but customer still dissatisfied</li></ul>"
           }
         },
         "chapter_quality_issues": {
           "type": "chapter",
           "settings": {
             "title": "Quality Issues",
-            "text": "<h3><strong>We're responsible for the following cases:</strong></h3><ul><li>Defective items (e.g., broken zippers, missing parts, noticeable damage)</li><li>Packaging is severely damaged during shipping</li></ul><h3><strong>We're not responsible for the following cases:</strong></h3><ul><li>Damage caused when opening the package</li><li>The product matches the photos or samples, but the buyer is unsatisfied</li><li>General dissatisfaction with a flawless product</li></ul>"
+            "text": "<h3>We're responsible for the following cases:</h3><ul><li>Defective items (e.g., broken zippers, missing parts, noticeable damage)</li><li>Packaging is severely damaged during shipping</li></ul><h3>We're not responsible for the following cases:</h3><ul><li>Damage caused when opening the package</li><li>The product matches the photos or samples, but the buyer is unsatisfied</li><li>General dissatisfaction with a flawless product</li></ul>"
           }
         },
         "chapter_shipping_logistics": {
           "type": "chapter",
           "settings": {
             "title": "Shipping Delays & Logistics Issues",
-            "text": "<h3><strong>1. We're responsible for the following cases:</strong></h3><p><strong>Late Delivery</strong></p><ul><li>EU & USA: Over 35 days</li><li>Other countries/regions: Over 37 days</li></ul><p><strong>Lost in Transit</strong></p><ul><li>Confirmed by the courier</li><li>Buyer must reconfirm ship address</li></ul><p><strong>Tracking Frozen (No Updates Since Last Scan)</strong></p><ul><li>EU & USA: Over 30 days</li><li>Other regions: Over 32 days</li></ul><p>Undelivered (must include valid shipping information)</p><h3><strong>2. We're not responsible for the following cases:</strong></h3><ul><li>Customer requests a refund after the package has been delivered</li><li>Tracking shows \"delivered\", but the customer claims undelivered</li></ul>"
+            "text": "<h3>1. We're responsible for the following cases:</h3><p>Late Delivery</p><ul><li>EU & USA: Over 35 days</li><li>Other countries/regions: Over 37 days</li></ul><p>Lost in Transit</p><ul><li>Confirmed by the courier</li><li>Buyer must reconfirm ship address</li></ul><p>Tracking Frozen (No Updates Since Last Scan)</p><ul><li>EU & USA: Over 30 days</li><li>Other regions: Over 32 days</li></ul><p>Undelivered (must include valid shipping information)</p><h3>2. We're not responsible for the following cases:</h3><ul><li>Customer requests a refund after the package has been delivered</li><li>Tracking shows \"delivered\", but the customer claims undelivered</li></ul>"
           }
         },
         "chapter_requirements": {
