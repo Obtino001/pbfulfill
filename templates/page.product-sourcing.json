@@ -202,7 +202,7 @@
           "settings": {
             "image": "shopify://shop_images/Electronics.png",
             "title": "",
-            "button_label": "",
+            "button_label": "Electronics",
             "link": "https://admin.shopify.com/store/pbfulfill/content/articles?selectedView=all"
           }
         },
