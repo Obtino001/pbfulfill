@@ -37,9 +37,7 @@
 <div class="cws-section-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
   <div class="cws-container">
     {%- if section.settings.heading != blank -%}
-      <h2 class="cws-heading">
-TEST123 - {{ section.settings.heading | escape }}
-</h2>
+     <h2 class="cws-heading">{{ section.settings.heading | escape }}</h2>
     {%- endif -%}
 
     <div class="swiper cws-swiper" id="swiper-{{ section.id }}">
