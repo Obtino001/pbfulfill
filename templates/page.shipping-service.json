@@ -696,91 +696,6 @@
         "gap_mobile": 10
       }
     },
-    "testimonials_grid_qYizgr": {
-      "type": "testimonials-grid",
-      "blocks": {
-        "testimonial_8qDkAC": {
-          "type": "testimonial",
-          "settings": {
-            "stars": 5,
-            "quote": "The sample testing process saved us from costly returns. PBfulfill caught issues we would’ve never noticed.",
-            "author_image": "shopify://shop_images/James_T..png",
-            "author_name": "James T.",
-            "author_title": "UK Ecommerce Store Owner"
-          }
-        },
-        "testimonial_dxnCiK": {
-          "type": "testimonial",
-          "settings": {
-            "stars": 5,
-            "quote": "PB Fulfill is our secret weapon for staying ahead of deadlines. It gives us everything we need to get things done quickly.",
-            "author_image": "shopify://shop_images/Ammar_Foley.png",
-            "author_name": "Ammar Foley",
-            "author_title": "UX Designer, Goodwell"
-          }
-        },
-        "testimonial_bUF4Tz": {
-          "type": "testimonial",
-          "settings": {
-            "stars": 5,
-            "quote": "Our custom packaging turned out perfect. PBfulfill handled every detail and delivered exactly we envisioned.",
-            "author_image": "shopify://shop_images/Mathilde_Lewis.png",
-            "author_name": "Mathilde Lewis",
-            "author_title": "EU Brand Founder"
-          }
-        },
-        "testimonial_iJhmHP": {
-          "type": "testimonial",
-          "settings": {
-            "stars": 5,
-            "quote": "Thanks to their reporting system, we caught and fixed problems early. Our seller rating increased significantly.",
-            "author_image": "shopify://shop_images/Marco_Kelly_9f5f9966-0b0c-4a03-a68a-19e4c8bfdefc.png",
-            "author_name": "Marco Kelly",
-            "author_title": "Australian Marketplace Seller"
-          }
-        },
-        "testimonial_FcKa7n": {
-          "type": "testimonial",
-          "settings": {
-            "stars": 5,
-            "quote": "I rely on their inspections 100%. Zero defects since I started working with PBfulfill again.",
-            "author_image": "shopify://shop_images/Florence_Shaw.png",
-            "author_name": "Florence Shaw",
-            "author_title": "Canada Dropshipper"
-          }
-        },
-        "testimonial_AEGAJx": {
-          "type": "testimonial",
-          "settings": {
-            "stars": 5,
-            "quote": "The fulfillment flow is seamless. Pick, pack, labeling and everything is professional and accurate.",
-            "author_image": "shopify://shop_images/Stefan_Sears.png",
-            "author_name": "Stefan Sears",
-            "author_title": "US DTC Brand Owner"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_8qDkAC",
-        "testimonial_dxnCiK",
-        "testimonial_bUF4Tz",
-        "testimonial_iJhmHP",
-        "testimonial_FcKa7n",
-        "testimonial_AEGAJx"
-      ],
-      "name": "Non-scrolling Testimonial Card Section",
-      "settings": {
-        "color_scheme": "",
-        "heading": "Customer Reviews",
-        "star_image": "shopify://shop_images/rating_stars3_plus_final.svg",
-        "star_image_alt": "",
-        "star_image_width": 100,
-        "padding_top": 60,
-        "padding_bottom": 0,
-        "padding_top_mobile": 30,
-        "padding_bottom_mobile": 30
-      }
-    },
     "faqtitle_FkiYkb": {
       "type": "Faqtitle",
       "blocks": {
@@ -892,7 +807,6 @@
     "tracking_grid_w3QpRE",
     "rich_text_Dp9KEn",
     "custom_scrolling_bar_X4cFJY",
-    "testimonials_grid_qYizgr",
     "faqtitle_FkiYkb",
     "cta_banner_DpfEfX"
   ]
