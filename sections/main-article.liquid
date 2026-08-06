@@ -287,17 +287,27 @@
           <a href="https://pbfulfill.com/pages/about-us" class="caption-with-letter-spacing author-with-icon">
             {%- assign current_author_icon = section.settings.blog_author_icon -%}
             {%- assign current_author_name = article.author -%}
+            
+            {%- if article.metafields.custom.author_name != blank -%}
+              {%- assign current_author_name = article.metafields.custom.author_name -%}
+            {%- endif -%}
+            
+            {%- if article.metafields.custom.author_image != blank -%}
+              {%- assign current_author_icon = article.metafields.custom.author_image -%}
+            {%- endif -%}
+
             {%- for block in section.blocks -%}
               {%- if block.type == 'author' and block.settings.author_match == article.author -%}
-                {%- if block.settings.author_image != blank -%}
+                {%- if block.settings.author_image != blank and article.metafields.custom.author_image == blank -%}
                   {%- assign current_author_icon = block.settings.author_image -%}
                 {%- endif -%}
-                {%- if block.settings.author_name != blank -%}
+                {%- if block.settings.author_name != blank and article.metafields.custom.author_name == blank -%}
                   {%- assign current_author_name = block.settings.author_name -%}
                 {%- endif -%}
                 {%- break -%}
               {%- endif -%}
             {%- endfor -%}
+            
             {%- if current_author_icon != blank -%}
               <img
                 src="{{ current_author_icon | img_url: 'master' }}"
