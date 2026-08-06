@@ -629,7 +629,7 @@
           "type": "button",
           "settings": {
             "label": "Request A Free Quote",
-            "link": "#myform",
+            "link": "shopify://pages/contact",
             "new_tab": false,
             "style": "primary"
           }
