@@ -40,6 +40,19 @@
     },
     "main": {
       "type": "main-article",
+      "blocks": {
+        "author_BQMkcG": {
+          "type": "author",
+          "settings": {
+            "author_match": "Yasir",
+            "author_name": "",
+            "author_image": "shopify://shop_images/Do_dropshipping_agents_with_no_hidden_costs_require_an_MOQ_800_x_400_1_fe529c57-afee-4919-9da0-99f6395af45f.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "author_BQMkcG"
+      ],
       "settings": {
         "toc_title": "CONTENTS",
         "copy_text_label": "Copy Article Link",
