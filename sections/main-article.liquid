@@ -285,15 +285,28 @@
         {%- endif -%}
         {%- if section.settings.blog_show_author -%}
           <a href="https://pbfulfill.com/pages/about-us" class="caption-with-letter-spacing author-with-icon">
-            {%- if section.settings.blog_author_icon != blank -%}
+            {%- assign current_author_icon = section.settings.blog_author_icon -%}
+            {%- assign current_author_name = article.author -%}
+            {%- for block in section.blocks -%}
+              {%- if block.type == 'author' and block.settings.author_match == article.author -%}
+                {%- if block.settings.author_image != blank -%}
+                  {%- assign current_author_icon = block.settings.author_image -%}
+                {%- endif -%}
+                {%- if block.settings.author_name != blank -%}
+                  {%- assign current_author_name = block.settings.author_name -%}
+                {%- endif -%}
+                {%- break -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if current_author_icon != blank -%}
               <img
-                src="{{ section.settings.blog_author_icon | img_url: 'master' }}"
-                alt="Author Icon"
+                src="{{ current_author_icon | img_url: 'master' }}"
+                alt="{{ current_author_name }} Icon"
                 class="author-icon"
                 loading="lazy"
               >
             {%- endif -%}
-            <strong>{{ article.author }}</strong>
+            <strong>{{ current_author_name }}</strong>
           </a>
         {%- endif -%}
       </div>
@@ -797,6 +810,29 @@ document.addEventListener('DOMContentLoaded', function () {
   "name": "t:sections.main-article.name",
   "tag": "section",
   "class": "section",
+  "blocks": [
+    {
+      "type": "author",
+      "name": "Author Profile",
+      "settings": [
+        {
+          "type": "text",
+          "id": "author_match",
+          "label": "Author Name to Match (from Shopify)"
+        },
+        {
+          "type": "text",
+          "id": "author_name",
+          "label": "Custom Display Name (optional)"
+        },
+        {
+          "type": "image_picker",
+          "id": "author_image",
+          "label": "Author Image"
+        }
+      ]
+    }
+  ],
   "settings": [
     {
   "type": "text",
