@@ -158,8 +158,8 @@
           "settings": {
             "thumbnail": "shopify://shop_images/1_c78f6251-001b-479f-9629-a3ab0446d9d0.jpg",
             "video_link": "https://www.youtube.com/watch?v=N2nxB9nlbfc",
-            "title": "Yousuf Shahzad: Pet Products",
-            "subtitle": "Fashion Products"
+            "title": "Yousuf Shahzad",
+            "subtitle": "Pet Products"
           }
         },
         "video_card_gERfYY": {
@@ -167,8 +167,8 @@
           "settings": {
             "thumbnail": "shopify://shop_images/2_1c5d6e6a-141d-4486-899c-7d79d6657c16.jpg",
             "video_link": "https://www.youtube.com/watch?v=WAg1hiSBfqc",
-            "title": "Elena Manuylenko: Supplements",
-            "subtitle": "Fashion Products"
+            "title": "Elena Manuylenko",
+            "subtitle": "Supplements"
           }
         },
         "video_card_3tJXMR": {
@@ -176,8 +176,8 @@
           "settings": {
             "thumbnail": "shopify://shop_images/3_1c55ed56-3493-46fa-8865-ccfa312e405d.jpg",
             "video_link": "https://www.youtube.com/watch?v=gZnWH__1mnM",
-            "title": "Chiara Mazzetto: Jewelry",
-            "subtitle": "Fashion Products"
+            "title": "Chiara Mazzetto",
+            "subtitle": "Jewelry"
           }
         }
       },
