@@ -56,8 +56,8 @@
       handleGlobalClick(e) {
         const target = e.target;
         
-        // Identify valid CTA targets (ends with #myform to handle Shopify absolute URLs)
-        const cta = target.closest('a[href$="#myform"]');
+        // Identify valid CTA targets (ends with #myform or #footerform)
+        const cta = target.closest('a[href$="#myform"], a[href$="#footerform"]');
         
         if (!cta) return;
 
@@ -66,13 +66,29 @@
           return;
         }
 
-        // Explicit link match
+        // Scroll to Footer Form
+        if (cta.getAttribute('href').endsWith('#footerform')) {
+          e.preventDefault();
+          const footerForm = document.querySelector('.fc-footer-form-wrapper') || document.querySelector('.footer-block--form');
+          if (footerForm) {
+            footerForm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Focus the first input or textarea after scrolling
+            const firstInput = footerForm.querySelector('input:not([type="hidden"]), textarea');
+            if (firstInput) {
+              setTimeout(() => firstInput.focus(), 600);
+            }
+          }
+          return;
+        }
+
+        // Explicit link match for Popup
         if (cta.getAttribute('href').endsWith('#myform')) {
           this.open(e);
           return;
         }
 
-        // Broad word-matching logic
+        // Broad word-matching logic (only applies if link ended in #myform or #footerform anyway due to selector)
         const text = cta.innerText.toLowerCase();
         const triggerWords = ['meet', 'contact', 'fill', 'get ', 'start', 'auditing', 'team', 'learn'];
         
