@@ -35,6 +35,10 @@
   .footer-block--brand {
     grid-column: span 2; /* Forces logo/socials to take the full top row */
   }
+  .footer-block--form {
+    grid-column: span 2;
+    order: -1;
+  }
 }
 
 /* Typography */
@@ -212,7 +216,7 @@
 
 @media screen and (max-width: 989px) {
   .fc-footer-form-card {
-    margin-top: 0;
+    margin-top: -150px;
     max-width: 100%;
     margin-bottom: 30px;
   }
