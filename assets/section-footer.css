@@ -36,7 +36,8 @@
     grid-column: span 2; /* Forces logo/socials to take the full top row */
   }
   .footer-block--form {
-    display: none !important;
+    grid-column: span 2;
+    order: -1;
   }
 }
 

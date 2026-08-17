@@ -215,11 +215,14 @@
   .ssb-section-{{ section.id }} {
     background-color: {{ section.settings.bg_color }};
     padding: {{ section.settings.py }}px {{ section.settings.px }}px;
-    {% if section.settings.is_fixed %}position: fixed; top: 20px;{% else %}position: relative; top: 0;{% endif %}
+    {% if section.settings.is_fixed %}position: fixed; top: 20px; transition: transform 0.3s ease, background-color 0.3s ease, top 0.3s ease; z-index: 100;{% else %}position: relative; top: 0;{% endif %}
   }
   .ssb-section-{{ section.id }}.is-active {
     top: 0;
     background-color: {{ section.settings.bg_color_active }};
+  }
+  .ssb-section-{{ section.id }}.is-hidden {
+    transform: translateY(-200%);
   }
   .ssb-section-{{ section.id }} .ssb-contact-item {
     color: {{ section.settings.text_color }};
@@ -234,9 +237,20 @@
 <script>
   document.addEventListener("DOMContentLoaded", function() {
     const bar = document.getElementById("sticky-bar-{{ section.id }}");
+    const footer = document.querySelector("footer.footer");
+    
     if (bar && {{ section.settings.is_fixed }}) {
       window.addEventListener("scroll", function() {
         bar.classList.toggle("is-active", window.scrollY > 0);
+        
+        if (footer) {
+          const footerRect = footer.getBoundingClientRect();
+          if (footerRect.top <= window.innerHeight) {
+            bar.classList.add("is-hidden");
+          } else {
+            bar.classList.remove("is-hidden");
+          }
+        }
       });
     }
   });
