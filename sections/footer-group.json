@@ -67,6 +67,13 @@
             "heading": "PBfulfill",
             "menu": "footer-menu-column-1"
           }
+        },
+        "form_footer_new": {
+          "type": "form",
+          "settings": {
+            "form_title": "Fill Out The Form",
+            "form_subtitle": "Get 5% off on our first collaboration and expand your business now."
+          }
         }
       },
       "block_order": [
@@ -74,7 +81,8 @@
         "link_list_kTbyY4",
         "link_list_h7UK7n",
         "link_list_bNQtPt",
-        "link_list_p3qrR8"
+        "link_list_p3qrR8",
+        "form_footer_new"
       ],
       "name": "t:sections.footer.name",
       "settings": {

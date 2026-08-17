@@ -13,10 +13,16 @@
 }
 
 /* Desktop Grid */
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 1200px) {
   .footer__blocks-wrapper {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr; 
-    gap: 50px;
+    grid-template-columns: 1.2fr 1fr 1fr 1fr 1fr 1.5fr; 
+    gap: 30px;
+  }
+}
+@media screen and (min-width: 990px) and (max-width: 1199px) {
+  .footer__blocks-wrapper {
+    grid-template-columns: 1fr 1fr 1fr 1fr; 
+    gap: 30px;
   }
 }
 
