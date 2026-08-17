@@ -216,7 +216,7 @@
 
 @media screen and (max-width: 989px) {
   .fc-footer-form-card {
-    margin-top: -150px;
+    margin-top: 0;
     max-width: 100%;
     margin-bottom: 30px;
   }
