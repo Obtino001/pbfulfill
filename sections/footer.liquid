@@ -174,8 +174,9 @@
                         <p class="fc-form-error" style="color: #dc2626; font-weight: 500; margin-bottom: 10px;">Please check your inputs.</p>
                       {% endif %}
                       
-                      <input class="fc-input" type="text" name="contact[name]" placeholder="Full name" required>
-                      <input class="fc-input" type="email" name="contact[email]" placeholder="Email address" required>
+                      <input type="hidden" name="contact[form_source]" value="Footer Contact Form">
+                      <input class="fc-input" type="text" name="contact[name]" placeholder="Full Name" required>
+                      <input class="fc-input" type="email" name="contact[email]" placeholder="Email Address" required>
                       
                       <select class="fc-input fc-select" name="contact[country]" required>
                         <option value="" disabled selected>Country</option>
@@ -381,10 +382,10 @@
                           <option value="+260">Zambia (+260)</option>
                           <option value="+263">Zimbabwe (+263)</option>
                         </select>
-                        <input class="fc-input fc-phone" type="tel" name="contact[phone]" pattern="[0-9\-]*" placeholder="WhatsApp" required>
+                        <input class="fc-input fc-phone" type="tel" name="contact[phone]" pattern="[0-9\-]*" placeholder="WhatsApp Number" required>
                       </div>
                       
-                      <textarea class="fc-input fc-textarea" name="contact[body]" rows="3" placeholder="Write a message" required></textarea>
+                      <textarea class="fc-input fc-textarea" name="contact[body]" rows="3" placeholder="Write a message" required>{%- if form.body -%}{{- form.body -}}{%- else -%}Hi PBFulfill, I'm interested in your dropshipping service.{%- endif -%}</textarea>
                       
                       <button class="fc-submit-btn" type="submit">Send</button>
                     {% endform %}

@@ -56,8 +56,8 @@
       handleGlobalClick(e) {
         const target = e.target;
         
-        // Identify valid CTA targets
-        const cta = target.closest('a[href="#myform"]');
+        // Identify valid CTA targets (ends with #myform to handle Shopify absolute URLs)
+        const cta = target.closest('a[href$="#myform"]');
         
         if (!cta) return;
 
@@ -67,7 +67,7 @@
         }
 
         // Explicit link match
-        if (cta.getAttribute('href') === '#myform') {
+        if (cta.getAttribute('href').endsWith('#myform')) {
           this.open(e);
           return;
         }

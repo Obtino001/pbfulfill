@@ -37,9 +37,10 @@
         {% endif %}
 
         <div class="cp-fields">
-          <input class="cp-input" type="text" name="contact[name]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ settings.popup_form_name_placeholder | default: 'Full name' }}" required>
+          <input type="hidden" name="contact[form_source]" value="Banner Popup Form">
+          <input class="cp-input" type="text" name="contact[name]" value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}" placeholder="{{ settings.popup_form_name_placeholder | default: 'Full Name' }}" required>
 
-          <input class="cp-input" type="email" name="contact[email]" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" placeholder="{{ settings.popup_form_email_placeholder | default: 'Email address' }}" required>
+          <input class="cp-input" type="email" name="contact[email]" value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}" placeholder="{{ settings.popup_form_email_placeholder | default: 'Email Address' }}" required>
 
           <div class="cp-row">
             <select class="cp-input cp-select" name="contact[country]" required>
@@ -246,10 +247,10 @@
                 <option value="+260">Zambia (+260)</option>
                 <option value="+263">Zimbabwe (+263)</option>
             </select>
-            <input class="cp-input" type="tel" name="contact[phone]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="{{ settings.popup_form_phone_placeholder | default: 'WhatsApp / Phone' }}" required>
+            <input class="cp-input" type="tel" name="contact[phone]" pattern="[0-9\-]*" value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}" placeholder="{{ settings.popup_form_phone_placeholder | default: 'WhatsApp Number' }}" required>
           </div>
 
-          <textarea class="cp-input cp-textarea" name="contact[body]" rows="3" placeholder="{{ settings.popup_form_message_placeholder | default: 'Write a message' }}" required>{{- form.body -}}</textarea>
+          <textarea class="cp-input cp-textarea" name="contact[body]" rows="3" placeholder="{{ settings.popup_form_message_placeholder | default: 'Write a message' }}" required>{%- if form.body -%}{{- form.body -}}{%- else -%}Hi PBFulfill, I'm interested in your dropshipping service.{%- endif -%}</textarea>
 
           <button type="submit" class="button button--primary">
             {{ settings.popup_form_button_text | default: 'Submit Request' }}
