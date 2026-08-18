@@ -77,20 +77,12 @@
             "title": "Shipping Delays & Logistics Issues",
             "text": "<h3>1. We're responsible for the following cases:</h3><p>Late Delivery</p><ul><li>EU & USA: Over 35 days</li><li>Other countries/regions: Over 37 days</li></ul><p>Lost in Transit</p><ul><li>Confirmed by the courier</li><li>Buyer must reconfirm ship address</li></ul><p>Tracking Frozen (No Updates Since Last Scan)</p><ul><li>EU & USA: Over 30 days</li><li>Other regions: Over 32 days</li></ul><p>Undelivered (must include valid shipping information)</p><h3>2. We're not responsible for the following cases:</h3><ul><li>Customer requests a refund after the package has been delivered</li><li>Tracking shows \"delivered\", but the customer claims undelivered</li></ul>"
           }
-        },
-        "chapter_requirements": {
-          "type": "chapter",
-          "settings": {
-            "title": "What You Need to Provide",
-            "text": "<p>We'll reach out to you shortly after we confirm:</p><ul><li>Order number</li><li>Product photos or videos</li><li>Shipping label or tracking number</li></ul>"
-          }
         }
       },
       "block_order": [
         "chapter_order_issue",
         "chapter_quality_issues",
-        "chapter_shipping_logistics",
-        "chapter_requirements"
+        "chapter_shipping_logistics"
       ],
       "name": "TOC Policy Page",
       "settings": {
@@ -98,7 +90,7 @@
         "full_width": false,
         "toc_title": "CONTENTS",
         "padding_top": 60,
-        "padding_bottom": 60,
+        "padding_bottom": 100,
         "padding_top_mobile": 30,
         "padding_bottom_mobile": 30
       }
