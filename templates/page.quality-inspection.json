@@ -38,7 +38,7 @@
           "type": "button",
           "settings": {
             "label": "Get a Free Quote",
-            "link": "shopify://pages/contact",
+            "link": "#myform",
             "btn_color": "#ffffff",
             "btn_bg_hover": "#ffffff",
             "btn_text_hover": "#3b75b5",
@@ -453,7 +453,6 @@
         "bg_color": "#ffffff",
         "highlight_color": "#3b99fc",
         "c1_title": "AliExpress",
-        "c1_logo": "shopify://shop_images/fac24c69a55836ae5659436463661fc5df579bf3.png",
         "c1_sub": "",
         "c2_logo": "shopify://shop_images/PB_fulfill_logo1_1_-cropped_1.svg",
         "c2_sub": "",

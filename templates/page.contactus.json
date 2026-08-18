@@ -38,7 +38,7 @@
           "type": "button",
           "settings": {
             "label": "Get a Free Quote",
-            "link": "shopify://pages/contact",
+            "link": "#myform",
             "btn_color": "#ffffff",
             "btn_bg_hover": "#ffffff",
             "btn_text_hover": "#000000",
