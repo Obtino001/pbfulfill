@@ -194,7 +194,7 @@
         "full_width": false,
         "toc_title": "Table of contents",
         "padding_top": 50,
-        "padding_bottom": 50,
+        "padding_bottom": 100,
         "padding_top_mobile": 30,
         "padding_bottom_mobile": 30
       }
