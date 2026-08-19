@@ -88,7 +88,7 @@
       "name": "t:sections.footer.name",
       "settings": {
         "color_scheme": "scheme-4",
-        "margin_top": 200,
+        "margin_top": 100,
         "padding_top": 76,
         "padding_bottom": 28,
         "carousel_logo_1": "shopify://shop_images/5_e9d72720-489e-4698-a8aa-52cc844f96c1.svg",
