@@ -408,7 +408,7 @@
         "airplane_alt": "",
         "grid_opacity": 30,
         "padding_top": 36,
-        "padding_bottom": 200,
+        "padding_bottom": 100,
         "padding_top_mobile": 30,
         "padding_bottom_mobile": 30
       }
